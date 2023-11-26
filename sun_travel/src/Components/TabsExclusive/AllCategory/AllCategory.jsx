@@ -57,11 +57,12 @@ const AllWrapper = styled.div`
   justify-content: center;
   align-items: center;
   gap: 50px;
+  width: 85%;
   /* background-color: red; */
 `;
 const Cardiv = styled.div`
   background-color: #fff;
-  width: 200px;
+  width: 280px;
 
   height: 210px;
   /* border: 1px solid #525252; */
@@ -75,9 +76,9 @@ const Cardiv = styled.div`
   }
 `;
 const ImageCardWrapper = styled.div`
-  height: 150px;
+  height: 180px;
   background-color: red;
-  width: 100px;
+  width: 150px;
   overflow: hidden;
   border-radius: 20px;
   position: absolute;
@@ -104,7 +105,7 @@ const Para = styled.div`
   font-size: 13px;
   color: #525252;
   font-weight: 500;
-  width: 135px;
+  width: 152px;
   padding: 3px 5px;
   /* height: 82px; */
   text-align: left;

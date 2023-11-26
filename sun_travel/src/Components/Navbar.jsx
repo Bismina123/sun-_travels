@@ -1,4 +1,4 @@
-import Logo from "./assets/sun-logo.svg";
+import Logo from "../assets/Logo-01 (3).svg";
 
 import styled from "styled-components";
 import img1 from "./assets/1.png";
@@ -13,6 +13,8 @@ import { Link, Link as LinkRouter } from "react-router-dom";
 import LandingPage from "../Pages/LandingPage";
 import { useEffect, useState } from "react";
 import NavbarStyle from "./NavbarStyle";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
 import {
   atestationDropdown,
   certificateDropdown,
@@ -72,7 +74,8 @@ export default function Navbar() {
                       onMouseLeave={() => setourDropdownShow(false)}
                     >
                       <Link to={item.path}>
-                        {item.title} <img src={item.icon} alt="" />
+                        {item.title}
+                        <ExpandMoreIcon />
                       </Link>
                       {tourDropdownShow && <Dropdown data={tourDropdown} />}
                     </li>
@@ -87,7 +90,7 @@ export default function Navbar() {
                       onMouseLeave={() => setAttestationDropdownShow(false)}
                     >
                       <Link to={item.path}>
-                        {item.title} <img src={item.icon} alt="" />
+                        {item.title} <ExpandMoreIcon />
                       </Link>
                       {attestationDropdownShow && (
                         <Dropdown data={atestationDropdown} />
@@ -104,7 +107,7 @@ export default function Navbar() {
                       onMouseLeave={() => setCertificateDropdownShow(false)}
                     >
                       <Link to={item.path}>
-                        {item.title} <img src={item.icon} alt="" />
+                        {item.title} <ExpandMoreIcon />
                       </Link>
                       {certificateDropdownShow && (
                         <Dropdown data={certificateDropdown} />
@@ -112,7 +115,7 @@ export default function Navbar() {
                     </li>
                   );
                 }
-                if (item.title === "") {
+                if (item.title === "More") {
                   return (
                     <li
                       key={item.id}
@@ -121,7 +124,7 @@ export default function Navbar() {
                       onMouseLeave={() => setShowMore(false)}
                     >
                       <Link to={item.path}>
-                        {item.title} <img src={item.icon} alt="" />
+                        {item.title} <MoreVertIcon />
                       </Link>
                       {showMore && <Dropdown data={moreDropDown} />}
                     </li>
@@ -137,13 +140,26 @@ export default function Navbar() {
           </NavPagesWrapper>
           <HeaderMenu>
             <HeaderUl>
-              <HeaderLi><img src={img1} alt=""/></HeaderLi>
-              <HeaderLi><img src={img2} alt=""/></HeaderLi>
-              <HeaderLi><img src={img3} alt=""/></HeaderLi>
-              <HeaderLi><img src={img4} alt=""/></HeaderLi>
-              <HeaderLi><img src={img5} alt=""/></HeaderLi>
-              <HeaderLi><img src={img6} alt=""/></HeaderLi>
+              <HeaderLi>
+                <img src={img1} alt="" />
+              </HeaderLi>
+              <HeaderLi>
+                <img src={img2} alt="" />
+              </HeaderLi>
+              <HeaderLi>
+                <img src={img3} alt="" />
+              </HeaderLi>
+              <HeaderLi>
+                <img src={img4} alt="" />
+              </HeaderLi>
+              <HeaderLi>
+                <img src={img5} alt="" />
+              </HeaderLi>
+              <HeaderLi>
+                <img src={img6} alt="" />
+              </HeaderLi>
             </HeaderUl>
+            <p>(Approved by Govt. of India, Ministry of Tourism)</p>
           </HeaderMenu>
         </HeaderWrapper>
       </Wrapper>
@@ -171,7 +187,7 @@ const MainWrapper = styled.div`
   align-items: center;
   justify-content: space-around;
   width: 100%;
-  border-bottom: 1px solid #ffffff;
+  /* border-bottom: 1px solid #001499; */
   /* background: rgb(255 255 255 / 20%); */
   z-index: 99;
   top: 0;
@@ -206,7 +222,7 @@ const HeaderLogo = styled.div`
   display: flex;
   align-items: center;
   img {
-    max-height: 40px;
+    max-height: 45px;
     min-width: 120px;
   }
 `;
@@ -219,16 +235,17 @@ const HeaderUl = styled.ul`
   justify-content: center;
 `;
 const HeaderMenu = styled.div`
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
+  /* text-align: center; */
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: flex-end; */
   p {
-    font-family: "Rubik";
-    margin: 5px 0 0 0;
+    font-family: "Lato";
+    /* margin: 5px 0 0 0; */
     font-size: 12px;
-    background: #fff;
+    color: #001499;
     border-radius: 5px;
+    font-weight: 500;
   }
 `;
 const HeaderLi = styled.li`
@@ -245,7 +262,7 @@ const HeaderLi = styled.li`
     transform: translateY(-7px);
   }
   img {
-    max-width: 40px;
+    max-width: 35px;
   }
   /* .rotate {
     transition: all 1s ease-in-out;
