@@ -12,6 +12,7 @@ import Airoplane from "./Aeroplane";
 import TravelBanner from "../Components/TravelBanner";
 import { useRef } from "react";
 import HeroSection from "../Components/HeroSection";
+import Footer from "../Components/Footer";
 // import { TabsExclusive } from '../Components/TabsExclusive/TabsExclusive';
 
 export default function LandingPage() {
@@ -34,6 +35,7 @@ export default function LandingPage() {
       <LandingPageSectionForTrending />
 
       <Feedbacks />
+      <Footer />
     </WrapperCard>
   );
 }
