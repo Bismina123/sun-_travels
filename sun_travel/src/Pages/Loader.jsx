@@ -28,7 +28,7 @@ const Wrapper = styled.div`
   height: 30rem;
   margin: 0 auto;
   .wait {
-  margin: 5rem 0;
+  margin: 12rem 0;
 }
 .iata_code {
     font-size: 6rem;

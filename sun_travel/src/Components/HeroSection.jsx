@@ -82,7 +82,7 @@ const AeroplaneModel = ({ aeroplaneRef, helicopter }) => {
     camera.position.x = -30;
     camera.position.y = -40;
     camera.position.z = 0;
-  
+
     reset(helicopter);
   });
 
@@ -132,8 +132,6 @@ const AeroplaneModel = ({ aeroplaneRef, helicopter }) => {
     helicopter.scene.position.y = posY;
   });
 
-
-
   return (
     <group ref={aeroplaneRef}>
       <primitive object={helicopter.scene} />
@@ -150,7 +148,7 @@ const HeroSection = ({ scrollF }) => {
     if (aeroplaneRef.current) {
       gsap.to(aeroplaneRef.current.position, {
         x: 2000, // Target X position
-       
+
         duration: 5, // Duration in seconds
         ease: "power1.inOut", // Easing function
         onUpdate: () => console.log(aeroplaneRef.current.position.x),
@@ -165,14 +163,72 @@ const HeroSection = ({ scrollF }) => {
     }
   };
 
-
   return (
     <Container id="aeroplane-model" className="hero-section">
+      <TextWrapper>
+        <ul className="text-container">
+          <li style={{ "--i": 1 }}>W</li>
+          <li style={{ "--i": 1.3 }}>h</li>
+          <li style={{ "--i": 1.6 }}>e</li>
+          <li style={{ "--i": 1.9 }}>r</li>
+          <li style={{ "--i": 2.2 }}>e</li>
+          <li style={{ "--i": 2.5 }} className="ml">
+            D
+          </li>
+          <li style={{ "--i": 2.8 }}>r</li>
+          <li style={{ "--i": 3.1 }}>e</li>
+          <li style={{ "--i": 3.4 }}>a</li>
+          <li style={{ "--i": 3.7 }}>m</li>
+          <li style={{ "--i": 4 }}>s</li>
+          
+            <ul className="text-container">
+              <li style={{ "--i": 4.3 }} className="ml">
+                T
+              </li>
+              <li style={{ "--i": 4.6 }}>a</li>
+              <li style={{ "--i": 4.9 }}>k</li>
+              <li style={{ "--i": 5.2 }}>e</li>
+              <li style={{ "--i": 5.5 }} className="ml">
+                F
+              </li>
+              <li style={{ "--i": 5.8 }}>l</li>
+              <li style={{ "--i": 6.1 }}>i</li>
+              <li style={{ "--i": 6.4 }}>g</li>
+              <li style={{ "--i": 6.7 }}>h</li>
+              <li style={{ "--i": 7 }}>t</li>
+              <li style={{ "--i": 7.3 }}>,</li>
+            </ul>
+        
+        </ul>
+        <ul className="text-container">
+          <li style={{ "--i": 7.6 }}>S</li>
+          <li style={{ "--i": 7.9 }}>t</li>
+          <li style={{ "--i": 8.2 }}>a</li>
+          <li style={{ "--i": 8.5 }}>r</li>
+          <li style={{ "--i": 8.8 }}>t</li>
+          <li style={{ "--i": 9.1 }} className="ml">
+            E
+          </li>
+          <li style={{ "--i": 9.4 }}>x</li>
+          <li style={{ "--i": 9.7 }}>p</li>
+          <li style={{ "--i": 10 }}>l</li>
+          <li style={{ "--i": 10.3 }}>o</li>
+          <li style={{ "--i": 10.6 }}>r</li>
+          <li style={{ "--i": 10.9 }}>i</li>
+          <li style={{ "--i": 11.2 }}>n</li>
+          <li style={{ "--i": 11.5 }}>g</li>
+          <li style={{ "--i": 11.8 }} className="ml">
+            N
+          </li>
+          <li style={{ "--i": 12.1 }}>o</li>
+          <li style={{ "--i": 12.4 }}>w</li>
+        </ul>
+      </TextWrapper>
       <Canvas className="canvas" ref={canvasRef}>
         <ambientLight intensity={1.5} position={[0, 0, 0]} />
         <directionalLight intensity={4} position={[0, 10, 5]} />
-        <AeroplaneModel aeroplaneRef={aeroplaneRef} helicopter={helicopter} />
-        <AdaptiveDpr pixelated />
+         <AeroplaneModel aeroplaneRef={aeroplaneRef} helicopter={helicopter} /> 
+       <AdaptiveDpr pixelated />
       </Canvas>
       <Cloud speed={0.8} left={0} bottom={0} zIndex={1} />
       <Cloud speed={0.5} left={-10} bottom={110} zIndex={0} />
@@ -181,6 +237,7 @@ const HeroSection = ({ scrollF }) => {
         onClick={onDownArrowClick}
         style={{
           height: "50px",
+          
           width: "50px",
           position: "absolute",
           right: "50px",
@@ -207,11 +264,59 @@ const HeroSection = ({ scrollF }) => {
   );
 };
 
-
-
 const Container = styled.div`
   width: 100vw;
   height: 100vh;
+  position: relative;
+`;
+const TextWrapper = styled.div`
+  position: absolute;
+  top: 120px;
+  left: 30px;
+  .text-container {
+    display: flex;
+    justify-content: center;
+    /* font-size: 4rem; */
+    list-style-type: none;
+    display: flex;
+    gap: 9px;
+    font-weight: bolder;
+    color: #001499;
+    .ml {
+      margin-left: 15px;
+    }
+  }
+
+  li {
+    font-family: "Russo One", sans-serif;
+    text-transform: uppercase;
+    animation-name: bubbly;
+    animation-duration: calc(var(--i) * 1s);
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+    -webkit-text-stroke: 1px #000;
+    font-family: "Rowdies";
+    font-size: 3rem;
+    /* font-size: 10vw; */
+  }
+
+  /* keyframes */
+  @keyframes bubbly {
+    0% {
+      opacity: 0;
+      /* transform: translateY(-100px); */
+      transform: scale(0);
+    }
+    70% {
+      opacity: 1;
+      transform: scale(1.5);
+    }
+    100% {
+      opacity: 1;
+      /* transform: translateY(0); */
+      transform: scale(1);
+    }
+  }
 `;
 
 export default HeroSection;
