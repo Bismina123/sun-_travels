@@ -14,6 +14,9 @@ import hajj9 from "./assets/hajj/10.svg";
 import hajj10 from "./assets/hajj/11.svg";
 import priceing from "./assets/priceingTag.png";
 import ApartmentIcon from "@mui/icons-material/Apartment";
+import AirplaneTicketIcon from "@mui/icons-material/AirplaneTicket";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import visa from "./assets/visa.svg";
 // import hajj1 from "./assets/hajj/2.svg";
 export default function LandingPageSectionForTrending() {
   return (
@@ -73,12 +76,23 @@ export default function LandingPageSectionForTrending() {
             <PackageSection>
               <div className="packagetext">Package Includes</div>
               <IconSet>
-                <div>
+                <IconDiv>
+                  <AirplaneTicketIcon />
+                  <label>Air ticket </label>
+                </IconDiv>
+                <IconDiv>
                   <ApartmentIcon />
                   <label>Accomadation </label>
-                </div>
+                </IconDiv>
+                <IconDiv>
+                  <img className="visa" src={visa} alt="" />
+                  <label>Accomadation </label>
+                </IconDiv>
               </IconSet>
             </PackageSection>
+            <ButtonSection className="btns">
+            <button>Explore more</button>
+            </ButtonSection>
           </HajjSectionText>
         </SvgIcons>
       </Parallax>
@@ -194,7 +208,8 @@ const HajjSectionText = styled.div`
   /* bottom: 71px; */
   width: 500px;
   font-family: "Lato";
-  left: 10px;
+  left: 23px;
+  top: -177px;
   h1 {
     font-size: 60px;
     font-family: "Lato";
@@ -210,7 +225,7 @@ const HajjSectionText = styled.div`
   }
   h6 {
     text-align: left;
-    color: #fff;
+    color: #a3a4ae;
     font-size: 14px;
     margin-top: 20px;
   }
@@ -261,4 +276,42 @@ const PackageSection = styled.div`
     color: goldenrod;
   }
 `;
-const IconSet = styled.div``;
+const IconSet = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 10px;
+`;
+const IconDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  color: #fff;
+  svg {
+    color: rgb(218, 165, 32);
+    font-size: 18px;
+  }
+  .visa {
+    width: 14px;
+    /* filter: saturate(1000%) brightness(1.5) contrast(0.8); */
+  }
+`;
+const ButtonSection=styled.div`
+ button {
+    margin-top: 13px;
+    background: #001499;
+    padding: 10px 20px;
+    font-size: 15px;
+    border-radius: 22px;
+    color: #ffff;
+    transition: opacity 0.3s ease;
+    &:hover {
+      background-color: #fff;
+      color: #001499;
+      transition: opacity 0.3s ease;
+      border: 1px solid #001499;
+    }
+  }
+`;

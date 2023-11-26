@@ -10,15 +10,26 @@ import Feedbacks from "../Components/FeedBack";
 import TabsExclusive from "../Components/TabsExclusive/TabsExclusive";
 import Airoplane from "./Aeroplane";
 import TravelBanner from "../Components/TravelBanner";
+import { useRef } from "react";
+import HeroSection from "../Components/HeroSection";
 // import { TabsExclusive } from '../Components/TabsExclusive/TabsExclusive';
 
 export default function LandingPage() {
+  const bestSellingRef = useRef(null);
+  const scrollToBestSelling = () => {
+    console.log("called")
+    console.log(bestSellingRef.current)
+    if (bestSellingRef.current) {
+      bestSellingRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   return (
     <WrapperCard>
       {/* <Airoplane /> */}
       {/* <SideBar/> */}
-      <LandingCloudsSection />
-      <BestSellingSection />
+      {/* <LandingCloudsSection /> */}
+      <HeroSection scrollF={scrollToBestSelling}/>
+      <BestSellingSection bestSellingRef={bestSellingRef}/>
 
       <TabsExclusive />
       <TravelBanner />

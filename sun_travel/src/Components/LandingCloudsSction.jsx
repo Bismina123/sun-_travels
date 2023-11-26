@@ -8,13 +8,13 @@ function LandingCloudsSection() {
   return (
     <FullHeightSection>
       <FullScreenVideo className="banner">
-        <div className="clouds">
+        {/* <div className="clouds">
           <img className="clouds1" src={softClouds} alt="clouds" />
           <img className="clouds2" src={softClouds} alt="clouds" />
           <img className="clouds3" src={softClouds} alt="clouds" />
           <img className="clouds4" src={softClouds} alt="clouds" />
         </div>
-        {/* <Sub></Sub> */}
+        <Sub></Sub> */}
       </FullScreenVideo>
       <BackDrop></BackDrop>
     </FullHeightSection>

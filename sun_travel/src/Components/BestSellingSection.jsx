@@ -23,7 +23,7 @@ import bestSelling from "./assets/bestPrice.png";
 import refund from "../assets/4947544-removebg-preview.png";
 import safety from "../assets/images-removebg-preview.png";
 
-export default function BestSellingSection() {
+export default function BestSellingSection({bestSellingRef}) {
   const HotSellTourDetails = [
     {
       id: 1,
@@ -189,7 +189,7 @@ export default function BestSellingSection() {
     },
   };
   return (
-    <Wrapper>
+    <Wrapper  ref={bestSellingRef} >
       <HotSellingSection>
         <div className="headingLabel">
           <span>Hot-Selling </span>Tour Bundles

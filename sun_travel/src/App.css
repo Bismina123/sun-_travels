@@ -167,3 +167,11 @@
 .card-wrapper {
   background: #001499a1;
 }
+.hero-section {
+  background: linear-gradient(to bottom, #afc7f8, #FFFFFF);
+  margin-bottom: 4rem;
+}
+
+.canvas {
+  z-index: 3;
+}
