@@ -294,7 +294,7 @@ const TextWrapper = styled.div`
     animation-duration: calc(var(--i) * 1s);
     animation-fill-mode: forwards;
     animation-timing-function: ease-in-out;
-    -webkit-text-stroke: 1px #000;
+    -webkit-text-stroke: 1px #001499;
     font-family: "Rowdies";
     font-size: 3rem;
     /* font-size: 10vw; */

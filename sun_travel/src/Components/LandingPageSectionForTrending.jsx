@@ -86,12 +86,12 @@ export default function LandingPageSectionForTrending() {
                 </IconDiv>
                 <IconDiv>
                   <img className="visa" src={visa} alt="" />
-                  <label>Accomadation </label>
+                  <label>Umra visa </label>
                 </IconDiv>
               </IconSet>
             </PackageSection>
             <ButtonSection className="btns">
-            <button>Explore more</button>
+              <button>Explore more</button>
             </ButtonSection>
           </HajjSectionText>
         </SvgIcons>
@@ -206,10 +206,17 @@ const SvgIcons = styled.div`
 const HajjSectionText = styled.div`
   position: absolute;
   /* bottom: 71px; */
-  width: 500px;
+  padding: 21px 0px;
+  width: 800px;
   font-family: "Lato";
-  left: 23px;
-  top: -177px;
+  left: 100px;
+  top: -145px;
+  box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+  border-radius: 40px !important;
+  background: rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
   h1 {
     font-size: 60px;
     font-family: "Lato";
@@ -228,11 +235,12 @@ const HajjSectionText = styled.div`
     color: #a3a4ae;
     font-size: 14px;
     margin-top: 20px;
+    padding: 0px 44px;
   }
   .allPrices {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
   }
   .priceMain {
     position: relative;
@@ -255,7 +263,7 @@ const HajjSectionText = styled.div`
       font-size: 15px;
       font-family: "Lato";
       font-weight: bolder;
-      color: #fff;
+      color: #818388;
       text-transform: uppercase;
       span {
         color: goldenrod;
@@ -297,9 +305,12 @@ const IconDiv = styled.div`
     width: 14px;
     /* filter: saturate(1000%) brightness(1.5) contrast(0.8); */
   }
+  label {
+    color: gold;
+  }
 `;
-const ButtonSection=styled.div`
- button {
+const ButtonSection = styled.div`
+  button {
     margin-top: 13px;
     background: #001499;
     padding: 10px 20px;
