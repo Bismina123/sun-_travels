@@ -8,14 +8,26 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import maldives from "./assets/maldives.jpg";
+import maldives from "./assets/maldives2.jpg";
 import dubai from "./assets/duabi.jpg";
 import thailand from "./assets/Thailand.jpg";
-export default function BestSellingSection() {
+import bali from "./assets/bali.jpg";
+import singapore from "./assets/singapore.jpg";
+import malaysia from "./assets/malaysia.jpg";
+import kashmir from "./assets/kashmir.jpg";
+import kulu from "./assets/kulu.jpg";
+import viatnam from "./assets/viatnam.jpg";
+import copadia from "./assets/compadia.jpg";
+import kerala from "./assets/kerla.jpg";
+import bestSelling from "./assets/bestPrice.png";
+import refund from "../assets/4947544-removebg-preview.png";
+import safety from "../assets/images-removebg-preview.png";
+
+export default function BestSellingSection({bestSellingRef}) {
   const HotSellTourDetails = [
     {
       id: 1,
-      image: maldives ,
+      image: maldives,
       place: "Maldives Paradise",
       days: "5 Days",
       price: 80000,
@@ -33,7 +45,7 @@ export default function BestSellingSection() {
     },
     {
       id: 3,
-      image: "https://picsum.photos/200/300",
+      image: bali,
       place: "Bali Bliss",
       days: "5 Days",
       price: 1200,
@@ -42,7 +54,7 @@ export default function BestSellingSection() {
     },
     {
       id: 4,
-      image: "https://picsum.photos/200/300",
+      image: singapore,
       place: "Singapore Cityscape",
       days: "4 Days",
       price: 1500,
@@ -51,7 +63,7 @@ export default function BestSellingSection() {
     },
     {
       id: 5,
-      image: "https://picsum.photos/200/300",
+      image: malaysia,
       place: "Malaysian Marvels",
       days: "8 Days",
       price: 2000,
@@ -60,7 +72,7 @@ export default function BestSellingSection() {
     },
     {
       id: 6,
-      image: "https://picsum.photos/200/300",
+      image: viatnam,
       place: "Vietnam Discovery",
       days: " 12 Days",
       price: 2800,
@@ -69,7 +81,7 @@ export default function BestSellingSection() {
     },
     {
       id: 7,
-      image: "https://picsum.photos/200/300",
+      image: copadia,
       place: "Cambodian Heritage",
       days: "6 Days",
       price: 1800,
@@ -78,7 +90,7 @@ export default function BestSellingSection() {
     },
     {
       id: 8,
-      image: "https://picsum.photos/200/300",
+      image: kashmir,
       place: "Kashmir Valley Retreat",
       days: "7 Days",
       price: 2200,
@@ -87,7 +99,7 @@ export default function BestSellingSection() {
     },
     {
       id: 9,
-      image: "https://picsum.photos/200/300",
+      image: kulu,
       place: "Golden Triangle & Himachal",
       days: "9 Days",
       price: 1900,
@@ -96,7 +108,7 @@ export default function BestSellingSection() {
     },
     {
       id: 10,
-      image: "https://picsum.photos/200/300",
+      image: kerala,
       place: "Kerala Backwaters",
       days: "6 Days",
       price: 1600,
@@ -104,25 +116,45 @@ export default function BestSellingSection() {
       description: "Experience the serene backwaters of Kerala for 6 days.",
     },
     {
-      id:11,
-      image:dubai,
-      place:"Dubai Group Tour",
-      days:"5 Days",
-      price:28000,
-      offerType:"Combo offer",
-      description:"Experience the serene backwaters of Dubai for 6 days"
-
-    }
+      id: 11,
+      image: dubai,
+      place: "Dubai Group Tour",
+      days: "5 Days",
+      price: 28000,
+      offerType: "Combo offer",
+      description: "Experience the serene backwaters of Dubai for 6 days",
+    },
+  ];
+  const assuredData = [
+    {
+      id: 1,
+      image: bestSelling,
+      title: "Best price guarantee",
+      description:
+        "we offer the best deals.If you find a better offer, Contact us.",
+    },
+    {
+      id: 2,
+      image: refund,
+      title: "Flexible refunds",
+      description: "Get instant refund for cancelled flights with us.",
+    },
+    {
+      id: 3,
+      image: safety,
+      title: "Travel safety",
+      description: "Stay updated with travel restrictions due to COVID-19.",
+    },
   ];
   const responsive = {
     desktop: {
       breakpoint: { max: 1599, min: 1025 },
-      items: 4,
+      items: 5,
       paritialVisibilityGutter: 20,
     },
     desktopLarge: {
       breakpoint: { max: 3000, min: 1600 },
-      items: 4,
+      items: 5,
       paritialVisibilityGutter: 20,
     },
     tabletLarge: {
@@ -157,7 +189,7 @@ export default function BestSellingSection() {
     },
   };
   return (
-    <Wrapper >
+    <Wrapper  ref={bestSellingRef} >
       <HotSellingSection>
         <div className="headingLabel">
           <span>Hot-Selling </span>Tour Bundles
@@ -237,25 +269,96 @@ export default function BestSellingSection() {
           );
         })}
       </Carousel>
-
-      <CardView className="otherNews-CardView"></CardView>
+      <GauranteeDiv>
+        <GridContainer>
+          {assuredData.map((item, id) => {
+            return (
+              <>
+                <GridItem key={id}>
+                  <BestSelling>
+                    <div className="imageContainer">
+                      <img src={item.image} alt="" />
+                    </div>
+                    <span></span>
+                    <label className="margin-l">{item.title}</label>
+                    <p className="margin-l">{item.description}</p>
+                  </BestSelling>
+                </GridItem>
+              </>
+            );
+          })}
+        </GridContainer>
+      </GauranteeDiv>
+      {/* <CardView className="otherNews-CardView"></CardView> */}
     </Wrapper>
   );
 }
-const CardView = styled.div`
-  width: 100%;
-  height: auto;
-  overflow: hidden;
-  position: relative;
-  /* background: ${(p) => p.theme.cardBgTheme}; */
-  /* background-color: ${(p) => p.theme.cardBgTheme}; */
-  border-radius: 0 0 20px 20px;
-  /* padding: 25px; */
-  display: flex;
-  justify-content: stretch;
-  align-items: center;
+
+const GridContainer = styled.div`
+  display: grid;
+  grid-template-columns: auto auto auto;
+  /* background-color: #2196f3; */
+  padding: 10px 20px 10px 48px;
   gap: 30px;
 `;
+const GridItem = styled.div`
+  /* background-color: rgba(255, 255, 255, 0.8); */
+  /* border: 1px solid rgba(0, 0, 0, 0.8); */
+  /* border-radius: 8px; */
+  padding: 10px;
+  /* font-size: 30px; */
+  text-align: left;
+  height: 150px;
+  /* width: 350px; */
+`;
+const BestSelling = styled.div`
+  position: relative;
+
+  .imageContainer {
+    align-items: center;
+    display: flex;
+    justify-content: flex-start;
+    /* padding-left: 32px; */
+    background: #a47534;
+    width: 52px;
+    transform: rotate(45deg);
+  }
+  span {
+    position: absolute;
+    width: 79px;
+    height: 2px;
+    left: 80px;
+    top: 26px;
+    background-color: #a47534;
+  }
+  img {
+    transform: rotate(-45deg);
+    width: 53px;
+    padding: 4px;
+  }
+  .margin-l {
+    padding-left: 80px;
+  }
+  label {
+    font-size: 20px;
+    font-family: "Lato";
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+  }
+  p{
+    padding-top: 6px;
+    font-size: 15px;
+    font-family: 'Lato';
+    text-transform: capitalize;
+    color: #474343d9;
+  }
+`;
+
+const GauranteeDiv = styled.div`
+  margin-top: 50px;
+`;
+
 const DateDiv = styled.div`
   color: #fff;
   font-size: 12px;
@@ -306,10 +409,12 @@ const ContentWrapper = styled.div`
     overflow: hidden;
     border-radius: 15px;
     position: relative;
+
     /* cursor: pointer; */
     &:hover .image-style {
       transform: scale(1.1);
     }
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
   }
   /* background-color: red; */
   /* width: 100%; */
@@ -331,9 +436,10 @@ const ImgStyle = styled.img`
   transition: transform 0.3s ease;
 `;
 const Wrapper = styled.div`
-height: calc(100vh - 100px);
-  bottom: 100px;
-/* background-color: red; */
+  /* height: calc(100vh + 150px); */
+  /* bottom: 150px; */
+  /* background-color: red; */
+  height: 100vh;
   position: relative;
 `;
 const AnnouncemnetTitle = styled.div`
@@ -356,7 +462,8 @@ const HotSellingSection = styled.div`
     font-size: 40px;
     text-align: left;
     padding: 15px 90px;
-    font-weight: 300;
+    font-weight: 600;
+    text-transform: uppercase;
     span {
       font-weight: 700;
       color: #001499;

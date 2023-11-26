@@ -62,7 +62,7 @@ const AeroplaneModel = () => {
           endTrigger: "#last",
           end: "top-=1150 top",
           scrub: true,
-          markers: true,
+          // markers: true,
           duration: 3,
           onUpdate: (self) => {
             const progress = self.progress;

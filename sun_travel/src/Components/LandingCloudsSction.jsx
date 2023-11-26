@@ -8,12 +8,13 @@ function LandingCloudsSection() {
   return (
     <FullHeightSection>
       <FullScreenVideo className="banner">
-        <div className="clouds">
+        {/* <div className="clouds">
           <img className="clouds1" src={softClouds} alt="clouds" />
           <img className="clouds2" src={softClouds} alt="clouds" />
           <img className="clouds3" src={softClouds} alt="clouds" />
+          <img className="clouds4" src={softClouds} alt="clouds" />
         </div>
-        <Sub></Sub>
+        <Sub></Sub> */}
       </FullScreenVideo>
       <BackDrop></BackDrop>
     </FullHeightSection>
@@ -23,8 +24,14 @@ function LandingCloudsSection() {
 export default LandingCloudsSection;
 
 const FullHeightSection = styled.div`
-  height: 100vh;
+  height: 80vh;
   position: relative;
+  /* background-color: green; */
+  background: linear-gradient(
+    rgba(179, 203, 230, 1) 100%,
+    rgba(237, 241, 246, 0) 36%,
+    rgba(255, 255, 255, 1) 0%
+  );
 `;
 const Sub = styled.div`
   /* position: absolute;
@@ -37,15 +44,16 @@ bottom: 0; */
 
 const FullScreenVideo = styled.div`
   width: 100%;
-  height: 80%;
+  height: auto;
   overflow: hidden;
+  /* z-index: 1; */
   background-color: #fff;
 
   .clouds1 {
     --animation-duration: 45s; /* Adjust the duration for the first cloud */
     animation: animate calc(var(--animation-duration)) linear infinite;
     position: absolute;
-    bottom: 92px;
+    bottom: -45px;
     z-index: 1;
     width: 100%;
     height: 250px;
@@ -56,7 +64,7 @@ const FullScreenVideo = styled.div`
     --animation-duration: 50s; /* Adjust the duration for the second cloud */
     animation: animate calc(var(--animation-duration)) linear infinite;
     position: absolute;
-    bottom: 107px;
+    bottom: -53px;
     z-index: 2;
     width: 100%;
     height: 250px;
@@ -64,14 +72,25 @@ const FullScreenVideo = styled.div`
     overflow: hidden;
   }
   .clouds3 {
-    --animation-duration: 40s; /* Adjust the duration for the third cloud */
+    --animation-duration: 30s; /* Adjust the duration for the third cloud */
     animation: animate calc(var(--animation-duration)) linear infinite;
     position: absolute;
-    bottom: 110px;
+    bottom: -45px;
     z-index: 3;
     width: 100%;
     height: 250px;
     right: -451px;
+    overflow: hidden;
+  }
+  .clouds4 {
+    --animation-duration: 35s; /* Adjust the duration for the third cloud */
+    animation: animate calc(var(--animation-duration)) linear infinite;
+    position: absolute;
+    bottom: -45px;
+    z-index: 4;
+    width: 100%;
+    height: 250px;
+    right: 84px;
     overflow: hidden;
   }
   .clouds {
@@ -102,10 +121,10 @@ const BackDrop = styled.div`
   background-image: linear-gradient(
     to top,
     rgb(255 255 255 / 97%) 0,
-    rgb(255 246 246 / 28%) 60%,
+    rgb(255 246 246 / 5%) 50%,
     rgb(254 254 254 / 0%) 100%
   );
-  height: 80%;
+  height: 100%;
   top: 0;
   left: 0;
   right: 0;

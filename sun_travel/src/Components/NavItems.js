@@ -1,12 +1,13 @@
 import dropDownArrow from "./assets/dropDown.png";
 import more from "./assets/more.png";
+
 export const navItems = [
   {
     id: 1,
     title: "Home",
     path: "./",
     cName: "nav-item",
-    icon: '',
+    icon: "",
   },
 
   {
@@ -14,14 +15,14 @@ export const navItems = [
     title: "Visa",
     path: "./Visa",
     cName: "nav-item",
-    icon: '',
+    icon: "",
   },
   {
     id: 3,
     title: "Tours",
     path: "./Tours",
     cName: "nav-item",
-    icon: dropDownArrow,
+    icon: "",
   },
 
   {
@@ -40,7 +41,7 @@ export const navItems = [
   },
   {
     id: 6,
-    title: '',
+    title: "More",
     path: "./",
     cName: "nav-item more-icon",
     icon: more,

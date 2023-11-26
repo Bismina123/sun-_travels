@@ -42,21 +42,25 @@
 }
 .navbar {
   background: transparent;
-  justify-content: flex-start;
+  justify-content: space-between;
   gap: 5px;
   align-items: center;
-  padding: 10px 20px;
+  padding: 10px 0px;
   transition: background 250ms ease-in;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   display: flex;
   height: 10vh;
+  margin: 0px 35px;
+  border-bottom: 1px solid #001499;
 }
 
 .navbar.active {
   background: #001499;
   box-shadow: 0 3px 20px rgba(0, 0, 0, 0.2);
   transition: background 250ms ease-in;
+  margin: 0 auto !important;
 }
+
 .nav-items {
   display: flex;
   list-style: none;
@@ -74,14 +78,17 @@
 
 .nav-item a {
   text-decoration: none;
-  color: white;
-  font-size: 1.1rem;
+  color: #0b1556;
+  font-size: 15px;
   margin-right: 2rem;
   padding: 6px 16px;
-  border-radius: 10px;
+  border-radius: 5px;
   transition: background 250ms ease-in;
   display: flex;
   align-items: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-family: "Lato";
 }
 .nav-item a img {
   filter: brightness(0) invert(1);
@@ -91,9 +98,9 @@
 }
 
 .nav-item a:hover {
-  background: rgb(234, 234, 234);
-  color: #000;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  /* background: rgb(234, 234, 234); */
+  color: #fff;
+  /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
 }
 .nav-item a:hover img {
   filter: none;
@@ -102,35 +109,43 @@
   min-width: 10rem;
   position: absolute;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  top: 67px;
+  top: 55px;
   list-style: none;
   text-align: start;
-  border-radius: 10px;
+  border-radius: 5px;
+  background: #fff;
+  padding: 10px;
 }
 .more-icon a img {
   height: 30px;
   width: 30px;
 }
 .services-submenu li {
-  background: rgb(234, 234, 234);
+  background: #fff;
   cursor: pointer;
+  padding: 5px 0px;
 }
 .services-submenu li:first-child {
-  border-top-right-radius: 10px;
-  border-top-left-radius: 10px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
 }
 .services-submenu li:last-child {
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 .services-submenu li a {
   margin: 0 !important;
 }
 
 .services-submenu li a:hover {
-  background: rgb(185, 188, 188);
-  border-radius: 10px;
+  background: #001499;
+  border-radius: 5px;
   box-shadow: none !important;
+
+  color: #fff;
+}
+.submenu-item:hover {
+  color: #fff;
 }
 
 .services-submenu.clicked {
@@ -142,7 +157,7 @@
   width: 100%;
   height: 100%;
   text-decoration: none;
-  color: #000 !important;
+  color: #000;
   padding: 16px;
 }
 .feed-card {
@@ -151,4 +166,12 @@
 }
 .card-wrapper {
   background: #001499a1;
+}
+.hero-section {
+  background: linear-gradient(to bottom, #afc7f8, #ffffff);
+  margin-bottom: 4rem;
+}
+
+.canvas {
+  z-index: 3;
 }

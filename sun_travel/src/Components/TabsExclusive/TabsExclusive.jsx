@@ -13,7 +13,7 @@ import { fas } from "@fortawesome/free-solid-svg-icons";
 import AllCategory from "./AllCategory/AllCategory";
 import Cruise from "./CruiseSection/Cruise";
 import { Parallax } from "react-parallax";
-import exclusivebg from './../assets/exclusivebg.jpg'
+import exclusivebg from './../assets/pexels-asad-photo-maldives-1320674.jpg'
 // Add the entire solid icons library to the FontAwesome library
 library.add(fas);
 const TabsExclusive = () => {
@@ -37,9 +37,9 @@ const TabsExclusive = () => {
         fontFamily: "Lato",
         color: "#000",
         transition: " transform 0.5s ease",
-        minHeight: "40px",
-        minWidth: " 100px",
-        fontSize: "10px",
+        minHeight: "45px",
+        minWidth: " 110px",
+        fontSize: "13px",
         "&.Mui-selected": {
           color: "#fff",
           background: "#001499",
@@ -163,21 +163,23 @@ const WrapperTab = styled.div`
 `;
 const InnerDiv = styled.div`
   margin: 20px;
-  padding: 20px;
+  padding: 70px 20px;
   /* background-color: #8287eed6; */
   height: auto;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   gap: 20px;
+  width: 100%;
 `;
 const HeadingLabel = styled.div`
   font-family: "Lato";
   font-size: 40px;
   text-align: center;
-  font-weight: 600;
+  font-weight: 700;
+  text-transform: uppercase;
   span {
     color: #001499;
   }
-  margin-top: 20px;
+  margin-top: 100px;
 `;

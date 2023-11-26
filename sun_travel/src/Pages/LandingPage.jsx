@@ -9,24 +9,32 @@ import Feedbacks from "../Components/FeedBack";
 
 import TabsExclusive from "../Components/TabsExclusive/TabsExclusive";
 import Airoplane from "./Aeroplane";
+import TravelBanner from "../Components/TravelBanner";
+import { useRef } from "react";
+import HeroSection from "../Components/HeroSection";
 import Footer from "../Components/Footer";
 // import { TabsExclusive } from '../Components/TabsExclusive/TabsExclusive';
 
 export default function LandingPage() {
+  const bestSellingRef = useRef(null);
+  const scrollToBestSelling = () => {
+    console.log("called");
+    console.log(bestSellingRef.current);
+    if (bestSellingRef.current) {
+      bestSellingRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <WrapperCard>
-      {/* <Airoplane /> */}
-      {/* <SideBar/> */}
-      <LandingCloudsSection />
-      <BestSellingSection />
-      {/* <TrensingNowTextBox/> */}
-      <TabsExclusive />
-      <TrensingNowTextBox />
-      <LandingPageSectionForTrending />
-      <TrensingNowTextBox />
-      <Feedbacks />
+      <HeroSection scrollF={scrollToBestSelling} />
+      <BestSellingSection bestSellingRef={bestSellingRef} />
 
-      <TrensingNowTextBox />
+      <TabsExclusive />
+      <TravelBanner />
+
+      <LandingPageSectionForTrending />
+
+      <Feedbacks />
       <Footer />
     </WrapperCard>
   );
