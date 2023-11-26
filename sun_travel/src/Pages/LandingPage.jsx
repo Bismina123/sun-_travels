@@ -17,25 +17,22 @@ import HeroSection from "../Components/HeroSection";
 export default function LandingPage() {
   const bestSellingRef = useRef(null);
   const scrollToBestSelling = () => {
-    console.log("called")
-    console.log(bestSellingRef.current)
+    console.log("called");
+    console.log(bestSellingRef.current);
     if (bestSellingRef.current) {
-      bestSellingRef.current.scrollIntoView({ behavior: 'smooth' });
+      bestSellingRef.current.scrollIntoView({ behavior: "smooth" });
     }
   };
   return (
     <WrapperCard>
-      {/* <Airoplane /> */}
-      {/* <SideBar/> */}
-      {/* <LandingCloudsSection /> */}
-      <HeroSection scrollF={scrollToBestSelling}/>
-      <BestSellingSection bestSellingRef={bestSellingRef}/>
+      <HeroSection scrollF={scrollToBestSelling} />
+      <BestSellingSection bestSellingRef={bestSellingRef} />
 
       <TabsExclusive />
       <TravelBanner />
 
       <LandingPageSectionForTrending />
-      <TrensingNowTextBox />
+
       <Feedbacks />
     </WrapperCard>
   );
