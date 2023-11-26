@@ -8,8 +8,60 @@ import whatsapp from "./assets/whatsapp.png";
 const Footer = () => {
   return (
     <>
+      <ContentWrapper>
+        <div className="content-wrapper">
+          <div className="first-content">
+            <h2>About Us</h2>
+            <p>
+              Sun International Tours & travels, is a professionally run
+              complete Travel and Tour Management Company turpis olestie, dictum
+              est a, mattis tellus. Sed dignissim, metus nec fringilla risus sem
+              sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas
+              eget cond.
+            </p>
+            <h2>Location</h2>
+            <p>
+              695001, YMCA Rd, Statue, Palayam, Thiruvananthapuram, Kerala
+              695001
+            </p>
+            <h2>Branches</h2>
+            <p>UAE . OMAN . SINGAPORE . KSA MALASIA . INDIA .</p>
+          </div>
+          <div className="second-content">
+            <h2>Packages</h2>
+            <a href="">Popular</a>
+            <a href="">Pilgrim</a>
+            <a href="">Student</a>
+            <a href="">Cruise</a>
+            <a href="">Domestic</a>
+            <a href="">International</a>
+          </div>
+          <div className="third-content">
+            <h2>Services</h2>
+            <a href="">FRRO Services</a>
+            <a href="">Medical Appointments</a>
+            <a href="">Certificate Attestation</a>
+            <a href="">Passport Services</a>
+            <a href="">Visa Services</a>
+            <a href="">Embassy Services</a>
+          </div>
+          <div className="fourth-content">
+            <h2>Quick Links</h2>
+            <a href="">Air ticket</a>
+            <a href="">Study Aboard</a>
+            <a href="">Migration Support</a>
+            <a href="">Package Customizer</a>
+            <a href="">Seasonal Pakages</a>
+            <a href="">Latest Offers</a>
+          </div>
+          <div className="fifth-content">
+            <h1>Subscribe Newsletter</h1>
+            <input type="text" placeholder="Email ID" />
+            <button>Subscribe</button>
+          </div>
+        </div>
+      </ContentWrapper>
       <FooterWrapper>
-        <div className="content-wrapper"></div>
         <div className="bottom-wrapper">
           <div className="left-wrapper">
             <div className="first-circle"></div>
@@ -65,10 +117,109 @@ const Footer = () => {
 };
 
 export default Footer;
-
+const ContentWrapper = styled.div`
+  background: #f6f6f6;
+  padding: 20px 30px;
+  margin: 50px;
+  border-radius: 30px;
+  .content-wrapper {
+    padding: 30px;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+    .first-content {
+      display: grid;
+      h2 {
+        padding: 10px;
+        color: #000000;
+        font-size: 20px;
+        font-weight: 500;
+      }
+      p {
+        color: #1e1e1e80;
+        font-size: 16px;
+      }
+    }
+    .second-content {
+      display: grid;
+      h2 {
+        padding: 10px;
+        color: #000000;
+        font-size: 20px;
+        font-weight: 500;
+      }
+      a {
+        color: #1e1e1e80;
+        font-size: 16px;
+        &:hover {
+          color: #ffc400;
+        }
+      }
+    }
+    .third-content {
+      display: grid;
+      h2 {
+        padding: 10px;
+        color: #000000;
+        font-size: 20px;
+        font-weight: 500;
+      }
+      a {
+        color: #1e1e1e80;
+        font-size: 16px;
+        &:hover {
+          color: #ffc400;
+        }
+      }
+    }
+    .fourth-content {
+      display: grid;
+      h2 {
+        padding: 10px;
+        color: #000000;
+        font-size: 20px;
+        font-weight: 500;
+        &:hover {
+          color: #ffc400;
+        }
+      }
+      a {
+        color: #1e1e1e80;
+        font-size: 16px;
+        &:hover {
+          color: #ffc400;
+        }
+      }
+    }
+    .fifth-content {
+      display: block;
+      h1 {
+        padding: 10px;
+        color: #000000;
+        font-size: 20px;
+        font-weight: 500;
+      }
+      input {
+        height: 50px;
+        border-radius: 18px;
+        padding: 10px 20px;
+      }
+      button {
+        padding: 10px 20px;
+        background: #2033b399;
+        border-radius: 12px;
+        margin: 20px;
+        color: #ffffff;
+      }
+    }
+  }
+`;
 const FooterWrapper = styled.div`
+  margin-top: -85px;
+  margin-bottom: 50px;
   background: #3e2093;
-  height: 80vh;
+  min-height: 80vh;
+  margin: 30px;
+  border-radius: 30px;
   position: relative;
   .bottom-wrapper {
     display: grid;
