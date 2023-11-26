@@ -9,12 +9,13 @@ import Feedbacks from "../Components/FeedBack";
 
 import TabsExclusive from "../Components/TabsExclusive/TabsExclusive";
 import Airoplane from "./Aeroplane";
+import Footer from "../Components/Footer";
 // import { TabsExclusive } from '../Components/TabsExclusive/TabsExclusive';
 
 export default function LandingPage() {
   return (
     <WrapperCard>
-      <Airoplane />
+      {/* <Airoplane /> */}
       {/* <SideBar/> */}
       <LandingCloudsSection />
       <BestSellingSection />
@@ -26,6 +27,7 @@ export default function LandingPage() {
       <Feedbacks />
 
       <TrensingNowTextBox />
+      <Footer />
     </WrapperCard>
   );
 }
