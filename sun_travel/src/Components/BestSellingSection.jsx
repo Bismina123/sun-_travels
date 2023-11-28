@@ -22,8 +22,9 @@ import kerala from "./assets/kerla.jpg";
 import bestSelling from "./assets/bestPrice.png";
 import refund from "../assets/4947544-removebg-preview.png";
 import safety from "../assets/images-removebg-preview.png";
+import { Bounce, Roll, Slide } from "react-awesome-reveal";
 
-export default function BestSellingSection({bestSellingRef}) {
+export default function BestSellingSection({ bestSellingRef }) {
   const HotSellTourDetails = [
     {
       id: 1,
@@ -189,8 +190,8 @@ export default function BestSellingSection({bestSellingRef}) {
     },
   };
   return (
-    <Wrapper   >
-      <HotSellingSection  ref={bestSellingRef}>
+    <Wrapper>
+      <HotSellingSection ref={bestSellingRef}>
         <div className="headingLabel">
           <span>Hot-Selling </span>Tour Bundles
         </div>
@@ -269,26 +270,29 @@ export default function BestSellingSection({bestSellingRef}) {
           );
         })}
       </Carousel>
-      <GauranteeDiv>
-        <GridContainer>
-          {assuredData.map((item, id) => {
-            return (
-              <>
-                <GridItem key={id}>
-                  <BestSelling>
-                    <div className="imageContainer">
-                      <img src={item.image} alt="" />
-                    </div>
-                    <span></span>
-                    <label className="margin-l">{item.title}</label>
-                    <p className="margin-l">{item.description}</p>
-                  </BestSelling>
-                </GridItem>
-              </>
-            );
-          })}
-        </GridContainer>
-      </GauranteeDiv>
+    
+        <GauranteeDiv>
+        <Bounce>
+          <GridContainer>
+            {assuredData.map((item, id) => {
+              return (
+                <>
+                  <GridItem key={id}>
+                    <BestSelling>
+                      <div className="imageContainer">
+                        <img src={item.image} alt="" />
+                      </div>
+                      <span></span>
+                      <label className="margin-l">{item.title}</label>
+                      <p className="margin-l">{item.description}</p>
+                    </BestSelling>
+                  </GridItem>
+                </>
+              );
+            })}
+          </GridContainer>
+      </Bounce>
+        </GauranteeDiv>
       {/* <CardView className="otherNews-CardView"></CardView> */}
     </Wrapper>
   );
@@ -346,10 +350,10 @@ const BestSelling = styled.div`
     letter-spacing: 1px;
     text-transform: capitalize;
   }
-  p{
+  p {
     padding-top: 6px;
     font-size: 15px;
-    font-family: 'Lato';
+    font-family: "Lato";
     text-transform: capitalize;
     color: #474343d9;
   }

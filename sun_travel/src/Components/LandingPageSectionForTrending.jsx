@@ -17,6 +17,7 @@ import ApartmentIcon from "@mui/icons-material/Apartment";
 import AirplaneTicketIcon from "@mui/icons-material/AirplaneTicket";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import visa from "./assets/visa.svg";
+import { Fade, Flip, Hinge, JackInTheBox } from "react-awesome-reveal";
 // import hajj1 from "./assets/hajj/2.svg";
 export default function LandingPageSectionForTrending() {
   return (
@@ -29,71 +30,77 @@ export default function LandingPageSectionForTrending() {
         bgImageStyle={{ minHeight: "100vh" }}
       >
         <SvgIcons>
-          <div>
-            <img className="hajj" src={hajj1} alt="" />
-            <img className="rightCamel" src={hajj2} alt="" />
-            <img className="leftCamel" src={hajj3} alt="" />
-            <img className="boy" src={hajj4} alt="" />
-            <img className="girl" src={hajj5} alt="" />
-            <img className="building" src={hajj6} alt="" />
-            <img className="sand" src={hajj7} alt="" />
-            <img className="kaaba" src={hajj8} alt="" />
-            <img className="leftPiller" src={hajj9} alt="" />
-            <img className="rightPiller" src={hajj10} alt="" />
-          </div>
-          <HajjSectionText>
-            <h1>Hajj And Umra</h1>
-            <p>Lexuary to economy Package</p>
-            <h6>
-              Hajj and Umrah travel packages offer pilgrims a comprehensive and
-              organized experience, providing accommodation, transportation, and
-              guidance for the sacred journeys to Mecca, catering to both the
-              spiritual and logistical needs of the pilgrims
-            </h6>
-            <div className="allPrices">
-              <div className="priceMain">
-                <img className="priceTag" src={priceing} alt="" />
-                <label>$2500</label>
-                <h2>
-                  <span>7</span> Nights
-                </h2>
-              </div>
-              <div className="priceMain">
-                <img className="priceTag" src={priceing} alt="" />
-                <label>$4500</label>
-                <h2>
-                  <span>14</span> Nights
-                </h2>
-              </div>
-              <div className="priceMain">
-                <img className="priceTag" src={priceing} alt="" />
-                <label>$9500</label>
-                <h2>
-                  <span>30</span> Nights
-                </h2>
-              </div>
+          <Fade direction="down">
+            <div>
+              <img className="hajj" src={hajj1} alt="" />
+              <img className="rightCamel" src={hajj2} alt="" />
+              <img className="leftCamel" src={hajj3} alt="" />
+              <img className="boy" src={hajj4} alt="" />
+              <img className="girl" src={hajj5} alt="" />
+              <img className="building" src={hajj6} alt="" />
+              <img className="sand" src={hajj7} alt="" />
+              <img className="kaaba" src={hajj8} alt="" />
+              <img className="leftPiller" src={hajj9} alt="" />
+              <img className="rightPiller" src={hajj10} alt="" />
             </div>
-            <PackageSection>
-              <div className="packagetext">Package Includes</div>
-              <IconSet>
-                <IconDiv>
-                  <AirplaneTicketIcon />
-                  <label>Air ticket </label>
-                </IconDiv>
-                <IconDiv>
-                  <ApartmentIcon />
-                  <label>Accomadation </label>
-                </IconDiv>
-                <IconDiv>
-                  <img className="visa" src={visa} alt="" />
-                  <label>Umra visa </label>
-                </IconDiv>
-              </IconSet>
-            </PackageSection>
-            <ButtonSection className="btns">
-              <button>Explore more</button>
-            </ButtonSection>
-          </HajjSectionText>
+          </Fade>
+          <JackInTheBox>
+            <HajjSectionText>
+              <h1>Hajj And Umra</h1>
+
+              <p>Lexuary to economy Package</p>
+              <h6>
+                Hajj and Umrah travel packages offer pilgrims a comprehensive
+                and organized experience, providing accommodation,
+                transportation, and guidance for the sacred journeys to Mecca,
+                catering to both the spiritual and logistical needs of the
+                pilgrims
+              </h6>
+              <div className="allPrices">
+                <div className="priceMain">
+                  <img className="priceTag" src={priceing} alt="" />
+                  <label>$2500</label>
+                  <h2>
+                    <span>7</span> Nights
+                  </h2>
+                </div>
+                <div className="priceMain">
+                  <img className="priceTag" src={priceing} alt="" />
+                  <label>$4500</label>
+                  <h2>
+                    <span>14</span> Nights
+                  </h2>
+                </div>
+                <div className="priceMain">
+                  <img className="priceTag" src={priceing} alt="" />
+                  <label>$9500</label>
+                  <h2>
+                    <span>30</span> Nights
+                  </h2>
+                </div>
+              </div>
+              <PackageSection>
+                <div className="packagetext">Package Includes</div>
+                <IconSet>
+                  <IconDiv>
+                    <AirplaneTicketIcon />
+                    <label>Air ticket </label>
+                  </IconDiv>
+                  <IconDiv>
+                    <ApartmentIcon />
+                    <label>Accomadation </label>
+                  </IconDiv>
+                  <IconDiv>
+                    <img className="visa" src={visa} alt="" />
+                    <label>Umra visa </label>
+                  </IconDiv>
+                </IconSet>
+              </PackageSection>
+              <ButtonSection className="btns">
+                <button>Explore more</button>
+              </ButtonSection>
+            </HajjSectionText>
+          </JackInTheBox>
         </SvgIcons>
       </Parallax>
     </Wrapper>
