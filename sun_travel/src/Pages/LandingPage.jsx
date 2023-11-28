@@ -3,7 +3,6 @@ import LandingCloudsSection from "../Components/LandingCloudsSction";
 import Navbar from "../Components/Navbar";
 import TrensingNowTextBox from "../Components/TrensingNowTextBox";
 import LandingPageSectionForTrending from "../Components/LandingPageSectionForTrending";
-import SideBar from "../Components/SideBar";
 import BestSellingSection from "../Components/BestSellingSection";
 import Feedbacks from "../Components/FeedBack";
 
@@ -15,6 +14,8 @@ import { useRef } from "react";
 import Footer from "../Components/Footer";
 import HeroSection from "../Components/HeroSection";
 import Scene from "../Components/Scene";
+import Slider from "../Components/Slider";
+import SliderComponent from "../Components/Slider";
 
 // import { TabsExclusive } from '../Components/TabsExclusive/TabsExclusive';
 
@@ -30,16 +31,16 @@ export default function LandingPage() {
   return (
     <WrapperCard>
       <HeroSection scrollF={scrollToBestSelling} />
+      <SliderComponent />
       <BestSellingSection bestSellingRef={bestSellingRef} />
       <TravelBanner />
-      <Scene/>
+      <Scene />
       <TabsExclusive />
 
       <LandingPageSectionForTrending />
 
       <Feedbacks />
       <Footer />
-      
     </WrapperCard>
   );
 }

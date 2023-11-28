@@ -3,19 +3,23 @@ import styled from "styled-components";
 import girl from "./assets/girl1.jpg";
 import place from "./assets/place2.jpg";
 import snow from "./assets/snow.jpg";
+import { Fade, Slide } from "react-awesome-reveal";
 function TravelBanner() {
   return (
     <TravelBannerWrapper>
       <TopSide>
-        <TextSide>
-          <h3>Endless Exploration</h3>
-          <h2>Travel to make memories all around the world</h2>
-          <p>
-            Embarking on a global odyssey, chasing sunsets and forging memories
-            that span every latitude.
-          </p>
-          <button>Explore more</button>
-        </TextSide>
+        <Slide direction="left">
+          <TextSide>
+            <h3>Endless Exploration</h3>
+            <h2>Travel to make memories all around the world</h2>
+            <p>
+              Embarking on a global odyssey, chasing sunsets and forging
+              memories that span every latitude.
+            </p>
+            <button>Explore more</button>
+          </TextSide>
+        </Slide>
+        <Slide direction="right">
         <ImageSide>
           <div className="image1">
             <img src={girl} alt="" />
@@ -24,13 +28,17 @@ function TravelBanner() {
             <img src={place} alt="" />
           </div>
         </ImageSide>
+        </Slide>
       </TopSide>
       <BottomSide>
+      <Slide direction="left">
         <LeftSide>
           <div className="snowImage">
             <img src={snow} alt="" />
           </div>
         </LeftSide>
+        </Slide>
+        <Slide direction="right">
         <RightSide>
           <span></span>
           <label>About us!</label>
@@ -55,6 +63,7 @@ function TravelBanner() {
             </div>
           </div>
         </RightSide>
+        </Slide>
       </BottomSide>
     </TravelBannerWrapper>
   );
