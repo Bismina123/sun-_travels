@@ -199,6 +199,7 @@ const ContentWrapper = styled.div`
         font-weight: 500;
       }
       input {
+        margin-top: 30px;
         height: 50px;
         border-radius: 18px;
         padding: 10px 20px;
@@ -219,6 +220,7 @@ const FooterWrapper = styled.div`
   background: #3e2093;
   min-height: 80vh;
   margin: 30px;
+  margin-top: -66px;
   border-radius: 30px;
   position: relative;
   .bottom-wrapper {

@@ -159,7 +159,7 @@ export default function Navbar() {
                 <img src={img6} alt="" />
               </HeaderLi>
             </HeaderUl>
-            <p>(Approved by Govt. of India, Ministry of Tourism)</p>
+            <p className="approved-p">(Approved by Govt. of India, Ministry of Tourism)</p>
           </HeaderMenu>
         </HeaderWrapper>
       </Wrapper>

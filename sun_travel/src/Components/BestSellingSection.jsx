@@ -149,7 +149,7 @@ export default function BestSellingSection({bestSellingRef}) {
   const responsive = {
     desktop: {
       breakpoint: { max: 1599, min: 1025 },
-      items: 5,
+      items: 4,
       paritialVisibilityGutter: 20,
     },
     desktopLarge: {
@@ -189,8 +189,8 @@ export default function BestSellingSection({bestSellingRef}) {
     },
   };
   return (
-    <Wrapper  ref={bestSellingRef} >
-      <HotSellingSection>
+    <Wrapper   >
+      <HotSellingSection  ref={bestSellingRef}>
         <div className="headingLabel">
           <span>Hot-Selling </span>Tour Bundles
         </div>
@@ -212,7 +212,7 @@ export default function BestSellingSection({bestSellingRef}) {
         dotListClass="custom-dot-list-style"
         renderButtonGroupOutside={true}
         renderDotsOutside={false}
-        slidesToSlide={1}
+        slidesToSlide={2}
         swipeable={true}
         partialVisible={true}
         showDots={false}
@@ -461,7 +461,7 @@ const HotSellingSection = styled.div`
     font-family: "Lato";
     font-size: 40px;
     text-align: left;
-    padding: 15px 90px;
+    padding: 60px 90px 30px 90px;
     font-weight: 600;
     text-transform: uppercase;
     span {
