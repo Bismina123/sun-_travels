@@ -14,6 +14,8 @@ import { useRef } from "react";
 
 import Footer from "../Components/Footer";
 import HeroSection from "../Components/HeroSection";
+import Scene from "../Components/Scene";
+
 // import { TabsExclusive } from '../Components/TabsExclusive/TabsExclusive';
 
 export default function LandingPage() {
@@ -30,13 +32,14 @@ export default function LandingPage() {
       <HeroSection scrollF={scrollToBestSelling} />
       <BestSellingSection bestSellingRef={bestSellingRef} />
       <TravelBanner />
-
+      <Scene/>
       <TabsExclusive />
 
       <LandingPageSectionForTrending />
 
       <Feedbacks />
       <Footer />
+      
     </WrapperCard>
   );
 }

@@ -16,7 +16,7 @@ import { Parallax } from "react-parallax";
 import exclusivebg from './../assets/pexels-asad-photo-maldives-1320674.jpg'
 // Add the entire solid icons library to the FontAwesome library
 library.add(fas);
-const TabsExclusive = () => {
+const TabsExclusive = ({}) => {
   const [tabvalue, setTabValue] = React.useState(0);
 
   const handleTabsChange = (event, newValue) => {
@@ -65,7 +65,7 @@ const TabsExclusive = () => {
   };
 
   return (
-    <WrapperTab>
+    <WrapperTab >
       
       <Parallax
         className="image"

@@ -200,7 +200,7 @@ export default function BestSellingSection({bestSellingRef}) {
         responsive={responsive}
         arrows={true}
         infinite={true}
-        autoPlay={true}
+        // autoPlay={true}
         autoPlaySpeed={2000}
         customTransition="transform 500ms ease-in-out"
         transitionDuration={500}
