@@ -1,6 +1,9 @@
 import React from "react";
 
 import { testimonials } from "./NavItems";
+import { Rating, Typography } from "@mui/material";
+import logo from "./assets/logo.svg";
+import google from "./assets/google.png";
 
 const FeedbackCard = ({
   index,
@@ -42,13 +45,39 @@ const Feedbacks = () => {
       <div
         className={`bg-transparent rounded-2xl sm:px-16 px-6 sm:py-16 py-10 min-h-[300px]`}
       >
-        <div>
-          <p className="sm:text-[18px] text-[14px] text-white uppercase tracking-wider">
-            What others say
-          </p>
-          <h2 className="text-white font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]">
-            Testimonials.
-          </h2>
+        <div className="testimonials-wrapper">
+          <div className="icon---">
+            <div className="testimonials-wrapper-icon">
+              <img src={logo} alt="" />
+
+              <Rating name="4.0" value={4} readOnly />
+              <span className="testimonials-wrapper-icon-span">
+                Based on 76 reviews
+              </span>
+            </div>
+            <img
+              src="https://www.gokitetours.com/wp-content/plugins/widget-google-reviews/assets/img/powered_by_google_on_white.png"
+              alt=""
+              className="google-icon"
+            />
+            <button className="google-review-btn">
+              <a
+                href="https://www.google.com/search?q=sun+international+tours+and+travels&oq=sun+international+tours+and+travels&aqs=chrome.0.35i39i355i512i650j46i39i175i199i512i650i654j0i512l2j46i175i199i512j69i60l3.1464j0j7&sourceid=chrome&ie=UTF-8#lrd=0x3b05bbbb0144ef6b:0x33c0f364c57f1b9c,3,,,,"
+                target="_blank"
+                rel="noreferrer"
+              >
+                review us on <img src={google} alt="" />
+              </a>
+            </button>
+          </div>
+          <div className="testimonials-block">
+            <p className="sm:text-[18px] text-[14px] text-white uppercase tracking-wider">
+              What others say
+            </p>
+            <h2 className="text-white font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]">
+              Testimonials.
+            </h2>
+          </div>
         </div>
       </div>
       <div className={`-mt-20 pb-14 sm:px-16 px-6 flex gap-7 bg-transparent`}>
