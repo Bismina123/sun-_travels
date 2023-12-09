@@ -31,7 +31,7 @@ export default function LandingPageSectionForTrending() {
       >
         <SvgIcons>
           <Fade direction="down">
-            <div>
+            <div className="wrapper">
               <img className="hajj" src={hajj1} alt="" />
               <img className="rightCamel" src={hajj2} alt="" />
               <img className="leftCamel" src={hajj3} alt="" />
@@ -44,7 +44,7 @@ export default function LandingPageSectionForTrending() {
               <img className="rightPiller" src={hajj10} alt="" />
             </div>
           </Fade>
-          <JackInTheBox>
+          <Fade direction="left">
             <HajjSectionText>
               <h1>Hajj And Umra</h1>
 
@@ -100,7 +100,7 @@ export default function LandingPageSectionForTrending() {
                 <button>Explore more</button>
               </ButtonSection>
             </HajjSectionText>
-          </JackInTheBox>
+          </Fade>
         </SvgIcons>
       </Parallax>
     </Wrapper>
@@ -209,6 +209,27 @@ const SvgIcons = styled.div`
     right: 120px;
     z-index: 8;
   }
+  .wrapper{
+    position: relative;
+    bottom: 0;
+
+  @media (min-width: 1200px) and (max-width: 1365px) {
+    right: -32px;
+  }
+  @media (min-width: 1366px) and (max-width: 1448px) {
+    bottom: -151px;
+    right: -32px;
+  }
+  @media (min-width: 1449px) and (max-width: 1719px) {
+    right: -24px;
+    
+    bottom: -124px;
+  }
+  @media (min-width: 1720px) and (max-width: 4000px) {
+    right: -7px;
+    bottom: -251px;
+  }
+  }
 `;
 const HajjSectionText = styled.div`
   position: absolute;
@@ -224,6 +245,19 @@ const HajjSectionText = styled.div`
   border-top: 1px solid rgba(255, 255, 255, 0.5);
   border-left: 1px solid rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(5px);
+  @media (min-width: 1200px) and (max-width: 1365px) {
+    width: 700px;
+  }
+  @media (min-width: 1366px) and (max-width: 1448px) {
+    top: -74px;
+  }
+  @media (min-width: 1449px) and (max-width: 1719px) {
+    top: -92px;
+  }
+  @media (min-width: 1720px) and (max-width: 4000px) {
+    top: -33px;
+    width: 880px;
+  }
   h1 {
     font-size: 60px;
     font-family: "Lato";

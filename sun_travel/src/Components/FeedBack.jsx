@@ -2,7 +2,7 @@ import React from "react";
 
 import { testimonials } from "./NavItems";
 import { Rating, Typography } from "@mui/material";
-import logo from "./assets/logo.svg";
+import logo from "../assets/Logo-01 (3).svg";
 import google from "./assets/google.png";
 
 const FeedbackCard = ({

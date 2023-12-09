@@ -1,8 +1,6 @@
 import styled from "styled-components";
-import moveingClouds from "./assets/videoClouds.mp4";
 
-import clouds from "./assets/home-clouds-bg (1).png";
-import softClouds from "./assets/softlouds.png";
+
 
 function LandingCloudsSection() {
   return (

@@ -1,23 +1,19 @@
 import styled from "styled-components";
-import LandingCloudsSection from "../Components/LandingCloudsSction";
-import Navbar from "../Components/Navbar";
-import TrensingNowTextBox from "../Components/TrensingNowTextBox";
+
 import LandingPageSectionForTrending from "../Components/LandingPageSectionForTrending";
 import BestSellingSection from "../Components/BestSellingSection";
 import Feedbacks from "../Components/FeedBack";
 
 import TabsExclusive from "../Components/TabsExclusive/TabsExclusive";
-import Airoplane from "./Aeroplane";
+
 import TravelBanner from "../Components/TravelBanner";
-import { useRef } from "react";
+import { Suspense, useRef } from "react";
 
 import Footer from "../Components/Footer";
 import HeroSection from "../Components/HeroSection";
 import Scene from "../Components/Scene";
-import Slider from "../Components/Slider";
-import SliderComponent from "../Components/Slider";
 
-// import { TabsExclusive } from '../Components/TabsExclusive/TabsExclusive';
+import SliderComponent from "../Components/Slider";
 
 export default function LandingPage() {
   const bestSellingRef = useRef(null);
@@ -28,17 +24,16 @@ export default function LandingPage() {
       bestSellingRef.current.scrollIntoView({ behavior: "smooth" });
     }
   };
+
   return (
     <WrapperCard>
       <HeroSection scrollF={scrollToBestSelling} />
-      <SliderComponent />
-      <BestSellingSection bestSellingRef={bestSellingRef} />
+      <SliderComponent bestSellingRef={bestSellingRef}/>
+      <BestSellingSection  />
       <TravelBanner />
-      <Scene />
       <TabsExclusive />
-
+      <Scene />
       <LandingPageSectionForTrending />
-
       <Feedbacks />
       <Footer />
     </WrapperCard>

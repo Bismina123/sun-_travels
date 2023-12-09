@@ -13,10 +13,10 @@ import { fas } from "@fortawesome/free-solid-svg-icons";
 import AllCategory from "./AllCategory/AllCategory";
 import Cruise from "./CruiseSection/Cruise";
 import { Parallax } from "react-parallax";
-import exclusivebg from './../assets/pexels-asad-photo-maldives-1320674.jpg'
+
 // Add the entire solid icons library to the FontAwesome library
 library.add(fas);
-const TabsExclusive = ({}) => {
+const TabsExclusive = () => {
   const [tabvalue, setTabValue] = React.useState(0);
 
   const handleTabsChange = (event, newValue) => {
@@ -33,7 +33,8 @@ const TabsExclusive = ({}) => {
         margin: "11px 0px",
         padding: "0px 0px",
         background: "white",
-        borderRadius: "30px",
+        // borderRadius: "30px",
+        boxShadow: " 0px 7px 17px rgb(0 0 0 / 20%)",
         fontFamily: "Lato",
         color: "#000",
         transition: " transform 0.5s ease",
@@ -65,12 +66,11 @@ const TabsExclusive = ({}) => {
   };
 
   return (
-    <WrapperTab >
-      
+    <WrapperTab>
       <Parallax
         className="image"
         blur={2}
-        bgImage={exclusivebg}
+        bgImage="https://res.cloudinary.com/dubjhsibu/image/upload/v1701454388/sun-images/bgBlue_o8vbgg.jpg"
         strength={100}
         bgImageStyle={{ minHeight: "100vh" }}
       >
@@ -115,9 +115,7 @@ const TabsExclusive = ({}) => {
           {tabvalue === 2 && <Hotel />}
           {tabvalue === 3 && <Cruise />}
         </InnerDiv>
-      
       </Parallax>
-    
     </WrapperTab>
   );
 };
@@ -128,7 +126,7 @@ const BackDrop = styled.div`
   background: rgb(0 0 0 / 20%);
   height: 70%;
   top: 0;
-  left : 0;
+  left: 0;
   right: 0;
   bottom: 0;
   z-index: 1;
@@ -137,33 +135,33 @@ const WrapperTab = styled.div`
   height: 100vh;
   width: 100%;
   .image {
-  min-height: 100vh;
-  position: relative;
-  transition: transform 0.2s ease-in-out;
-}
+    min-height: 100vh;
+    position: relative;
+    transition: transform 0.2s ease-in-out;
+  }
 
-.image .content {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100vh;
-}
+  .image .content {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+  }
 
-.content span.img-txt {
-  background-color: #333;
-  text-transform: uppercase;
-  color: #fff;
-  padding: 1rem;
-  font-size: 1.5rem;
-  letter-spacing: 10px;
-}
+  .content span.img-txt {
+    background-color: #333;
+    text-transform: uppercase;
+    color: #fff;
+    padding: 1rem;
+    font-size: 1.5rem;
+    letter-spacing: 10px;
+  }
   /* background-color: green; */
 `;
 const InnerDiv = styled.div`
-  margin: 20px;
-  padding: 70px 20px;
+  /* margin: 20px; */
+  /* padding: 70px 20px; */
   /* background-color: #8287eed6; */
   height: auto;
   display: flex;
@@ -171,6 +169,8 @@ const InnerDiv = styled.div`
   justify-content: flex-start;
   gap: 20px;
   width: 100%;
+  margin: 20px auto;
+  padding: 0px 14px;
 `;
 const HeadingLabel = styled.div`
   font-family: "Lato";
@@ -178,8 +178,9 @@ const HeadingLabel = styled.div`
   text-align: center;
   font-weight: 700;
   text-transform: uppercase;
+  margin: 20px auto;
   span {
     color: #001499;
   }
-  margin-top: 100px;
+  /* margin-top: 100px; */
 `;

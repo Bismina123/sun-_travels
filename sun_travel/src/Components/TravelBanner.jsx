@@ -1,9 +1,6 @@
-import React from "react";
 import styled from "styled-components";
-import girl from "./assets/girl1.jpg";
-import place from "./assets/place2.jpg";
-import snow from "./assets/snow.jpg";
-import { Fade, Slide } from "react-awesome-reveal";
+
+import { Slide } from "react-awesome-reveal";
 function TravelBanner() {
   return (
     <TravelBannerWrapper>
@@ -20,49 +17,58 @@ function TravelBanner() {
           </TextSide>
         </Slide>
         <Slide direction="right">
-        <ImageSide>
-          <div className="image1">
-            <img src={girl} alt="" />
-          </div>
-          <div className="image2">
-            <img src={place} alt="" />
-          </div>
-        </ImageSide>
+          <ImageSide>
+            <div className="image1">
+              <img
+                src="https://res.cloudinary.com/dubjhsibu/image/upload/v1701454233/sun-images/girl1_dq56wx.jpg"
+                alt=""
+              />
+            </div>
+            <div className="image2">
+              <img
+                src="https://res.cloudinary.com/dubjhsibu/image/upload/v1701454186/sun-images/place2_nktz4e.jpg"
+                alt=""
+              />
+            </div>
+          </ImageSide>
         </Slide>
       </TopSide>
       <BottomSide>
-      <Slide direction="left">
-        <LeftSide>
-          <div className="snowImage">
-            <img src={snow} alt="" />
-          </div>
-        </LeftSide>
+        <Slide direction="left">
+          <LeftSide>
+            <div className="snowImage">
+              <img
+                src="https://res.cloudinary.com/dubjhsibu/image/upload/v1701454204/sun-images/snow_tx0v2w.jpg"
+                alt=""
+              />
+            </div>
+          </LeftSide>
         </Slide>
         <Slide direction="right">
-        <RightSide>
-          <span></span>
-          <label>About us!</label>
-          <p>
-            Elevate your wanderlust with our curated tours, where each itinerary
-            is a gateway to immersive experiences and unparalleled adventures.
-            Join us, and let your journey unfold seamlessly as we turn travel
-            dreams into unforgettable realities.
-          </p>
-          <div className="destinations">
-            <div>
-              <div className="number">150+</div>
-              <div>Destinations</div>
+          <RightSide>
+            <span></span>
+            <label>About us!</label>
+            <p>
+              Elevate your wanderlust with our curated tours, where each
+              itinerary is a gateway to immersive experiences and unparalleled
+              adventures. Join us, and let your journey unfold seamlessly as we
+              turn travel dreams into unforgettable realities.
+            </p>
+            <div className="destinations">
+              <div>
+                <div className="number">150+</div>
+                <div>Destinations</div>
+              </div>
+              <div>
+                <div className="number">30+</div>
+                <div>Country</div>
+              </div>
+              <div>
+                <div className="number">500+</div>
+                <div>Happy Customers</div>
+              </div>
             </div>
-            <div>
-              <div className="number">30+</div>
-              <div>Country</div>
-            </div>
-            <div>
-              <div className="number">500+</div>
-              <div>Happy Customers</div>
-            </div>
-          </div>
-        </RightSide>
+          </RightSide>
         </Slide>
       </BottomSide>
     </TravelBannerWrapper>

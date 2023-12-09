@@ -1,7 +1,7 @@
-import React from "react";
 import Slider from "react-slick";
 import styled from "styled-components";
-const SliderComponent = () => {
+
+const SliderComponent = ({ bestSellingRef }) => {
   const settings = {
     dots: true,
     infinite: true,
@@ -12,36 +12,59 @@ const SliderComponent = () => {
     slidesToScroll: 1,
   };
   return (
-    <SliderWrapper>
+    <SliderWrapper ref={bestSellingRef}>
+      <BlogsText>Blogs</BlogsText>
       <Slider {...settings}>
-        <div>
+        <div className="imagediv">
           <img
-            src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            src="https://res.cloudinary.com/dubjhsibu/image/upload/v1701453883/sun-images/couple_qxkcxe.jpg"
             alt=""
           />
-          <h3>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</h3>
+
+          <h3>
+            Explore current trends in honeymoon travel, such as unique
+            destination weddings, adventurous honeymoons, and themed experiences
+          </h3>
         </div>
-        <div>
+        <div className="imagediv">
           <img
-            src="https://images.unsplash.com/photo-1503220317375-aaad61436b1b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            src="https://res.cloudinary.com/dubjhsibu/image/upload/v1701453949/sun-images/family_1_liheap.jpg"
             alt=""
           />
-          <h3>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</h3>
+          {/* <h1>Blogs</h1> */}
+          <h3>
+            Create content catering to families, including kid-friendly
+            destinations and activities.
+          </h3>
         </div>
-        <div>
+        <div className="imagediv">
           <img
-            src="https://images.unsplash.com/photo-1539635278303-d4002c07eae3?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            src="https://res.cloudinary.com/dubjhsibu/image/upload/v1701454005/sun-images/trekking_jgjny7.jpg"
             alt=""
           />
-          <h3>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</h3>
+          {/* <h1>Blogs</h1> */}
+          <h3>
+            Cover adventurous activities such as hiking, trekking, scuba diving,
+            and other outdoor pursuits.
+          </h3>
         </div>
       </Slider>
     </SliderWrapper>
   );
 };
+const BlogsText = styled.div`
+  text-align: left;
+  /* padding: 0px; */
+  margin-left: 40px;
+  font-family: "Lato";
+  text-transform: uppercase;
+  font-size: 35px;
+  font-weight: 800;
+  color: #001499;
+`;
 const SliderWrapper = styled.div`
   height: auto;
-  padding: 100px 0;
+  padding: 12px 0;
   .slick-slider {
     .slick-dots {
       display: none !important;
@@ -66,18 +89,32 @@ const SliderWrapper = styled.div`
 
   div {
     position: relative;
+    h1 {
+      position: absolute;
+      top: 12px;
+      font-weight: 900;
+      left: 60px;
+      color: #001499;
+      font-size: 33px;
+      text-transform: uppercase;
+    }
     h3 {
       position: absolute;
       bottom: 42px;
-      width: 33%;
+      width: 45%;
       left: 60px;
       color: #fff;
       font-size: 33px;
     }
-    img {
+    .imagediv {
       height: 350px;
       width: 100%;
-      object-fit: cover;
+      overflow: hidden;
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
     }
   }
 `;

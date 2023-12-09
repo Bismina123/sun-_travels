@@ -1,34 +1,23 @@
-import React from "react";
 import styled from "styled-components";
-import image from "./assets/satellite.jpg";
+
 import { FaIndianRupeeSign } from "react-icons/fa6";
 
-import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import maldives from "./assets/maldives2.jpg";
-import dubai from "./assets/duabi.jpg";
-import thailand from "./assets/Thailand.jpg";
-import bali from "./assets/bali.jpg";
-import singapore from "./assets/singapore.jpg";
-import malaysia from "./assets/malaysia.jpg";
-import kashmir from "./assets/kashmir.jpg";
-import kulu from "./assets/kulu.jpg";
-import viatnam from "./assets/viatnam.jpg";
-import copadia from "./assets/compadia.jpg";
-import kerala from "./assets/kerla.jpg";
+
 import bestSelling from "./assets/bestPrice.png";
 import refund from "../assets/4947544-removebg-preview.png";
 import safety from "../assets/images-removebg-preview.png";
-import { Bounce, Roll, Slide } from "react-awesome-reveal";
+import { Bounce } from "react-awesome-reveal";
 
-export default function BestSellingSection({ bestSellingRef }) {
+export default function BestSellingSection() {
   const HotSellTourDetails = [
     {
       id: 1,
-      image: maldives,
+      image:
+        "https://res.cloudinary.com/dubjhsibu/image/upload/v1701369196/sun-images/bestselling1_1_zi6rf8.jpg",
       place: "Maldives Paradise",
       days: "5 Days",
       price: 80000,
@@ -37,7 +26,8 @@ export default function BestSellingSection({ bestSellingRef }) {
     },
     {
       id: 2,
-      image: thailand,
+      image:
+        "https://res.cloudinary.com/dubjhsibu/image/upload/v1701369192/sun-images/bestselling1_3_aguwjj.jpg",
       place: "Thailand",
       days: "10 Days",
       price: 10000,
@@ -46,7 +36,8 @@ export default function BestSellingSection({ bestSellingRef }) {
     },
     {
       id: 3,
-      image: bali,
+      image:
+        "https://res.cloudinary.com/dubjhsibu/image/upload/v1701453651/sun-images/bestselling1_5_zvqmuh.jpg",
       place: "Bali Bliss",
       days: "5 Days",
       price: 1200,
@@ -55,7 +46,8 @@ export default function BestSellingSection({ bestSellingRef }) {
     },
     {
       id: 4,
-      image: singapore,
+      image:
+        "https://res.cloudinary.com/dubjhsibu/image/upload/v1701453657/sun-images/bestselling1_4_rtlvpv.jpg",
       place: "Singapore Cityscape",
       days: "4 Days",
       price: 1500,
@@ -64,7 +56,8 @@ export default function BestSellingSection({ bestSellingRef }) {
     },
     {
       id: 5,
-      image: malaysia,
+      image:
+        "https://res.cloudinary.com/dubjhsibu/image/upload/v1701453661/sun-images/bestselling1_7_auwpeh.jpg",
       place: "Malaysian Marvels",
       days: "8 Days",
       price: 2000,
@@ -73,7 +66,8 @@ export default function BestSellingSection({ bestSellingRef }) {
     },
     {
       id: 6,
-      image: viatnam,
+      image:
+        "https://res.cloudinary.com/dubjhsibu/image/upload/v1701369137/sun-images/bestselling1_8_yjejcw.jpg",
       place: "Vietnam Discovery",
       days: " 12 Days",
       price: 2800,
@@ -82,7 +76,8 @@ export default function BestSellingSection({ bestSellingRef }) {
     },
     {
       id: 7,
-      image: copadia,
+      image:
+        "https://res.cloudinary.com/dubjhsibu/image/upload/v1701453789/sun-images/compadia_f1v6je.jpg",
       place: "Cambodian Heritage",
       days: "6 Days",
       price: 1800,
@@ -91,7 +86,8 @@ export default function BestSellingSection({ bestSellingRef }) {
     },
     {
       id: 8,
-      image: kashmir,
+      image:
+        "https://res.cloudinary.com/dubjhsibu/image/upload/v1701453224/sun-images/bestselling1_2_szhg3w.jpg",
       place: "Kashmir Valley Retreat",
       days: "7 Days",
       price: 2200,
@@ -100,7 +96,8 @@ export default function BestSellingSection({ bestSellingRef }) {
     },
     {
       id: 9,
-      image: kulu,
+      image:
+        "https://res.cloudinary.com/dubjhsibu/image/upload/v1701369191/sun-images/bestselling1_10_xb5n17.jpg",
       place: "Golden Triangle & Himachal",
       days: "9 Days",
       price: 1900,
@@ -109,7 +106,8 @@ export default function BestSellingSection({ bestSellingRef }) {
     },
     {
       id: 10,
-      image: kerala,
+      image:
+        "https://res.cloudinary.com/dubjhsibu/image/upload/v1701369104/sun-images/bestselling1_6_zis5fo.jpg",
       place: "Kerala Backwaters",
       days: "6 Days",
       price: 1600,
@@ -118,7 +116,8 @@ export default function BestSellingSection({ bestSellingRef }) {
     },
     {
       id: 11,
-      image: dubai,
+      image:
+        "https://res.cloudinary.com/dubjhsibu/image/upload/v1701453651/sun-images/bestselling1_9_gicf0u.jpg",
       place: "Dubai Group Tour",
       days: "5 Days",
       price: 28000,
@@ -150,7 +149,7 @@ export default function BestSellingSection({ bestSellingRef }) {
   const responsive = {
     desktop: {
       breakpoint: { max: 1599, min: 1025 },
-      items: 4,
+      items: 5,
       paritialVisibilityGutter: 20,
     },
     desktopLarge: {
@@ -191,7 +190,7 @@ export default function BestSellingSection({ bestSellingRef }) {
   };
   return (
     <Wrapper>
-      <HotSellingSection ref={bestSellingRef}>
+      <HotSellingSection>
         <div className="headingLabel">
           <span>Hot-Selling </span>Tour Bundles
         </div>
@@ -201,7 +200,7 @@ export default function BestSellingSection({ bestSellingRef }) {
         responsive={responsive}
         arrows={true}
         infinite={true}
-        // autoPlay={true}
+        autoPlay={true}
         autoPlaySpeed={2000}
         customTransition="transform 500ms ease-in-out"
         transitionDuration={500}
@@ -270,9 +269,9 @@ export default function BestSellingSection({ bestSellingRef }) {
           );
         })}
       </Carousel>
-    
-        <GauranteeDiv>
-        <Bounce>
+
+      <GauranteeDiv>
+        {/* <Bounce> */}
           <GridContainer>
             {assuredData.map((item, id) => {
               return (
@@ -291,8 +290,8 @@ export default function BestSellingSection({ bestSellingRef }) {
               );
             })}
           </GridContainer>
-      </Bounce>
-        </GauranteeDiv>
+        {/* </Bounce> */}
+      </GauranteeDiv>
       {/* <CardView className="otherNews-CardView"></CardView> */}
     </Wrapper>
   );
