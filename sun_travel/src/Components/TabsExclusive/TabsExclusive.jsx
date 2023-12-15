@@ -108,7 +108,7 @@ const TabsExclusive = () => {
               iconPosition="start"
             />
 
-            {/* <Tab label="Menu6" icon={<FontAwesomeIcon icon={['fas', 'island-tropical'] }/> }iconPosition="start"/> */}
+           
           </Tabs>
           {tabvalue === 0 && <AllCategory />}
           {tabvalue === 1 && <Flight />}
@@ -132,7 +132,7 @@ const BackDrop = styled.div`
   z-index: 1;
 `;
 const WrapperTab = styled.div`
-  height: 100vh;
+  height: auto;
   width: 100%;
   .image {
     min-height: 100vh;

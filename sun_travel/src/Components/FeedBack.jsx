@@ -56,7 +56,7 @@ const Feedbacks = () => {
               </span>
             </div>
             <img
-              src="https://www.gokitetours.com/wp-content/plugins/widget-google-reviews/assets/img/powered_by_google_on_white.png"
+              src={logo}
               alt=""
               className="google-icon"
             />

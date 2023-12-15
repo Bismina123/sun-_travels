@@ -2,16 +2,15 @@ import styled from "styled-components";
 
 import { FaIndianRupeeSign } from "react-icons/fa6";
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
+
+
+
 
 import bestSelling from "./assets/bestPrice.png";
 import refund from "../assets/4947544-removebg-preview.png";
 import safety from "../assets/images-removebg-preview.png";
-import { Bounce } from "react-awesome-reveal";
 
+import Slider from "react-slick";
 export default function BestSellingSection() {
   const HotSellTourDetails = [
     {
@@ -146,47 +145,23 @@ export default function BestSellingSection() {
       description: "Stay updated with travel restrictions due to COVID-19.",
     },
   ];
-  const responsive = {
-    desktop: {
-      breakpoint: { max: 1599, min: 1025 },
-      items: 5,
-      paritialVisibilityGutter: 20,
-    },
-    desktopLarge: {
-      breakpoint: { max: 3000, min: 1600 },
-      items: 5,
-      paritialVisibilityGutter: 20,
-    },
-    tabletLarge: {
-      breakpoint: { max: 1024, min: 768 },
-      items: 4,
-      paritialVisibilityGutter: -10,
-    },
-    tablet: {
-      breakpoint: { max: 767, min: 576 },
-      items: 4,
-      paritialVisibilityGutter: -50,
-    },
-    tabletSmall: {
-      breakpoint: { max: 575, min: 425 },
-      items: 3,
-      paritialVisibilityGutter: -60,
-    },
-    mobileLarge: {
-      breakpoint: { max: 424, min: 375 },
-      items: 2,
-      paritialVisibilityGutter: -20,
-    },
-    mobile: {
-      breakpoint: { max: 374, min: 321 },
-      items: 1,
-      paritialVisibilityGutter: 60,
-    },
-    mobileSmall: {
-      breakpoint: { max: 320, min: 0 },
-      items: 1,
-      paritialVisibilityGutter: 50,
-    },
+
+  var settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    arrows: true,
+    autoplay: true,
+    draggable: true,
+    // Slider:true
+
+    // beforeChange: handleBeforeChange,
+    // afterChange: handleAfterChange,
+
+    // beforeChange={handleBeforeChange}
+    // afterChange={handleAfterChange}
   };
   return (
     <Wrapper>
@@ -196,37 +171,12 @@ export default function BestSellingSection() {
         </div>
       </HotSellingSection>
 
-      <Carousel
-        responsive={responsive}
-        arrows={true}
-        infinite={true}
-        autoPlay={true}
-        autoPlaySpeed={2000}
-        customTransition="transform 500ms ease-in-out"
-        transitionDuration={500}
-        containerClass="carousel-container"
-        itemClass="carousel-item"
-        removeArrowOnDeviceType={["tablet", "mobile"]}
-        deviceType="desktop"
-        sliderClass="carousel-slider"
-        dotListClass="custom-dot-list-style"
-        renderButtonGroupOutside={true}
-        renderDotsOutside={false}
-        slidesToSlide={2}
-        swipeable={true}
-        partialVisible={true}
-        showDots={false}
-        ssr={true}
-        draggable={true}
-        // beforeChange={handleBeforeChange}
-        // afterChange={handleAfterChange}
-      >
-        {HotSellTourDetails?.map((item, id) => {
+      <CustomSlider {...settings}>
+        {HotSellTourDetails?.map((item) => {
           return (
             <>
               <ContentWrapper
-                // key={id}
-                // onClick={e => handleDetails(e, item?.id, 'Announcement')}
+               
                 className="other-ContentWrapper"
               >
                 <div className="cardWrapper">
@@ -268,35 +218,52 @@ export default function BestSellingSection() {
             </>
           );
         })}
-      </Carousel>
+      </CustomSlider>
 
       <GauranteeDiv>
         {/* <Bounce> */}
-          <GridContainer>
-            {assuredData.map((item, id) => {
-              return (
-                <>
-                  <GridItem key={id}>
-                    <BestSelling>
-                      <div className="imageContainer">
-                        <img src={item.image} alt="" />
-                      </div>
-                      <span></span>
-                      <label className="margin-l">{item.title}</label>
-                      <p className="margin-l">{item.description}</p>
-                    </BestSelling>
-                  </GridItem>
-                </>
-              );
-            })}
-          </GridContainer>
+        <GridContainer>
+          {assuredData.map((item, id) => {
+            return (
+              <>
+                <GridItem key={id}>
+                  <BestSelling>
+                    <div className="imageContainer">
+                      <img src={item.image} alt="" />
+                    </div>
+                    <span></span>
+                    <label className="margin-l">{item.title}</label>
+                    <p className="margin-l">{item.description}</p>
+                  </BestSelling>
+                </GridItem>
+              </>
+            );
+          })}
+        </GridContainer>
         {/* </Bounce> */}
       </GauranteeDiv>
       {/* <CardView className="otherNews-CardView"></CardView> */}
     </Wrapper>
   );
 }
-
+const CustomSlider = styled(Slider)`
+  .slick-track {
+    display: flex;
+  }
+  .slick-list {
+    padding-left: 25px;
+  }
+  /* .slick-slider { */
+  .slick-prev {
+    z-index: 10 !important;
+    left: 33px !important;
+  }
+  .slick-next{
+    right: 38px !important;
+  }
+/* } */
+    
+`;
 const GridContainer = styled.div`
   display: grid;
   grid-template-columns: auto auto auto;

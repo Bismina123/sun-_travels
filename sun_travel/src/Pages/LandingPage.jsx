@@ -7,13 +7,14 @@ import Feedbacks from "../Components/FeedBack";
 import TabsExclusive from "../Components/TabsExclusive/TabsExclusive";
 
 import TravelBanner from "../Components/TravelBanner";
-import { Suspense, useRef } from "react";
+import {  useRef } from "react";
 
 import Footer from "../Components/Footer";
 import HeroSection from "../Components/HeroSection";
 import Scene from "../Components/Scene";
 
 import SliderComponent from "../Components/Slider";
+import UpdatedFooter from "../Components/UpdatedFooter";
 
 export default function LandingPage() {
   const bestSellingRef = useRef(null);
@@ -35,7 +36,9 @@ export default function LandingPage() {
       <Scene />
       <LandingPageSectionForTrending />
       <Feedbacks />
-      <Footer />
+     
+      {/* <Footer /> */}
+      <UpdatedFooter/>
     </WrapperCard>
   );
 }

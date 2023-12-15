@@ -8,7 +8,7 @@ import { Suspense, useEffect, useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import downArrow from "./assets/down_arrow2.png";
-import { Fade, Slide } from "react-awesome-reveal";
+import cloudImage from './assets/cloud.jpg'
 const degreesToRadians = (degrees) => degrees * (Math.PI / 180);
 
 const Cloud = ({ speed, zIndex, left, bottom }) => {
@@ -57,30 +57,14 @@ const Cloud = ({ speed, zIndex, left, bottom }) => {
         transformOrigin: "left bottom",
       }}
     >
-      <img src="cloud.webp" alt="Cloud" />
-      <img src="cloud.webp" alt="Cloud" />
-      <img src="cloud.webp" alt="Cloud" />
+      <img src={cloudImage} alt="Cloud" />
+      <img src={cloudImage} alt="Cloud" />
+      <img src={cloudImage} alt="Cloud" />
     </div>
   );
 };
 
-// const flyIn = (helicopter) => {
-//   helicopter.scene.rotation.order = "YXZ";
-//   helicopter.scene.scale.set(1.8, 1.8, 1.8);
 
-//   helicopter.scene.position.x = -500;
-//   helicopter.scene.position.y = -300;
-//   helicopter.scene.position.z = -800;
-
-//   helicopter.scene.quaternion.setFromEuler(
-//     new THREE.Euler(
-//       degreesToRadians(-6),
-//       degreesToRadians(70),
-//       degreesToRadians(30),
-//       "YXZ"
-//     )
-//   );
-// }
 
 const reset = (helicopter) => {
   helicopter.scene.rotation.order = "YXZ";
@@ -221,31 +205,7 @@ const AeroplaneModel = ({ aeroplaneRef, helicopter, setCanvasZIndex }) => {
     }
   });
 
-  //   const [hoverPosition, setHoverPosition] = useState(null);
-  //   const handleMouseMove = (event) => {
-  //     const { clientX, clientY } = event;
-  //     const { width, height } = gl.domElement.getBoundingClientRect();
-  //     const xPercent = (clientX / width) * 100;
-  //     if (xPercent < 20) {
-  //       setHoverPosition('left');
-  //     } else if (xPercent > 80) {
-  //       setHoverPosition('right');
-  //     } else {
-  //       setHoverPosition(null);
-  //     }
-  //   };
 
-  //   useEffect(() => {
-  //     window.addEventListener('mousemove', handleMouseMove);
-  //     return () => {
-  //       window.removeEventListener('mousemove', handleMouseMove);
-  //     };
-  //   }, [gl.domElement]);
-
-  //   useEffect(() => {
-  //     console.log(hoverPosition)
-
-  //   }, [hoverPosition])
 
   return (
     <group ref={aeroplaneRef}>
@@ -305,13 +265,13 @@ const HeroSection = ({ scrollF }) => {
   useEffect(() => {
     setTimeout(() => {
       setFirstText(false);
-    }, 5000);
+    }, 500);
   }, []);
   return (
     <Container id="aeroplane-model" className="hero-section">
       {firstText ? (
         // <Fade direction="left">
-        <Text>Get ready to explore with Sun Tours and Travels</Text>
+        <Text>Get ready to explore with  Sun International Tours & Travels </Text>
       ) : (
         // </Fade>
         <>
@@ -394,7 +354,7 @@ const HeroSection = ({ scrollF }) => {
           right: "50px",
           bottom: "50px",
           borderRadius: "50%",
-          zIndex: 10,
+          zIndex: 11,
           backgroundColor: "#ffffff",
           boxShadow: "10px 10px 30px rgba(0, 0, 0, 0.2)",
           display: "flex",
@@ -411,21 +371,27 @@ const HeroSection = ({ scrollF }) => {
           }}
         />
       </div>
+      <BackDrop></BackDrop>
     </Container>
   );
 };
 
-// const HeroSection = () => {
-//   return (
-//     <div className="hero-section">
-//         <Canvas>
-//         <ambientLight intensity={0.5} />
-//         <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
-//         <PlaneModel />
-//         </Canvas>
-//     </div>
-// );
-// };
+
+const BackDrop = styled.div`
+  position: absolute;
+  background-image: linear-gradient(
+    to top,
+    rgb(255 255 255 / 97%) 0,
+    rgb(255 246 246 / 5%) 50%,
+    rgb(254 254 254 / 0%) 100%
+  );
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+`;
 
 const Container = styled.div`
   width: 100vw;
@@ -443,7 +409,7 @@ const Text = styled.div`
   width: 500px;
   left: 20%;
   /* background: red; */
-  z-index: 9;
+  z-index: 11;
   text-align: left;
 
   transform: translateX(-200%);
@@ -453,12 +419,7 @@ const Text = styled.div`
     20% {
       opacity: 0;
     }
-    /* 60% {
-		transform: translateX(-45%);
-	} */
-    /* 75% {
-		transform: translateX(-52%);
-	} */
+ 
     100% {
       opacity: 1;
       transform: translateX(-50%);
@@ -477,7 +438,7 @@ const TextWrapper = styled.div`
   width: 900px;
   left: 4%;
 
-  z-index: 9;
+   z-index: 11;
   text-align: left;
   font-family: "Roboto" !important;
 
@@ -523,7 +484,7 @@ const ButtonExplore=styled.div`
 position: absolute;
 bottom: 80px;
 left: 4%;
-z-index: 9;
+z-index: 11;
 .button-57 {
   position: relative;
   overflow: hidden;

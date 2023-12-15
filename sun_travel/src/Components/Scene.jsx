@@ -13,10 +13,10 @@ import educationLogo from "./assets/educationLogo.png";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Scene() {
-  // ---------- gsap context
+
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      // ---------- selecting all horizontal sections
+     
       const horizontalSections = gsap.utils.toArray(".horizontal-section");
 
       // ---------- applying horizontal scroll animation

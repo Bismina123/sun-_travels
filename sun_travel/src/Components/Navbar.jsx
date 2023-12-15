@@ -7,14 +7,11 @@ import img3 from "./assets/3.png";
 import img4 from "./assets/4.png";
 import img5 from "./assets/5.png";
 import img6 from "./assets/6.png";
-// import { Link } from "react-router-dom";
-// import { Link as ScrollLink, Element } from "react-scroll";
-import { Link, Link as LinkRouter } from "react-router-dom";
-import LandingPage from "../Pages/LandingPage";
+
+import { Link } from "react-router-dom";
+
 import { useEffect, useState } from "react";
-import NavbarStyle from "./NavbarStyle";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
+
 import {
   atestationDropdown,
   certificateDropdown,
@@ -22,16 +19,9 @@ import {
   navItems,
   tourDropdown,
 } from "./NavItems";
-import Dropdown from "./TourDropDown";
-export default function Navbar() {
-  const Menus = [
-    { name: "Home", icon: "home-outline", dis: "translate-x-0" },
-    { name: "Profile", icon: "person-outline", dis: "translate-x-16" },
-    { name: "Message", icon: "chatbubble-outline", dis: "translate-x-32" },
-    { name: "Photos", icon: "camera-outline", dis: "translate-x-48" },
-    { name: "Settings", icon: "settings-outline", dis: "translate-x-64" },
-  ];
 
+import expandIcon from "./assets/down-arrow (1).svg";
+export default function Navbar() {
   const [navbar, setNavbar] = useState(false);
   console.log(navbar, "navbar");
   useEffect(() => {
@@ -48,96 +38,157 @@ export default function Navbar() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  const [tourDropdownShow, setourDropdownShow] = useState(false);
-  const [attestationDropdownShow, setAttestationDropdownShow] = useState(false);
-  const [certificateDropdownShow, setCertificateDropdownShow] = useState(false);
-  const [showMore, setShowMore] = useState(false);
+
   return (
     <MainWrapper>
-      {/* <Slide top> */}
       <Wrapper>
         <HeaderWrapper className={navbar ? "navbar active" : "navbar"}>
           <HeaderLogo>
             <Link to="/" className="navbar-logo">
-              <img src={Logo} />
+              <img src={Logo} alt="logo" />
             </Link>
           </HeaderLogo>
-          <NavPagesWrapper>
-            <ul className="nav-items">
+
+          <NavItems>
+            <ul className="navbar-links">
               {navItems.map((item) => {
                 if (item.title === "Tours") {
                   return (
-                    <li
-                      key={item.id}
-                      className={item.cName}
-                      onMouseEnter={() => setourDropdownShow(true)}
-                      onMouseLeave={() => setourDropdownShow(false)}
-                    >
-                      <Link to={item.path}>
-                        {item.title}
-                        <ExpandMoreIcon />
+                    <li className="navbar-dropdown" key={item.id}>
+                      <Link to={item.path} className="link-main">
+                        <WrapperLabelIcon className="iconHover">
+                          <img src={item.icon} alt={item.icon} />
+                          {item.title}
+                          <img
+                            className="dropdownArrowIcon"
+                            src={expandIcon}
+                            alt={expandIcon}
+                          />
+                        </WrapperLabelIcon>
                       </Link>
-                      {tourDropdownShow && <Dropdown data={tourDropdown} />}
+                      <div className="dropdown">
+                        {tourDropdown.map((subTours, index) => {
+                          return (
+                            <Link
+                              to={subTours.path}
+                              key={index}
+                              className="dropdown-submenu-hover"
+                            >
+                              {subTours.title}
+                            </Link>
+                          );
+                        })}
+                      </div>
                     </li>
                   );
                 }
                 if (item.title === "Atestation") {
                   return (
-                    <li
-                      key={item.id}
-                      className={item.cName}
-                      onMouseEnter={() => setAttestationDropdownShow(true)}
-                      onMouseLeave={() => setAttestationDropdownShow(false)}
-                    >
-                      <Link to={item.path}>
-                        {item.title} <ExpandMoreIcon />
+                    <li className="navbar-dropdown" key={item.id}>
+                      <Link to={item.path} className="link-main">
+                        <WrapperLabelIcon className="iconHover">
+                          <img src={item.icon} alt={item.icon} />
+
+                          {item.title}
+                          <img
+                            className="dropdownArrowIcon"
+                            src={expandIcon}
+                            alt={expandIcon}
+                          />
+                        </WrapperLabelIcon>
                       </Link>
-                      {attestationDropdownShow && (
-                        <Dropdown data={atestationDropdown} />
-                      )}
+                      <div className="dropdown">
+                        {atestationDropdown.map((subTours, index) => {
+                          return (
+                            <Link
+                              to={subTours.path}
+                              key={index}
+                              className="dropdown-submenu-hover"
+                            >
+                              {subTours.title}
+                            </Link>
+                          );
+                        })}
+                      </div>
                     </li>
                   );
                 }
+
                 if (item.title === "Certificate") {
                   return (
-                    <li
-                      key={item.id}
-                      className={item.cName}
-                      onMouseEnter={() => setCertificateDropdownShow(true)}
-                      onMouseLeave={() => setCertificateDropdownShow(false)}
-                    >
-                      <Link to={item.path}>
-                        {item.title} <ExpandMoreIcon />
+                    <li className="navbar-dropdown" key={item.id}>
+                      <Link to={item.path} className="link-main">
+                        <WrapperLabelIcon className="iconHover">
+                          <img src={item.icon} alt={item.icon} />
+
+                          {item.title}
+                          <img
+                            className="dropdownArrowIcon"
+                            src={expandIcon}
+                            alt={expandIcon}
+                          />
+                        </WrapperLabelIcon>
                       </Link>
-                      {certificateDropdownShow && (
-                        <Dropdown data={certificateDropdown} />
-                      )}
+                      <div className="dropdown">
+                        {certificateDropdown.map((subTours, index) => {
+                          return (
+                            <Link
+                              to={subTours.path}
+                              key={index}
+                              className="dropdown-submenu-hover"
+                            >
+                              {subTours.title}
+                            </Link>
+                          );
+                        })}
+                      </div>
                     </li>
                   );
                 }
                 if (item.title === "More") {
                   return (
-                    <li
-                      key={item.id}
-                      className={item.cName}
-                      onMouseEnter={() => setShowMore(true)}
-                      onMouseLeave={() => setShowMore(false)}
-                    >
-                      <Link to={item.path}>
-                        {item.title} <MoreVertIcon />
+                    <li className="navbar-dropdown" key={item.id}>
+                      <Link to={item.path} className="link-main">
+                        <WrapperLabelIcon className="iconHover">
+                          <img src={item.icon} alt={item.icon} />
+                          {item.title}
+                          <img
+                            className="dropdownArrowIcon"
+                            src={expandIcon}
+                            alt={expandIcon}
+                          />{" "}
+                        </WrapperLabelIcon>
                       </Link>
-                      {showMore && <Dropdown data={moreDropDown} />}
+                      <div className="dropdown">
+                        {moreDropDown.map((subTours, index) => {
+                          return (
+                            <Link
+                              to={subTours.path}
+                              key={index}
+                              className="dropdown-submenu-hover"
+                            >
+                              {subTours.title}
+                            </Link>
+                          );
+                        })}
+                      </div>
                     </li>
                   );
                 }
                 return (
                   <li key={item.id} className={item.cName}>
-                    <Link to={item.path}>{item.title}</Link>
+                    <Link to={item.path} className="link-main">
+                      <WrapperLabelIcon className="iconHover">
+                        <img src={item.icon} alt={item.icon} />
+                        {item.title}
+                      </WrapperLabelIcon>
+                    </Link>
                   </li>
                 );
               })}
             </ul>
-          </NavPagesWrapper>
+          </NavItems>
+
           <HeaderMenu>
             <HeaderUl>
               <HeaderLi>
@@ -159,36 +210,140 @@ export default function Navbar() {
                 <img src={img6} alt="" />
               </HeaderLi>
             </HeaderUl>
-            <p className="approved-p">(Approved by Govt. of India, Ministry of Tourism)</p>
+            <p className="approved-p">
+              (Approved by Govt. of India, Ministry of Tourism)
+            </p>
           </HeaderMenu>
         </HeaderWrapper>
       </Wrapper>
     </MainWrapper>
   );
 }
-const NavPagesWrapper = styled.div`
+const WrapperLabelIcon = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  padding: 0 0 0 80px;
-  .pageName {
-    padding-top: 6px;
-    display: flex;
-    align-items: center;
+  justify-content: center;
+  gap: 5px;
+
+  img {
+    width: 21px;
+    height: 21px;
+  }
+  .dropdownArrowIcon {
+    /* img { */
+    width: 15px;
+    height: 15px;
+    margin-left: -4px;
+    /* } */
+  }
+  &:hover {
+    color: #ffc40d;
+    img {
+      filter: invert(62%) sepia(100%) saturate(7380%) hue-rotate(26deg)
+        brightness(302%) contrast(109%) !important;
+      fill: #ffc40d !important;
+    }
+  }
+  .iconHover {
   }
 `;
-const MenuBlock = styled.div`
-  margin-left: 20px;
+const NavItems = styled.div`
+  .navbar-links {
+    list-style-type: none;
+    display: flex;
+  }
+
+  .navbar-links li a {
+    display: block;
+    text-decoration: none;
+    color: #0b2f6a;
+    padding: 20px 15px;
+    font-weight: 700;
+    transition: 0.4s all;
+    text-transform: capitalize;
+    font-family: "lato" !important;
+    letter-spacing: 1px;
+    font-size: 17px;
+  }
+  .navbar-dropdown {
+    display: flex;
+    align-items: center;
+    height: 10vh;
+  }
+  .navbar-links li.navbar-dropdown {
+    position: relative;
+  }
+
+  .navbar-links li.navbar-dropdown:hover .dropdown {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0px);
+  }
+
+  .navbar-links li.navbar-dropdown .dropdown {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    padding: 20px 0;
+    top: 100%;
+    transform: translateY(50px);
+    left: 0;
+    min-width: 250px;
+    width: auto;
+    background-color: #fff;
+    box-shadow: 0px 10px 10px 3px rgba(0, 0, 0, 0.3);
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    z-index: 111;
+    transition: 0.4s all;
+    text-align: left;
+  }
+  .navbar-links li.navbar-dropdown .dropdown a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: 400;
+    text-transform: capitalize;
+    font-family: "lato" !important;
+  }
+  .navbar-dropdown .dropdown a:hover {
+    padding-left: 30px;
+  }
+  /* .navbar-links li a:hover {
+    color: #ffc40d;
+  } */
+  .dropdown-submenu-hover:hover {
+    color: #ffc40d;
+  }
+  .link-main {
+    position: relative;
+  }
+  .iconHover:after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 10px;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: #0b2f6a;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+  }
+  .iconHover:hover:after {
+    width: 100%;
+    left: 0;
+  }
+  .dropdown {
+    padding: 20px !important;
+  }
 `;
 
 const MainWrapper = styled.div`
-  /* padding: 20px 0; */
   display: flex;
   align-items: center;
   justify-content: space-around;
   width: 100%;
-  /* border-bottom: 1px solid #001499; */
-  /* background: rgb(255 255 255 / 20%); */
+
   z-index: 99;
   top: 0;
   left: 0;
@@ -222,8 +377,8 @@ const HeaderLogo = styled.div`
   display: flex;
   align-items: center;
   img {
-    max-height: 45px;
-    min-width: 120px;
+    max-height: 53px;
+    min-width: 136px;
   }
 `;
 const HeaderUl = styled.ul`
@@ -235,13 +390,9 @@ const HeaderUl = styled.ul`
   justify-content: center;
 `;
 const HeaderMenu = styled.div`
-  /* text-align: center; */
-  /* display: flex; */
-  /* align-items: center; */
-  /* justify-content: flex-end; */
   p {
     font-family: "Lato";
-    /* margin: 5px 0 0 0; */
+
     font-size: 12px;
     color: #001499;
     border-radius: 5px;
@@ -264,12 +415,5 @@ const HeaderLi = styled.li`
   img {
     max-width: 35px;
   }
-  /* .rotate {
-    transition: all 1s ease-in-out;
-  }
-  .rotate:hover {
-    transform: translateY(-10px);
-    /* background: #65b5da8f; */
-  /* border-radius: 50%; */
-  /* }  */
+ 
 `;
