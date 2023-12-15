@@ -14,7 +14,7 @@ export default function LandingPageSectionForTrending() {
       <Parallax
         className="image"
         blur={0}
-        bgImage="https://res.cloudinary.com/dubjhsibu/image/upload/v1702151200/sun-images/abstract-luxury-gradient-blue-background-smooth-dark-blue-with-black-vignette-studio-banner_1_bcbte2.jpg"
+        bgImage="https://res.cloudinary.com/dubjhsibu/image/upload/v1702654890/sun-images/bannerblue_nliefk.jpg"
         strength={200}
         bgImageStyle={{ minHeight: "100vh" }}
       >
