@@ -81,7 +81,7 @@ export default function LandingPageSectionForTrending() {
             <div className="wrapper">
               <KaabaImageWrapper>
                 <img
-                  src="https://res.cloudinary.com/dubjhsibu/image/upload/v1702151087/sun-images/Umr-01_1_aalc3e.png"
+                  src="https://res.cloudinary.com/dubjhsibu/image/upload/v1702659835/sun-images/UmrUpdated-removebg-preview_vqhoj0.png"
                   alt=""
                 />
               </KaabaImageWrapper>
