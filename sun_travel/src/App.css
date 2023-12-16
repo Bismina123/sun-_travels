@@ -77,19 +77,19 @@
 .navbar.active .nav-item a {
   color: #ffffff;
 }
-.navbar.active .navbar-dropdown a{
-  color: #ffffff; 
+.navbar.active .navbar-dropdown a {
+  color: #ffffff;
 }
-.navbar.active .nav-item img{
-  filter:invert(1) brightness(2)
+.navbar.active .nav-item img {
+  filter: invert(1) brightness(2);
 }
-.navbar.active .navbar-dropdown  img{
-  filter:invert(1) brightness(2)
+.navbar.active .navbar-dropdown img {
+  filter: invert(1) brightness(2);
 }
-.navbar.active .dropdown a{
+.navbar.active .dropdown a {
   color: #0b2f6a;
 }
-.navbar.active .dropdown .dropdown-submenu-hover:hover{
+.navbar.active .dropdown .dropdown-submenu-hover:hover {
   color: #ffc40d;
 }
 
@@ -113,6 +113,10 @@
 .icon--- {
   position: absolute;
   top: -36px;
+  display: flex;
+  min-width: 100%;
+  width: 100%;
+  justify-content: space-between;
 }
 .testimonials-wrapper-icon {
   display: grid;
@@ -139,6 +143,7 @@
   transition: all 0.2s ease-in-out !important;
   display: flex;
   margin-top: 10px;
+  max-height: 45px;
 }
 .google-review-btn img {
   width: 15px;
