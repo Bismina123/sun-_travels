@@ -32,9 +32,9 @@ export default function LandingPage() {
       <SliderComponent bestSellingRef={bestSellingRef}/>
       <BestSellingSection  />
       <TravelBanner />
-      <TabsExclusive />
+      {/* <TabsExclusive />
       <Scene />
-      <LandingPageSectionForTrending />
+      <LandingPageSectionForTrending /> */}
       <Feedbacks />
      
       {/* <Footer /> */}
