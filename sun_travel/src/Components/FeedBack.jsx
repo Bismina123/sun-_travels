@@ -55,11 +55,6 @@ const Feedbacks = () => {
                 Based on 76 reviews
               </span>
             </div>
-            <img
-              src="https://www.gokitetours.com/wp-content/plugins/widget-google-reviews/assets/img/powered_by_google_on_white.png"
-              alt=""
-              className="google-icon"
-            />
             <button className="google-review-btn">
               <a
                 href="https://www.google.com/search?q=sun+international+tours+and+travels&oq=sun+international+tours+and+travels&aqs=chrome.0.35i39i355i512i650j46i39i175i199i512i650i654j0i512l2j46i175i199i512j69i60l3.1464j0j7&sourceid=chrome&ie=UTF-8#lrd=0x3b05bbbb0144ef6b:0x33c0f364c57f1b9c,3,,,,"

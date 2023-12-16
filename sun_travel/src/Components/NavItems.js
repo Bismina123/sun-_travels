@@ -1,5 +1,12 @@
 import dropDownArrow from "./assets/dropDown.png";
 import more from "./assets/more.png";
+import homeIcon from "./assets/home.svg";
+import visaIcon from "./assets/visaIcon.svg";
+import flightIcon from "./assets/passport (1).svg";
+import attesttionIcon from "./assets/authentic.svg";
+import certificateIcon from "./assets/certificate (1).svg";
+import touricon from "./assets/holiday (1).svg";
+import moreIcon from "./assets/application (2) (1).svg";
 
 export const navItems = [
   {
@@ -7,7 +14,7 @@ export const navItems = [
     title: "Home",
     path: "./",
     cName: "nav-item",
-    icon: "",
+    icon: homeIcon,
   },
 
   {
@@ -15,37 +22,46 @@ export const navItems = [
     title: "Visa",
     path: "./Visa",
     cName: "nav-item",
-    icon: "",
+    icon: visaIcon,
+  },
+  {
+    id: 7,
+    title: "Flight",
+    path: "./",
+    cName: "nav-item",
+    icon: flightIcon,
   },
   {
     id: 3,
     title: "Tours",
     path: "./Tours",
     cName: "nav-item",
-    icon: "",
+    icon: touricon,
   },
+  
 
   {
     id: 4,
     title: "Atestation",
     path: "./Atestation",
     cName: "nav-item",
-    icon: dropDownArrow,
+    icon: attesttionIcon,
   },
   {
     id: 5,
     title: "Certificate",
     path: "./Certificate",
     cName: "nav-item",
-    icon: dropDownArrow,
+    icon: certificateIcon,
   },
   {
     id: 6,
     title: "More",
     path: "./",
     cName: "nav-item more-icon",
-    icon: more,
+    icon: moreIcon,
   },
+ 
 ];
 export const moreDropDown = [
   {

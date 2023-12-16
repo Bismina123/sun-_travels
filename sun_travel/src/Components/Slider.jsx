@@ -1,5 +1,7 @@
 import Slider from "react-slick";
 import styled from "styled-components";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const SliderComponent = ({ bestSellingRef }) => {
   const settings = {
@@ -31,7 +33,6 @@ const SliderComponent = ({ bestSellingRef }) => {
             src="https://res.cloudinary.com/dubjhsibu/image/upload/v1701453949/sun-images/family_1_liheap.jpg"
             alt=""
           />
-          {/* <h1>Blogs</h1> */}
           <h3>
             Create content catering to families, including kid-friendly
             destinations and activities.
@@ -42,7 +43,6 @@ const SliderComponent = ({ bestSellingRef }) => {
             src="https://res.cloudinary.com/dubjhsibu/image/upload/v1701454005/sun-images/trekking_jgjny7.jpg"
             alt=""
           />
-          {/* <h1>Blogs</h1> */}
           <h3>
             Cover adventurous activities such as hiking, trekking, scuba diving,
             and other outdoor pursuits.

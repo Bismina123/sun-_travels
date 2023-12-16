@@ -13,10 +13,10 @@ import educationLogo from "./assets/educationLogo.png";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Scene() {
-  // ---------- gsap context
+
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      // ---------- selecting all horizontal sections
+     
       const horizontalSections = gsap.utils.toArray(".horizontal-section");
 
       // ---------- applying horizontal scroll animation
@@ -191,7 +191,7 @@ const SectionWrapper = styled.main`
     background-image: url(${"https://res.cloudinary.com/dubjhsibu/image/upload/v1701454764/sun-images/flightTIcket_wva86x.jpg"});
   }
   .horizontal-section:nth-child(4) {
-    background-image: url(${"https://res.cloudinary.com/dubjhsibu/image/upload/v1701456016/sun-images/attestation_ziq2kc.jpg"});
+    background-image: url(${"https://res.cloudinary.com/dubjhsibu/image/upload/v1702660217/sun-images/attestationupdated_vidrqk.jpg"});
   }
   .horizontal-section:nth-child(5) {
     background-image: url(${"https://res.cloudinary.com/dubjhsibu/image/upload/v1701455700/sun-images/educationLogo_gutdpc.jpg"});

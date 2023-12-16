@@ -35,7 +35,7 @@ export default function Cruise() {
           <GridItem key={index}>
             <div className="rectangle"></div>
             <div className="card-img">
-              <img src={item.image} />
+              <img src={item.image}alt="" />
             </div>
 
             <div className="card-img-overlay">

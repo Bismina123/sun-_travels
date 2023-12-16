@@ -1,49 +1,25 @@
-import React from "react";
-import Satellite from "../assets/background1.jpg";
+
 import { Parallax } from "react-parallax";
 import styled from "styled-components";
-import hajj1 from "./assets/hajj/2.svg";
-import hajj2 from "./assets/hajj/3.svg";
-import hajj3 from "./assets/hajj/4.svg";
-import hajj4 from "./assets/hajj/5.svg";
-import hajj5 from "./assets/hajj/6.svg";
-import hajj6 from "./assets/hajj/7.svg";
-import hajj7 from "./assets/hajj/8.svg";
-import hajj8 from "./assets/hajj/9.svg";
-import hajj9 from "./assets/hajj/10.svg";
-import hajj10 from "./assets/hajj/11.svg";
+
 import priceing from "./assets/priceingTag.png";
 import ApartmentIcon from "@mui/icons-material/Apartment";
 import AirplaneTicketIcon from "@mui/icons-material/AirplaneTicket";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import visa from "./assets/visa.svg";
-import { Fade, Flip, Hinge, JackInTheBox } from "react-awesome-reveal";
-// import hajj1 from "./assets/hajj/2.svg";
+import { Fade } from "react-awesome-reveal";
+
 export default function LandingPageSectionForTrending() {
   return (
     <Wrapper>
       <Parallax
         className="image"
         blur={0}
-        bgImage={Satellite}
+        bgImage="https://res.cloudinary.com/dubjhsibu/image/upload/v1702654890/sun-images/bannerblue_nliefk.jpg"
         strength={200}
         bgImageStyle={{ minHeight: "100vh" }}
       >
         <SvgIcons>
-          <Fade direction="down">
-            <div className="wrapper">
-              <img className="hajj" src={hajj1} alt="" />
-              <img className="rightCamel" src={hajj2} alt="" />
-              <img className="leftCamel" src={hajj3} alt="" />
-              <img className="boy" src={hajj4} alt="" />
-              <img className="girl" src={hajj5} alt="" />
-              <img className="building" src={hajj6} alt="" />
-              <img className="sand" src={hajj7} alt="" />
-              <img className="kaaba" src={hajj8} alt="" />
-              <img className="leftPiller" src={hajj9} alt="" />
-              <img className="rightPiller" src={hajj10} alt="" />
-            </div>
-          </Fade>
+          
           <Fade direction="left">
             <HajjSectionText>
               <h1>Hajj And Umra</h1>
@@ -101,11 +77,34 @@ export default function LandingPageSectionForTrending() {
               </ButtonSection>
             </HajjSectionText>
           </Fade>
+          <Fade direction="down">
+            <div className="wrapper">
+              <KaabaImageWrapper>
+                <img
+                  src="https://res.cloudinary.com/dubjhsibu/image/upload/v1702659835/sun-images/UmrUpdated-removebg-preview_vqhoj0.png"
+                  alt=""
+                />
+              </KaabaImageWrapper>
+            </div>
+          </Fade>
         </SvgIcons>
       </Parallax>
     </Wrapper>
   );
 }
+const KaabaImageWrapper=styled.div`
+img{
+  width: 100%;
+  height: 100%;
+}
+position: absolute;
+top: -130px;
+right: 0;
+width: 40%;
+
+  overflow: hidden;
+
+`;
 const Wrapper = styled.div`
   .image {
     min-height: 100vh;
@@ -209,26 +208,26 @@ const SvgIcons = styled.div`
     right: 120px;
     z-index: 8;
   }
-  .wrapper{
+  .wrapper {
     position: relative;
-    bottom: 0;
+    /* bottom: 0; */
 
-  @media (min-width: 1200px) and (max-width: 1365px) {
-    right: -32px;
-  }
-  @media (min-width: 1366px) and (max-width: 1448px) {
-    bottom: -151px;
-    right: -32px;
-  }
-  @media (min-width: 1449px) and (max-width: 1719px) {
-    right: -24px;
-    
-    bottom: -124px;
-  }
-  @media (min-width: 1720px) and (max-width: 4000px) {
-    right: -7px;
-    bottom: -251px;
-  }
+    @media (min-width: 1200px) and (max-width: 1365px) {
+      right: -32px;
+    }
+    @media (min-width: 1366px) and (max-width: 1448px) {
+      bottom: -151px;
+      right: -32px;
+    }
+    @media (min-width: 1449px) and (max-width: 1719px) {
+      right: -24px;
+
+      bottom: -124px;
+    }
+    @media (min-width: 1720px) and (max-width: 4000px) {
+      right: -7px;
+      bottom: -251px;
+    }
   }
 `;
 const HajjSectionText = styled.div`
@@ -266,14 +265,14 @@ const HajjSectionText = styled.div`
     color: goldenrod;
   }
   p {
-    font-size: 15px;
+    font-size: 20px;
     line-height: 21px;
     letter-spacing: 1px;
     color: goldenrod;
   }
   h6 {
     text-align: left;
-    color: #a3a4ae;
+    color:#ffff;
     font-size: 14px;
     margin-top: 20px;
     padding: 0px 44px;
@@ -304,7 +303,7 @@ const HajjSectionText = styled.div`
       font-size: 15px;
       font-family: "Lato";
       font-weight: bolder;
-      color: #818388;
+      color: #fff;
       text-transform: uppercase;
       span {
         color: goldenrod;
@@ -340,7 +339,7 @@ const IconDiv = styled.div`
   color: #fff;
   svg {
     color: rgb(218, 165, 32);
-    font-size: 18px;
+    font-size: 30px;
   }
   .visa {
     width: 14px;

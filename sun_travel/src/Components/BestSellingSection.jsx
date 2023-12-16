@@ -1,23 +1,17 @@
 import styled from "styled-components";
-
 import { FaIndianRupeeSign } from "react-icons/fa6";
-
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
-
 import bestSelling from "./assets/bestPrice.png";
 import refund from "../assets/4947544-removebg-preview.png";
 import safety from "../assets/images-removebg-preview.png";
-import { Bounce } from "react-awesome-reveal";
-
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import image from "../assets/images-removebg-preview.png";
 export default function BestSellingSection() {
   const HotSellTourDetails = [
     {
       id: 1,
-      image:
-        "https://res.cloudinary.com/dubjhsibu/image/upload/v1701369196/sun-images/bestselling1_1_zi6rf8.jpg",
+      image: image,
       place: "Maldives Paradise",
       days: "5 Days",
       price: 80000,
@@ -26,8 +20,7 @@ export default function BestSellingSection() {
     },
     {
       id: 2,
-      image:
-        "https://res.cloudinary.com/dubjhsibu/image/upload/v1701369192/sun-images/bestselling1_3_aguwjj.jpg",
+      image: image,
       place: "Thailand",
       days: "10 Days",
       price: 10000,
@@ -36,8 +29,7 @@ export default function BestSellingSection() {
     },
     {
       id: 3,
-      image:
-        "https://res.cloudinary.com/dubjhsibu/image/upload/v1701453651/sun-images/bestselling1_5_zvqmuh.jpg",
+      image: image,
       place: "Bali Bliss",
       days: "5 Days",
       price: 1200,
@@ -46,8 +38,7 @@ export default function BestSellingSection() {
     },
     {
       id: 4,
-      image:
-        "https://res.cloudinary.com/dubjhsibu/image/upload/v1701453657/sun-images/bestselling1_4_rtlvpv.jpg",
+      image: image,
       place: "Singapore Cityscape",
       days: "4 Days",
       price: 1500,
@@ -56,8 +47,7 @@ export default function BestSellingSection() {
     },
     {
       id: 5,
-      image:
-        "https://res.cloudinary.com/dubjhsibu/image/upload/v1701453661/sun-images/bestselling1_7_auwpeh.jpg",
+      image: image,
       place: "Malaysian Marvels",
       days: "8 Days",
       price: 2000,
@@ -66,8 +56,7 @@ export default function BestSellingSection() {
     },
     {
       id: 6,
-      image:
-        "https://res.cloudinary.com/dubjhsibu/image/upload/v1701369137/sun-images/bestselling1_8_yjejcw.jpg",
+      image: image,
       place: "Vietnam Discovery",
       days: " 12 Days",
       price: 2800,
@@ -76,8 +65,7 @@ export default function BestSellingSection() {
     },
     {
       id: 7,
-      image:
-        "https://res.cloudinary.com/dubjhsibu/image/upload/v1701453789/sun-images/compadia_f1v6je.jpg",
+      image: image,
       place: "Cambodian Heritage",
       days: "6 Days",
       price: 1800,
@@ -86,8 +74,7 @@ export default function BestSellingSection() {
     },
     {
       id: 8,
-      image:
-        "https://res.cloudinary.com/dubjhsibu/image/upload/v1701453224/sun-images/bestselling1_2_szhg3w.jpg",
+      image: image,
       place: "Kashmir Valley Retreat",
       days: "7 Days",
       price: 2200,
@@ -96,8 +83,7 @@ export default function BestSellingSection() {
     },
     {
       id: 9,
-      image:
-        "https://res.cloudinary.com/dubjhsibu/image/upload/v1701369191/sun-images/bestselling1_10_xb5n17.jpg",
+      image: image,
       place: "Golden Triangle & Himachal",
       days: "9 Days",
       price: 1900,
@@ -106,8 +92,7 @@ export default function BestSellingSection() {
     },
     {
       id: 10,
-      image:
-        "https://res.cloudinary.com/dubjhsibu/image/upload/v1701369104/sun-images/bestselling1_6_zis5fo.jpg",
+      image: image,
       place: "Kerala Backwaters",
       days: "6 Days",
       price: 1600,
@@ -116,8 +101,7 @@ export default function BestSellingSection() {
     },
     {
       id: 11,
-      image:
-        "https://res.cloudinary.com/dubjhsibu/image/upload/v1701453651/sun-images/bestselling1_9_gicf0u.jpg",
+      image: image,
       place: "Dubai Group Tour",
       days: "5 Days",
       price: 28000,
@@ -146,47 +130,23 @@ export default function BestSellingSection() {
       description: "Stay updated with travel restrictions due to COVID-19.",
     },
   ];
-  const responsive = {
-    desktop: {
-      breakpoint: { max: 1599, min: 1025 },
-      items: 5,
-      paritialVisibilityGutter: 20,
-    },
-    desktopLarge: {
-      breakpoint: { max: 3000, min: 1600 },
-      items: 5,
-      paritialVisibilityGutter: 20,
-    },
-    tabletLarge: {
-      breakpoint: { max: 1024, min: 768 },
-      items: 4,
-      paritialVisibilityGutter: -10,
-    },
-    tablet: {
-      breakpoint: { max: 767, min: 576 },
-      items: 4,
-      paritialVisibilityGutter: -50,
-    },
-    tabletSmall: {
-      breakpoint: { max: 575, min: 425 },
-      items: 3,
-      paritialVisibilityGutter: -60,
-    },
-    mobileLarge: {
-      breakpoint: { max: 424, min: 375 },
-      items: 2,
-      paritialVisibilityGutter: -20,
-    },
-    mobile: {
-      breakpoint: { max: 374, min: 321 },
-      items: 1,
-      paritialVisibilityGutter: 60,
-    },
-    mobileSmall: {
-      breakpoint: { max: 320, min: 0 },
-      items: 1,
-      paritialVisibilityGutter: 50,
-    },
+
+  var settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    arrows: true,
+    autoplay: true,
+    draggable: true,
+    // Slider:true
+
+    // beforeChange: handleBeforeChange,
+    // afterChange: handleAfterChange,
+
+    // beforeChange={handleBeforeChange}
+    // afterChange={handleAfterChange}
   };
   return (
     <Wrapper>
@@ -196,39 +156,11 @@ export default function BestSellingSection() {
         </div>
       </HotSellingSection>
 
-      <Carousel
-        responsive={responsive}
-        arrows={true}
-        infinite={true}
-        autoPlay={true}
-        autoPlaySpeed={2000}
-        customTransition="transform 500ms ease-in-out"
-        transitionDuration={500}
-        containerClass="carousel-container"
-        itemClass="carousel-item"
-        removeArrowOnDeviceType={["tablet", "mobile"]}
-        deviceType="desktop"
-        sliderClass="carousel-slider"
-        dotListClass="custom-dot-list-style"
-        renderButtonGroupOutside={true}
-        renderDotsOutside={false}
-        slidesToSlide={2}
-        swipeable={true}
-        partialVisible={true}
-        showDots={false}
-        ssr={true}
-        draggable={true}
-        // beforeChange={handleBeforeChange}
-        // afterChange={handleAfterChange}
-      >
-        {HotSellTourDetails?.map((item, id) => {
+      <CustomSlider {...settings}>
+        {HotSellTourDetails?.map((item) => {
           return (
             <>
-              <ContentWrapper
-                // key={id}
-                // onClick={e => handleDetails(e, item?.id, 'Announcement')}
-                className="other-ContentWrapper"
-              >
+              <ContentWrapper className="other-ContentWrapper">
                 <div className="cardWrapper">
                   <ImgStyle
                     className="image-style"
@@ -268,35 +200,51 @@ export default function BestSellingSection() {
             </>
           );
         })}
-      </Carousel>
+      </CustomSlider>
 
       <GauranteeDiv>
         {/* <Bounce> */}
-          <GridContainer>
-            {assuredData.map((item, id) => {
-              return (
-                <>
-                  <GridItem key={id}>
-                    <BestSelling>
-                      <div className="imageContainer">
-                        <img src={item.image} alt="" />
-                      </div>
-                      <span></span>
-                      <label className="margin-l">{item.title}</label>
-                      <p className="margin-l">{item.description}</p>
-                    </BestSelling>
-                  </GridItem>
-                </>
-              );
-            })}
-          </GridContainer>
+        <GridContainer>
+          {assuredData.map((item, id) => {
+            return (
+              <>
+                <GridItem key={id}>
+                  <BestSelling>
+                    <div className="imageContainer">
+                      <img src={item.image} alt="" />
+                    </div>
+                    <span></span>
+                    <label className="margin-l">{item.title}</label>
+                    <p className="margin-l">{item.description}</p>
+                  </BestSelling>
+                </GridItem>
+              </>
+            );
+          })}
+        </GridContainer>
         {/* </Bounce> */}
       </GauranteeDiv>
       {/* <CardView className="otherNews-CardView"></CardView> */}
     </Wrapper>
   );
 }
-
+const CustomSlider = styled(Slider)`
+  .slick-track {
+    display: flex;
+  }
+  .slick-list {
+    padding-left: 25px;
+  }
+  /* .slick-slider { */
+  .slick-prev {
+    z-index: 10 !important;
+    left: 33px !important;
+  }
+  .slick-next {
+    right: 38px !important;
+  }
+  /* } */
+`;
 const GridContainer = styled.div`
   display: grid;
   grid-template-columns: auto auto auto;
