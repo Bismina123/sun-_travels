@@ -4,19 +4,19 @@ import styled from "styled-components";
 export default function Cruise() {
     const CruiseData = [
         {
-          image: "https://res.cloudinary.com/dubjhsibu/image/upload/v1701455355/sun-images/cruise1_1_tjmbnq.jpg",
+          image: "https://res.cloudinary.com/dubjhsibu/image/upload/v1702737899/sun-images/ship2_jpnmv2.jpg",
           category: "Cruise",
           heading: "Exotic Cruise Destinations",
           para: "Embark on a journey to exotic destinations with our exclusive cruise packages. Experience luxury at sea.",
         },
         {
-          image: "https://res.cloudinary.com/dubjhsibu/image/upload/v1701455420/sun-images/cruise1_3_urabrh.jpg",
+          image: "https://res.cloudinary.com/dubjhsibu/image/upload/v1702737896/sun-images/ship3_tuhwil.jpg",
           category: "Cruise",
           heading: "Family Cruise Adventures",
           para: "Create unforgettable family memories with our family-friendly cruise adventures. Fun for all ages!",
         },
         {
-          image: "https://res.cloudinary.com/dubjhsibu/image/upload/v1701455462/sun-images/cruise1_2_ka3wso.jpg",
+          image: "https://res.cloudinary.com/dubjhsibu/image/upload/v1702737886/sun-images/ship1_l8xl0j.jpg",
           category: "Cruise",
           heading: "Romantic Cruise Getaways",
           para: "Reignite the romance with our romantic cruise getaways. Sail away to enchanting destinations.",

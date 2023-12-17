@@ -19,7 +19,7 @@ const SliderComponent = ({ bestSellingRef }) => {
       <Slider {...settings}>
         <div className="imagediv">
           <img
-            src="https://res.cloudinary.com/dubjhsibu/image/upload/v1701453883/sun-images/couple_qxkcxe.jpg"
+            src="https://res.cloudinary.com/dubjhsibu/image/upload/v1702787808/sun-images/coupleupdate_ulez2d.jpg"
             alt=""
           />
 
@@ -30,7 +30,7 @@ const SliderComponent = ({ bestSellingRef }) => {
         </div>
         <div className="imagediv">
           <img
-            src="https://res.cloudinary.com/dubjhsibu/image/upload/v1701453949/sun-images/family_1_liheap.jpg"
+            src="https://res.cloudinary.com/dubjhsibu/image/upload/v1702788049/sun-images/couplefamily_jl5ccy.jpg"
             alt=""
           />
           <h3>
@@ -40,7 +40,7 @@ const SliderComponent = ({ bestSellingRef }) => {
         </div>
         <div className="imagediv">
           <img
-            src="https://res.cloudinary.com/dubjhsibu/image/upload/v1701454005/sun-images/trekking_jgjny7.jpg"
+            src="https://res.cloudinary.com/dubjhsibu/image/upload/v1702788049/sun-images/trekingoptimized_ytyyti.jpg"
             alt=""
           />
           <h3>

@@ -33,7 +33,7 @@ export default function LandingPage() {
       <BestSellingSection  />
       <TravelBanner />
       <TabsExclusive />
-      {/* <Scene /> */}
+      <Scene />
       <LandingPageSectionForTrending />
       <Feedbacks />
      

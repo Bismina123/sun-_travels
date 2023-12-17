@@ -20,13 +20,13 @@ function TravelBanner() {
           <ImageSide>
             <div className="image1">
               <img
-                src="https://res.cloudinary.com/dubjhsibu/image/upload/v1701454233/sun-images/girl1_dq56wx.jpg"
+                src="https://res.cloudinary.com/dubjhsibu/image/upload/v1702788381/sun-images/lady_iomtfm.jpg"
                 alt=""
               />
             </div>
             <div className="image2">
               <img
-                src="https://res.cloudinary.com/dubjhsibu/image/upload/v1701454186/sun-images/place2_nktz4e.jpg"
+                src="https://res.cloudinary.com/dubjhsibu/image/upload/v1702788379/sun-images/shiprotate_juztyt.jpg"
                 alt=""
               />
             </div>
@@ -38,7 +38,7 @@ function TravelBanner() {
           <LeftSide>
             <div className="snowImage">
               <img
-                src="https://res.cloudinary.com/dubjhsibu/image/upload/v1701454204/sun-images/snow_tx0v2w.jpg"
+                src="https://res.cloudinary.com/dubjhsibu/image/upload/v1702788379/sun-images/ladyback_j5akkj.jpg"
                 alt=""
               />
             </div>

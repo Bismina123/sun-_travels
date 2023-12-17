@@ -5,7 +5,7 @@ import styled from "styled-components";
 export default function AllCategory() {
   const HotDealsData = [
     {
-      image: "https://res.cloudinary.com/dubjhsibu/image/upload/v1701454982/sun-images/visaupdated_lougvo.jpg",
+      image: "https://res.cloudinary.com/dubjhsibu/image/upload/v1702787635/sun-images/visafront_ycjjyg.jpg",
       category: "Visa",
       heading: "VISA Apply Visa Online",
       para: "Avail discounts up to Rs.1000* on your Visa Services",
@@ -17,7 +17,7 @@ export default function AllCategory() {
       para: "Get exclusive deals on flight bookings. Fly to your favorite destinations!",
     },
     {
-      image: "https://res.cloudinary.com/dubjhsibu/image/upload/v1701453883/sun-images/couple_qxkcxe.jpg",
+      image: "https://res.cloudinary.com/dubjhsibu/image/upload/v1702787808/sun-images/coupleupdate_ulez2d.jpg",
       category: "Tour",
       heading: "Explore Exciting Tours",
       para: "Discover amazing tours and create unforgettable memories. Book your adventure now!",

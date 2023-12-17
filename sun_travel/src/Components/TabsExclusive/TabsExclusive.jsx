@@ -70,7 +70,7 @@ const TabsExclusive = () => {
       <Parallax
         className="image"
         blur={2}
-        bgImage="https://res.cloudinary.com/dubjhsibu/image/upload/v1701454388/sun-images/bgBlue_o8vbgg.jpg"
+        bgImage="https://res.cloudinary.com/dubjhsibu/image/upload/v1702788563/sun-images/bluesky_apll11.jpg"
         strength={100}
         bgImageStyle={{ minHeight: "100vh" }}
       >

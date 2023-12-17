@@ -11,7 +11,7 @@ export default function BestSellingSection() {
   const HotSellTourDetails = [
     {
       id: 1,
-      image: image,
+      image: "https://res.cloudinary.com/dubjhsibu/image/upload/v1702789808/sun-images/maldives_u0mshm.jpg",
       place: "Maldives Paradise",
       days: "5 Days",
       price: 80000,
@@ -20,7 +20,7 @@ export default function BestSellingSection() {
     },
     {
       id: 2,
-      image: image,
+      image: "https://res.cloudinary.com/dubjhsibu/image/upload/v1702789822/sun-images/thailand_e6wv30.jpg",
       place: "Thailand",
       days: "10 Days",
       price: 10000,
@@ -29,34 +29,34 @@ export default function BestSellingSection() {
     },
     {
       id: 3,
-      image: image,
+      image: "https://res.cloudinary.com/dubjhsibu/image/upload/v1702789824/sun-images/bali_phyndo.jpg",
       place: "Bali Bliss",
       days: "5 Days",
-      price: 1200,
+      price: 12000,
       offerType: "50%offer",
       description: "Experience the blissful beauty of Bali for 5 days.",
     },
     {
       id: 4,
-      image: image,
+      image: "https://res.cloudinary.com/dubjhsibu/image/upload/v1702789822/sun-images/singappore_cs1hod.jpg",
       place: "Singapore Cityscape",
       days: "4 Days",
-      price: 1500,
+      price: 15000,
       offerType: "combooffer",
       description: "Discover the vibrant cityscape of Singapore for 4 days.",
     },
     {
       id: 5,
-      image: image,
+      image: "https://res.cloudinary.com/dubjhsibu/image/upload/v1702789820/sun-images/malaysia_tyancb.jpg",
       place: "Malaysian Marvels",
       days: "8 Days",
-      price: 2000,
+      price: 20000,
       offerType: "our best seller",
       description: "Marvel at the wonders of Malaysia for 8 days.",
     },
     {
       id: 6,
-      image: image,
+      image: "https://res.cloudinary.com/dubjhsibu/image/upload/v1702789805/sun-images/last_jrxp6y.jpg",
       place: "Vietnam Discovery",
       days: " 12 Days",
       price: 2800,
@@ -65,43 +65,43 @@ export default function BestSellingSection() {
     },
     {
       id: 7,
-      image: image,
+      image: "https://res.cloudinary.com/dubjhsibu/image/upload/v1702789825/sun-images/campodia_rsw0dm.jpg",
       place: "Cambodian Heritage",
       days: "6 Days",
-      price: 1800,
+      price: 18000,
       offerType: "50%offer",
       description: "Explore the rich heritage of Cambodia for 6 days.",
     },
     {
       id: 8,
-      image: image,
+      image: "https://res.cloudinary.com/dubjhsibu/image/upload/v1702789809/sun-images/kashmir_k7ikoz.jpg",
       place: "Kashmir Valley Retreat",
       days: "7 Days",
-      price: 2200,
+      price: 22000,
       offerType: "combooffer",
       description: "Retreat to the scenic beauty of Kashmir for 7 days.",
     },
     {
       id: 9,
-      image: image,
+      image: "https://res.cloudinary.com/dubjhsibu/image/upload/v1702789822/sun-images/kulu_nfnwm1.jpg",
       place: "Golden Triangle & Himachal",
       days: "9 Days",
-      price: 1900,
+      price: 19000,
       offerType: "our best seller",
       description: "Discover the Golden Triangle and Himachal for 9 days.",
     },
     {
       id: 10,
-      image: image,
+      image: "https://res.cloudinary.com/dubjhsibu/image/upload/v1702789802/sun-images/kerala_qg0byu.jpg",
       place: "Kerala Backwaters",
       days: "6 Days",
-      price: 1600,
+      price: 16000,
       offerType: "20% offer",
       description: "Experience the serene backwaters of Kerala for 6 days.",
     },
     {
       id: 11,
-      image: image,
+      image: "https://res.cloudinary.com/dubjhsibu/image/upload/v1702789823/sun-images/dubai_woxmwb.jpg",
       place: "Dubai Group Tour",
       days: "5 Days",
       price: 28000,
@@ -270,7 +270,7 @@ const BestSelling = styled.div`
     display: flex;
     justify-content: flex-start;
     /* padding-left: 32px; */
-    background: #a47534;
+    background: #0b2f6a;
     width: 52px;
     transform: rotate(45deg);
   }
@@ -280,12 +280,13 @@ const BestSelling = styled.div`
     height: 2px;
     left: 80px;
     top: 26px;
-    background-color: #a47534;
+    background-color: #0b2f6a;
   }
   img {
     transform: rotate(-45deg);
     width: 53px;
     padding: 4px;
+    filter: invert(1);
   }
   .margin-l {
     padding-left: 80px;

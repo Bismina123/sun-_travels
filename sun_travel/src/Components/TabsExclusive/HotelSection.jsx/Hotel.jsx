@@ -5,21 +5,21 @@ export default function Hotel() {
   const HotelData = [
     {
       image:
-        "https://res.cloudinary.com/dubjhsibu/image/upload/v1701455243/sun-images/hotel_1_e8rtyp.jpg",
+        "https://res.cloudinary.com/dubjhsibu/image/upload/v1702738238/sun-images/hotel1_z7zakq.jpg",
       category: "Hotel ",
       heading: "Luxury Resorts Special Offer",
       para: "Enjoy a luxurious stay with our special discount on selected resorts. Book now and indulge in comfort.",
     },
     {
       image:
-        "https://res.cloudinary.com/dubjhsibu/image/upload/v1701455246/sun-images/hotel_2_qrg71z.jpg",
+        "https://res.cloudinary.com/dubjhsibu/image/upload/v1702738236/sun-images/hotel2_zxajp3.jpg",
       category: "Hotel ",
       heading: "Weekend Getaway Deals",
       para: "Plan a perfect weekend getaway with our exclusive hotel deals. Relax and unwind in style.",
     },
     {
       image:
-        "https://res.cloudinary.com/dubjhsibu/image/upload/v1701455247/sun-images/hotel_3_g7pdug.jpg",
+      "https://res.cloudinary.com/dubjhsibu/image/upload/v1702738236/sun-images/hotel3_dfhwtu.jpg",
       category: "Hotel ",
       heading: "Business Travel Packages",
       para: "Explore our business travel packages with discounted rates on hotels. Ideal for your work trips.",

@@ -167,10 +167,10 @@ export default function Scene() {
 }
 const SectionWrapper = styled.main`
   .horizontal-section:nth-child(1) {
-    background-image: url(${"https://res.cloudinary.com/dubjhsibu/image/upload/v1701455827/sun-images/services_e7doyg.jpg"});
+    background-image: url(${"https://res.cloudinary.com/dubjhsibu/image/upload/v1702737514/sun-images/servicesUpdated_wbnvoa.jpg"});
   }
   .horizontal-section:nth-child(2) {
-    background-image: url(${"https://res.cloudinary.com/dubjhsibu/image/upload/v1701455838/sun-images/globalvisa_uocuh3.jpg"});
+    background-image: url(${"https://res.cloudinary.com/dubjhsibu/image/upload/v1702736932/sun-images/globalvisa_wd1v39.jpg"});
   }
   .boxShadow {
     position: absolute;
@@ -188,13 +188,13 @@ const SectionWrapper = styled.main`
     );
   }
   .horizontal-section:nth-child(3) {
-    background-image: url(${"https://res.cloudinary.com/dubjhsibu/image/upload/v1701454764/sun-images/flightTIcket_wva86x.jpg"});
+    background-image: url(${"https://res.cloudinary.com/dubjhsibu/image/upload/v1702737292/sun-images/flightTIcketUpdtated_jf1udv.jpg"});
   }
   .horizontal-section:nth-child(4) {
     background-image: url(${"https://res.cloudinary.com/dubjhsibu/image/upload/v1702660217/sun-images/attestationupdated_vidrqk.jpg"});
   }
   .horizontal-section:nth-child(5) {
-    background-image: url(${"https://res.cloudinary.com/dubjhsibu/image/upload/v1701455700/sun-images/educationLogo_gutdpc.jpg"});
+    background-image: url(${"https://res.cloudinary.com/dubjhsibu/image/upload/v1702737273/sun-images/oversease_iwfypd.jpg"});
     backdrop-filter: blur(5px);
   }
 
