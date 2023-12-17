@@ -4,6 +4,8 @@ import { testimonials } from "./NavItems";
 import { Rating, Typography } from "@mui/material";
 import logo from "../assets/Logo-01 (3).svg";
 import google from "./assets/google.png";
+import styled from "styled-components";
+import Slider from "react-slick";
 
 const FeedbackCard = ({
   index,
@@ -24,9 +26,6 @@ const FeedbackCard = ({
           <p className="text-white font-medium text-[16px]">
             <span className="blue-text-gradient">@</span> {name}
           </p>
-          <p className="mt-1 text-secondary text-[12px]">
-            {designation} of {company}
-          </p>
         </div>
 
         <img
@@ -40,6 +39,43 @@ const FeedbackCard = ({
 );
 
 const Feedbacks = () => {
+  var settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    arrows: true,
+    autoplay: true,
+    draggable: true,
+    // Slider:true
+
+    // beforeChange: handleBeforeChange,
+    // afterChange: handleAfterChange,
+
+    // beforeChange={handleBeforeChange}
+    // afterChange={handleAfterChange}
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          arrows: false,
+          centerMode: true,
+          centerPadding: "40px",
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          arrows: false,
+          centerMode: true,
+          centerPadding: "40px",
+          slidesToShow: 1,
+        },
+      },
+    ],
+  };
   return (
     <div className={`mt-12 feed-card rounded-[20px]`}>
       <div
@@ -75,13 +111,21 @@ const Feedbacks = () => {
           </div>
         </div>
       </div>
-      <div className={`-mt-20 pb-14 sm:px-16 px-6 flex gap-7 bg-transparent`}>
-        {testimonials.map((testimonial, index) => (
-          <FeedbackCard key={testimonial.name} index={index} {...testimonial} />
-        ))}
+      <div className={`-mt-20 pb-14 sm:px-16 px-6 gap-7 bg-transparent`}>
+        <CustomSLider {...settings}>
+          {testimonials.map((testimonial, index) => (
+            <FeedbackCard
+              key={testimonial.name}
+              index={index}
+              {...testimonial}
+            />
+          ))}
+        </CustomSLider>
       </div>
     </div>
   );
 };
 
 export default Feedbacks;
+const CustomSLider = styled(Slider)`
+`;
