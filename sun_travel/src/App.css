@@ -259,6 +259,7 @@
   background: #001499a1;
   max-width: 400px;
   width: 400px;
+  min-height: 320px;
 }
 .hero-section {
   background: linear-gradient(to bottom, #afc7f8, #ffffff);

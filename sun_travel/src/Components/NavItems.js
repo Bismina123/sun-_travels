@@ -38,7 +38,6 @@ export const navItems = [
     cName: "nav-item",
     icon: touricon,
   },
-  
 
   {
     id: 4,
@@ -61,7 +60,6 @@ export const navItems = [
     cName: "nav-item more-icon",
     icon: moreIcon,
   },
- 
 ];
 export const moreDropDown = [
   {
@@ -183,50 +181,40 @@ export const certificateDropdown = [
 export const testimonials = [
   {
     testimonial:
-      "I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.",
-    name: "Aswin",
-    designation: "CFO",
-    company: "Acme Co",
-    image: "https://randomuser.me/api/portraits/women/4.jpg",
+      "Just talk to brother Rahim, he will make sure you are heard. May Allah protect this business and use it for the benefit of the obedient.",
+    name: "Firoz Rasheed",
+    image:
+      "https://lh3.googleusercontent.com/a-/ALV-UjVXRhRiRSZqouK0NjcLx9iMzeQtq_SZ8LUlA1-9vHF9bLY=s40-c-rp-mo-ba4-br100",
+  },
+  {
+    testimonial: "Best Schengen visa service i have never experienced before",
+    name: "Kripa K.V",
+    image:
+      "https://lh3.googleusercontent.com/a-/ALV-UjXRPaYkdx0jJ-rlY9gYLgxDueVAj7_4on9f-5kBL67e79I=s40-c-rp-mo-br100",
   },
   {
     testimonial:
-      "I've never met a web developer who truly cares about their clients' success like Rick does.",
-    name: "Afsal Siddique",
-    designation: "COO",
-    company: "DEF Corp",
-    image: "https://randomuser.me/api/portraits/men/5.jpg",
+      "Travel with ease. Enjoy their service for long time. Keep up the good work.",
+    name: "Jacob Alexander",
+    image:
+      "https://lh3.googleusercontent.com/a-/ALV-UjXmGv-G15zVaqWFMSMAuuzdw_nCGPWWRHYWQVw1Y3fgKZu9=s40-c-rp-mo-ba4-br100",
   },
   {
-    testimonial:
-      "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
-    name: "Lisa Wang",
-    designation: "CTO",
-    company: "456 Enterprises",
-    image: "https://randomuser.me/api/portraits/women/6.jpg",
+    testimonial: "Good service reasonable price good staff",
+    name: "Syam Jasmine",
+    image:
+      "https://lh3.googleusercontent.com/a-/ALV-UjXSRsCmyvdo8Cp9jSVuWdriYxEy-Ax9EyB5lCoOKa5xU6Yu=s40-c-rp-mo-br100",
   },
   {
-    testimonial:
-      "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
-    name: "Lisa Wang",
-    designation: "CTO",
-    company: "456 Enterprises",
-    image: "https://randomuser.me/api/portraits/women/6.jpg",
+    testimonial: "Good service  with responsiblity",
+    name: "Fathihu Nabeel k Kadakkal",
+    image:
+      "https://lh3.googleusercontent.com/a-/ALV-UjUVk1rSP-pKhhQOqYWaM1KY08aGthgiyahUI6MuU097ZRM=s40-c-rp-mo-ba6-br100",
   },
   {
-    testimonial:
-      "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
-    name: "Lisa Wang",
-    designation: "CTO",
-    company: "456 Enterprises",
-    image: "https://randomuser.me/api/portraits/women/6.jpg",
-  },
-  {
-    testimonial:
-      "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
-    name: "Lisa Wang",
-    designation: "CTO",
-    company: "456 Enterprises",
-    image: "https://randomuser.me/api/portraits/women/6.jpg",
+    testimonial: "Excellent service ..... Our thanks to sudheesh sir",
+    name: "sanal kumar",
+    image:
+      "https://lh3.googleusercontent.com/a/ACg8ocKC8wXZUnWCj-Q0Nb5ExArO_bpbpt02PcH5YyNsr3rLHw=s40-c-rp-mo-br100",
   },
 ];
