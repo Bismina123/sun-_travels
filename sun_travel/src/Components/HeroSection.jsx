@@ -265,7 +265,7 @@ const HeroSection = ({ scrollF }) => {
   useEffect(() => {
     setTimeout(() => {
       setFirstText(false);
-    }, 500);
+    }, 3000);
   }, []);
   return (
     <Container id="aeroplane-model" className="hero-section">
