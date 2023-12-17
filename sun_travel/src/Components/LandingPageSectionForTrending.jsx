@@ -1,4 +1,3 @@
-
 import { Parallax } from "react-parallax";
 import styled from "styled-components";
 
@@ -7,6 +6,7 @@ import ApartmentIcon from "@mui/icons-material/Apartment";
 import AirplaneTicketIcon from "@mui/icons-material/AirplaneTicket";
 import visa from "./assets/visa.svg";
 import { Fade } from "react-awesome-reveal";
+import MHButton from "./MHButton";
 
 export default function LandingPageSectionForTrending() {
   return (
@@ -19,7 +19,6 @@ export default function LandingPageSectionForTrending() {
         bgImageStyle={{ minHeight: "100vh" }}
       >
         <SvgIcons>
-          
           <Fade direction="left">
             <HajjSectionText>
               <h1>Hajj And Umra</h1>
@@ -72,9 +71,10 @@ export default function LandingPageSectionForTrending() {
                   </IconDiv>
                 </IconSet>
               </PackageSection>
-              <ButtonSection className="btns">
+              <StyledMhButton buttonName="Explore more" className="oversease" />
+              {/* <ButtonSection className="btns">
                 <button>Explore more</button>
-              </ButtonSection>
+              </ButtonSection> */}
             </HajjSectionText>
           </Fade>
           <Fade direction="down">
@@ -92,18 +92,25 @@ export default function LandingPageSectionForTrending() {
     </Wrapper>
   );
 }
-const KaabaImageWrapper=styled.div`
-img{
-  width: 100%;
-  height: 100%;
-}
-position: absolute;
-top: -130px;
-right: 0;
-width: 40%;
+const StyledMhButton = styled(MHButton)`
+  &.oversease {
+    .btn:after {
+      left: 14px;
+      top: -17px;
+    }
+  }
+`;
+const KaabaImageWrapper = styled.div`
+  img {
+    width: 100%;
+    height: 100%;
+  }
+  position: absolute;
+  top: -130px;
+  right: 0;
+  width: 40%;
 
   overflow: hidden;
-
 `;
 const Wrapper = styled.div`
   .image {
@@ -272,7 +279,7 @@ const HajjSectionText = styled.div`
   }
   h6 {
     text-align: left;
-    color:#ffff;
+    color: #ffff;
     font-size: 14px;
     margin-top: 20px;
     padding: 0px 44px;

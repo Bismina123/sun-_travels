@@ -9,6 +9,7 @@ import flightTicketlogo from "./assets/flightmap.svg";
 import attestationLogo from "./assets/stamp.png";
 
 import educationLogo from "./assets/educationLogo.png";
+import MHButton from "./MHButton";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -67,10 +68,7 @@ export default function Scene() {
             excitement of new destinations. Let us be your passport to a
             seamless and unforgettable travel experience.
           </p>
-
-          <button className="btn">
-            <span>Get Visa!</span>
-          </button>
+          <StyledMhButton buttonName="Get Visa!" className="visa" />
         </div>
       </section>
 
@@ -94,10 +92,7 @@ export default function Scene() {
             <span>Sun Tours and Travels</span> - where your journey begins with
             a ticket and unfolds into an adventure
           </p>
-
-          <button className="btn">
-            <span>Get Tickets!</span>
-          </button>
+          <StyledMhButton buttonName="Get Tickets!" className="tickets" />
         </div>
       </section>
 
@@ -123,10 +118,10 @@ export default function Scene() {
             documents and global acceptance, ensuring they stand validated
             wherever your ambitions take you
           </p>
-
-          <button className="btns">
-            <span>Get Attestation!</span>
-          </button>
+          <StyledMhButton
+            buttonName="Get Attestation!"
+            className="attestation"
+          />
         </div>
       </section>
       {/* ---------- section 04 ---------- */}
@@ -138,9 +133,9 @@ export default function Scene() {
               className="education"
               src={educationLogo}
               alt={educationLogo}
-              />
+            />
           </div>
-              <h1>Oversease education</h1>
+          <h1>Oversease education</h1>
           <p>
             Unlock a world of academic opportunities with our Overseas Education
             services. At <span>Sun Tours and Travels</span>, we pave the way for
@@ -154,16 +149,39 @@ export default function Scene() {
             <span>Sun Tours and Travels</span>be your companion in realizing
             your academic dreams beyond borders.
           </p>
-
-          <button className="btns">
-            <span>Get Education!</span>
-          </button>
+          <StyledMhButton buttonName="Get Education!" className="oversease" />
         </div>
       </section>
       {/* //section4 */}
     </SectionWrapper>
   );
 }
+const StyledMhButton = styled(MHButton)`
+  &.visa {
+    .btn:after {
+      left: -4px;
+      top: -3px;
+    }
+  }
+  &.tickets {
+    .btn:after {
+      left: 10px;
+      top: -11px;
+    }
+  }
+  &.attestation {
+    .btn:after {
+      left: 27px;
+      top: -28px;
+    }
+  }
+  &.oversease {
+    .btn:after {
+      left: 27px;
+      top: -22px;
+    }
+  }
+`;
 const SectionWrapper = styled.main`
   .horizontal-section:nth-child(1) {
     background-image: url(${"https://res.cloudinary.com/dubjhsibu/image/upload/v1702737514/sun-images/servicesUpdated_wbnvoa.jpg"});
@@ -249,90 +267,6 @@ const SectionWrapper = styled.main`
         height: 70px;
         width: 70px;
       }
-    }
-    .btn {
-      border: none;
-      display: block;
-      text-align: center;
-      cursor: pointer;
-      text-transform: uppercase;
-      outline: none;
-      overflow: hidden;
-      position: relative;
-      color: #fff;
-      font-weight: 700;
-      font-size: 15px;
-      background-color: goldenrod;
-      padding: 12px 40px;
-      margin: 0 auto;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-      border-radius: 8px;
-    }
-
-    .btn span {
-      position: relative;
-      z-index: 1;
-    }
-
-    .btn:after {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0;
-      height: 490%;
-      width: 140%;
-      background: #0b2f6a;
-      -webkit-transition: all 0.5s ease-in-out;
-      transition: all 0.5s ease-in-out;
-      -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
-      transform: translateX(-98%) translateY(-25%) rotate(45deg);
-    }
-
-    .btn:hover:after {
-      -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
-      transform: translateX(-9%) translateY(-25%) rotate(45deg);
-    }
-    .btns {
-      border: none;
-      display: block;
-      text-align: center;
-      cursor: pointer;
-      text-transform: uppercase;
-      outline: none;
-      overflow: hidden;
-      position: relative;
-      color: #fff;
-      font-weight: 700;
-      font-size: 15px;
-      background-color: goldenrod;
-      padding: 12px 40px;
-      margin: 0 auto;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-      border-radius: 8px;
-    }
-
-    .btns span {
-      position: relative;
-      z-index: 1;
-    }
-
-    .btns:after {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: -25%;
-      height: 490%;
-      width: 140%;
-      background: #0b2f6a;
-      -webkit-transition: all 0.5s ease-in-out;
-      transition: all 0.5s ease-in-out;
-      -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
-      transform: translateX(-98%) translateY(-25%) rotate(45deg);
-    }
-
-    .btns:hover:after {
-      -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
-      transform: translateX(-9%) translateY(-25%) rotate(45deg);
     }
   }
 `;

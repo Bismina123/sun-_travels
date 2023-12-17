@@ -327,7 +327,7 @@ const HeroSection = ({ scrollF }) => {
               <li style={{ "--i": 12.4 }}>w</li>
             </ul>
           </TextWrapper>
-          <ButtonExplore className="buttonExplore">
+          <ButtonExplore className="buttonExplore"   onClick={onDownArrowClick}>
             <button className="button-57" role="button">
               <span className="text"> Explore more</span>
               <span>Click Me</span>

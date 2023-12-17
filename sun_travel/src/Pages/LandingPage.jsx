@@ -28,7 +28,7 @@ export default function LandingPage() {
   const [showScrollButton, setShowScrollButton] = useState(false);
 
   const handleScroll = () => {
-    setShowScrollButton(window.scrollY > 350);
+    setShowScrollButton(window.scrollY > 650);
   };
 
   useEffect(() => {
