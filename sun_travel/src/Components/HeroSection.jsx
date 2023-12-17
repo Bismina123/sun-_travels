@@ -1,4 +1,12 @@
-import { useGLTF } from "@react-three/drei";
+import {
+  useGLTF,
+  Float,
+  PivotControls,
+  Stats,
+  OrbitControls,
+  PerspectiveCamera,
+  OrthographicCamera,
+} from "@react-three/drei";
 import styled from "styled-components";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { AdaptiveDpr } from "@react-three/drei";
@@ -8,7 +16,7 @@ import { Suspense, useEffect, useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import downArrow from "./assets/down_arrow2.png";
-import cloudImage from './assets/cloud.jpg'
+import cloudImage from "./assets/cloud.jpg";
 const degreesToRadians = (degrees) => degrees * (Math.PI / 180);
 
 const Cloud = ({ speed, zIndex, left, bottom }) => {
@@ -21,8 +29,8 @@ const Cloud = ({ speed, zIndex, left, bottom }) => {
       { scale: 3 },
       {
         scale: 1,
-        duration: 8,
-        ease: "linear",
+        duration: 15,
+        ease: "power1.out",
       }
     );
   }, []);
@@ -64,33 +72,19 @@ const Cloud = ({ speed, zIndex, left, bottom }) => {
   );
 };
 
-
-
-const reset = (helicopter) => {
-  helicopter.scene.rotation.order = "YXZ";
-  helicopter.scene.scale.set(1.8, 1.8, 1.8);
-
-  helicopter.scene.position.x = 0;
-  helicopter.scene.position.y = -40;
-  helicopter.scene.position.z = -700;
-
-  helicopter.scene.quaternion.setFromEuler(
-    new THREE.Euler(
-      degreesToRadians(-8),
-      degreesToRadians(90),
-      degreesToRadians(14),
-      "YXZ"
-    )
-  );
-};
-
-const AeroplaneModel = ({ aeroplaneRef, helicopter, setCanvasZIndex }) => {
+const AeroplaneModel = ({
+  aeroplaneRef,
+  helicopter,
+  setCanvasZIndex,
+  tiltTowardsMouseFlag,
+}) => {
   gsap.registerPlugin(ScrollTrigger);
   const [xRot, setXRot] = useState(70);
+  const [mouse, setMouse] = useState({ x: 0, y: 0 });
   const [animationComplete, setAnimationComplete] = useState(false);
 
   const { camera } = useThree();
-
+  const controlsRef = useRef();
   const flyIn = (helicopter) => {
     // Convert degrees to radians for initial and final values
     helicopter.scene.scale.set(2, 2, 2);
@@ -150,85 +144,80 @@ const AeroplaneModel = ({ aeroplaneRef, helicopter, setCanvasZIndex }) => {
   };
 
   useEffect(() => {
-    camera.position.x = -30;
-    camera.position.y = -30;
-    camera.position.z = 0;
-    // flyIn(helicopter);
-    reset(helicopter);
+    camera.position.x = 0;
+    camera.position.y = -0.1;
+    camera.position.z = 3;
   });
 
-  useFrame(({ clock }) => {
-    let startRotationDegreesX = xRot;
-    let endRotationDegreesX = xRot;
-    let speedX = 0.3;
-    let differenceX = Math.abs(startRotationDegreesX - endRotationDegreesX) / 2;
-    let midRotationX = (startRotationDegreesX + endRotationDegreesX) / 2;
-    let rotationX =
-      Math.sin(clock.getElapsedTime() * speedX) * differenceX + midRotationX;
+  useEffect(() => {
+    // Add mouse move listener
+    const handleMouseMove = (event) => {
+      console.log("called");
+      const { clientX, clientY } = event;
+      const mouseX = (clientX / window.innerWidth) * 2 - 1;
+      const mouseY = -(clientY / window.innerHeight) * 2 + 1;
 
-    let startRotationDegreesY = -8;
-    let endRotationDegreesY = -5;
-    let speedY = 0.3;
-    let differenceY = Math.abs(startRotationDegreesY - endRotationDegreesY) / 2;
-    let midRotationY = (startRotationDegreesY + endRotationDegreesY) / 2;
-    let rotationY =
-      Math.sin(clock.getElapsedTime() * speedY) * differenceY + midRotationY;
+      // Set mouse position in the state or use it directly in your application
+      // For now, let's just log the values
+      console.log("Mouse Position:", mouseX, mouseY);
+      setMouse({ x: mouseX, y: mouseY });
+    };
 
-    let startRotationDegreesZ = 22;
-    let endRotationDegreesZ = 17;
-    let speedZ = 0.5;
-    let differenceZ = Math.abs(startRotationDegreesZ - endRotationDegreesZ) / 2;
-    let midRotationZ = (startRotationDegreesZ + endRotationDegreesZ) / 2;
-    let rotationZ =
-      Math.sin(clock.getElapsedTime() * speedZ) * differenceZ + midRotationZ;
+    // Attach the listener to the canvas
+    window.addEventListener("mousemove", handleMouseMove);
 
-    helicopter.scene.quaternion.setFromEuler(
-      new THREE.Euler(
-        degreesToRadians(rotationY),
-        degreesToRadians(rotationX),
-        degreesToRadians(rotationZ),
-        "YXZ"
-      )
-    );
+    // Clean up the listener when the component unmounts
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
+  const targetRotation = { x: 0, y: 0 };
+  useFrame(({}) => {
+    // Calculate target rotation based on inverted mouse position
+    if (tiltTowardsMouseFlag) {
+      targetRotation.y = -(mouse.x * degreesToRadians(50));
+      console.log(mouse);
+      targetRotation.y = THREE.MathUtils.clamp(
+        targetRotation.y,
+        -degreesToRadians(20),
+        degreesToRadians(15)
+      );
 
-    if (animationComplete) {
-      let posStartPosY = -40;
-      let posEndPosY = -45;
-      let differencePosY = Math.abs(posStartPosY - posEndPosY) / 2;
-      let midRotationPosY = (posStartPosY + posEndPosY) / 2;
-      let speedPosY = 1;
-      let posY =
-        Math.sin(clock.getElapsedTime() * speedPosY) * differencePosY +
-        midRotationPosY;
-
-      helicopter.scene.position.y = posY;
+      // Use GSAP to smoothly interpolate between current and target rotation
+      gsap.to(aeroplaneRef.current.rotation, {
+        y: targetRotation.y,
+        duration: 30, // Adjust the duration as needed
+        ease: "power2.out", // Use a different easing function if desired
+      });
     }
   });
 
-
-
   return (
-    <group ref={aeroplaneRef}>
-      <primitive object={helicopter.scene} />
-    </group>
+    <>
+      <OrthographicCamera position={[0, 0, 0]}>
+        <group ref={aeroplaneRef}>
+          <primitive object={helicopter.scene} />
+        </group>
+      </OrthographicCamera>
+    </>
   );
 };
 const HeroSection = ({ scrollF }) => {
   const aeroplaneRef = useRef();
   const canvasRef = useRef();
-
-  const helicopter = useGLTF("./plane/scene.gltf");
+  const [tiltTowardsMouseFlag, setTiltTowardsMouseFlag] = useState(true);
+  // const pointLightRef = useRef();
+  const helicopter = useGLTF("./newplane/scene.gltf");
   const onDownArrowClick = () => {
     // Move the helicopter model
     if (aeroplaneRef.current) {
       gsap.to(aeroplaneRef.current.position, {
-        x: 2000, // Target X position
+        x: -6, // Target X position
         duration: 5, // Duration in seconds
         ease: "power1.inOut", // Easing function
         onUpdate: () => console.log(aeroplaneRef.current.position.x),
         onComplete: () => {
           scrollF();
-          reset(helicopter);
           setTimeout(() => {
             aeroplaneRef.current.position.x = 0;
           }, 500);
@@ -236,6 +225,7 @@ const HeroSection = ({ scrollF }) => {
       });
     }
   };
+
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
@@ -249,11 +239,15 @@ const HeroSection = ({ scrollF }) => {
     });
 
     t1.to(helicopter.scene.position, {
-      x: 4000,
-      y: -100,
-
-      duration: 8,
-      ease: "power1.inOut",
+      x: -3,
+      duration: 30,
+      ease: "power1.out",
+      onStart: () => {
+        setTiltTowardsMouseFlag(false);
+      },
+      onComplete: () => {
+        setTiltTowardsMouseFlag(true);
+      },
     });
 
     // Cleanup ScrollTrigger when the component unmounts
@@ -271,7 +265,9 @@ const HeroSection = ({ scrollF }) => {
     <Container id="aeroplane-model" className="hero-section">
       {firstText ? (
         // <Fade direction="left">
-        <Text>Get ready to explore with  Sun International Tours & Travels </Text>
+        <Text>
+          Get ready to explore with Sun International Tours & Travels{" "}
+        </Text>
       ) : (
         // </Fade>
         <>
@@ -332,18 +328,39 @@ const HeroSection = ({ scrollF }) => {
             </ul>
           </TextWrapper>
           <ButtonExplore className="buttonExplore">
-          <button className="button-57" role="button"><span className="text"> Explore more</span><span>Click Me</span></button>
+            <button className="button-57" role="button">
+              <span className="text"> Explore more</span>
+              <span>Click Me</span>
+            </button>
           </ButtonExplore>
         </>
       )}
       <Canvas className="canvas" ref={canvasRef}>
-        <ambientLight intensity={1.5} position={[0, 0, 0]} />
-        <directionalLight intensity={4} position={[0, 10, 5]} />
-        <AeroplaneModel aeroplaneRef={aeroplaneRef} helicopter={helicopter} />
+        <ambientLight intensity={2.5} position={[0, 0, 0]} />
+        <directionalLight intensity={8} position={[0, 10, 5]} />
+        <Float
+          position={[0.3, -0.4, 0]}
+          scale={1.1}
+          rotation={[
+            degreesToRadians(5),
+            degreesToRadians(170),
+            degreesToRadians(-8),
+          ]}
+          speed={1} // Animation speed, defaults to 1
+          rotationIntensity={0.8} // XYZ rotation intensity, defaults to 1
+          floatIntensity={1} // Up/down float intensity, works like a multiplier with floatingRange,defaults to 1
+          floatingRange={[0, 0.2]}
+        >
+          <AeroplaneModel
+            aeroplaneRef={aeroplaneRef}
+            helicopter={helicopter}
+            tiltTowardsMouseFlag={tiltTowardsMouseFlag}
+          />
+        </Float>
         <AdaptiveDpr pixelated />
       </Canvas>
       <Cloud speed={1.5} left={0} bottom={0} zIndex={3} />
-      <Cloud speed={1.8} left={-10} bottom={110} zIndex={2} />
+      <Cloud speed={1.5} left={-10} bottom={110} zIndex={2} />
 
       <div
         onClick={onDownArrowClick}
@@ -375,7 +392,6 @@ const HeroSection = ({ scrollF }) => {
     </Container>
   );
 };
-
 
 const BackDrop = styled.div`
   position: absolute;
@@ -419,7 +435,7 @@ const Text = styled.div`
     20% {
       opacity: 0;
     }
- 
+
     100% {
       opacity: 1;
       transform: translateX(-50%);
@@ -438,7 +454,7 @@ const TextWrapper = styled.div`
   width: 900px;
   left: 4%;
 
-   z-index: 11;
+  z-index: 11;
   text-align: left;
   font-family: "Roboto" !important;
 
@@ -480,77 +496,74 @@ const TextWrapper = styled.div`
   }
 `;
 
-const ButtonExplore=styled.div`
-position: absolute;
-bottom: 80px;
-left: 4%;
-z-index: 11;
-.button-57 {
-  position: relative;
-  overflow: hidden;
-  border: 1px solid #0b2f6a;
-  color: #0b2f6a;
-  display: inline-block;
-  font-size: 15px;
-  line-height: 15px;
-  padding: 16px 16px 15px;
-  text-decoration: none;
-  cursor: pointer;
-  background: transparent;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  border-radius:10px;
-}
-
-.button-57 span:first-child {
-  position: relative;
-  transition: color 600ms cubic-bezier(0.48, 0, 0.12, 1);
-  z-index: 10;
-}
-
-.button-57 span:last-child {
-  color: white;
-  display: block;
+const ButtonExplore = styled.div`
   position: absolute;
-  bottom: 0;
-  transition: all 200ms cubic-bezier(0.48, 0, 0.12, 1);
-  z-index: 100;
-  opacity: 0;
-  top: 50%;
-  left: 50%;
-  transform: translateY(225%) translateX(-50%);
-  height: 10px;
-  line-height: 13px;
-}
+  bottom: 80px;
+  left: 4%;
+  z-index: 11;
+  .button-57 {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #0b2f6a;
+    color: #0b2f6a;
+    display: inline-block;
+    font-size: 15px;
+    line-height: 15px;
+    padding: 16px 16px 15px;
+    text-decoration: none;
+    cursor: pointer;
+    background: transparent;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    border-radius: 10px;
+  }
 
-.button-57:after {
-  content: "";
-  position: absolute;
-  bottom: -50%;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #0b2f6a;
-  transform-origin: bottom center;
-  transition: transform 600ms cubic-bezier(0.48, 0, 0.12, 1);
-  transform: skewY(9.3deg) scaleY(0);
-  z-index: 50;
-}
+  .button-57 span:first-child {
+    position: relative;
+    transition: color 600ms cubic-bezier(0.48, 0, 0.12, 1);
+    z-index: 10;
+  }
 
-.button-57:hover:after {
-  transform-origin: bottom center;
-  transform: skewY(9.3deg) scaleY(2);
-}
+  .button-57 span:last-child {
+    color: white;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    transition: all 200ms cubic-bezier(0.48, 0, 0.12, 1);
+    z-index: 100;
+    opacity: 0;
+    top: 50%;
+    left: 50%;
+    transform: translateY(225%) translateX(-50%);
+    height: 10px;
+    line-height: 13px;
+  }
 
-.button-57:hover span:last-child {
-  transform: translateX(-50%) translateY(-100%);
-  opacity: 1;
-  transition: all 900ms cubic-bezier(0.48, 0, 0.12, 1);
-}
+  .button-57:after {
+    content: "";
+    position: absolute;
+    bottom: -50%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0b2f6a;
+    transform-origin: bottom center;
+    transition: transform 600ms cubic-bezier(0.48, 0, 0.12, 1);
+    transform: skewY(9.3deg) scaleY(0);
+    z-index: 50;
+  }
 
+  .button-57:hover:after {
+    transform-origin: bottom center;
+    transform: skewY(9.3deg) scaleY(2);
+  }
 
-
+  .button-57:hover span:last-child {
+    transform: translateX(-50%) translateY(-100%);
+    opacity: 1;
+    transition: all 900ms cubic-bezier(0.48, 0, 0.12, 1);
+  }
 `;
 
 export default HeroSection;

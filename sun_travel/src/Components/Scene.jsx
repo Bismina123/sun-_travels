@@ -13,10 +13,8 @@ import educationLogo from "./assets/educationLogo.png";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Scene() {
-
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-     
       const horizontalSections = gsap.utils.toArray(".horizontal-section");
 
       // ---------- applying horizontal scroll animation
@@ -52,10 +50,11 @@ export default function Scene() {
       <section className="horizontal-section">
         <div className="boxShadow"></div>
         <div className="headingGlobalVisa">
-          <h1>Global Visa</h1>
           <div className="globalImage">
             <img src={globalLogo} alt={globalLogo} />
           </div>
+          <h1>Global Visa</h1>
+
           <p>
             Empower your wanderlust with our Global Visa services, simplifying
             international travel. Our seasoned professionals guide you through
@@ -79,10 +78,10 @@ export default function Scene() {
       <section className="horizontal-section">
         <div className="boxShadow"></div>
         <div className="headingGlobalVisa">
-          <h1>Flight Tickets</h1>
           <div className="globalImage">
             <img src={flightTicketlogo} alt={flightTicketlogo} />
           </div>
+          <h1>Flight Tickets</h1>
           <p>
             Fly with ease using our premier flight ticket services. At{" "}
             <span>Sun Tours and Travels</span>, we redefine travel by offering
@@ -106,10 +105,10 @@ export default function Scene() {
       <section className="horizontal-section">
         <div className="boxShadow"></div>
         <div className="headingGlobalVisa">
-          <h1>Attestation</h1>
           <div className="globalImage">
             <img src={attestationLogo} alt={attestationLogo} />
           </div>
+          <h1>Attestation</h1>
           <p>
             Experience hassle-free document attestation with{" "}
             <span>Sun Tours and Travels</span> . Our attestation services
@@ -134,14 +133,14 @@ export default function Scene() {
       <section className="horizontal-section">
         <div className="boxShadow"></div>
         <div className="headingGlobalVisa">
-          <h1>Oversease education</h1>
           <div className="globalImage">
             <img
               className="education"
               src={educationLogo}
               alt={educationLogo}
-            />
+              />
           </div>
+              <h1>Oversease education</h1>
           <p>
             Unlock a world of academic opportunities with our Overseas Education
             services. At <span>Sun Tours and Travels</span>, we pave the way for
@@ -227,6 +226,7 @@ const SectionWrapper = styled.main`
       letter-spacing: 1px;
       text-transform: uppercase;
       opacity: 1;
+      margin: 10px 0px;
     }
     p {
       text-align: left;
@@ -240,7 +240,7 @@ const SectionWrapper = styled.main`
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 10px;
+      /* padding: 10px; */
       .education {
         height: 90px;
         width: 90px;
