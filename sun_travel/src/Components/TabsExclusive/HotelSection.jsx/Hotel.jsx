@@ -180,7 +180,7 @@ const GridItem = styled.div`
     top: -5px;
     height: 490%;
     width: 140%;
-    background: red;
+    background: #ffc40d;
     -webkit-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
     -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);

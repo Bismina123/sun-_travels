@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 import { Slide } from "react-awesome-reveal";
+import MHButton from "./MHButton";
+
 function TravelBanner() {
   return (
     <TravelBannerWrapper>
@@ -13,7 +15,7 @@ function TravelBanner() {
               Embarking on a global odyssey, chasing sunsets and forging
               memories that span every latitude.
             </p>
-            <button>Explore more</button>
+            <StyledMhButton buttonName="Explore more" className="styled" />
           </TextSide>
         </Slide>
         <Slide direction="right">
@@ -76,6 +78,15 @@ function TravelBanner() {
 }
 
 export default TravelBanner;
+const StyledMhButton = styled(MHButton)`
+  &.styled {
+    .btn:after {
+      left: 9px;
+      top: -14px;
+    }
+    color: green !important;
+  }
+`;
 const TravelBannerWrapper = styled.div`
   height: auto;
   background-color: #f2f0d159;
