@@ -1,9 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import whatspp from "./assets/twitter.png";
 import Logo from "../assets/Logo-01 (3).svg";
+import emailjs from "@emailjs/browser";
 import "./footer.css";
 const UpdatedFooter = () => {
+  const [subscribe, setSubsribe] = useState('');
+  console.log(subscribe, "subscribe");
+  // service_69qwdhs service id
+  // template_sil3r8l temlate id
+  // TRppiY3iP50vtBpob public key
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    emailjs
+      .send(
+        "service_69qwdhs",
+        "template_zpg0qnl",
+        {
+          from_name: subscribe,
+          to_email: "sidharth.codingo@gmail.com",
+          message: subscribe,
+        },
+        "4T1PPRyKB0JCqFyCV"
+      )
+      .then(
+        () => {
+          alert("Thank you. I will get back to you as soon as possible.");
+
+          setSubsribe({
+            email: "",
+          });
+        },
+        (error) => {
+          console.error(error);
+
+          alert("Ahh, something went wrong. Please try again.");
+        }
+      );
+  };
   return (
     <>
       <footer className="footer-section">
@@ -109,8 +143,13 @@ const UpdatedFooter = () => {
                   </p>
                 </div>
                 <div className="subscribe-form">
-                  <form action="#">
-                    <input type="text" placeholder="Email Address" />
+                  <form action="#" onSubmit={handleSubmit}>
+                    <input
+                      type="text"
+                      placeholder="Email Address"
+                      value={subscribe?.email}
+                      onChange={(e) => setSubsribe(e.target.value)}
+                    />
                     <button>
                       <i className="fab fa-telegram-plane"></i>
                     </button>
