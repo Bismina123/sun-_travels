@@ -224,6 +224,9 @@ const WrapperLabelIcon = styled.div`
   align-items: center;
   justify-content: center;
   gap: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  /* transition: ease-in 0.5s; */
 
   img {
     width: 21px;
@@ -238,6 +241,10 @@ const WrapperLabelIcon = styled.div`
   }
   &:hover {
     color: #ffc40d;
+    padding: 5px;
+    background: #0b2f6a;
+    border-radius: 5px;
+    transition: ease-in 0.5s;
     img {
       filter: invert(62%) sepia(100%) saturate(7380%) hue-rotate(26deg)
         brightness(302%) contrast(109%) !important;
