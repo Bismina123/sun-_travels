@@ -9,7 +9,7 @@ const SliderComponent = ({ bestSellingRef }) => {
     infinite: true,
     speed: 500,
     slidesToShow: 1,
-    autoplay: true,
+    // autoplay: true,
     // fade: true,
     slidesToScroll: 1,
   };

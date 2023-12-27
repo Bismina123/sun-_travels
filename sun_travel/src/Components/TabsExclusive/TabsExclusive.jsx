@@ -28,8 +28,18 @@ const TabsExclusive = () => {
     tabStyle: {
       "& .MuiTabs-flexContainer": {
         padding: "10px",
+        "@media only screen and (min-width: 300px) and (max-width: 1200px)": {
+          display: "block",
+        },
       },
       "& .MuiButtonBase-root.MuiTab-root": {
+        "@media only screen and (min-width: 300px) and (max-width: 1200px)": {
+          margin: "11px 3px",
+        },
+        "@media only screen and (min-width: 300px) and (max-width: 514px)": {
+          minWidth: " 90px",
+          fontSize: "10px",
+        },
         margin: "11px 0px",
         padding: "0px 0px",
         background: "white",
@@ -60,6 +70,9 @@ const TabsExclusive = () => {
       },
 
       "& .MuiTabs-indicator": {
+        "@media only screen and (min-width: 300px) and (max-width: 1200px)": {
+          display: "none",
+        },
         backgroundColor: "#001499 !important",
       },
     },
@@ -121,16 +134,7 @@ const TabsExclusive = () => {
 };
 
 export default TabsExclusive;
-const BackDrop = styled.div`
-  position: absolute;
-  background: rgb(0 0 0 / 20%);
-  height: 70%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1;
-`;
+
 const WrapperTab = styled.div`
   height: auto;
   width: 100%;
@@ -163,6 +167,9 @@ const InnerDiv = styled.div`
   /* margin: 20px; */
   /* padding: 70px 20px; */
   /* background-color: #8287eed6; */
+  @media only screen and (min-width: 300px) and (max-width: 1200px) {
+    display: block;
+    }
   height: auto;
   display: flex;
   align-items: center;
@@ -179,6 +186,9 @@ const HeadingLabel = styled.div`
   font-weight: 700;
   text-transform: uppercase;
   margin: 20px auto;
+  @media only screen and (min-width: 300px) and (max-width: 768px) {
+    font-size: 25px;
+  }
   span {
     color: #001499;
   }

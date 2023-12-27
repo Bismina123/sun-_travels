@@ -21,12 +21,12 @@ export default function Cruise() {
           heading: "Romantic Cruise Getaways",
           para: "Reignite the romance with our romantic cruise getaways. Sail away to enchanting destinations.",
         },
-        // {
-        //   image: dubai,
-        //   category: "Cruise",
-        //   heading: "Themed Cruise Events",
-        //   para: "Experience unique themed cruise events. From music festivals to wellness cruises, we have it all!",
-        // },
+        {
+          image: "https://res.cloudinary.com/dubjhsibu/image/upload/v1702737886/sun-images/ship1_l8xl0j.jpg",
+          category: "Cruise",
+          heading: "Themed Cruise Events",
+          para: "Experience unique themed cruise events. From music festivals to wellness cruises, we have it all!",
+        },
       ];
   return (
 <GridContainer>
@@ -59,8 +59,11 @@ export default function Cruise() {
 }
 const GridContainer = styled.div`
   display: grid;
-  grid-template-columns: auto auto auto;
-
+  grid-template-columns: auto auto auto auto;
+  @media only screen and (min-width: 414px) and (max-width: 768px) {
+    grid-template-columns: auto;
+    width: auto;
+  }
   margin: 10px;
   padding: 10px;
   gap: 30px;
@@ -123,6 +126,7 @@ const GridItem = styled.div`
     position: absolute;
     top: 430px;
     left: 25px;
+    right: 8px;
   }
   .title {
     /* position: absolute;
@@ -132,6 +136,7 @@ const GridItem = styled.div`
     font-family: "Lato";
     text-transform: uppercase;
     font-weight: 900;
+    font-size: 14px
   }
   .paragraph {
     /* position: absolute;
@@ -141,6 +146,7 @@ const GridItem = styled.div`
     color: #000;
     font-family: "Lato";
     text-transform: capitalize;
+    font-size: 12px;
   }
   .buttonNow{
     position: absolute;

@@ -45,15 +45,14 @@ export default function LandingPage() {
   return (
     <WrapperCard>
       <HeroSection scrollF={scrollToBestSelling} />
-      <SliderComponent bestSellingRef={bestSellingRef} />
+      {/* <SliderComponent bestSellingRef={bestSellingRef} /> */}
       <BestSellingSection />
       <TravelBanner />
       <TabsExclusive />
-      <Scene />
+      {/* <Scene /> */}
       <LandingPageSectionForTrending />
-      <Feedbacks />
+      {/* <Feedbacks /> */}
 
-      {/* <Footer /> */}
       <UpdatedFooter />
       {showScrollButton && (
         <>
@@ -82,6 +81,7 @@ export default function LandingPage() {
 const WrapperCard = styled.div`
   background-color: #fff;
   height: 100vh;
+  max-width: 100%;
 `;
 const fadeIn = keyframes`
   from {

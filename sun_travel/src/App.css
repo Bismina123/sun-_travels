@@ -47,6 +47,18 @@
 .read-the-docs {
   color: #888;
 }
+/* Global styles outside of the media query */
+
+@media only screen and (min-width: 414px) and (max-width: 513px) {
+  /* Styles for devices with a width between 414px and 513px go here */
+  .navbar {
+    padding: 10px 15px !important;
+  }
+}
+
+/* Other global styles */
+
+
 .navbar {
   background: #fff9f98a;
   justify-content: space-between;

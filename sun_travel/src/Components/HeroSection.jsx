@@ -85,63 +85,6 @@ const AeroplaneModel = ({
 
   const { camera } = useThree();
   const controlsRef = useRef();
-  const flyIn = (helicopter) => {
-    // Convert degrees to radians for initial and final values
-    helicopter.scene.scale.set(2, 2, 2);
-    helicopter.scene.position.x = -500;
-    helicopter.scene.position.y = -300;
-    helicopter.scene.position.z = -800;
-
-    const initialRotation = {
-      x: degreesToRadians(-6),
-      y: degreesToRadians(70),
-      z: degreesToRadians(30),
-    };
-
-    const finalRotation = {
-      x: degreesToRadians(-8),
-      y: degreesToRadians(90),
-      z: degreesToRadians(14),
-    };
-
-    // Animate position
-    gsap.to(helicopter.scene.position, {
-      duration: 8,
-      x: 0,
-      y: -40,
-      z: -700,
-      ease: "power1.inOut",
-      onComplete: () => setAnimationComplete(true),
-    });
-
-    // Animate scale
-    gsap.to(helicopter.scene.scale, {
-      duration: 8,
-      x: 2,
-      y: 2,
-      z: 2,
-      ease: "power1.inOut",
-    });
-
-    // Animate rotation
-    gsap.to(initialRotation, {
-      duration: 8,
-      x: finalRotation.x,
-      y: finalRotation.y,
-      z: finalRotation.z,
-      ease: "power1.inOut",
-      onUpdate: () => {
-        helicopter.scene.quaternion.setFromEuler(
-          new THREE.Euler(
-            initialRotation.x,
-            initialRotation.y,
-            initialRotation.z,
-            "YXZ"
-          )
-        );
-      },
-    });
-  };
 
   useEffect(() => {
     camera.position.x = 0;
@@ -261,6 +204,37 @@ const HeroSection = ({ scrollF }) => {
       setFirstText(false);
     }, 3000);
   }, []);
+  const calculateScale = () => {
+    const width = window.innerWidth;
+
+    if (width >= 320 && width <= 513) {
+      return 0.5;
+    } else if (width >= 514 && width <= 768) {
+      return 0.7;
+    } else if (width >= 769 && width <= 900) {
+      return 0.8;
+    } else if (width >= 901 && width <= 1200) {
+      return 0.9;
+    } else {
+      return 1.1;
+    }
+  };
+
+  const calculatePosition = () => {
+    const width = window.innerWidth;
+
+    // Adjust position based on device width
+    if (width >= 320 && width <= 514) {
+      [0, -0.3, 0];
+    }
+    else if (width < 768) {
+      // For devices with width less than 768 pixels (adjust the threshold as needed)
+      return [0, -0.4, 0]; // Set the desired position for mobile devices
+    } else {
+      // For larger screens
+      return [0.3, -0.4, 0]; // Default position for larger screens
+    }
+  };
   return (
     <Container id="aeroplane-model" className="hero-section">
       {firstText ? (
@@ -327,7 +301,7 @@ const HeroSection = ({ scrollF }) => {
               <li style={{ "--i": 12.4 }}>w</li>
             </ul>
           </TextWrapper>
-          <ButtonExplore className="buttonExplore"   onClick={onDownArrowClick}>
+          <ButtonExplore className="buttonExplore" onClick={onDownArrowClick}>
             <button className="button-57" role="button">
               <span className="text"> Explore more</span>
               <span>Click Me</span>
@@ -339,8 +313,8 @@ const HeroSection = ({ scrollF }) => {
         <ambientLight intensity={2.5} position={[0, 0, 0]} />
         <directionalLight intensity={8} position={[0, 10, 5]} />
         <Float
-          position={[0.3, -0.4, 0]}
-          scale={1.1}
+          position={calculatePosition()}
+          scale={calculateScale()}
           rotation={[
             degreesToRadians(5),
             degreesToRadians(170),
@@ -359,8 +333,8 @@ const HeroSection = ({ scrollF }) => {
         </Float>
         <AdaptiveDpr pixelated />
       </Canvas>
-      <Cloud speed={1.5} left={0} bottom={0} zIndex={3} />
-      <Cloud speed={1.5} left={-10} bottom={110} zIndex={2} />
+      {/* <Cloud speed={1.5} left={0} bottom={0} zIndex={3} /> */}
+      {/* <Cloud speed={1.5} left={-10} bottom={110} zIndex={2} /> */}
 
       <div
         onClick={onDownArrowClick}
@@ -414,6 +388,43 @@ const Container = styled.div`
   height: 100vh;
 `;
 const Text = styled.div`
+  @media only screen and (max-width: 768px) {
+    font-size: 40px;
+    width: 400px;
+    left: 30%;
+    /* width: 0; */
+  }
+  @media only screen and (min-width: 300px) and (max-width: 414px) {
+    max-width: 260px;
+    left: 45%;
+    font-size: 30px;
+  }
+  @media only screen and (min-width: 414px) and (max-width: 514px) {
+    left: 47%;
+    font-size: 35px;
+    width: 350px;
+    bottom: 200px;
+  }
+  @media only screen and (min-width: 514px) and (max-width: 600px) {
+    left: 40%;
+    bottom: 145px;
+    width: 400px;
+  }
+  @media only screen and (min-width: 768px) and (max-width: 900px) {
+    left: 27%;
+
+    width: 400px;
+  }
+  @media only screen and (min-width: 900px) and (max-width: 1024px) {
+    left: 25%;
+
+    width: 400px;
+  }
+  @media only screen and (min-width: 1024px) and (max-width: 1200px) {
+    left: 23%;
+
+    width: 400px;
+  }
   font-family: "Roboto" !important;
   font-weight: 500;
   font-size: 55px;
@@ -423,7 +434,7 @@ const Text = styled.div`
   position: absolute;
   bottom: 75px;
   width: 500px;
-  left: 20%;
+  left: 22%;
   /* background: red; */
   z-index: 11;
   text-align: left;
@@ -443,6 +454,20 @@ const Text = styled.div`
   }
 `;
 const TextWrapper = styled.div`
+  @media only screen and (max-width: 1200px) {
+    font-size: 40px;
+    width: 0;
+  }
+  @media only screen and (min-width: 300px) and (max-width: 414px) {
+  
+    font-size: 20px;
+  }
+  @media only screen and (min-width: 414px) and (max-width: 514px) {
+    bottom: 200px;
+  }
+  @media only screen and (min-width: 514px) and (max-width: 768px) {
+    bottom: 150px;
+  }
   position: absolute;
   font-weight: 500;
   font-size: 51px;
