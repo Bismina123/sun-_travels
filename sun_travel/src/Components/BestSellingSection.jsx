@@ -4,14 +4,13 @@ import bestSelling from "./assets/bestPrice.png";
 import refund from "../assets/4947544-removebg-preview.png";
 import safety from "../assets/images-removebg-preview.png";
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import image from "../assets/images-removebg-preview.png";
+
 export default function BestSellingSection() {
   const HotSellTourDetails = [
     {
       id: 1,
-      image: "https://res.cloudinary.com/dubjhsibu/image/upload/v1702789808/sun-images/maldives_u0mshm.jpg",
+      image:
+        "https://res.cloudinary.com/dubjhsibu/image/upload/v1702789808/sun-images/maldives_u0mshm.jpg",
       place: "Maldives Paradise",
       days: "5 Days",
       price: 80000,
@@ -20,7 +19,8 @@ export default function BestSellingSection() {
     },
     {
       id: 2,
-      image: "https://res.cloudinary.com/dubjhsibu/image/upload/v1702789822/sun-images/thailand_e6wv30.jpg",
+      image:
+        "https://res.cloudinary.com/dubjhsibu/image/upload/v1702789822/sun-images/thailand_e6wv30.jpg",
       place: "Thailand",
       days: "10 Days",
       price: 10000,
@@ -29,7 +29,8 @@ export default function BestSellingSection() {
     },
     {
       id: 3,
-      image: "https://res.cloudinary.com/dubjhsibu/image/upload/v1702789824/sun-images/bali_phyndo.jpg",
+      image:
+        "https://res.cloudinary.com/dubjhsibu/image/upload/v1702789824/sun-images/bali_phyndo.jpg",
       place: "Bali Bliss",
       days: "5 Days",
       price: 12000,
@@ -38,7 +39,8 @@ export default function BestSellingSection() {
     },
     {
       id: 4,
-      image: "https://res.cloudinary.com/dubjhsibu/image/upload/v1702789822/sun-images/singappore_cs1hod.jpg",
+      image:
+        "https://res.cloudinary.com/dubjhsibu/image/upload/v1702789822/sun-images/singappore_cs1hod.jpg",
       place: "Singapore Cityscape",
       days: "4 Days",
       price: 15000,
@@ -47,7 +49,8 @@ export default function BestSellingSection() {
     },
     {
       id: 5,
-      image: "https://res.cloudinary.com/dubjhsibu/image/upload/v1702789820/sun-images/malaysia_tyancb.jpg",
+      image:
+        "https://res.cloudinary.com/dubjhsibu/image/upload/v1702789820/sun-images/malaysia_tyancb.jpg",
       place: "Malaysian Marvels",
       days: "8 Days",
       price: 20000,
@@ -56,7 +59,8 @@ export default function BestSellingSection() {
     },
     {
       id: 6,
-      image: "https://res.cloudinary.com/dubjhsibu/image/upload/v1702789805/sun-images/last_jrxp6y.jpg",
+      image:
+        "https://res.cloudinary.com/dubjhsibu/image/upload/v1702789805/sun-images/last_jrxp6y.jpg",
       place: "Vietnam Discovery",
       days: " 12 Days",
       price: 2800,
@@ -65,7 +69,8 @@ export default function BestSellingSection() {
     },
     {
       id: 7,
-      image: "https://res.cloudinary.com/dubjhsibu/image/upload/v1702789825/sun-images/campodia_rsw0dm.jpg",
+      image:
+        "https://res.cloudinary.com/dubjhsibu/image/upload/v1702789825/sun-images/campodia_rsw0dm.jpg",
       place: "Cambodian Heritage",
       days: "6 Days",
       price: 18000,
@@ -74,7 +79,8 @@ export default function BestSellingSection() {
     },
     {
       id: 8,
-      image: "https://res.cloudinary.com/dubjhsibu/image/upload/v1702789809/sun-images/kashmir_k7ikoz.jpg",
+      image:
+        "https://res.cloudinary.com/dubjhsibu/image/upload/v1702789809/sun-images/kashmir_k7ikoz.jpg",
       place: "Kashmir Valley Retreat",
       days: "7 Days",
       price: 22000,
@@ -83,7 +89,8 @@ export default function BestSellingSection() {
     },
     {
       id: 9,
-      image: "https://res.cloudinary.com/dubjhsibu/image/upload/v1702789822/sun-images/kulu_nfnwm1.jpg",
+      image:
+        "https://res.cloudinary.com/dubjhsibu/image/upload/v1702789822/sun-images/kulu_nfnwm1.jpg",
       place: "Golden Triangle & Himachal",
       days: "9 Days",
       price: 19000,
@@ -92,7 +99,8 @@ export default function BestSellingSection() {
     },
     {
       id: 10,
-      image: "https://res.cloudinary.com/dubjhsibu/image/upload/v1702789802/sun-images/kerala_qg0byu.jpg",
+      image:
+        "https://res.cloudinary.com/dubjhsibu/image/upload/v1702789802/sun-images/kerala_qg0byu.jpg",
       place: "Kerala Backwaters",
       days: "6 Days",
       price: 16000,
@@ -101,7 +109,8 @@ export default function BestSellingSection() {
     },
     {
       id: 11,
-      image: "https://res.cloudinary.com/dubjhsibu/image/upload/v1702789823/sun-images/dubai_woxmwb.jpg",
+      image:
+        "https://res.cloudinary.com/dubjhsibu/image/upload/v1702789823/sun-images/dubai_woxmwb.jpg",
       place: "Dubai Group Tour",
       days: "5 Days",
       price: 28000,
@@ -136,17 +145,67 @@ export default function BestSellingSection() {
     infinite: true,
     speed: 500,
     slidesToShow: 5,
-    slidesToScroll: 1,
+    slidesToScroll: 3,
     arrows: true,
     autoplay: true,
     draggable: true,
-    // Slider:true
-
-    // beforeChange: handleBeforeChange,
-    // afterChange: handleAfterChange,
-
-    // beforeChange={handleBeforeChange}
-    // afterChange={handleAfterChange}
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 3,
+          infinite: true,
+          // dots: true
+        },
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          // dots: true
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2.5,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 514,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 300,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
   return (
     <Wrapper>
@@ -203,7 +262,6 @@ export default function BestSellingSection() {
       </CustomSlider>
 
       <GauranteeDiv>
-        {/* <Bounce> */}
         <GridContainer>
           {assuredData.map((item, id) => {
             return (
@@ -222,7 +280,6 @@ export default function BestSellingSection() {
             );
           })}
         </GridContainer>
-        {/* </Bounce> */}
       </GauranteeDiv>
       {/* <CardView className="otherNews-CardView"></CardView> */}
     </Wrapper>
@@ -244,71 +301,6 @@ const CustomSlider = styled(Slider)`
     right: 38px !important;
   }
   /* } */
-`;
-const GridContainer = styled.div`
-  display: grid;
-  grid-template-columns: auto auto auto;
-  /* background-color: #2196f3; */
-  padding: 10px 20px 10px 48px;
-  gap: 30px;
-`;
-const GridItem = styled.div`
-  /* background-color: rgba(255, 255, 255, 0.8); */
-  /* border: 1px solid rgba(0, 0, 0, 0.8); */
-  /* border-radius: 8px; */
-  padding: 10px;
-  /* font-size: 30px; */
-  text-align: left;
-  height: 150px;
-  /* width: 350px; */
-`;
-const BestSelling = styled.div`
-  position: relative;
-
-  .imageContainer {
-    align-items: center;
-    display: flex;
-    justify-content: flex-start;
-    /* padding-left: 32px; */
-    background: #0b2f6a;
-    width: 52px;
-    transform: rotate(45deg);
-  }
-  span {
-    position: absolute;
-    width: 79px;
-    height: 2px;
-    left: 80px;
-    top: 26px;
-    background-color: #0b2f6a;
-  }
-  img {
-    transform: rotate(-45deg);
-    width: 53px;
-    padding: 4px;
-    filter: invert(1);
-  }
-  .margin-l {
-    padding-left: 80px;
-  }
-  label {
-    font-size: 20px;
-    font-family: "Lato";
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: capitalize;
-  }
-  p {
-    padding-top: 6px;
-    font-size: 15px;
-    font-family: "Lato";
-    text-transform: capitalize;
-    color: #474343d9;
-  }
-`;
-
-const GauranteeDiv = styled.div`
-  margin-top: 50px;
 `;
 
 const DateDiv = styled.div`
@@ -353,8 +345,14 @@ const ContentWrapper = styled.div`
     );
   }
   .cardWrapper {
+    @media only screen and (min-width: 414px) and (max-width: 480px) {
+      max-width: 88%;
+    }
+    @media only screen and (min-width: 514px) and (max-width: 600px) {
+      max-width: 220px;
+    }
     max-width: 250px;
-    width: 250px;
+    width: 100%;
     /* background: red; */
     height: 300px;
     max-height: 300px;
@@ -391,7 +389,7 @@ const Wrapper = styled.div`
   /* height: calc(100vh + 150px); */
   /* bottom: 150px; */
   /* background-color: red; */
-  height: 100vh;
+  height: auto;
   position: relative;
 `;
 const AnnouncemnetTitle = styled.div`
@@ -409,7 +407,34 @@ const HotSellingSection = styled.div`
   align-items: center;
   justify-content: center;
   /* margin: 10px; */
+
   .headingLabel {
+    @media only screen and (min-width: 300px) and (max-width: 414px) {
+      font-size: 20px;
+    }
+    @media only screen and (min-width: 414px) and (max-width: 514px) {
+      font-size: 23px;
+    }
+    @media only screen and (min-width: 514px) and (max-width: 600px) {
+      font-size: 25px;
+    }
+    @media only screen and (min-width: 600px) and (max-width: 768px) {
+      font-size: 26px;
+    }
+    @media only screen and (min-width: 768px) and (max-width: 900px) {
+      font-size: 27px;
+    }
+    @media only screen and (min-width: 900px) and (max-width: 1024px) {
+      font-size: 30px;
+    }
+    @media only screen and (min-width: 1024px) and (max-width: 1200px) {
+      font-size: 35px;
+    }
+
+    @media screen and (max-width: 789px) {
+      padding: 10px 20px;
+    }
+
     font-family: "Lato";
     font-size: 40px;
     text-align: left;
@@ -451,79 +476,7 @@ const TagImage = styled.div`
   margin-left: 5px;
   letter-spacing: 1px;
 `;
-const CardSectionBesSelling = styled.div`
-  /* margin-top: 10px; */
 
-  padding: 0px;
-
-  img {
-    min-height: 380px;
-    height: 100%;
-    /* background-color: red; */
-    margin-top: 15px;
-    background: #fff;
-    box-shadow: #00000063 0px 0px 22px;
-    border-radius: 7px;
-    /* box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.1); */
-    width: 230px;
-    overflow: hidden;
-
-    object-fit: cover;
-    transition: all.5s;
-    &:hover {
-      cursor: pointer;
-      transform: scale(1.1);
-      + .intro {
-        height: 210px;
-        background: black;
-        bottom: 10px;
-        border-radius: 7px;
-        /* transform: scale(1.1) rotate(-3deg); */
-        p {
-          opacity: 1;
-          visibility: visible;
-          color: #fff;
-        }
-        .day {
-          opacity: 1;
-          visibility: visible;
-        }
-      }
-      + .bestSeller {
-        transform: scale(1.1);
-      }
-    }
-  }
-  .intro {
-    height: 70px;
-    width: 230px;
-    /* padding: 6px; */
-    box-sizing: border-box;
-    font-size: 12px;
-    position: absolute;
-    background: rgba(27, 27, 27, 0.5);
-    color: #fff;
-    bottom: 229px;
-    border-radius: 0px 0px 7px 7px;
-    transition: 0.5s;
-    /* z-index: 1; */
-  }
-  h1 {
-    margin: 10px;
-    font-size: 30px;
-  }
-  p {
-    margin: 10px;
-    font-size: 20px;
-    opacity: 0;
-    visibility: "hidden";
-    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-  }
-  .day {
-    opacity: 0;
-    visibility: "hidden";
-  }
-`;
 const DayWrapper = styled.div`
   display: flex;
   justify-content: flex-start;
@@ -539,4 +492,86 @@ const MoneyWrapper = styled.div`
   justify-content: flex-start;
   margin-left: 10px;
   /* gap: 4px; */
+`;
+const GauranteeDiv = styled.div`
+  margin-top: 50px;
+`;
+const GridContainer = styled.div`
+  display: grid;
+  grid-template-columns: auto auto auto;
+  /* background-color: #2196f3; */
+  padding: 10px 20px 40px 48px;
+  gap: 30px;
+  @media only screen and (min-width: 300px) and (max-width: 768px) {
+    grid-template-columns: auto;
+  }
+`;
+const GridItem = styled.div`
+  /* background-color: rgba(255, 255, 255, 0.8); */
+  /* border: 1px solid rgba(0, 0, 0, 0.8); */
+  /* border-radius: 8px; */
+  padding: 10px;
+  /* font-size: 30px; */
+  text-align: left;
+  height: 150px;
+  /* width: 350px; */
+`;
+const BestSelling = styled.div`
+  position: relative;
+
+  .imageContainer {
+    align-items: center;
+    display: flex;
+    justify-content: flex-start;
+    /* padding-left: 32px; */
+    background: #0b2f6a;
+    width: 52px;
+    transform: rotate(45deg);
+  }
+  span {
+    position: absolute;
+    width: 79px;
+    height: 2px;
+    left: 80px;
+    top: 26px;
+    background-color: #0b2f6a;
+  }
+  img {
+    transform: rotate(-45deg);
+    width: 53px;
+    padding: 4px;
+    filter: invert(1);
+  }
+  .margin-l {
+    padding-left: 60px;
+    @media only screen and (min-width: 768px) and (max-width: 900px) {
+      padding-left: 41px;
+    }
+    @media only screen and (min-width: 900px) and (max-width: 1024px) {
+      padding-left: 56px;
+  }
+  }
+  label {
+    font-size: 20px;
+    font-family: "Lato";
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    @media only screen and (min-width: 300px) and (max-width: 414px) {
+      font-size: 14px;
+    }
+    @media only screen and (min-width: 768px) and (max-width: 900px) {
+      font-size: 14px;
+    }
+    @media only screen and (min-width: 900px) and (max-width: 1024px) {
+      font-size: 15px;
+  }
+  }
+  p {
+    padding-top: 6px;
+    font-size: 15px;
+    font-family: "Lato";
+    text-transform: capitalize;
+    color: #474343d9;
+  }
 `;

@@ -37,40 +37,40 @@ function TravelBanner() {
       </TopSide>
       <BottomSide>
         <Slide direction="left">
-          <LeftSide>
-            <div className="snowImage">
-              <img
-                src="https://res.cloudinary.com/dubjhsibu/image/upload/v1702788379/sun-images/ladyback_j5akkj.jpg"
-                alt=""
-              />
-            </div>
-          </LeftSide>
+        <LeftSide>
+          <div className="snowImage">
+            <img
+              src="https://res.cloudinary.com/dubjhsibu/image/upload/v1702788379/sun-images/ladyback_j5akkj.jpg"
+              alt=""
+            />
+          </div>
+        </LeftSide>
         </Slide>
         <Slide direction="right">
-          <RightSide>
-            <span></span>
-            <label>About us!</label>
-            <p>
-              Elevate your wanderlust with our curated tours, where each
-              itinerary is a gateway to immersive experiences and unparalleled
-              adventures. Join us, and let your journey unfold seamlessly as we
-              turn travel dreams into unforgettable realities.
-            </p>
-            <div className="destinations">
-              <div>
-                <div className="number">150+</div>
-                <div>Destinations</div>
-              </div>
-              <div>
-                <div className="number">30+</div>
-                <div>Country</div>
-              </div>
-              <div>
-                <div className="number">500+</div>
-                <div>Happy Customers</div>
-              </div>
+        <RightSide>
+          <span></span>
+          <label>About us!</label>
+          <p>
+            Elevate your wanderlust with our curated tours, where each itinerary
+            is a gateway to immersive experiences and unparalleled adventures.
+            Join us, and let your journey unfold seamlessly as we turn travel
+            dreams into unforgettable realities.
+          </p>
+          <div className="destinations">
+            <div>
+              <div className="number">150+</div>
+              <div className="labels">Destinations</div>
             </div>
-          </RightSide>
+            <div>
+              <div className="number">30+</div>
+              <div  className="labels">Country</div>
+            </div>
+            <div>
+              <div className="number">500+</div>
+              <div  className="labels">Happy Customers</div>
+            </div>
+          </div>
+        </RightSide>
         </Slide>
       </BottomSide>
     </TravelBannerWrapper>
@@ -84,15 +84,27 @@ const StyledMhButton = styled(MHButton)`
       left: 9px;
       top: -14px;
     }
-    color: green !important;
+    @media only screen and (min-width: 414px) and (max-width: 768px) {
+      margin: 20px;
+    }
+    @media only screen and (min-width: 300px) and (max-width: 900px) {
+      margin: 20px;
+  }
+
   }
 `;
 const TravelBannerWrapper = styled.div`
   height: auto;
   background-color: #f2f0d159;
   padding: 20px 50px;
+  @media only screen and (min-width: 414px) and (max-width: 513px) {
+    padding: 30px 20px;
+  }
 `;
 const TopSide = styled.div`
+  @media only screen and (min-width: 300px) and (max-width: 900px) {
+    display: block;
+  }
   display: flex;
   justify-content: center;
   align-items: center;
@@ -114,11 +126,50 @@ const TextSide = styled.div`
     font-size: 55px;
     line-height: 70px;
     font-weight: 600;
+
+    @media only screen and (min-width: 300px) and (max-width: 414px) {
+      font-size: 30px;
+      line-height: 50px;
+      width: 100%;
+    }
+    @media only screen and (min-width: 414px) and (max-width: 514px) {
+      font-size: 33px;
+      line-height: 52px;
+      width: 100%;
+    }
+    @media only screen and (min-width: 514px) and (max-width: 600px) {
+      font-size: 36px;
+      line-height: 54px;
+      width: 100%;
+    }
+    @media only screen and (min-width: 600px) and (max-width: 768px) {
+      font-size: 40px;
+      line-height: 54px;
+      width: 100%;
+    }
+    @media only screen and (min-width: 768px) and (max-width: 900px) {
+      font-size: 35px;
+      line-height: 55px;
+      width: 100%;
+    }
+    @media only screen and (min-width: 900px) and (max-width: 1024px) {
+      font-size: 35px;
+      line-height: 55px;
+      width: 100%;
+    }
+    @media only screen and (min-width: 1024px) and (max-width: 1200px) {
+      font-size: 35px;
+      line-height: 55px;
+      width: 100%;
+    }
   }
   p {
     width: 496px;
     margin-top: 20px;
     font-size: 14px;
+    @media only screen and (min-width: 300px) and (max-width: 1200px) {
+      width: 100%;
+    }
   }
   button {
     margin-top: 13px;
@@ -141,8 +192,24 @@ const ImageSide = styled.div`
   justify-content: flex-start;
   align-items: baseline;
   gap: 30px;
+  @media only screen and (min-width: 768px) and (max-width: 900px) {
+    justify-content: center;
+    }
+  @media only screen and (min-width: 300px) and (max-width: 414px) {
+    display: block;
+  }
+  @media only screen and (min-width: 414px) and (max-width: 768px) {
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: baseline;
+    gap: 15px;
+  }
 
   .image1 {
+    @media only screen and (min-width: 414px) and (max-width: 768px) {
+      max-width: 100%;
+      min-width: 100%;
+    }
     max-width: 220px;
     min-width: 220px;
     max-height: 450px;
@@ -158,6 +225,14 @@ const ImageSide = styled.div`
   }
 
   .image2 {
+    @media only screen and (min-width: 414px) and (max-width: 768px) {
+      max-width: 100%;
+      min-width: 100%;
+    }
+
+    @media only screen and (min-width: 300px) and (max-width: 414px) {
+      margin-top: 10px;
+    }
     max-width: 220px;
     min-width: 220px;
     max-height: 400px;
@@ -178,9 +253,22 @@ const BottomSide = styled.div`
   align-items: center;
   gap: 100px;
   margin: 70px 0px;
+  @media only screen and (min-width: 300px) and (max-width: 900px) {
+    display: block;
+  }
+  @media only screen and (min-width: 768px) and (max-width: 900px) {
+ text-align: -webkit-center;
+    }
 `;
 const LeftSide = styled.div`
+
   .snowImage {
+    @media only screen and (min-width: 300px) and (max-width: 768px) {
+      width: 100%;
+    }
+    @media only screen and (min-width: 900px) and (max-width: 1200px) {
+      width: 350px;
+  }
     width: 490px;
     height: 350px;
     background-color: green;
@@ -195,6 +283,12 @@ const LeftSide = styled.div`
   }
 `;
 const RightSide = styled.div`
+  @media only screen and (min-width: 300px) and (max-width: 768px) {
+    width: 100%;
+  }
+  @media only screen and (min-width: 900px) and (max-width: 1200px) {
+    width: auto;
+  }
   width: 490px;
   position: relative;
   /* background-color: red; */
@@ -203,6 +297,9 @@ const RightSide = styled.div`
     line-height: 30px;
     font-family: "Lato";
     font-size: 15px;
+    @media only screen and (min-width: 300px) and (max-width: 900px) {
+      margin-top: 55px;
+    }
   }
   span {
     /* content: ''; */
@@ -212,6 +309,12 @@ const RightSide = styled.div`
     left: 0px;
     top: -54px;
     background-color: #001499;
+    @media only screen and (min-width: 300px) and (max-width: 414px) {
+      top: -20px;
+    }
+    @media only screen and (min-width: 414px) and (max-width: 900px) {
+      top: -20px;
+    }
   }
   label {
     position: absolute;
@@ -219,11 +322,23 @@ const RightSide = styled.div`
     top: -71px;
     font-size: 16px;
     color: #001499;
+    @media only screen and (min-width: 300px) and (max-width: 900px) {
+      top: -38px;
+    }
   }
   .number {
+    @media only screen and (min-width: 300px) and (max-width: 768px) {
+      font-size: 30px;
+    }
     font-size: 42px;
     color: #001499;
     font-weight: bolder;
+  }
+  .labels{
+    @media only screen and (min-width: 300px) and (max-width: 768px) {
+      font-size: 15px;
+    }
+    font-size: 17px;
   }
   .destinations {
     display: flex;

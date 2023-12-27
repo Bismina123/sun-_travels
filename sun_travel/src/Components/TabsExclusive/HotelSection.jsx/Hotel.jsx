@@ -24,12 +24,13 @@ export default function Hotel() {
       heading: "Business Travel Packages",
       para: "Explore our business travel packages with discounted rates on hotels. Ideal for your work trips.",
     },
-    // {
-    //   image: dubai,
-    //   category: "Hotel ",
-    //   heading: "Stay Longer, Save More",
-    //   para: "Extend your stay and save more! Enjoy additional discounts on hotel bookings for extended trips.",
-    // },
+    {
+      image:
+      "https://res.cloudinary.com/dubjhsibu/image/upload/v1702738236/sun-images/hotel3_dfhwtu.jpg",
+      category: "Hotel ",
+      heading: "Stay Longer, Save More",
+      para: "Extend your stay and save more! Enjoy additional discounts on hotel bookings for extended trips.",
+    },
   ];
   return (
     <GridContainer>
@@ -61,8 +62,11 @@ export default function Hotel() {
 }
 const GridContainer = styled.div`
   display: grid;
-  grid-template-columns: auto auto auto;
-
+  grid-template-columns: auto auto auto auto;
+  @media only screen and (min-width: 414px) and (max-width: 768px) {
+    grid-template-columns: auto;
+    width: auto;
+  }
   margin: 10px;
   padding: 10px;
   gap: 30px;
@@ -125,6 +129,7 @@ const GridItem = styled.div`
     position: absolute;
     top: 430px;
     left: 25px;
+    right: 8px;
   }
   .title {
     /* position: absolute;
@@ -134,6 +139,7 @@ const GridItem = styled.div`
     font-family: "Lato";
     text-transform: uppercase;
     font-weight: 900;
+    font-size: 14px
   }
   .paragraph {
     /* position: absolute;
@@ -143,6 +149,7 @@ const GridItem = styled.div`
     color: #000;
     font-family: "Lato";
     text-transform: capitalize;
+    font-size: 12px;
   }
   .buttonNow {
     position: absolute;

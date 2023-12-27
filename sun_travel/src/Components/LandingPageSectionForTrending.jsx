@@ -98,6 +98,10 @@ const StyledMhButton = styled(MHButton)`
       left: 14px;
       top: -17px;
     }
+    @media only screen and (min-width: 300px) and (max-width: 1200px) {
+      margin-top: 15px;
+    }
+    margin-top: 10px;
   }
 `;
 const KaabaImageWrapper = styled.div`
@@ -109,7 +113,29 @@ const KaabaImageWrapper = styled.div`
   top: -130px;
   right: 0;
   width: 40%;
-
+  @media only screen and (min-width: 300px) and (max-width: 514px) {
+    width: 85%;
+    top: 328px;
+    }
+    @media only screen and (min-width: 514px) and (max-width: 768px) {
+      width: 75%;
+    top: 332px;
+    left:55px;
+    }
+    @media only screen and (min-width: 768px) and (max-width: 900px) {
+      width: 75%;
+    top: 332px;
+    left:65px;
+    }
+    @media only screen and (min-width: 900px) and (max-width: 1200px) {
+      width: 69%;
+    top: 276px;
+    left: 164px;
+    }
+    @media only screen and (min-width: 1200px) and (max-width: 1350px) {
+      width: 44%;
+    top: 223px;
+    }
   overflow: hidden;
 `;
 const Wrapper = styled.div`
@@ -142,8 +168,11 @@ const Wrapper = styled.div`
 `;
 const SvgIcons = styled.div`
   position: relative;
-  /* background-color: red; */
+
   top: 240px;
+  @media only screen and (min-width: 300px) and (max-width: 1200px) {
+    padding: 0px 20px;
+  }
   .leftPiller {
     width: 44px;
     top: 0;
@@ -218,23 +247,6 @@ const SvgIcons = styled.div`
   .wrapper {
     position: relative;
     /* bottom: 0; */
-
-    @media (min-width: 1200px) and (max-width: 1365px) {
-      right: -32px;
-    }
-    @media (min-width: 1366px) and (max-width: 1448px) {
-      bottom: -151px;
-      right: -32px;
-    }
-    @media (min-width: 1449px) and (max-width: 1719px) {
-      right: -24px;
-
-      bottom: -124px;
-    }
-    @media (min-width: 1720px) and (max-width: 4000px) {
-      right: -7px;
-      bottom: -251px;
-    }
   }
 `;
 const HajjSectionText = styled.div`
@@ -251,18 +263,10 @@ const HajjSectionText = styled.div`
   border-top: 1px solid rgba(255, 255, 255, 0.5);
   border-left: 1px solid rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(5px);
-  @media (min-width: 1200px) and (max-width: 1365px) {
-    width: 700px;
-  }
-  @media (min-width: 1366px) and (max-width: 1448px) {
-    top: -74px;
-  }
-  @media (min-width: 1449px) and (max-width: 1719px) {
-    top: -92px;
-  }
-  @media (min-width: 1720px) and (max-width: 4000px) {
-    top: -33px;
-    width: 880px;
+
+  @media only screen and (min-width: 300px) and (max-width: 1200px) {
+    width: auto;
+    left: 0px;
   }
   h1 {
     font-size: 60px;
@@ -270,6 +274,9 @@ const HajjSectionText = styled.div`
     font-weight: 900;
     text-transform: uppercase;
     color: goldenrod;
+    @media only screen and (min-width: 300px) and (max-width: 1200px) {
+      font-size: 40px;
+    }
   }
   p {
     font-size: 20px;
@@ -278,11 +285,14 @@ const HajjSectionText = styled.div`
     color: goldenrod;
   }
   h6 {
-    text-align: left;
+    text-align: justify;
     color: #ffff;
     font-size: 14px;
     margin-top: 20px;
-    padding: 0px 44px;
+    padding: 0px 30px;
+    @media only screen and (min-width: 300px) and (max-width: 1200px) {
+      padding: 0px 15px;
+    }
   }
   .allPrices {
     display: flex;
@@ -323,6 +333,9 @@ const HajjSectionText = styled.div`
   }
 `;
 const PackageSection = styled.div`
+ @media only screen and (min-width: 300px) and (max-width: 1200px) {
+  padding: 0px 10px;
+    }
   .packagetext {
     font-size: 18px;
     text-transform: uppercase;
@@ -354,22 +367,9 @@ const IconDiv = styled.div`
   }
   label {
     color: gold;
-  }
-`;
-const ButtonSection = styled.div`
-  button {
-    margin-top: 13px;
-    background: #001499;
-    padding: 10px 20px;
-    font-size: 15px;
-    border-radius: 22px;
-    color: #ffff;
-    transition: opacity 0.3s ease;
-    &:hover {
-      background-color: #fff;
-      color: #001499;
-      transition: opacity 0.3s ease;
-      border: 1px solid #001499;
+    @media only screen and (min-width: 300px) and (max-width: 1200px) {
+font-size: 14px;
     }
   }
 `;
+

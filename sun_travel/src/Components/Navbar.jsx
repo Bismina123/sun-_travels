@@ -7,6 +7,8 @@ import img3 from "./assets/3.png";
 import img4 from "./assets/4.png";
 import img5 from "./assets/5.png";
 import img6 from "./assets/6.png";
+import menu from "./assets/menu (1).svg";
+import close from "./assets/close (1).svg";
 
 import { Link } from "react-router-dom";
 
@@ -38,7 +40,13 @@ export default function Navbar() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
+  const [closeIconShow, setCloseIconShow] = useState(false);
+  const handleMenuCLick = () => {
+    setCloseIconShow(true);
+  };
+  const handleCloseClick = () => {
+    setCloseIconShow(false);
+  };
   return (
     <MainWrapper>
       <Wrapper>
@@ -49,8 +57,12 @@ export default function Navbar() {
             </Link>
           </HeaderLogo>
 
-          <NavItems>
-            <ul className="navbar-links">
+          <NavItems id="window">
+            <ul
+              className={`navbar-links ${
+                closeIconShow ? "mobleActive" : "mobledefault"
+              }`}
+            >
               {navItems.map((item) => {
                 if (item.title === "Tours") {
                   return (
@@ -214,6 +226,14 @@ export default function Navbar() {
               (Approved by Govt. of India, Ministry of Tourism)
             </p>
           </HeaderMenu>
+
+          <div id="mobile" className={`mobileIcon`}>
+            {closeIconShow ? (
+              <img src={close} alt={close} onClick={handleCloseClick} />
+            ) : (
+              <img src={menu} alt={menu} onClick={handleMenuCLick} />
+            )}
+          </div>
         </HeaderWrapper>
       </Wrapper>
     </MainWrapper>
@@ -224,6 +244,9 @@ const WrapperLabelIcon = styled.div`
   align-items: center;
   justify-content: center;
   gap: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  /* transition: ease-in 0.5s; */
 
   img {
     width: 21px;
@@ -238,6 +261,10 @@ const WrapperLabelIcon = styled.div`
   }
   &:hover {
     color: #ffc40d;
+    padding: 5px;
+    background: #0b2f6a;
+    border-radius: 5px;
+    transition: ease-in 0.5s;
     img {
       filter: invert(62%) sepia(100%) saturate(7380%) hue-rotate(26deg)
         brightness(302%) contrast(109%) !important;
@@ -248,6 +275,39 @@ const WrapperLabelIcon = styled.div`
   }
 `;
 const NavItems = styled.div`
+  @media only screen and (max-width: 1200px) {
+    .mobleActive {
+      list-style-type: none;
+      display: flex;
+      flex-flow: column;
+      margin-top: 478px;
+      align-items: flex-start;
+      justify-content: flex-start;
+      position: fixed;
+      top: -400px;
+    bottom: 0px;
+      right: 0px;
+      width: 300px;
+      box-shadow: 5px 7px 17px rgb(0 0 0 / 20%);
+      background: linear-gradient(to bottom, #bfcdeb, #afc7f8);
+      height: 100vh;
+      padding: 10px;
+    }
+    .mobledefault {
+      list-style-type: none;
+      display: flex;
+      flex-flow: column;
+      margin-top: 478px;
+      align-items: flex-start;
+      justify-content: flex-start;
+      position: fixed;
+      bottom: -65px;
+      right: -300px;
+      width: 300px;
+      background: yellow;
+      height: calc(100vh);
+    }
+  }
   .navbar-links {
     list-style-type: none;
     display: flex;
@@ -368,6 +428,19 @@ const MainWrapper = styled.div`
   & > div {
     width: 100%;
   }
+
+  .mobileIcon {
+    img {
+      height: 20px;
+      width: 20px;
+      cursor: pointer;
+    }
+  }
+  @media only screen and (min-width: 1200px) {
+    .mobileIcon {
+      display: none;
+    }
+  }
 `;
 const Wrapper = styled.div`
   width: 100%;
@@ -390,9 +463,21 @@ const HeaderUl = styled.ul`
   justify-content: center;
 `;
 const HeaderMenu = styled.div`
+ @media only screen and (min-width: 320px) and (max-width: 414px) {
+      display: none;
+    }
   p {
     font-family: "Lato";
-
+    @media only screen and (min-width: 414px) and (max-width: 513px) {
+      font-size: 9px;
+    }
+    @media only screen and (min-width: 513px) and (max-width: 600px) {
+      font-size: 10px;
+    }
+    @media only screen and (min-width: 600px) and (max-width: 768px) {
+      font-size:11px;
+    }
+  
     font-size: 12px;
     color: #001499;
     border-radius: 5px;
@@ -413,7 +498,15 @@ const HeaderLi = styled.li`
     transform: translateY(-7px);
   }
   img {
+    @media only screen and (min-width: 414px) and (max-width: 513px) {
+      max-width: 22px;
+    }
+    @media only screen and (min-width: 513px) and (max-width: 600px) {
+      max-width: 30px;
+    }
+    @media only screen and (min-width: 600px) and (max-width: 768px) {
+      max-width: 33px;
+    }
     max-width: 35px;
   }
- 
 `;

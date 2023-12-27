@@ -28,7 +28,7 @@ export default function LandingPage() {
   const [showScrollButton, setShowScrollButton] = useState(false);
 
   const handleScroll = () => {
-    setShowScrollButton(window.scrollY > 650);
+    setShowScrollButton(window.scrollY > 1000);
   };
 
   useEffect(() => {
@@ -45,34 +45,33 @@ export default function LandingPage() {
   return (
     <WrapperCard>
       <HeroSection scrollF={scrollToBestSelling} />
-      <SliderComponent bestSellingRef={bestSellingRef} />
+      {/* <SliderComponent bestSellingRef={bestSellingRef} /> */}
       <BestSellingSection />
       <TravelBanner />
       <TabsExclusive />
-      <Scene />
+      {/* <Scene /> */}
       <LandingPageSectionForTrending />
-      <Feedbacks />
+      {/* <Feedbacks /> */}
 
-      {/* <Footer /> */}
       <UpdatedFooter />
       {showScrollButton && (
         <>
-          <ScrollButton isVisible={showScrollButton} >
-            <div>
+          <ScrollButton isVisible={showScrollButton}>
+            <a href="https://www.instagram.com/suninternationaltours/?igshid=NGVhN2U2NjQ0Yg%3D%3D">
               <ion-icon name="logo-instagram"></ion-icon>
-            </div>
-            <div>
+            </a>
+            <a href="https://www.facebook.com/people/FlySuninternational-Tours-Travels/pfbid0VijDEGTsDFAoWXzaWNVPgKKRVbJgjnon1ooyLZzSQ4T92pFAERrB25NWNbeoVK4vl/?mibextid=LQQJ4d">
               <ion-icon name="logo-facebook"></ion-icon>
-            </div>
-            <div>
+            </a>
+            {/* <a href="https://www.instagram.com/suninternationaltours/?igshid=NGVhN2U2NjQ0Yg%3D%3D">
               <ion-icon name="logo-twitter"></ion-icon>
-            </div>
-            <div>
+            </a> */}
+            <a href="https://www.instagram.com/suninternationaltours/?igshid=NGVhN2U2NjQ0Yg%3D%3D">
               <ion-icon name="mail-outline"></ion-icon>
-            </div>
-            <div>
+            </a>
+            <a href="https://www.google.com/maps/dir//NARASIMHAVILASAM+SHOPPING+COMPLEX,+near+secretariate+4th+gate,+Statue,+Palayam,+Thiruvananthapuram,+Kerala+695001/@8.4956904,76.8672319,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3b05bbbb0144ef6b:0x33c0f364c57f1b9c!2m2!1d76.9496338!2d8.4956991?entry=ttu">
               <ion-icon name="location-outline"></ion-icon>
-            </div>
+            </a>
           </ScrollButton>
         </>
       )}
@@ -82,6 +81,7 @@ export default function LandingPage() {
 const WrapperCard = styled.div`
   background-color: #fff;
   height: 100vh;
+  max-width: 100%;
 `;
 const fadeIn = keyframes`
   from {
@@ -119,6 +119,17 @@ const ScrollButton = styled.button`
     font-size: 20px;
   }
   div {
+    margin-bottom: 15px;
+    padding: 12px; /* Adjust the padding as needed */
+    background: #fff;
+    border-radius: 50%;
+    border: 1px solid #001499;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #001499;
+  }
+  a {
     margin-bottom: 15px;
     padding: 12px; /* Adjust the padding as needed */
     background: #fff;

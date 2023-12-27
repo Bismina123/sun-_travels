@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import whatspp from "./assets/twitter.png";
 import Logo from "../assets/Logo-01 (3).svg";
+import emailjs from "@emailjs/browser";
 import call from "./assets/phone-call.svg";
 import location from "./assets/location.svg";
 import mail from "./assets/email.svg";
@@ -11,6 +12,39 @@ import twitter from "./assets/twitter.svg";
 import google from "./assets/google-plus.svg";
 import "./footer.css";
 const UpdatedFooter = () => {
+  const [subscribe, setSubsribe] = useState("");
+  console.log(subscribe, "subscribe");
+  // service_69qwdhs service id
+  // template_sil3r8l temlate id
+  // TRppiY3iP50vtBpob public key
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    emailjs
+      .send(
+        "service_69qwdhs",
+        "template_zpg0qnl",
+        {
+          from_name: subscribe,
+          to_email: "sidharth.codingo@gmail.com",
+          message: subscribe,
+        },
+        "4T1PPRyKB0JCqFyCV"
+      )
+      .then(
+        () => {
+          alert("Thank you. I will get back to you as soon as possible.");
+
+          setSubsribe({
+            email: "",
+          });
+        },
+        (error) => {
+          console.error(error);
+
+          alert("Ahh, something went wrong. Please try again.");
+        }
+      );
+  };
   return (
     <>
       <footer className="footer-section">
@@ -59,17 +93,20 @@ const UpdatedFooter = () => {
                 <div className="footer-social-icon">
                   <span>Follow us</span>
                   <div className="socialIconWrapper">
-                  <a href="/">
-                    <img className="iconImages" src={facebook} alt="facebook" />
-                  </a>
-                  <a href="/">
-                    <img className="iconImages" src={twitter} alt="twitter" />{" "}
-                  </a>
-                  <a href="/">
-                    <img className="iconImages" src={google} alt="google" />{" "}
-                  </a>
+                    <a href="/">
+                      <img
+                        className="iconImages"
+                        src={facebook}
+                        alt="facebook"
+                      />
+                    </a>
+                    <a href="/">
+                      <img className="iconImages" src={twitter} alt="twitter" />{" "}
+                    </a>
+                    <a href="/">
+                      <img className="iconImages" src={google} alt="google" />{" "}
+                    </a>
                   </div>
-                 
                 </div>
               </div>
               <div className="footer-widget">
@@ -120,9 +157,16 @@ const UpdatedFooter = () => {
                   </p>
                 </div>
                 <div className="subscribe-form">
-                  <form action="#">
-                    <input type="text" placeholder="Email Address" />
-                    <button className="send"><img src={send} alt="send" /></button>
+                  <form action="#" onSubmit={handleSubmit}>
+                    <input
+                      type="text"
+                      placeholder="Email Address"
+                      value={subscribe?.email}
+                      onChange={(e) => setSubsribe(e.target.value)}
+                    />
+                    <button className="send">
+                      <img src={send} alt="send" />
+                    </button>
                   </form>
                 </div>
               </div>

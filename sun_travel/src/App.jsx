@@ -1,6 +1,6 @@
 import "./App.css";
 
-import { Suspense } from "react";
+import { Suspense, useEffect, useState } from "react";
 import LandingPage from "./Pages/LandingPage";
 import { Loader } from "./Pages/Loader";
 import { Routes, Route } from "react-router-dom";
@@ -8,6 +8,15 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setLoading(false);
+    }, 4000);
+
+    return () => clearTimeout(timeoutId);
+  }, []);
   return (
     <>
       <div>
@@ -16,7 +25,7 @@ function App() {
           <Route
             path="/"
             element={
-              <Suspense fallback={<Loader />}>
+              <Suspense fallback={loading ? <Loader /> : null}>
                 <LandingPage />
               </Suspense>
             }
