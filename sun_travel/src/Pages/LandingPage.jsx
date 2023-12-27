@@ -53,6 +53,8 @@ export default function LandingPage() {
       <LandingPageSectionForTrending />
       {/* <Feedbacks /> */}
 
+      <Feedbacks />
+      {/* <Footer /> */}
       <UpdatedFooter />
       {showScrollButton && (
         <>
