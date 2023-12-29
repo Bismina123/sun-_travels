@@ -7,8 +7,9 @@ import { Routes, Route } from "react-router-dom";
 
 import Navbar from "./Components/Navbar";
 import Tours from "./Pages/Tours";
-import UpdatedFooter from "./Components/UpdatedFooter";
 import { tourPackages } from "./Pages/toursPackages";
+import AllTours from "./Pages/AllTours";
+import ToursDetails from "./Pages/TourDetails";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -34,12 +35,18 @@ function App() {
             }
           />
           <Route
+            path="/tours-inner/:id"
+            element={
+              <Suspense fallback={loading ? <Loader /> : null}>
+                <Tours />
+              </Suspense>
+            }
+          />
+          <Route
             path="/tours"
             element={
               <Suspense fallback={loading ? <Loader /> : null}>
-                {tourPackages.map((item) => {
-                  return <Tours key={item.id} item={item} />;
-                })}
+                <AllTours />
               </Suspense>
             }
           />
