@@ -45,7 +45,7 @@ export default function LandingPage() {
   return (
     <WrapperCard>
       <HeroSection scrollF={scrollToBestSelling} />
-      {/* <SliderComponent bestSellingRef={bestSellingRef} /> */}
+      <SliderComponent bestSellingRef={bestSellingRef} />
       <BestSellingSection />
       <TravelBanner />
       <TabsExclusive />
@@ -53,6 +53,8 @@ export default function LandingPage() {
       <LandingPageSectionForTrending />
       {/* <Feedbacks /> */}
 
+      <Feedbacks />
+      {/* <Footer /> */}
       <UpdatedFooter />
       {showScrollButton && (
         <>

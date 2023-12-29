@@ -91,31 +91,31 @@ export const tourDropdown = [
   {
     id: 1,
     title: "International",
-    path: "./tour",
+    path: "./tours",
     cName: "submenu-item",
   },
   {
     id: 2,
     title: "Domestic",
-    path: "./tour",
+    path: "./tours",
     cName: "submenu-item",
   },
   {
     id: 3,
     title: "Indian Tour",
-    path: "./tour",
+    path: "./tours",
     cName: "submenu-item",
   },
   {
     id: 4,
     title: "Holidays",
-    path: "./tour",
+    path: "./tours",
     cName: "submenu-item",
   },
   {
     id: 5,
     title: "Group Tour",
-    path: "./tour",
+    path: "./tours",
     cName: "submenu-item",
   },
 ];

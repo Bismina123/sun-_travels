@@ -13,10 +13,6 @@ import google from "./assets/google-plus.svg";
 import "./footer.css";
 const UpdatedFooter = () => {
   const [subscribe, setSubsribe] = useState("");
-  console.log(subscribe, "subscribe");
-  // service_69qwdhs service id
-  // template_sil3r8l temlate id
-  // TRppiY3iP50vtBpob public key
   const handleSubmit = (e) => {
     e.preventDefault();
     emailjs
