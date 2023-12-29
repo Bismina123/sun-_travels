@@ -5,16 +5,9 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 const TourDetails = ({ item }) => {
-  console.log(item, "TourDetails");
-  const { id } = useParams();
-  console.log(id, "iddddddd");
   const [allData, setAllData] = useState(item);
   useEffect(() => {
-    const selectedTour = Object.keys(item).find((data) => data.id == id);
-    console.log(selectedTour, "selectedTour");
-    if (selectedTour) {
-      setAllData(selectedTour);
-    }
+    setAllData(item);
   }, [item, allData]);
   const settings = {
     dots: true,
