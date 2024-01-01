@@ -267,6 +267,24 @@
   background: radial-gradient(#66339961, #0000ff54);
   margin: 40px 80px;
 }
+@media screen and (min-width: 300px) and (max-width: 991px) {
+  .feed-card {
+    margin: 15px;
+  }
+}
+@media screen and (min-width: 480px) and (max-width: 768px) {
+  .card-wrapper {
+    max-width: 200px !important;
+  }
+}
+@media screen and (min-width: 300px) and (max-width: 639px) {
+  .testimonials-block {
+    margin-top: 80px;
+  }
+  .card-wrapper {
+    max-width: 280px !important;
+  }
+}
 .card-wrapper {
   background: #001499a1;
   max-width: 400px;
