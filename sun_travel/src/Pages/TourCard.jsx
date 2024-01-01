@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import hotel from "../assets/hotel.png";
 import hiking from "../assets/hiking.png";
 import airplane from "../assets/airplane.png";
 import bus from "../assets/bus.png";
 import { useNavigate } from "react-router-dom";
-import { tourPackages } from "./toursPackages";
 const TourCard = ({ item }) => {
   const navigate = useNavigate();
   const [allData, setAllData] = useState(item);
