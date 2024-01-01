@@ -1,5 +1,3 @@
-import dropDownArrow from "./assets/dropDown.png";
-import more from "./assets/more.png";
 import homeIcon from "./assets/home.svg";
 import visaIcon from "./assets/visaIcon.svg";
 import flightIcon from "./assets/passport (1).svg";

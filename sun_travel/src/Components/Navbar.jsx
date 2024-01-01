@@ -47,12 +47,18 @@ export default function Navbar() {
   const handleCloseClick = () => {
     setCloseIconShow(false);
   };
+  const handleScrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   return (
     <MainWrapper>
       <Wrapper>
         <HeaderWrapper className={navbar ? "navbar active" : "navbar"}>
           <HeaderLogo>
-            <Link to="/" className="navbar-logo">
+            <Link to="/" className="navbar-logo" onClick={handleScrollToTop}>
               <img src={Logo} alt="logo" />
             </Link>
           </HeaderLogo>
@@ -189,7 +195,11 @@ export default function Navbar() {
                 }
                 return (
                   <li key={item.id} className={item.cName}>
-                    <Link to={item.path} className="link-main">
+                    <Link
+                      to={item.path}
+                      className="link-main"
+                      onClick={handleScrollToTop}
+                    >
                       <WrapperLabelIcon className="iconHover">
                         <img src={item.icon} alt={item.icon} />
                         {item.title}
@@ -285,7 +295,7 @@ const NavItems = styled.div`
       justify-content: flex-start;
       position: fixed;
       top: -400px;
-    bottom: 0px;
+      bottom: 0px;
       right: 0px;
       width: 300px;
       box-shadow: 5px 7px 17px rgb(0 0 0 / 20%);
@@ -463,9 +473,9 @@ const HeaderUl = styled.ul`
   justify-content: center;
 `;
 const HeaderMenu = styled.div`
- @media only screen and (min-width: 320px) and (max-width: 414px) {
-      display: none;
-    }
+  @media only screen and (min-width: 320px) and (max-width: 414px) {
+    display: none;
+  }
   p {
     font-family: "Lato";
     @media only screen and (min-width: 414px) and (max-width: 513px) {
@@ -475,9 +485,9 @@ const HeaderMenu = styled.div`
       font-size: 10px;
     }
     @media only screen and (min-width: 600px) and (max-width: 768px) {
-      font-size:11px;
+      font-size: 11px;
     }
-  
+
     font-size: 12px;
     color: #001499;
     border-radius: 5px;
