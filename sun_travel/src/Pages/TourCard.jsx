@@ -20,6 +20,9 @@ const TourCard = ({ item }) => {
       <span className="heading-wrapper">{allData.title}</span>
       <div className="image-wrapper">
         <img src={allData.titleImage} alt={allData.titleImage} />
+        <div>
+          <span>{allData.duration}</span>
+        </div>
       </div>
       <div className="trip-content">
         <div>
@@ -66,27 +69,25 @@ const CardWrapper = styled.div`
       font-size: 14px !important;
     }
     .day-content {
-
-    div {
-
-      span {
-        font-size: 14px !important;
-      }
       div {
-        font-size: 12px !important;
+        span {
+          font-size: 14px !important;
+        }
+        div {
+          font-size: 12px !important;
+        }
       }
     }
-  }
-  .attraction-content {
-    div {
-      :nth-child(1) {
-        font-size: 18px !important;
-      }
-      :nth-child(2) {
-        font-size: 13px !important;
+    .attraction-content {
+      div {
+        :nth-child(1) {
+          font-size: 18px !important;
+        }
+        :nth-child(2) {
+          font-size: 13px !important;
+        }
       }
     }
-  }
   }
   margin-top: 30px;
   cursor: pointer;
@@ -108,6 +109,23 @@ const CardWrapper = styled.div`
     padding: 10px;
   }
   .image-wrapper {
+    div {
+      display: flex;
+      justify-content: flex-end;
+      position: relative;
+      span {
+        padding: 4px 10px;
+        background:  #000000;
+        border-radius: 13px;
+        color: #ffffff;
+        position: absolute;
+        margin-top: -15px;
+        right: 5px;
+        z-index: 1;
+        font-size: 13px;
+        text-align: center;
+      }
+    }
     padding: 10px;
     img {
       border-radius: 10px;

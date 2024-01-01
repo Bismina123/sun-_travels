@@ -5,7 +5,7 @@ export const tourPackages = [
     title: "Experience the magic of Dubai",
     titleImage:
       "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    duration: "3 - 4 nights",
+    duration: "3D/4N",
     bestTime: "Nov- Apr",
     price: "₹ 52,642",
     visa: "Visa on Arrival",
@@ -92,7 +92,7 @@ export const tourPackages = [
     title: "Experience the magic of london",
     titleImage:
       "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    duration: "3 - 4 nights",
+    duration: "4D/3N",
     bestTime: "Nov- Apr",
     price: "₹ 555,642",
     visa: "Visa on Arrival",
