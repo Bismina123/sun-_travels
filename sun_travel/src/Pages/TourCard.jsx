@@ -61,6 +61,33 @@ const TourCard = ({ item }) => {
 
 export default TourCard;
 const CardWrapper = styled.div`
+  @media (max-width: 574px) {
+    .heading-wrapper {
+      font-size: 14px !important;
+    }
+    .day-content {
+
+    div {
+
+      span {
+        font-size: 14px !important;
+      }
+      div {
+        font-size: 12px !important;
+      }
+    }
+  }
+  .attraction-content {
+    div {
+      :nth-child(1) {
+        font-size: 18px !important;
+      }
+      :nth-child(2) {
+        font-size: 13px !important;
+      }
+    }
+  }
+  }
   margin-top: 30px;
   cursor: pointer;
   margin-bottom: 30px;
