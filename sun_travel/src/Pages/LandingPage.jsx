@@ -42,6 +42,9 @@ export default function LandingPage() {
   const scrollTo100px = () => {
     // window.scrollBy(0, 100);
   };
+  useEffect(()=>{
+    scrollTo100px();
+  },[])
   return (
     <WrapperCard>
       <HeroSection scrollF={scrollToBestSelling} />
@@ -49,7 +52,7 @@ export default function LandingPage() {
       <BestSellingSection />
       <TravelBanner />
       <TabsExclusive />
-      {/* <Scene /> */}
+      <Scene />
       <LandingPageSectionForTrending />
       {/* <Feedbacks /> */}
 

@@ -10,16 +10,18 @@ import img6 from "./assets/6.png";
 import menu from "./assets/menu (1).svg";
 import close from "./assets/close (1).svg";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { useEffect, useState } from "react";
 
 import {
   atestationDropdown,
   certificateDropdown,
+  flightDropdown,
   moreDropDown,
   navItems,
   tourDropdown,
+  visaDropDown,
 } from "./NavItems";
 
 import expandIcon from "./assets/down-arrow (1).svg";
@@ -47,6 +49,16 @@ export default function Navbar() {
   const handleCloseClick = () => {
     setCloseIconShow(false);
   };
+  const navigate = useNavigate();
+  // const redirect = useNavigateToRoute();
+  const handleSubVisaClick = (subVisa) => {
+    navigate(`/Visa/${subVisa.pathname}`);
+  };
+
+  const [activeLink, setActiveLink] = useState(1);
+  const handleActive = (itemId) => {
+    setActiveLink(itemId);
+  };
   return (
     <MainWrapper>
       <Wrapper>
@@ -64,11 +76,57 @@ export default function Navbar() {
               }`}
             >
               {navItems.map((item) => {
+                 if (item.title === "Flight") {
+                  return (
+                    <li className="navbar-dropdown" key={item.id}>
+                      <Link
+                        to={item.path}
+                        className="link-main"
+                        onClick={() => handleActive(item.id)}
+                      >
+                        <WrapperLabelIcon
+                          className={`"iconHover" ${
+                            activeLink === item.id ? "activeLink" : "iconHover"
+                          }`}
+                        >
+                          <img src={item.icon} alt={item.icon} />
+                          {item.title}
+                          <img
+                            className="dropdownArrowIcon"
+                            src={expandIcon}
+                            alt={expandIcon}
+                          />
+                        </WrapperLabelIcon>
+                      </Link>
+                      <div className="dropdown">
+                        {flightDropdown.map((subTours, index) => {
+                          return (
+                            <Link
+                              to={subTours.path}
+                              key={index}
+                              className="dropdown-submenu-hover"
+                            >
+                              {subTours.title}
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    </li>
+                  );
+                }
                 if (item.title === "Tours") {
                   return (
                     <li className="navbar-dropdown" key={item.id}>
-                      <Link to={item.path} className="link-main">
-                        <WrapperLabelIcon className="iconHover">
+                      <Link
+                        to={item.path}
+                        className="link-main"
+                        onClick={() => handleActive(item.id)}
+                      >
+                        <WrapperLabelIcon
+                          className={`"iconHover" ${
+                            activeLink === item.id ? "activeLink" : "iconHover"
+                          }`}
+                        >
                           <img src={item.icon} alt={item.icon} />
                           {item.title}
                           <img
@@ -94,11 +152,59 @@ export default function Navbar() {
                     </li>
                   );
                 }
+                if (item.title === "Visa") {
+                  return (
+                    <li className="navbar-dropdown" key={item.id}>
+                      <Link
+                        to={item.path}
+                        className="link-main"
+                        onClick={() => handleActive(item.id)}
+                      >
+                        <WrapperLabelIcon
+                          className={`"iconHover" ${
+                            activeLink === item.id ? "activeLink" : "iconHover"
+                          }`}
+                        >
+                          <img src={item.icon} alt={item.icon} />
+                          {item.title}
+                          <img
+                            className="dropdownArrowIcon"
+                            src={expandIcon}
+                            alt={expandIcon}
+                          />
+                        </WrapperLabelIcon>
+                      </Link>
+                      <div className="dropdown">
+                        {visaDropDown.map((subVisa, index) => {
+                          console.log(subVisa, "subVisa");
+                          return (
+                            <Link
+                              to={`/Visa${subVisa.pathname}`}
+                              key={index}
+                              className="dropdown-submenu-hover"
+                              onClick={() => handleSubVisaClick(subVisa)}
+                            >
+                              {subVisa.title}
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    </li>
+                  );
+                }
                 if (item.title === "Atestation") {
                   return (
                     <li className="navbar-dropdown" key={item.id}>
-                      <Link to={item.path} className="link-main">
-                        <WrapperLabelIcon className="iconHover">
+                      <Link
+                        to={item.path}
+                        className="link-main"
+                        onClick={() => handleActive(item.id)}
+                      >
+                        <WrapperLabelIcon
+                          className={`"iconHover" ${
+                            activeLink === item.id ? "activeLink" : "iconHover"
+                          }`}
+                        >
                           <img src={item.icon} alt={item.icon} />
 
                           {item.title}
@@ -126,11 +232,19 @@ export default function Navbar() {
                   );
                 }
 
-                if (item.title === "Certificate") {
+                if (item.title === "pilgrim") {
                   return (
                     <li className="navbar-dropdown" key={item.id}>
-                      <Link to={item.path} className="link-main">
-                        <WrapperLabelIcon className="iconHover">
+                      <Link
+                        to={item.path}
+                        className="link-main"
+                        onClick={() => handleActive(item.id)}
+                      >
+                        <WrapperLabelIcon
+                          className={`"iconHover" ${
+                            activeLink === item.id ? "activeLink" : "iconHover"
+                          }`}
+                        >
                           <img src={item.icon} alt={item.icon} />
 
                           {item.title}
@@ -160,8 +274,16 @@ export default function Navbar() {
                 if (item.title === "More") {
                   return (
                     <li className="navbar-dropdown" key={item.id}>
-                      <Link to={item.path} className="link-main">
-                        <WrapperLabelIcon className="iconHover">
+                      <Link
+                        to={item.path}
+                        className="link-main"
+                        onClick={() => handleActive(item.id)}
+                      >
+                        <WrapperLabelIcon
+                          className={`"iconHover" ${
+                            activeLink === item.id ? "activeLink" : "iconHover"
+                          }`}
+                        >
                           <img src={item.icon} alt={item.icon} />
                           {item.title}
                           <img
@@ -189,8 +311,16 @@ export default function Navbar() {
                 }
                 return (
                   <li key={item.id} className={item.cName}>
-                    <Link to={item.path} className="link-main">
-                      <WrapperLabelIcon className="iconHover">
+                    <Link
+                      to={item.path}
+                      className="link-main"
+                      onClick={() => handleActive(item.id)}
+                    >
+                      <WrapperLabelIcon
+                        className={`"iconHover" ${
+                          activeLink === item.id ? "activeLink" : "iconHover"
+                        }`}
+                      >
                         <img src={item.icon} alt={item.icon} />
                         {item.title}
                       </WrapperLabelIcon>
@@ -259,7 +389,7 @@ const WrapperLabelIcon = styled.div`
     margin-left: -4px;
     /* } */
   }
-  &:hover {
+  &.activeLink {
     color: #ffc40d;
     padding: 5px;
     background: #0b2f6a;
@@ -271,7 +401,17 @@ const WrapperLabelIcon = styled.div`
       fill: #ffc40d !important;
     }
   }
-  .iconHover {
+  &:hover {
+    color: #ffc40d;
+    padding: 5px;
+    background: #0b2f6a;
+    border-radius: 5px;
+    transition: ease-in 0.5s;
+    img {
+      filter: invert(62%) sepia(100%) saturate(7380%) hue-rotate(26deg)
+        brightness(302%) contrast(109%) !important;
+      fill: #ffc40d !important;
+    }
   }
 `;
 const NavItems = styled.div`
@@ -285,7 +425,7 @@ const NavItems = styled.div`
       justify-content: flex-start;
       position: fixed;
       top: -400px;
-    bottom: 0px;
+      bottom: 0px;
       right: 0px;
       width: 300px;
       box-shadow: 5px 7px 17px rgb(0 0 0 / 20%);
@@ -463,9 +603,9 @@ const HeaderUl = styled.ul`
   justify-content: center;
 `;
 const HeaderMenu = styled.div`
- @media only screen and (min-width: 320px) and (max-width: 414px) {
-      display: none;
-    }
+  @media only screen and (min-width: 320px) and (max-width: 414px) {
+    display: none;
+  }
   p {
     font-family: "Lato";
     @media only screen and (min-width: 414px) and (max-width: 513px) {
@@ -475,9 +615,9 @@ const HeaderMenu = styled.div`
       font-size: 10px;
     }
     @media only screen and (min-width: 600px) and (max-width: 768px) {
-      font-size:11px;
+      font-size: 11px;
     }
-  
+
     font-size: 12px;
     color: #001499;
     border-radius: 5px;
