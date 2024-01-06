@@ -43,7 +43,7 @@ function App() {
             }
           />
           <Route
-            path="/tours"
+            path="/tours/:number"
             element={
               <Suspense fallback={loading ? <Loader /> : null}>
                 <AllTours />

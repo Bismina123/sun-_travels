@@ -10,7 +10,7 @@ import img6 from "./assets/6.png";
 import menu from "./assets/menu (1).svg";
 import close from "./assets/close (1).svg";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { useEffect, useState } from "react";
 
@@ -24,6 +24,7 @@ import {
 
 import expandIcon from "./assets/down-arrow (1).svg";
 export default function Navbar() {
+  const navigate = useNavigate();
   const [navbar, setNavbar] = useState(false);
   console.log(navbar, "navbar");
   useEffect(() => {
@@ -53,6 +54,9 @@ export default function Navbar() {
       behavior: "smooth",
     });
   };
+  const handleTourId = (number) => {
+    navigate(`/tours/${number}`);
+  };
   return (
     <MainWrapper>
       <Wrapper>
@@ -73,7 +77,10 @@ export default function Navbar() {
                 if (item.title === "Tours") {
                   return (
                     <li className="navbar-dropdown" key={item.id}>
-                      <Link to={item.path} className="link-main">
+                      <a
+                        onClick={() => navigate(`/tours/${1}`)}
+                        className="link-main"
+                      >
                         <WrapperLabelIcon className="iconHover">
                           <img src={item.icon} alt={item.icon} />
                           {item.title}
@@ -83,17 +90,17 @@ export default function Navbar() {
                             alt={expandIcon}
                           />
                         </WrapperLabelIcon>
-                      </Link>
+                      </a>
                       <div className="dropdown">
                         {tourDropdown.map((subTours, index) => {
                           return (
-                            <Link
-                              to={subTours.path}
+                            <a
                               key={index}
                               className="dropdown-submenu-hover"
+                              onClick={() => handleTourId(subTours.id)}
                             >
                               {subTours.title}
-                            </Link>
+                            </a>
                           );
                         })}
                       </div>

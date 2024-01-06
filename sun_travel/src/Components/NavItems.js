@@ -87,32 +87,32 @@ export const moreDropDown = [
 ];
 export const tourDropdown = [
   {
-    id: 1,
+    id: 2,
     title: "International",
     path: "./tours",
     cName: "submenu-item",
   },
   {
-    id: 2,
+    id: 3,
     title: "Domestic",
     path: "./tours",
     cName: "submenu-item",
   },
   {
-    id: 3,
-    title: "Indian Tour",
-    path: "./tours",
-    cName: "submenu-item",
-  },
-  {
     id: 4,
-    title: "Holidays",
+    title: "Honey Moon",
     path: "./tours",
     cName: "submenu-item",
   },
   {
     id: 5,
-    title: "Group Tour",
+    title: "Cruise",
+    path: "./tours",
+    cName: "submenu-item",
+  },
+  {
+    id: 6,
+    title: "MICE",
     path: "./tours",
     cName: "submenu-item",
   },

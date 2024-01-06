@@ -6,7 +6,12 @@ import { useNavigate, useParams } from "react-router-dom";
 
 const TourDetails = ({ item }) => {
   const [allData, setAllData] = useState(item);
+  const scrollToTop = () => {
+    var element = document.getElementById("detailMainWrapper");
+    element.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
   useEffect(() => {
+    scrollToTop();
     setAllData(item);
   }, [item, allData]);
   const settings = {
@@ -19,7 +24,7 @@ const TourDetails = ({ item }) => {
     slidesToScroll: 1,
   };
   return (
-    <>
+    <div id="detailMainWrapper">
       <SliderWrapper>
         <Slider {...settings}>
           {allData.tourMainPic.map((slides) => {
@@ -101,7 +106,7 @@ const TourDetails = ({ item }) => {
           <span>{allData.departureDetails}</span>
         </div>
       </SummaryDetails>
-    </>
+    </div>
   );
 };
 

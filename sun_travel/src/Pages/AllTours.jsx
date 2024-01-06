@@ -8,6 +8,8 @@ import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import { makeStyles } from "@material-ui/core/styles";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
 
 const useTabStyles = makeStyles({
   root: {
@@ -19,14 +21,23 @@ const useTabStyles = makeStyles({
 });
 
 const AllTours = () => {
+  const { number } = useParams();
   const classes = useTabStyles();
-  const [value, setValue] = useState("1");
+  const [value, setValue] = useState(number);
+  const scrollToTop = () => {
+    var element = document.getElementById("detailMainWrapper");
+    element.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+  useEffect(() => {
+    scrollToTop();
+    setValue(number);
+  }, [number]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
   return (
-    <WrapperCard>
+    <WrapperCard id="detailMainWrapper">
       <Box sx={{ width: "100%", typography: "body1" }}>
         <TabContext value={value}>
           <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
@@ -48,16 +59,41 @@ const AllTours = () => {
               return <TourCard key={item.id} item={item} />;
             })}
           </TabPanel>
-          <TabPanel value="2">International</TabPanel>
-          <TabPanel value="3">Domestic</TabPanel>
-          <TabPanel value="4">Honeymoon</TabPanel>
-          <TabPanel value="5">
-            {" "}
+          <TabPanel value="2">
             {tourPackages.map((item) => {
-              return <TourCard key={item.id} item={item} />;
+              if (item.name == "international") {
+                return <TourCard key={item.id} item={item} />;
+              }
             })}
           </TabPanel>
-          <TabPanel value="6">MICE</TabPanel>
+          <TabPanel value="3">
+            {tourPackages.map((item) => {
+              if (item.name == "Domestic") {
+                return <TourCard key={item.id} item={item} />;
+              }
+            })}
+          </TabPanel>
+          <TabPanel value="4">
+            {tourPackages.map((item) => {
+              if (item.name == "Honey Moon") {
+                return <TourCard key={item.id} item={item} />;
+              }
+            })}
+          </TabPanel>
+          <TabPanel value="5">
+            {tourPackages.map((item) => {
+              if (item.name == "Cruise") {
+                return <TourCard key={item.id} item={item} />;
+              }
+            })}
+          </TabPanel>
+          <TabPanel value="6">
+            {tourPackages.map((item) => {
+              if (item.name == "mice") {
+                return <TourCard key={item.id} item={item} />;
+              }
+            })}
+          </TabPanel>
         </TabContext>
       </Box>
     </WrapperCard>
@@ -72,14 +108,14 @@ const WrapperCard = styled.div`
   justify-content: center;
   margin-left: 10%;
   margin-right: 10%;
- 
+
   .css-13xfq8m-MuiTabPanel-root {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 30px;
     &[hidden] {
-    display: none;
-  }
+      display: none;
+    }
   }
   @media (max-width: 991px) {
     .css-13xfq8m-MuiTabPanel-root {
