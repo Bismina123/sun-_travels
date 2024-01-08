@@ -1,7 +1,5 @@
-import React from "react";
-
 import { testimonials } from "./NavItems";
-import { Rating, Typography } from "@mui/material";
+import { Rating } from "@mui/material";
 import logo from "../assets/Logo-01 (3).svg";
 import google from "./assets/google.png";
 import styled from "styled-components";
@@ -48,13 +46,6 @@ const Feedbacks = () => {
     arrows: true,
     autoplay: true,
     draggable: true,
-    // Slider:true
-
-    // beforeChange: handleBeforeChange,
-    // afterChange: handleAfterChange,
-
-    // beforeChange={handleBeforeChange}
-    // afterChange={handleAfterChange}
     responsive: [
       {
         breakpoint: 768,

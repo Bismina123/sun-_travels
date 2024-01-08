@@ -6,7 +6,12 @@ import { useNavigate, useParams } from "react-router-dom";
 
 const TourDetails = ({ item }) => {
   const [allData, setAllData] = useState(item);
+  const scrollToTop = () => {
+    var element = document.getElementById("detailMainWrapper");
+    element.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
   useEffect(() => {
+    scrollToTop();
     setAllData(item);
   }, [item, allData]);
   const settings = {
@@ -19,7 +24,7 @@ const TourDetails = ({ item }) => {
     slidesToScroll: 1,
   };
   return (
-    <>
+    <div id="detailMainWrapper">
       <SliderWrapper>
         <Slider {...settings}>
           {allData.tourMainPic.map((slides) => {
@@ -101,7 +106,7 @@ const TourDetails = ({ item }) => {
           <span>{allData.departureDetails}</span>
         </div>
       </SummaryDetails>
-    </>
+    </div>
   );
 };
 
@@ -167,6 +172,31 @@ const DetailWrapper = styled.div`
   justify-content: space-between;
   padding: 20px 10%;
   background: #011530;
+  @media (min-width: 554px) and (max-width: 991px) {
+    display: block;
+    .right-content {
+      padding-top: 15px;
+      h2 {
+        text-align: center;
+      }
+    }
+  }
+  @media (max-width: 554px) {
+    display: block;
+    .left-content {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr;
+    }
+    .right-content {
+      padding-top: 15px;
+      div {
+        justify-content: flex-start !important;
+      }
+      h2 {
+        text-align: left !important;
+      }
+    }
+  }
   .left-content {
     display: flex;
     gap: 30px;
@@ -199,6 +229,16 @@ const DetailWrapper = styled.div`
   }
 `;
 const SummaryDetails = styled.div`
+  @media (max-width: 701px) {
+    .day-details {
+      .sub-day {
+        display: block !important;
+        div {
+          padding: 5px;
+        }
+      }
+    }
+  }
   background: #fff;
   min-height: 200px;
   padding: 20px;

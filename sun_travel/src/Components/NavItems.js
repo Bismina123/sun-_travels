@@ -1,5 +1,3 @@
-import dropDownArrow from "./assets/dropDown.png";
-import more from "./assets/more.png";
 import homeIcon from "./assets/home.svg";
 import visaIcon from "./assets/visaIcon.svg";
 import flightIcon from "./assets/passport (1).svg";
@@ -85,31 +83,31 @@ export const moreDropDown = [
 ];
 export const tourDropdown = [
   {
-    id: 1,
+    id: 2,
     title: "International",
     path: "./tours",
     cName: "submenu-item",
   },
   {
-    id: 2,
+    id: 3,
     title: "Domestic",
     path: "./tours",
     cName: "submenu-item",
   },
   {
-    id: 3,
-    title: "Honey moon",
-    path: "./tours",
-    cName: "submenu-item",
-  },
-  {
     id: 4,
-    title: "Cruise",
+    title: "Honey Moon",
     path: "./tours",
     cName: "submenu-item",
   },
   {
     id: 5,
+    title: "Cruise",
+    path: "./tours",
+    cName: "submenu-item",
+  },
+  {
+    id: 6,
     title: "MICE",
     path: "./tours",
     cName: "submenu-item",

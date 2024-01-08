@@ -23,11 +23,11 @@ import {
   tourDropdown,
   visaDropDown,
 } from "./NavItems";
-import { useLocation } from 'react-router-dom';
+import { useLocation } from "react-router-dom";
 
 import expandIcon from "./assets/down-arrow (1).svg";
 export default function Navbar() {
-  
+  const navigate = useNavigate();
   const [navbar, setNavbar] = useState(false);
   console.log(navbar, "navbar");
   useEffect(() => {
@@ -51,14 +51,21 @@ export default function Navbar() {
   const handleCloseClick = () => {
     setCloseIconShow(false);
   };
-  const navigate = useNavigate();
+  const handleScrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+  const handleTourId = (number) => {
+    navigate(`/tours/${number}`);
+  };
   // const redirect = useNavigateToRoute();
   const handleSubVisaClick = (subVisa) => {
     navigate(`/Visa/${subVisa.pathname}`);
     // setActiveLink(`/Visa/${subVisa.pathname}`);
   };
   const location = useLocation();
-
 
   const [activeLink, setActiveLink] = useState("/");
   const [activePath, setActivePath] = useState("");
@@ -67,17 +74,16 @@ export default function Navbar() {
     setActivePath(path);
   };
   useEffect(() => {
-    setActiveLink(location.pathname)
-    
+    setActiveLink(location.pathname);
   }, [activeLink]);
-  
+
   console.log(location, "activeLink");
   return (
     <MainWrapper>
       <Wrapper>
         <HeaderWrapper className={navbar ? "navbar active" : "navbar"}>
           <HeaderLogo>
-            <Link to="/" className="navbar-logo">
+            <Link to="/" className="navbar-logo" onClick={handleScrollToTop}>
               <img src={Logo} alt="logo" />
             </Link>
           </HeaderLogo>
@@ -133,7 +139,7 @@ export default function Navbar() {
                   return (
                     <li className="navbar-dropdown" key={item.id}>
                       <Link
-                        to={item.path}
+                        to={`/tours/${1}`}
                         className="link-main"
                         onClick={() => handleActive(item.id, item.path)}
                       >
@@ -156,13 +162,13 @@ export default function Navbar() {
                       <div className="dropdown">
                         {tourDropdown.map((subTours, index) => {
                           return (
-                            <Link
-                              to={subTours.path}
+                            <a
                               key={index}
                               className="dropdown-submenu-hover"
+                              onClick={() => handleTourId(subTours.id)}
                             >
                               {subTours.title}
-                            </Link>
+                            </a>
                           );
                         })}
                       </div>

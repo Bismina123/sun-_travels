@@ -30,8 +30,13 @@ export default function LandingPage() {
   const handleScroll = () => {
     setShowScrollButton(window.scrollY > 1000);
   };
+  const scrollToTop = () => {
+    var element = document.getElementById("detailMainWrapper");
+    element.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   useEffect(() => {
+    scrollToTop();
     window.addEventListener("scroll", handleScroll);
 
     return () => {
@@ -46,7 +51,7 @@ export default function LandingPage() {
     scrollTo100px();
   },[])
   return (
-    <WrapperCard>
+    <WrapperCard id="detailMainWrapper">
       <HeroSection scrollF={scrollToBestSelling} />
       <SliderComponent bestSellingRef={bestSellingRef} />
       <BestSellingSection />
