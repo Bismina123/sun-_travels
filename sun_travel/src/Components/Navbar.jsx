@@ -139,7 +139,7 @@ export default function Navbar() {
                   return (
                     <li className="navbar-dropdown" key={item.id}>
                       <Link
-                        to={item.path}
+                        to={`/tours/${1}`}
                         className="link-main"
                         onClick={() => handleActive(item.id, item.path)}
                       >
