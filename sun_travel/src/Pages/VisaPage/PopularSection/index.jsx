@@ -15,26 +15,74 @@ import global from "../assets/global-shipping.svg";
 import location from "../assets/call-center.svg";
 import van from "../assets/delivery-truck.svg";
 import security from "../assets/secure.svg";
-import dubaiVisa from "../assets/dubaiVisa.jpg";
+
+
+import newZealandFlag from "../assets/new-zealand.svg";
+import usaFlag from "../assets/united-states.svg";
+import australiaFlag from "../assets/australia.svg";
+import canadaFlag from "../assets/canada.svg";
+import schenganFlag from "../assets/european-union.svg";
 import dubaiFlag from "../assets/flag.svg";
+import muscantFlag from "../assets/oman.svg";
+import bahrainFlag from "../assets/bahrain.svg";
+import qatarFlag from "../assets/qatar.svg";
+import omanFlag from "../assets/oman.svg";
+
+
+import newzland from "../assets/newzeland.jpg";
+import usa from "../assets/usa.jpg";
+import australia from "../assets/australia.jpg";
+import canada from "../assets/canada.jpg";
+import schengan from "../assets/schengan.jpg";
+import dubaiVisa from "../assets/dubaiVisa.jpg";
+import muscat from "../assets/mascat.jpg";
+import bahrain from "../assets/bahrain.jpg";
+import qatar from "../assets/qatarr.jpg";
+import oman from "../assets/oman.jpg";
+
 
 function PopularSection() {
   const fistCountryOptions = [
-    { name: "Newzland", description: "Oceania", image: dubaiVisa, flag: dubaiFlag },
-    { name: "USA", description: "North America", image: dubaiVisa, flag: dubaiFlag },
-    { name: "Australia", description: "Oceania", image: dubaiVisa, flag: dubaiFlag },
-    { name: "Canada", description: "North America", image: dubaiVisa, flag: dubaiFlag },
-    { name: "Schengen", description: "Europe", image: dubaiVisa, flag: dubaiFlag },
+    {
+      name: "New Zealand",
+      description: "Oceania",
+      image: newzland,
+      flag: newZealandFlag,
+    },
+    {
+      name: "USA",
+      description: "North America",
+      image: usa,
+      flag: usaFlag,
+    },
+    {
+      name: "Australia",
+      description: "Oceania",
+      image: australia,
+      flag: australiaFlag,
+    },
+    {
+      name: "Canada",
+      description: "North America",
+      image: canada,
+      flag: canadaFlag,
+    },
+    {
+      name: "Schengen",
+      description: "Europe",
+      image: schengan,
+      flag: schenganFlag,
+    },
   ];
-  
+
   const secondCountryOptions = [
     { name: "Dubai", description: "Asia", image: dubaiVisa, flag: dubaiFlag },
-    { name: "Muscat", description: "Asia", image: dubaiVisa, flag: dubaiVisa },
-    { name: "Bahrain", description: "Asia", image: dubaiVisa, flag: dubaiVisa },
-    { name: "Qatar", description: "Asia", image: dubaiVisa, flag: dubaiVisa },
-    { name: "Oman", description: "Asia", image: dubaiVisa, flag: dubaiVisa },
+    { name: "Muscat", description: "Asia", image: muscat, flag: muscantFlag },
+    { name: "Bahrain", description: "Asia", image: bahrain, flag: bahrainFlag },
+    { name: "Qatar", description: "Asia", image: qatar, flag: qatarFlag },
+    { name: "Oman", description: "Asia", image: oman, flag: omanFlag },
   ];
-  
+
   return (
     <PopuLarDiv>
       {/* <label >Popular Destinations</label> */}
@@ -49,7 +97,7 @@ function PopularSection() {
               <div className="card">
                 {/* <> */}
                 <div className="imgBox">
-                  <img src={dubaiVisa} alt="New York Photo" />
+                  <img src={country.image} alt="New York Photo" />
                   <div className="img-blur">
                     <a href="#">Enqure now &gt;</a>
                   </div>
@@ -59,7 +107,8 @@ function PopularSection() {
                 </h2>
                 <p className="text">
                   <img src={country.flag} alt="flag" />
-                  {country.description}</p>
+                  {country.description}
+                </p>
                 {/* </> */}
               </div>
             </>
@@ -73,7 +122,7 @@ function PopularSection() {
               <div className="card">
                 {/* <> */}
                 <div className="imgBox">
-                  <img src={dubaiVisa} alt="New York Photo" />
+                  <img src={country.image} alt="New York Photo" />
                   <div className="img-blur">
                     <a href="#">Enqure now &gt;</a>
                   </div>
@@ -83,7 +132,8 @@ function PopularSection() {
                 </h2>
                 <p className="text">
                   <img src={country.flag} alt="flag" />
-                  {country.description}</p>
+                  {country.description}
+                </p>
                 {/* </> */}
               </div>
             </>
@@ -315,8 +365,8 @@ const CardSection = styled.div`
     pointer-events: none;
     animation: border-anime 15s linear infinite;
   }
-  .text{
-    img{
+  .text {
+    img {
       width: 30px;
     }
     display: flex;

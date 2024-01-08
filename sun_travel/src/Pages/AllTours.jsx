@@ -109,22 +109,22 @@ const WrapperCard = styled.div`
   margin-left: 10%;
   margin-right: 10%;
 
-  .css-13xfq8m-MuiTabPanel-root {
+  .MuiTabPanel-root {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: auto auto auto;
     gap: 30px;
     &[hidden] {
       display: none;
     }
   }
   @media (max-width: 991px) {
-    .css-13xfq8m-MuiTabPanel-root {
-      grid-template-columns: 1fr;
+    .MuiTabPanel-root {
+      grid-template-columns: auto;
     }
   }
   @media (min-width: 991px) and (max-width: 1249px) {
-    .css-13xfq8m-MuiTabPanel-root {
-      grid-template-columns: 1fr 1fr;
+    .MuiTabPanel-root {
+      grid-template-columns: auto auto;
     }
   }
 `;

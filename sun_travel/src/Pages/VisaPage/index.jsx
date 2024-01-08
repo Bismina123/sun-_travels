@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 
 import SearchableDropdown from "./SearchableDropDown";
@@ -9,12 +9,18 @@ import PopularSection from "./PopularSection";
 import UpdatedFooter from "../../Components/UpdatedFooter";
 
 function Visapage() {
-  const { param } = useParams();
+  // const { param } = useParams();
   const location = useLocation();
-
-
+  const scrollToTop = () => {
+    var element = document.getElementById("detailVisaWrapper");
+    element.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+  useEffect(() => {
+    scrollToTop();
+    
+  }, []);
   return (
-    <VisaWrapper>
+    <VisaWrapper id="detailVisaWrapper">
      <BannerSection  location={location ? location.pathname : ""}/>
      <PopularSection/>
      <UpdatedFooter/>

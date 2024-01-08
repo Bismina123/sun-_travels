@@ -15,25 +15,29 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function Scene() {
   useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      const horizontalSections = gsap.utils.toArray(".horizontal-section");
+    const shouldRunEffect = window.innerWidth > 1200;
 
-      // ---------- applying horizontal scroll animation
-      gsap.to(horizontalSections, {
-        xPercent: -100 * (horizontalSections.length - 1),
-        ease: "none",
-        scrollTrigger: {
-          trigger: "#container",
-          pin: true,
-          scrub: 1,
-          snap: 1 / (horizontalSections.length - 1),
-          //   markers: true,
-          end: () => "+=" + document.querySelector("#container").offsetWidth,
-        },
+    if (shouldRunEffect) {
+      const ctx = gsap.context(() => {
+        const horizontalSections = gsap.utils.toArray(".horizontal-section");
+
+        // ---------- applying horizontal scroll animation
+        gsap.to(horizontalSections, {
+          xPercent: -100 * (horizontalSections.length - 1),
+          ease: "none",
+          scrollTrigger: {
+            trigger: "#container",
+            pin: true,
+            scrub: 1,
+            snap: 1 / (horizontalSections.length - 1),
+            //   markers: true,
+            end: () => "+=" + document.querySelector("#container").offsetWidth,
+          },
+        });
       });
-    });
 
-    return () => ctx.revert();
+      return () => ctx.revert();
+    }
   }, []);
 
   return (
@@ -190,6 +194,9 @@ const SectionWrapper = styled.main`
     background-image: url(${"https://res.cloudinary.com/dubjhsibu/image/upload/v1702736932/sun-images/globalvisa_wd1v39.jpg"});
   }
   .boxShadow {
+    @media screen and (max-width: 1200px) {
+      display: none;
+    }
     position: absolute;
     top: 0;
     left: 0;
@@ -227,6 +234,9 @@ const SectionWrapper = styled.main`
     -webkit-text-stroke: 1px #fff;
   }
   .headingGlobalVisa {
+    @media screen and (max-width: 1200px) {
+      width: 100%;
+    }
     text-align: center;
     /* -webkit-text-stroke: 1px #fff; */
     z-index: 1;
@@ -237,6 +247,9 @@ const SectionWrapper = styled.main`
     border-radius: 10px;
     padding: 23px;
     h1 {
+      @media screen and (max-width: 1200px) {
+        font-size: 30px;
+    }
       font-family: "lato";
       font-size: 40px;
       font-weight: 900;
@@ -247,6 +260,9 @@ const SectionWrapper = styled.main`
       margin: 10px 0px;
     }
     p {
+      @media screen and (max-width: 1200px) {
+        font-size: 14px;
+    }
       text-align: left;
       font-family: "Lato";
       font-size: 16px;

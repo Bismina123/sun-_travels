@@ -36,7 +36,23 @@ body {
   display: flex;
   flex-wrap: nowrap;
 }
+@media screen and (max-width: 1200px) {
+  #container {
+    height: auto;
+    /* set width based on sections */
+    width: 100%;
+    display: block;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .horizontal-section {
+    padding: 10px;
+  }
 
+}
+.imgClasesForHiden{
+  overflow-x: hidden;
+}
 .horizontal-section {
   background-color: black;
   background-size: cover;
