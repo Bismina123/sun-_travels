@@ -29,27 +29,48 @@ body {
   overflow-x: hidden;
 }
 
-
 #container {
   height: 100vh;
   /* set width based on sections */
-  width: 500%; 
+  width: 500%;
   display: flex;
   flex-wrap: nowrap;
 }
 
 .horizontal-section {
-	background-color: black;
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-	height: 100vh;
-	width: 100vw;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  background-color: black;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.MuiAutocomplete-paper {
+  background: rgba(255, 255, 255, 0.28) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.5) !important;
+  border-left: 1px solid rgba(255, 255, 255, 0.5) !important;
+  backdrop-filter: blur(5px) !important;
+  border-radius: 15px !important;
+  font-family: "Lato" !important;
+  font-size: 16px !important;
+  color: #0b2f6a !important;
+}
+.MuiAutocomplete-paper ::-webkit-scrollbar {
+  width: 5px;
+}
+.MuiAutocomplete-paper ::-webkit-scrollbar-track {
+  background: #dce4fe;
+  border-radius: 10px;
+}
+.MuiAutocomplete-paper ::-webkit-scrollbar-thumb {
+  width: 9px;
+  background: #213065;
+  border-radius: 10px;
 }
 
-
-
-
+.MuiAutocomplete-listbox {
+  max-height: 27vh !important;
+}

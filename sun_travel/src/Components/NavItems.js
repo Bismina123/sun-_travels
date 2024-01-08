@@ -2,37 +2,38 @@ import homeIcon from "./assets/home.svg";
 import visaIcon from "./assets/visaIcon.svg";
 import flightIcon from "./assets/passport (1).svg";
 import attesttionIcon from "./assets/authentic.svg";
-import certificateIcon from "./assets/certificate (1).svg";
+import certificateIcon from "./assets/religion.svg";
 import touricon from "./assets/holiday (1).svg";
 import moreIcon from "./assets/application (2) (1).svg";
 
 export const navItems = [
   {
     id: 1,
-    title: "Home",
-    path: "./",
+    title: "",
+    path: "/",
     cName: "nav-item",
     icon: homeIcon,
   },
 
-  {
-    id: 2,
-    title: "Visa",
-    path: "./Visa",
-    cName: "nav-item",
-    icon: visaIcon,
-  },
+ 
   {
     id: 7,
     title: "Flight",
-    path: "./",
+    path: "/Flight",
     cName: "nav-item",
     icon: flightIcon,
   },
   {
+    id: 2,
+    title: "Visa",
+    path: "/Visa",
+    cName: "nav-item",
+    icon: visaIcon,
+  },
+  {
     id: 3,
     title: "Tours",
-    path: "./Tours",
+    path: "/Tours",
     cName: "nav-item",
     icon: touricon,
   },
@@ -40,21 +41,21 @@ export const navItems = [
   {
     id: 4,
     title: "Atestation",
-    path: "./Atestation",
+    path: "/Atestation",
     cName: "nav-item",
     icon: attesttionIcon,
   },
   {
     id: 5,
-    title: "Certificate",
-    path: "./Certificate",
+    title: "pilgrim",
+    path: "/pilgrims",
     cName: "nav-item",
     icon: certificateIcon,
   },
   {
     id: 6,
     title: "More",
-    path: "./",
+    path: "/more",
     cName: "nav-item more-icon",
     icon: moreIcon,
   },
@@ -62,28 +63,23 @@ export const navItems = [
 export const moreDropDown = [
   {
     id: 1,
-    title: "Umra",
-    path: "./Umra",
+    title: "Overseas education",
+    path: "./education",
     cName: "submenu-item",
   },
   {
     id: 2,
-    title: "Cruise",
-    path: "./Cruise",
+    title: "FRRO",
+    path: "./frro",
     cName: "submenu-item",
   },
   {
     id: 3,
-    title: "Embassy",
-    path: "./Embassy",
+    title: "Hotel booking",
+    path: "./hotel",
     cName: "submenu-item",
   },
-  {
-    id: 4,
-    title: "Flight",
-    path: "./Flight",
-    cName: "submenu-item",
-  },
+ 
 ];
 export const tourDropdown = [
   {
@@ -146,35 +142,76 @@ export const atestationDropdown = [
 export const certificateDropdown = [
   {
     id: 1,
-    title: "Marriage",
-    path: "./Certificate",
+    title: "Umra",
+    path: "./pilgrims",
     cName: "submenu-item",
   },
   {
     id: 2,
-    title: "Birth Certificate",
-    path: "./Certificate",
+    title: "Hajj",
+    path: "./pilgrims",
     cName: "submenu-item",
   },
   {
     id: 3,
-    title: "Death Certificate",
-    path: "./Certificate",
+    title: "Holi land",
+    path: "./pilgrims",
+    cName: "submenu-item",
+  },
+  
+];
+export const flightDropdown = [
+  {
+    id: 1,
+    title: "Domestic",
+    path: "./flight",
+    cName: "submenu-item",
+  },
+  {
+    id: 2,
+    title: "International",
+    path: "./flight",
+    cName: "submenu-item",
+  },
+  
+  
+];
+
+// Visa Types
+export const visaDropDown = [
+  {
+    id: 1,
+    title: "European Visa",
+    pathname: "/europeanVisa",
+    cName: "submenu-item",
+  },
+  {
+    id: 2,
+    title: "American Visa",
+    pathname: "/americanVisa",
+    cName: "submenu-item",
+  },
+  {
+    id: 3,
+    title: "Asian Visa",
+    pathname: "/asianVisa",
     cName: "submenu-item",
   },
   {
     id: 4,
-    title: "Power of Attorney",
-    path: "./Certificate",
+    title: "Australian Visa",
+    pathname: "/australianVisa",
     cName: "submenu-item",
   },
   {
     id: 5,
-    title: "AD Educational Document ",
-    path: "./Certificate",
+    title: "African Visa",
+    pathname: "/africanVisa",
     cName: "submenu-item",
   },
+ 
 ];
+
 
 export const testimonials = [
   {
