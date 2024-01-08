@@ -23,9 +23,11 @@ import {
   tourDropdown,
   visaDropDown,
 } from "./NavItems";
+import { useLocation } from 'react-router-dom';
 
 import expandIcon from "./assets/down-arrow (1).svg";
 export default function Navbar() {
+  
   const [navbar, setNavbar] = useState(false);
   console.log(navbar, "navbar");
   useEffect(() => {
@@ -53,12 +55,23 @@ export default function Navbar() {
   // const redirect = useNavigateToRoute();
   const handleSubVisaClick = (subVisa) => {
     navigate(`/Visa/${subVisa.pathname}`);
+    // setActiveLink(`/Visa/${subVisa.pathname}`);
   };
+  const location = useLocation();
 
-  const [activeLink, setActiveLink] = useState(1);
-  const handleActive = (itemId) => {
-    setActiveLink(itemId);
+
+  const [activeLink, setActiveLink] = useState("/");
+  const [activePath, setActivePath] = useState("");
+  const handleActive = (itemId, path) => {
+    setActiveLink(path);
+    setActivePath(path);
   };
+  useEffect(() => {
+    setActiveLink(location.pathname)
+    
+  }, [activeLink]);
+  
+  console.log(location, "activeLink");
   return (
     <MainWrapper>
       <Wrapper>
@@ -76,17 +89,19 @@ export default function Navbar() {
               }`}
             >
               {navItems.map((item) => {
-                 if (item.title === "Flight") {
+                if (item.title === "Flight") {
                   return (
                     <li className="navbar-dropdown" key={item.id}>
                       <Link
                         to={item.path}
                         className="link-main"
-                        onClick={() => handleActive(item.id)}
+                        onClick={() => handleActive(item.id, item.path)}
                       >
                         <WrapperLabelIcon
                           className={`"iconHover" ${
-                            activeLink === item.id ? "activeLink" : "iconHover"
+                            activeLink === item.path
+                              ? "activeLink"
+                              : "iconHover"
                           }`}
                         >
                           <img src={item.icon} alt={item.icon} />
@@ -120,11 +135,13 @@ export default function Navbar() {
                       <Link
                         to={item.path}
                         className="link-main"
-                        onClick={() => handleActive(item.id)}
+                        onClick={() => handleActive(item.id, item.path)}
                       >
                         <WrapperLabelIcon
                           className={`"iconHover" ${
-                            activeLink === item.id ? "activeLink" : "iconHover"
+                            activeLink === item.path
+                              ? "activeLink"
+                              : "iconHover"
                           }`}
                         >
                           <img src={item.icon} alt={item.icon} />
@@ -158,11 +175,13 @@ export default function Navbar() {
                       <Link
                         to={item.path}
                         className="link-main"
-                        onClick={() => handleActive(item.id)}
+                        onClick={() => handleActive(item.id, item.path)}
                       >
                         <WrapperLabelIcon
                           className={`"iconHover" ${
-                            activeLink === item.id ? "activeLink" : "iconHover"
+                            activeLink === item.path
+                              ? "activeLink"
+                              : "iconHover"
                           }`}
                         >
                           <img src={item.icon} alt={item.icon} />
@@ -182,7 +201,10 @@ export default function Navbar() {
                               to={`/Visa${subVisa.pathname}`}
                               key={index}
                               className="dropdown-submenu-hover"
-                              onClick={() => handleSubVisaClick(subVisa)}
+                              onClick={() => {
+                                handleSubVisaClick(subVisa);
+                                setActiveLink(item.path); // Set the active link for submenus
+                              }}
                             >
                               {subVisa.title}
                             </Link>
@@ -198,11 +220,13 @@ export default function Navbar() {
                       <Link
                         to={item.path}
                         className="link-main"
-                        onClick={() => handleActive(item.id)}
+                        onClick={() => handleActive(item.id, item.path)}
                       >
                         <WrapperLabelIcon
                           className={`"iconHover" ${
-                            activeLink === item.id ? "activeLink" : "iconHover"
+                            activeLink === item.path
+                              ? "activeLink"
+                              : "iconHover"
                           }`}
                         >
                           <img src={item.icon} alt={item.icon} />
@@ -238,11 +262,13 @@ export default function Navbar() {
                       <Link
                         to={item.path}
                         className="link-main"
-                        onClick={() => handleActive(item.id)}
+                        onClick={() => handleActive(item.id, item.path)}
                       >
                         <WrapperLabelIcon
                           className={`"iconHover" ${
-                            activeLink === item.id ? "activeLink" : "iconHover"
+                            activeLink === item.path
+                              ? "activeLink"
+                              : "iconHover"
                           }`}
                         >
                           <img src={item.icon} alt={item.icon} />
@@ -277,11 +303,13 @@ export default function Navbar() {
                       <Link
                         to={item.path}
                         className="link-main"
-                        onClick={() => handleActive(item.id)}
+                        onClick={() => handleActive(item.id, item.path)}
                       >
                         <WrapperLabelIcon
                           className={`"iconHover" ${
-                            activeLink === item.id ? "activeLink" : "iconHover"
+                            activeLink === item.path
+                              ? "activeLink"
+                              : "iconHover"
                           }`}
                         >
                           <img src={item.icon} alt={item.icon} />
@@ -314,11 +342,11 @@ export default function Navbar() {
                     <Link
                       to={item.path}
                       className="link-main"
-                      onClick={() => handleActive(item.id)}
+                      onClick={() => handleActive(item.id, item.path)}
                     >
                       <WrapperLabelIcon
                         className={`"iconHover" ${
-                          activeLink === item.id ? "activeLink" : "iconHover"
+                          activeLink === item.path ? "activeLink" : "iconHover"
                         }`}
                       >
                         <img src={item.icon} alt={item.icon} />

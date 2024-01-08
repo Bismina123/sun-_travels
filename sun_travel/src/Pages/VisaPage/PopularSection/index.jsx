@@ -19,33 +19,22 @@ import dubaiVisa from "../assets/dubaiVisa.jpg";
 import dubaiFlag from "../assets/flag.svg";
 
 function PopularSection() {
-  const countryOptions = [
-    { name: "Newzland", description: "Asia", image: dubaiVisa ,flag: dubaiFlag,},
-    {
-      name: "USA",
-      description: "Description for Country2",
-      image: dubaiVisa,
-      flag: dubaiFlag,
-    },
-    {
-      name: "Australia",
-      description: "Description for Country3",
-      image: dubaiVisa,
-      flag: dubaiFlag,
-    },
-    {
-      name: "Canada",
-      description: "Description for Country4",
-      image: dubaiVisa,
-      flag: dubaiFlag,
-    },
-    {
-      name: "Schengan",
-      description: "Description for Country5",
-      image: dubaiVisa,
-      flag: dubaiFlag,
-    },
+  const fistCountryOptions = [
+    { name: "Newzland", description: "Oceania", image: dubaiVisa, flag: dubaiFlag },
+    { name: "USA", description: "North America", image: dubaiVisa, flag: dubaiFlag },
+    { name: "Australia", description: "Oceania", image: dubaiVisa, flag: dubaiFlag },
+    { name: "Canada", description: "North America", image: dubaiVisa, flag: dubaiFlag },
+    { name: "Schengen", description: "Europe", image: dubaiVisa, flag: dubaiFlag },
   ];
+  
+  const secondCountryOptions = [
+    { name: "Dubai", description: "Asia", image: dubaiVisa, flag: dubaiFlag },
+    { name: "Muscat", description: "Asia", image: dubaiVisa, flag: dubaiVisa },
+    { name: "Bahrain", description: "Asia", image: dubaiVisa, flag: dubaiVisa },
+    { name: "Qatar", description: "Asia", image: dubaiVisa, flag: dubaiVisa },
+    { name: "Oman", description: "Asia", image: dubaiVisa, flag: dubaiVisa },
+  ];
+  
   return (
     <PopuLarDiv>
       {/* <label >Popular Destinations</label> */}
@@ -54,7 +43,7 @@ function PopularSection() {
         <img src={flightPath} alt={flightPath} />
       </FlightPath>
       <CardSection>
-        {countryOptions.map((country) => {
+        {fistCountryOptions.map((country) => {
           return (
             <>
               <div className="card">
@@ -78,7 +67,7 @@ function PopularSection() {
         })}
       </CardSection>
       <CardSection>
-        {countryOptions.map((country) => {
+        {secondCountryOptions.map((country) => {
           return (
             <>
               <div className="card">
