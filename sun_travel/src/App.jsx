@@ -12,6 +12,7 @@ import AllTours from "./Pages/AllTours";
 import ToursDetails from "./Pages/TourDetails";
 import Visapage from "./Pages/VisaPage";
 import UpdatedFooter from "./Components/UpdatedFooter";
+import PilgrimsPage from "./Pages/PilgrimsPage";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -58,6 +59,12 @@ function App() {
            path="/Visa/*"
             element={
               <Visapage/>
+            }
+          />
+          <Route
+           path="/pilgrims/*"
+            element={
+              <PilgrimsPage/>
             }
           />
         </Routes>

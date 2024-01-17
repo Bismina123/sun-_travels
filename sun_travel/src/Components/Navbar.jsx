@@ -66,6 +66,10 @@ export default function Navbar() {
     navigate(`/Visa/${subVisa.pathname}`);
     // setActiveLink(`/Visa/${subVisa.pathname}`);
   };
+  const handleSubPilgrimsClick = (subVisa) => {
+    navigate(`/pilgrims/${subVisa.path}`);
+    // setActiveLink(`/Visa/${subVisa.pathname}`);
+  };
   const location = useLocation();
 
   const [activeLink, setActiveLink] = useState("/");
@@ -297,9 +301,13 @@ export default function Navbar() {
                         {certificateDropdown.map((subTours, index) => {
                           return (
                             <Link
-                              to={subTours.path}
+                            to={`/pilgrims${subTours.path}`}
                               key={index}
                               className="dropdown-submenu-hover"
+                              onClick={() => {
+                                handleSubPilgrimsClick(subTours);
+                                setActiveLink(item.path); // Set the active link for submenus
+                              }}
                             >
                               {subTours.title}
                             </Link>

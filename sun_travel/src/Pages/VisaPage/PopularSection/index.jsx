@@ -16,7 +16,6 @@ import location from "../assets/call-center.svg";
 import van from "../assets/delivery-truck.svg";
 import security from "../assets/secure.svg";
 
-
 import newZealandFlag from "../assets/new-zealand.svg";
 import usaFlag from "../assets/united-states.svg";
 import australiaFlag from "../assets/australia.svg";
@@ -28,7 +27,6 @@ import bahrainFlag from "../assets/bahrain.svg";
 import qatarFlag from "../assets/qatar.svg";
 import omanFlag from "../assets/oman.svg";
 
-
 import newzland from "../assets/newzeland.jpg";
 import usa from "../assets/usa.jpg";
 import australia from "../assets/australia.jpg";
@@ -39,7 +37,7 @@ import muscat from "../assets/mascat.jpg";
 import bahrain from "../assets/bahrain.jpg";
 import qatar from "../assets/qatarr.jpg";
 import oman from "../assets/oman.jpg";
-
+import { Fade, Slide } from "react-awesome-reveal";
 
 function PopularSection() {
   const fistCountryOptions = [
@@ -90,177 +88,194 @@ function PopularSection() {
         <label>Popular contries to travel</label>
         <img src={flightPath} alt={flightPath} />
       </FlightPath>
-      <CardSection>
-        {fistCountryOptions.map((country) => {
-          return (
-            <>
-              <div className="card">
-                {/* <> */}
-                <div className="imgBox">
-                  <img src={country.image} alt="New York Photo" />
-                  <div className="img-blur">
-                    <a href="#">Enqure now &gt;</a>
+      <Slide direction="left">
+        <CardSection>
+          {fistCountryOptions.map((country) => {
+            return (
+              <>
+                <div className="card">
+                  {/* <> */}
+                  <div className="imgBox">
+                    <img src={country.image} alt="New York Photo" />
+                    <div className="img-blur">
+                      <a href="#">Enqure now &gt;</a>
+                    </div>
                   </div>
+                  <h2 className="title">
+                    <a href="#">{country.name}</a>
+                  </h2>
+                  <p className="text">
+                    <img src={country.flag} alt="flag" />
+                    {country.description}
+                  </p>
+                  {/* </> */}
                 </div>
-                <h2 className="title">
-                  <a href="#">{country.name}</a>
-                </h2>
-                <p className="text">
-                  <img src={country.flag} alt="flag" />
-                  {country.description}
-                </p>
-                {/* </> */}
-              </div>
-            </>
-          );
-        })}
-      </CardSection>
-      <CardSection>
-        {secondCountryOptions.map((country) => {
-          return (
-            <>
-              <div className="card">
-                {/* <> */}
-                <div className="imgBox">
-                  <img src={country.image} alt="New York Photo" />
-                  <div className="img-blur">
-                    <a href="#">Enqure now &gt;</a>
+              </>
+            );
+          })}
+        </CardSection>
+      </Slide>
+      <Slide direction="right">
+        <CardSection>
+          {secondCountryOptions.map((country) => {
+            return (
+              <>
+                <div className="card">
+                  {/* <> */}
+                  <div className="imgBox">
+                    <img src={country.image} alt="New York Photo" />
+                    <div className="img-blur">
+                      <a href="#">Enqure now &gt;</a>
+                    </div>
                   </div>
+                  <h2 className="title">
+                    <a href="#">{country.name}</a>
+                  </h2>
+                  <p className="text">
+                    <img src={country.flag} alt="flag" />
+                    {country.description}
+                  </p>
+                  {/* </> */}
                 </div>
-                <h2 className="title">
-                  <a href="#">{country.name}</a>
-                </h2>
-                <p className="text">
-                  <img src={country.flag} alt="flag" />
-                  {country.description}
-                </p>
-                {/* </> */}
-              </div>
-            </>
-          );
-        })}
-      </CardSection>
-      <StagesWrapper>
-        <label>Seamless Steps: Applying with Sun, Effortlessly Easy!</label>
-        <StageDiv>
-          <Submit>
-            <img src={first} alt={first} />
-            <div className="desc">Submit the required documents</div>
-          </Submit>
+              </>
+            );
+          })}
+        </CardSection>
+      </Slide>
+      <Fade>
+        <StagesWrapper>
+          <label>Seamless Steps: Applying with Sun, Effortlessly Easy!</label>
+          <StageDiv>
+            <Submit>
+              <img src={first} alt={first} />
+              <div className="desc">Submit the required documents</div>
+            </Submit>
 
-          <img src={up} alt={up} />
-          <Submit>
-            <img src={second} alt={second} />
-            <div className="desc">Pay the fee online</div>
-          </Submit>
-          <img src={down} alt={down} />
-          <Submit>
-            <img src={third} alt={third} />
-            <div className="desc">Document verification by Sun</div>
-          </Submit>
-          <img src={up} alt={up} />
-          <Submit>
-            <img src={fourth} alt={fourth} />
-            <div className="desc">Recieve your visa</div>
-          </Submit>
-        </StageDiv>
-      </StagesWrapper>
+            <img src={up} alt={up} />
+            <Submit>
+              <img src={second} alt={second} />
+              <div className="desc">Pay the fee online</div>
+            </Submit>
+            <img src={down} alt={down} />
+            <Submit>
+              <img src={third} alt={third} />
+              <div className="desc">Document verification by Sun</div>
+            </Submit>
+            <img src={up} alt={up} />
+            <Submit>
+              <img src={fourth} alt={fourth} />
+              <div className="desc">Recieve your visa</div>
+            </Submit>
+          </StageDiv>
+        </StagesWrapper>
+      </Fade>
       <WhyChooseUs>
         <MainSection>
-          <FirstSection>
-            <div className="dotted">
-              {/* //01 */}
-              <div>
-                <img className="arrowright" src={up} alt={up} />
-                <ChatBox>
-                  <div className="number">01</div>
-                  <div className="textAlign">
-                    <img className="toolTipImage" src={visaAll} alt="visaAll" />
-                    <label>
-                      Visa Services for <br /> all Countries
-                    </label>
-                  </div>
-                </ChatBox>
+          <Slide direction="left">
+            <FirstSection>
+              <div className="dotted">
+                {/* //01 */}
+                <div>
+                  <img className="arrowright" src={up} alt={up} />
+                  <ChatBox>
+                    <div className="number">01</div>
+                    <div className="textAlign">
+                      <img
+                        className="toolTipImage"
+                        src={visaAll}
+                        alt="visaAll"
+                      />
+                      <label>
+                        Visa Services for <br /> all Countries
+                      </label>
+                    </div>
+                  </ChatBox>
+                </div>
+                {/* 02 */}
+                <div>
+                  <img className="arrowLeft" src={up} alt={up} />
+                  <ChatBox className="second">
+                    <div className="number">02</div>
+                    <div className="textAlign">
+                      <img
+                        className="toolTipImage"
+                        src={experience}
+                        alt="experience"
+                      />
+                      <label>40 years of experience in Visa processing</label>
+                    </div>
+                  </ChatBox>
+                </div>
+                {/* 03 */}
+                <div>
+                  <img className="arrowright03" src={up} alt={up} />
+                  <ChatBox className="third">
+                    <div className="number">03</div>
+                    <div className="textAlign">
+                      <img className="toolTipImage" src={global} alt="global" />
+                      <label>150+ Branches Worldwide</label>
+                    </div>
+                  </ChatBox>
+                </div>
+                {/* 04 */}
+                <div>
+                  <img className="arrowright04" src={up} alt={up} />
+                  <ChatBox className="fourth">
+                    <div className="number">04</div>
+                    <div className="textAlign">
+                      <img
+                        className="toolTipImage"
+                        src={location}
+                        alt="global"
+                      />
+                      <label>End-to-End Visa Assistance</label>
+                    </div>
+                  </ChatBox>
+                </div>
+                {/* 05 */}
+                <div>
+                  <img className="arrowright05" src={up} alt={up} />
+                  <ChatBox className="fifth">
+                    <div className="number">05</div>
+                    <div className="textAlign">
+                      <img className="toolTipImage" src={van} alt="van" />
+                      <label>
+                        Pick Up & Drop of Documents from your Doorstep
+                      </label>
+                    </div>
+                  </ChatBox>
+                </div>
+                {/* 06 */}
+                <div>
+                  <img className="arrowright06" src={up} alt={up} />
+                  <ChatBox className="sixth">
+                    <div className="number">06</div>
+                    <div className="textAlign">
+                      <img
+                        className="toolTipImage"
+                        src={security}
+                        alt="security"
+                      />
+                      <label>Safety & Confidentiality</label>
+                    </div>
+                  </ChatBox>
+                </div>
               </div>
-              {/* 02 */}
-              <div>
-                <img className="arrowLeft" src={up} alt={up} />
-                <ChatBox className="second">
-                  <div className="number">02</div>
-                  <div className="textAlign">
-                    <img
-                      className="toolTipImage"
-                      src={experience}
-                      alt="experience"
-                    />
-                    <label>40 years of experience in Visa processing</label>
-                  </div>
-                </ChatBox>
+            </FirstSection>
+          </Slide>
+          <Slide direction="right">
+            <SecondSection>
+              <div className="choose">
+                {" "}
+                <span>Why</span> <br /> Choose Us?
               </div>
-              {/* 03 */}
-              <div>
-                <img className="arrowright03" src={up} alt={up} />
-                <ChatBox className="third">
-                  <div className="number">03</div>
-                  <div className="textAlign">
-                    <img className="toolTipImage" src={global} alt="global" />
-                    <label>150+ Branches Worldwide</label>
-                  </div>
-                </ChatBox>
-              </div>
-              {/* 04 */}
-              <div>
-                <img className="arrowright04" src={up} alt={up} />
-                <ChatBox className="fourth">
-                  <div className="number">04</div>
-                  <div className="textAlign">
-                    <img className="toolTipImage" src={location} alt="global" />
-                    <label>End-to-End Visa Assistance</label>
-                  </div>
-                </ChatBox>
-              </div>
-              {/* 05 */}
-              <div>
-                <img className="arrowright05" src={up} alt={up} />
-                <ChatBox className="fifth">
-                  <div className="number">05</div>
-                  <div className="textAlign">
-                    <img className="toolTipImage" src={van} alt="van" />
-                    <label>
-                      Pick Up & Drop of Documents from your Doorstep
-                    </label>
-                  </div>
-                </ChatBox>
-              </div>
-              {/* 06 */}
-              <div>
-                <img className="arrowright06" src={up} alt={up} />
-                <ChatBox className="sixth">
-                  <div className="number">06</div>
-                  <div className="textAlign">
-                    <img
-                      className="toolTipImage"
-                      src={security}
-                      alt="security"
-                    />
-                    <label>Safety & Confidentiality</label>
-                  </div>
-                </ChatBox>
-              </div>
-            </div>
-          </FirstSection>
+              <div className="arrow-up"></div>
 
-          <SecondSection>
-            <div className="choose">
-              {" "}
-              <span>Why</span> <br /> Choose Us?
-            </div>
-            <div className="arrow-up"></div>
-
-            <div className="image">
-              <img src={man} alt={man} />
-            </div>
-          </SecondSection>
+              <div className="image">
+                <img src={man} alt={man} />
+              </div>
+            </SecondSection>
+          </Slide>
         </MainSection>
       </WhyChooseUs>
     </PopuLarDiv>

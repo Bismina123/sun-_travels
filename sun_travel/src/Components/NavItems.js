@@ -15,7 +15,6 @@ export const navItems = [
     icon: homeIcon,
   },
 
- 
   {
     id: 7,
     title: "Flight",
@@ -79,7 +78,6 @@ export const moreDropDown = [
     path: "./hotel",
     cName: "submenu-item",
   },
- 
 ];
 export const tourDropdown = [
   {
@@ -143,22 +141,21 @@ export const certificateDropdown = [
   {
     id: 1,
     title: "Umra",
-    path: "./pilgrims",
+    path: "/umra",
     cName: "submenu-item",
   },
   {
     id: 2,
     title: "Hajj",
-    path: "./pilgrims",
+    path: "/hajj",
     cName: "submenu-item",
   },
   {
     id: 3,
     title: "Holi land",
-    path: "./pilgrims",
+    path: "/holiland",
     cName: "submenu-item",
   },
-  
 ];
 export const flightDropdown = [
   {
@@ -173,8 +170,6 @@ export const flightDropdown = [
     path: "./flight",
     cName: "submenu-item",
   },
-  
-  
 ];
 
 // Visa Types
@@ -209,9 +204,7 @@ export const visaDropDown = [
     pathname: "/africanVisa",
     cName: "submenu-item",
   },
- 
 ];
-
 
 export const testimonials = [
   {

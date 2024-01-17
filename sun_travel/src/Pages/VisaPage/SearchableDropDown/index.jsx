@@ -9,6 +9,7 @@ import {
   asianCountries,
   australianCountries,
   africanCountries,
+  allVisaCountries,
 } from "./countrylistdata";
 function SearchableDropdown({ location }) {
   const styles = {
@@ -64,6 +65,9 @@ function SearchableDropdown({ location }) {
       break;
     case "/Visa/africanVisa":
       countryOptions = africanCountries.map((country) => country.name);
+      break;
+      case "/Visa":
+      countryOptions = allVisaCountries.map((country) => country.name);
       break;
     default:
       // Use a default country list or handle the case as needed
