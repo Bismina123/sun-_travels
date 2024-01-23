@@ -12,6 +12,7 @@ import AllTours from "./Pages/AllTours";
 import ToursDetails from "./Pages/TourDetails";
 import Visapage from "./Pages/VisaPage";
 import UpdatedFooter from "./Components/UpdatedFooter";
+import FlightPage from "./Pages/FlightPage/FlightPage";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -23,12 +24,12 @@ function App() {
 
     return () => clearTimeout(timeoutId);
   }, []);
-  
+
   return (
     <>
       <div>
         <Navbar />
-        
+
         <Routes>
           <Route
             path="/"
@@ -54,15 +55,9 @@ function App() {
               </Suspense>
             }
           />
-          <Route
-           path="/Visa/*"
-            element={
-              <Visapage/>
-            }
-          />
+          <Route path="/Visa/*" element={<Visapage />} />
+          <Route path="/Flight" element={<FlightPage />} />
         </Routes>
-       
-        
       </div>
     </>
   );
