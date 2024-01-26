@@ -291,7 +291,6 @@ const MianWrapper = styled.div`
     }
   }
   @media (max-width: 990px) {
-    margin-top: 10%;
     height: 100%;
     .content-wrapper {
       .input-feild {
@@ -302,10 +301,7 @@ const MianWrapper = styled.div`
       }
     }
   }
-  @media (max-width: 500px) {
-    margin-top: 15%;
-  }
-  margin-top: 7%;
+  margin-top: 94px;
   height: calc(100vh - 400px);
   background-position: center;
   background-repeat: no-repeat;
