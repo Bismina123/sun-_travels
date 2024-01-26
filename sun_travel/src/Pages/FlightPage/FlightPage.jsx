@@ -182,6 +182,28 @@ const FlightPage = () => {
 
 export default FlightPage;
 const MianWrapper = styled.div`
+  @media (min-width: 991px) and (max-width: 1210px) {
+    .content-wrapper {
+      .input-feild {
+        width: 820px !important;
+      }
+    }
+  }
+  @media (max-width: 911px) {
+    margin-top: 30%;
+    height: 100%;
+    .content-wrapper {
+      .input-feild {
+        width: auto !important;
+        .input-content {
+          display: grid;
+        }
+      }
+    }
+  }
+  @media (max-width: 500px) {
+    margin-top: 40%;    
+  }
   margin-top: 5%;
   height: 89vh;
   background-position: center;
