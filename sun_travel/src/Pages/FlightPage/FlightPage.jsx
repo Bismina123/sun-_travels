@@ -30,17 +30,22 @@ const useTabStyles = makeStyles({
 const FlightPage = () => {
   const classes = useTabStyles();
   const { where } = useParams();
+  const scrollToTop = () => {
+    var element = document.getElementById("detailMainWrapper");
+    element.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
   const [date, setDate] = React.useState(dayjs("2022-04-17"));
   const [value, setValue] = useState(where);
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
   useEffect(() => {
+    scrollToTop();
     setValue(where);
   }, [where]);
   return (
     <>
-      <MianWrapper>
+      <MianWrapper id="detailMainWrapper">
         <div className="content-wrapper">
           <div className="top-header-content">
             <div>
@@ -235,18 +240,18 @@ const FlightPage = () => {
 
 export default FlightPage;
 const AboutUs = styled.div`
-@media (max-width: 800px) {
-   ul {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr;
-    padding: 10px;
-   }
+  @media (max-width: 800px) {
+    ul {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr;
+      padding: 10px;
+    }
   }
   ul {
     display: flex;
     justify-content: center;
     gap: 15px;
-    margin-top: 15px;
+    margin-top: 35px;
     margin-bottom: 25px;
     li {
       display: flex;
@@ -295,14 +300,15 @@ const MianWrapper = styled.div`
     .content-wrapper {
       .input-feild {
         width: auto !important;
+        padding: 20px;
         .input-content {
           display: grid !important;
-        }  
+        }
       }
     }
   }
-  margin-top: 94px;
-  height: calc(100vh - 400px);
+  margin-top: 90px;
+  height: 75vh;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

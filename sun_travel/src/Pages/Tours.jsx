@@ -23,5 +23,5 @@ export default function Tours() {
 const WrapperCard = styled.div`
   background-color: transparent;
   height: 100vh;
-  margin-top: 94px;
+  margin-top: 90px;
 `;
