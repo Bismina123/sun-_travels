@@ -7,11 +7,8 @@ import { Routes, Route } from "react-router-dom";
 
 import Navbar from "./Components/Navbar";
 import Tours from "./Pages/Tours";
-import { tourPackages } from "./Pages/toursPackages";
 import AllTours from "./Pages/AllTours";
-import ToursDetails from "./Pages/TourDetails";
 import Visapage from "./Pages/VisaPage";
-import UpdatedFooter from "./Components/UpdatedFooter";
 import FlightPage from "./Pages/FlightPage/FlightPage";
 
 function App() {
@@ -56,7 +53,7 @@ function App() {
             }
           />
           <Route path="/Visa/*" element={<Visapage />} />
-          <Route path="/Flight" element={<FlightPage />} />
+          <Route path="/Flight/:where" element={<FlightPage />} />
         </Routes>
       </div>
     </>

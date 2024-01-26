@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import dayjs, { Dayjs } from "dayjs";
+import dayjs from "dayjs";
 import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
@@ -12,6 +12,7 @@ import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import { makeStyles } from "@material-ui/core/styles";
+import { useParams } from "react-router-dom";
 const useTabStyles = makeStyles({
   root: {
     justifyContent: "center",
@@ -23,11 +24,15 @@ const useTabStyles = makeStyles({
 
 const FlightPage = () => {
   const classes = useTabStyles();
+  const { where } = useParams();
   const [date, setDate] = React.useState(dayjs("2022-04-17"));
-  const [value, setValue] = useState(1);
+  const [value, setValue] = useState(where);
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+  useEffect(() => {
+    setValue(where);
+  }, [where]);
   return (
     <MianWrapper>
       <div className="content-wrapper">
@@ -49,7 +54,7 @@ const FlightPage = () => {
                 <TabPanel value="1">
                   <div className="input-feild">
                     <div className="top-header">
-                      <span>Book International and Domestic Flights</span>
+                      <span>Book Domestic Flights</span>
                     </div>
                     <div className="input-content">
                       <TextField
@@ -109,21 +114,21 @@ const FlightPage = () => {
                 <TabPanel value="2">
                   <div className="input-feild">
                     <div className="top-header">
-                      <span>Book International and Domestic Flights</span>
+                      <span>Book International Flights</span>
                     </div>
                     <div className="input-content">
                       <TextField
                         required
                         id="outlined-required"
                         label="From"
-                        defaultValue="Delhi"
+                        defaultValue="Kochi"
                       />
                       <img src={swap} alt="swap" />
                       <TextField
                         required
                         id="outlined-required"
                         label="To"
-                        defaultValue="Bengaluru"
+                        defaultValue="London"
                       />
                       <LocalizationProvider dateAdapter={AdapterDayjs}>
                         <DemoContainer
@@ -145,7 +150,7 @@ const FlightPage = () => {
                         required
                         id="outlined-required"
                         label="Travellers"
-                        defaultValue="1 Traveller"
+                        defaultValue="2 Traveller"
                       />
                     </div>
                     <div className="bottom-content">
@@ -154,11 +159,11 @@ const FlightPage = () => {
                       </span>
                       <div className="from-card">
                         Kochi <img src={right} alt="right" />
-                        Goa
+                        New York
                       </div>
                       <div className="from-card">
                         Dubai <img src={right} alt="right" />
-                        Delhi
+                        Singapore
                       </div>
                     </div>
                   </div>
@@ -178,7 +183,7 @@ const FlightPage = () => {
 export default FlightPage;
 const MianWrapper = styled.div`
   margin-top: 5%;
-  height: 70vh;
+  height: 89vh;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -187,9 +192,17 @@ const MianWrapper = styled.div`
     .top-header-content {
       display: flex;
       justify-content: center;
+      .css-1gsv261 {
+        display: flex;
+        justify-content: center;
+      }
+      .css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected {
+        color: #fdfeff;
+      }
     }
     .btn-wrapper {
       button {
+        margin: -45px;
         border-radius: 34px;
         font-size: 22px;
         font-weight: 600;
@@ -209,7 +222,7 @@ const MianWrapper = styled.div`
       }
     }
     .input-feild {
-      background-color: #fff;
+      background-color: #eefaff;
       box-shadow: 0 1px 5px 0 rgb(0 0 0 / 10%);
       width: 1200px;
       border-radius: 15px;
@@ -219,6 +232,7 @@ const MianWrapper = styled.div`
         span {
           color: #4a4a4a;
           font-size: 22px;
+          border-bottom: 1px solid #d5d5d5;
         }
         .css-w8dmq8 {
           .css-heg063-MuiTabs-flexContainer {
