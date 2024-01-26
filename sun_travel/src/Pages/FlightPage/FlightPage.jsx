@@ -8,11 +8,16 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { Box, Tab, TextField } from "@mui/material";
 import swap from "./assets/swap.png";
 import right from "./assets/right.png";
+import shield from "./assets/shield.png";
+import flight from "./assets/flight-mode.png";
+import tag from "./assets/tag.png";
+import customer from "./assets/customer.png";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import { makeStyles } from "@material-ui/core/styles";
 import { useParams } from "react-router-dom";
+import UpdatedFooter from "../../Components/UpdatedFooter";
 const useTabStyles = makeStyles({
   root: {
     justifyContent: "center",
@@ -34,153 +39,249 @@ const FlightPage = () => {
     setValue(where);
   }, [where]);
   return (
-    <MianWrapper>
-      <div className="content-wrapper">
-        <div className="top-header-content">
-          <div>
-            <Box sx={{ width: "100%", typography: "body1" }}>
-              <TabContext value={value}>
-                <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-                  <StyledTab
-                    onChange={handleChange}
-                    aria-label="lab API tabs example"
-                    classes={{ root: classes.root, scroller: classes.scroller }}
-                    sx={{ justifyContent: "center" }}
-                  >
-                    <Tab label="Domestic" value="1" />
-                    <Tab label="International" value="2" />
-                  </StyledTab>
-                </Box>
-                <TabPanel value="1">
-                  <div className="input-feild">
-                    <div className="top-header">
-                      <span>Book Domestic Flights</span>
-                    </div>
-                    <div className="input-content">
-                      <TextField
-                        required
-                        id="outlined-required"
-                        label="From"
-                        defaultValue="Delhi"
-                      />
-                      <img src={swap} alt="swap" />
-                      <TextField
-                        required
-                        id="outlined-required"
-                        label="To"
-                        defaultValue="Bengaluru"
-                      />
-                      <LocalizationProvider dateAdapter={AdapterDayjs}>
-                        <DemoContainer
-                          components={["DatePicker", "DatePicker"]}
-                        >
-                          <DatePicker
-                            label="Departure"
-                            value={date}
-                            onChange={(newValue) => setDate(newValue)}
-                          />
-                          <DatePicker
-                            label="Return"
-                            value={date}
-                            onChange={(newValue) => setDate(newValue)}
-                          />
-                        </DemoContainer>
-                      </LocalizationProvider>
-                      <TextField
-                        required
-                        id="outlined-required"
-                        label="Travellers"
-                        defaultValue="1 Traveller"
-                      />
-                    </div>
-                    <div className="bottom-content">
-                      <span className="font12 latoBold">
-                        Trending Searches:
-                      </span>
-                      <div className="from-card">
-                        Kochi <img src={right} alt="right" />
-                        Goa
+    <>
+      <MianWrapper>
+        <div className="content-wrapper">
+          <div className="top-header-content">
+            <div>
+              <Box sx={{ width: "100%", typography: "body1" }}>
+                <TabContext value={value}>
+                  <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+                    <StyledTab
+                      onChange={handleChange}
+                      aria-label="lab API tabs example"
+                      classes={{
+                        root: classes.root,
+                        scroller: classes.scroller,
+                      }}
+                      sx={{ justifyContent: "center" }}
+                    >
+                      <Tab label="Domestic" value="1" />
+                      <Tab label="International" value="2" />
+                    </StyledTab>
+                  </Box>
+                  <TabPanel value="1">
+                    <div className="input-feild">
+                      <div className="top-header">
+                        <span>Book Domestic Flights</span>
                       </div>
-                      <div className="from-card">
-                        Dubai <img src={right} alt="right" />
-                        Delhi
+                      <div className="input-content">
+                        <TextField
+                          required
+                          id="outlined-required"
+                          label="From"
+                          defaultValue="Delhi"
+                        />
+                        <img src={swap} alt="swap" />
+                        <TextField
+                          required
+                          id="outlined-required"
+                          label="To"
+                          defaultValue="Bengaluru"
+                        />
+                        <LocalizationProvider dateAdapter={AdapterDayjs}>
+                          <DemoContainer
+                            components={["DatePicker", "DatePicker"]}
+                          >
+                            <DatePicker
+                              label="Departure"
+                              value={date}
+                              onChange={(newValue) => setDate(newValue)}
+                            />
+                            <DatePicker
+                              label="Return"
+                              value={date}
+                              onChange={(newValue) => setDate(newValue)}
+                            />
+                          </DemoContainer>
+                        </LocalizationProvider>
+                        <TextField
+                          required
+                          id="outlined-required"
+                          label="Travellers"
+                          defaultValue="1 Traveller"
+                        />
                       </div>
-                    </div>
-                  </div>
-                  <div className="btn-wrapper">
-                    <button>SEARCH</button>
-                  </div>
-                </TabPanel>
-                <TabPanel value="2">
-                  <div className="input-feild">
-                    <div className="top-header">
-                      <span>Book International Flights</span>
-                    </div>
-                    <div className="input-content">
-                      <TextField
-                        required
-                        id="outlined-required"
-                        label="From"
-                        defaultValue="Kochi"
-                      />
-                      <img src={swap} alt="swap" />
-                      <TextField
-                        required
-                        id="outlined-required"
-                        label="To"
-                        defaultValue="London"
-                      />
-                      <LocalizationProvider dateAdapter={AdapterDayjs}>
-                        <DemoContainer
-                          components={["DatePicker", "DatePicker"]}
-                        >
-                          <DatePicker
-                            label="Departure"
-                            value={date}
-                            onChange={(newValue) => setDate(newValue)}
-                          />
-                          <DatePicker
-                            label="Return"
-                            value={date}
-                            onChange={(newValue) => setDate(newValue)}
-                          />
-                        </DemoContainer>
-                      </LocalizationProvider>
-                      <TextField
-                        required
-                        id="outlined-required"
-                        label="Travellers"
-                        defaultValue="2 Traveller"
-                      />
-                    </div>
-                    <div className="bottom-content">
-                      <span className="font12 latoBold">
-                        Trending Searches:
-                      </span>
-                      <div className="from-card">
-                        Kochi <img src={right} alt="right" />
-                        New York
-                      </div>
-                      <div className="from-card">
-                        Dubai <img src={right} alt="right" />
-                        Singapore
+                      <div className="bottom-content">
+                        <span className="font12 latoBold">
+                          Trending Searches:
+                        </span>
+                        <div className="from-card">
+                          Kochi <img src={right} alt="right" />
+                          Goa
+                        </div>
+                        <div className="from-card">
+                          Dubai <img src={right} alt="right" />
+                          Delhi
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="btn-wrapper">
-                    <button>SEARCH</button>
-                  </div>
-                </TabPanel>
-              </TabContext>
-            </Box>
+                    <div className="btn-wrapper">
+                      <button>SEARCH</button>
+                    </div>
+                  </TabPanel>
+                  <TabPanel value="2">
+                    <div className="input-feild">
+                      <div className="top-header">
+                        <span>Book International Flights</span>
+                      </div>
+                      <div className="input-content">
+                        <TextField
+                          required
+                          id="outlined-required"
+                          label="From"
+                          defaultValue="Kochi"
+                        />
+                        <img src={swap} alt="swap" />
+                        <TextField
+                          required
+                          id="outlined-required"
+                          label="To"
+                          defaultValue="London"
+                        />
+                        <LocalizationProvider dateAdapter={AdapterDayjs}>
+                          <DemoContainer
+                            components={["DatePicker", "DatePicker"]}
+                          >
+                            <DatePicker
+                              label="Departure"
+                              value={date}
+                              onChange={(newValue) => setDate(newValue)}
+                            />
+                            <DatePicker
+                              label="Return"
+                              value={date}
+                              onChange={(newValue) => setDate(newValue)}
+                            />
+                          </DemoContainer>
+                        </LocalizationProvider>
+                        <TextField
+                          required
+                          id="outlined-required"
+                          label="Travellers"
+                          defaultValue="2 Traveller"
+                        />
+                      </div>
+                      <div className="bottom-content">
+                        <span className="font12 latoBold">
+                          Trending Searches:
+                        </span>
+                        <div className="from-card">
+                          Kochi <img src={right} alt="right" />
+                          New York
+                        </div>
+                        <div className="from-card">
+                          Dubai <img src={right} alt="right" />
+                          Singapore
+                        </div>
+                      </div>
+                    </div>
+                    <div className="btn-wrapper">
+                      <button>SEARCH</button>
+                    </div>
+                  </TabPanel>
+                </TabContext>
+              </Box>
+            </div>
           </div>
         </div>
-      </div>
-    </MianWrapper>
+      </MianWrapper>
+      <AboutUs className="conatier">
+        <h2 className="why-us">
+          Why Book With Us?
+          <span>
+            We offer best airfares, special discounts and a seamless online
+            ticket booking experience.
+          </span>
+        </h2>
+        <ul className="why-book">
+          <li className="hovicon effect-1 sub-a">
+            <img src={shield} alt="assured" />
+            <span>
+              Assured Best <br />
+              Fares
+            </span>
+          </li>
+          <li className="hovicon effect-1 sub-a">
+            <img src={customer} alt="24/7" />
+            <span>
+              24x7 Customer
+              <br />
+              Support
+            </span>
+          </li>
+          <li className="hovicon effect-1 sub-a">
+            <img src={flight} alt="flight" />
+            <span>
+              One Stop for
+              <br />
+              All Travel Services{" "}
+            </span>
+          </li>
+          <li className="hovicon effect-1 sub-a">
+            <img src={tag} alt="tag" />
+            <span>
+              Instant Deals on
+              <br />
+              Flights &amp; Holidays
+            </span>
+          </li>
+        </ul>
+      </AboutUs>
+      <UpdatedFooter />
+    </>
   );
 };
 
 export default FlightPage;
+const AboutUs = styled.div`
+@media (max-width: 800px) {
+   ul {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    padding: 10px;
+   }
+  }
+  ul {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+    margin-bottom: 25px;
+    li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #f2f2f2;
+      padding: 10px;
+      border-radius: 10px;
+      img {
+        height: 40px;
+        width: 40px;
+      }
+    }
+  }
+  .why-us {
+    display: grid;
+    font-size: 24px;
+    margin-top: 20px;
+    color: #065af3;
+    span {
+      font-size: 17px;
+      position: relative;
+      &::after {
+        position: absolute;
+        width: 275px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        border-bottom: 2px dotted #065af3;
+        content: "";
+        bottom: -10px;
+      }
+    }
+  }
+`;
 const MianWrapper = styled.div`
   @media (min-width: 991px) and (max-width: 1210px) {
     .content-wrapper {
@@ -189,23 +290,23 @@ const MianWrapper = styled.div`
       }
     }
   }
-  @media (max-width: 911px) {
-    margin-top: 30%;
+  @media (max-width: 990px) {
+    margin-top: 10%;
     height: 100%;
     .content-wrapper {
       .input-feild {
         width: auto !important;
         .input-content {
-          display: grid;
-        }
+          display: grid !important;
+        }  
       }
     }
   }
   @media (max-width: 500px) {
-    margin-top: 40%;    
+    margin-top: 15%;
   }
-  margin-top: 5%;
-  height: 89vh;
+  margin-top: 7%;
+  height: calc(100vh - 400px);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
