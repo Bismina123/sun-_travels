@@ -6,6 +6,7 @@ import notary from "./Assets/notary.png";
 import attestation from "./Assets/attestation.png";
 import checking from "./Assets/checking.png";
 import AtCard from "./AtCard";
+import UpdatedFooter from "../../Components/UpdatedFooter";
 
 const Attestation = () => {
   return (
@@ -48,6 +49,7 @@ const Attestation = () => {
         <AtCard />
         <AtCard />
       </div>
+      <UpdatedFooter />
     </MainWrapper>
   );
 };
@@ -90,11 +92,11 @@ const MainWrapper = styled.div`
     @media (max-width: 600px) {
       display: grid;
       :nth-child(1) {
-      width: 100%;
-    }
-    :nth-last-child(1) {
-      width: 100%;
-    }
+        width: 100%;
+      }
+      :nth-last-child(1) {
+        width: 100%;
+      }
     }
   }
   .second-div {
