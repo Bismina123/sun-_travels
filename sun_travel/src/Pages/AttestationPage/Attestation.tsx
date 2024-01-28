@@ -5,6 +5,13 @@ import building from "./Assets/building.png";
 import notary from "./Assets/notary.png";
 import attestation from "./Assets/attestation.png";
 import checking from "./Assets/checking.png";
+import uae from "./Assets/uae.png";
+import bahrain from "./Assets/bahrain.png";
+import kuwait from "./Assets/kuwait.png";
+import oman from "./Assets/oman.png";
+import qatar from "./Assets/qatar.png";
+import saudi from "./Assets/saudi-arabia.png";
+import europe from "./Assets/european-union.png";
 import AtCard from "./AtCard";
 import UpdatedFooter from "../../Components/UpdatedFooter";
 
@@ -48,6 +55,39 @@ const Attestation = () => {
         <AtCard />
         <AtCard />
         <AtCard />
+      </div>
+      <div className="container second-div">
+        <h2>Countries We Provide Our Service's</h2>
+        <ul className="why-book">
+          <li className="hovicon effect-1 sub-a">
+            <img src={uae} alt="uae" />
+            <span>UAE</span>
+          </li>
+          <li className="hovicon effect-1 sub-a">
+            <img src={qatar} alt="qatar" />
+            <span>QATAR</span>
+          </li>
+          <li className="hovicon effect-1 sub-a">
+            <img src={oman} alt="oman" />
+            <span>OMAN</span>
+          </li>
+          <li className="hovicon effect-1 sub-a">
+            <img src={kuwait} alt="kuwait" />
+            <span>KUWAIT</span>
+          </li>
+          <li className="hovicon effect-1 sub-a">
+            <img src={bahrain} alt="bahrain" />
+            <span>BAHRAIN</span>
+          </li>
+          <li className="hovicon effect-1 sub-a">
+            <img src={saudi} alt="saudi" />
+            <span>SAUDI ARABIA</span>
+          </li>
+          <li className="hovicon effect-1 sub-a">
+            <img src={europe} alt="europe" />
+            <span>ALL EUROPEAN COUNTRIES</span>
+          </li>
+        </ul>
       </div>
       <UpdatedFooter />
     </MainWrapper>
@@ -103,7 +143,14 @@ const MainWrapper = styled.div`
     @media (max-width: 800px) {
       ul {
         display: grid !important;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr !important;
+        padding: 10px;
+      }
+    }
+    @media (max-width: 1149px) {
+      ul {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr 1fr;
         padding: 10px;
       }
     }
@@ -137,6 +184,21 @@ const MainWrapper = styled.div`
         position: absolute;
         content: "";
         width: 244px;
+        height: 2px;
+        background: #065af3;
+      }
+    }
+    h2 {
+      position: relative;
+      font-size: 36px;
+      font-weight: 600;
+      color: #065af3;
+      letter-spacing: 4px;
+      &::before {
+        bottom: 0;
+        position: absolute;
+        content: "";
+        width: 44%;
         height: 2px;
         background: #065af3;
       }
