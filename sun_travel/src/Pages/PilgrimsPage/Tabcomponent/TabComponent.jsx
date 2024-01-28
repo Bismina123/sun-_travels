@@ -1,9 +1,9 @@
 import { AppBar, Box, Tab, Tabs } from "@mui/material";
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import ProductPage from "../ProductPage";
-import Salespage from "../SalesPage";
-import Userspage from "../UsersPage";
+import ProductPage from "../UmrahPage";
+import Salespage from "../HolyLandPage";
+import Userspage from "../HajjPage";
 import { makeStyles } from "@material-ui/core";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
