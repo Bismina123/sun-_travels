@@ -14,6 +14,7 @@ import saudi from "./Assets/saudi-arabia.png";
 import europe from "./Assets/european-union.png";
 import AtCard from "./AtCard";
 import UpdatedFooter from "../../Components/UpdatedFooter";
+import { attesttionData } from "./Data";
 
 const Attestation = () => {
   return (
@@ -51,10 +52,13 @@ const Attestation = () => {
         </ul>
       </div>
       <div className="container third-div">
-        <AtCard />
-        <AtCard />
-        <AtCard />
-        <AtCard />
+        {attesttionData.map((item) => {
+          return (
+            <>
+              <AtCard item={item} />
+            </>
+          );
+        })}
       </div>
       <div className="container second-div">
         <h2>Countries We Provide Our Service's</h2>

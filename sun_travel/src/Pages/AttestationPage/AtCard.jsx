@@ -26,29 +26,34 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-const AtCard = () => {
+const AtCard = ({ item }) => {
+  const [data, setData] = React.useState(item);
+  React.useEffect(() => {
+    setData(item);
+  }, [item]);
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
   return (
-    <Card sx={{ maxWidth: "100%", marginBottom: "30px" }}>
-      <CardHeader
-        title="EDUCATION CERTIFICATE"
-        subheader="Global Educational Certificate Attestation Services by Sun International Tours and Travels"
-      />
-      <CardMedia
+    <Card
+      sx={{
+        maxWidth: "100%",
+        marginBottom: "30px",
+        minHeight: 600,
+      }}
+    >
+      <CardHeader title={data.title} subheader={data.subheader} />
+      <StyledImage
         component="img"
         height="194"
-        image="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1864&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        image={data.image}
         alt="Education Certificate"
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          Sun International Tours specializes in providing comprehensive
-          educational certificate attestation services, facilitating seamless
-          transitions for individuals aspiring to pursue opportunities abroad.
+          {data.content}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -65,25 +70,13 @@ const AtCard = () => {
         <CardContent>
           <Typography paragraph>Service Offerings:</Typography>
           <Typography paragraph>
-            Our streamlined process ensures that your certificates undergo the
-            necessary verification steps, including sealing and signing by
-            appropriate authorities. The attestation enhances the credibility
-            and accessibility of your documents, opening up a plethora of
-            opportunities for higher education and employment.
+            {data.expandedContent.serviceOfferings}
           </Typography>
           <Typography paragraph>Why Choose Sun International?</Typography>
           <Typography paragraph>
-            Sun International Tours and Travels, with its commitment to
-            excellence, provides a complete guide to certificate attestation.
-            Our services ensure that your educational documents are not only
-            recognized globally but also hold increased value, making your
-            international pursuits smoother and more successful.
+            {data.expandedContent.whyChooseSunInternational}
           </Typography>
-          <Typography>
-            Embark on your journey with confidence, knowing that your
-            educational certificates are attested with precision and expertise
-            by Sun International Tours and Travels.
-          </Typography>
+          <Typography>{data.expandedContent.conclusion}</Typography>
         </CardContent>
       </Collapse>
     </Card>
@@ -91,3 +84,6 @@ const AtCard = () => {
 };
 
 export default AtCard;
+const StyledImage = styled(CardMedia)`
+    height: 280px;
+`
