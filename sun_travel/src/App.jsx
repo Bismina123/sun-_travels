@@ -11,6 +11,7 @@ import AllTours from "./Pages/AllTours";
 import Visapage from "./Pages/VisaPage";
 import FlightPage from "./Pages/FlightPage/FlightPage";
 import Attestation from "./Pages/AttestationPage/Attestation";
+import PilgrimsPage from "./Pages/PilgrimsPage";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -53,8 +54,19 @@ function App() {
               </Suspense>
             }
           />
-          <Route path="/Visa/*" element={<Visapage />} />
-          <Route path="/Flight/:where" element={<FlightPage />} />
+          <Route
+           path="/Visa/*"
+            element={
+              <Visapage/>
+            }
+          />
+          <Route
+           path="/pilgrims/*"
+            element={
+              <PilgrimsPage/>
+            }
+          />
+         <Route path="/Flight/:where" element={<FlightPage />} />
           <Route path="/Atestation" element={<Attestation />} />
         </Routes>
       </div>

@@ -56,6 +56,7 @@ export default function Navbar() {
       top: 0,
       behavior: "smooth",
     });
+    setActiveLink("/");
   };
   const handleTourId = (number) => {
     navigate(`/tours/${number}`);
@@ -65,15 +66,24 @@ export default function Navbar() {
     navigate(`/Visa/${subVisa.pathname}`);
     // setActiveLink(`/Visa/${subVisa.pathname}`);
   };
+  const handleSubPilgrimsClick = (subVisa) => {
+    navigate(`/pilgrims/${subVisa.path}`);
+    // setActiveLink(`/Visa/${subVisa.pathname}`);
+  };
   const location = useLocation();
 
   const [activeLink, setActiveLink] = useState("/");
-  const [activePath, setActivePath] = useState("");
+  // const [activePath, setActivePath] = useState("");
   const handleActive = (itemId, path) => {
+    if (path == "/") {
+      handleScrollToTop();
+      console.log("hellooooo");
+    }
     setActiveLink(path);
-    setActivePath(path);
+    // setActivePath(path);
   };
   useEffect(() => {
+    handleScrollToTop();
     setActiveLink(location.pathname);
   }, [activeLink]);
 
@@ -291,9 +301,13 @@ export default function Navbar() {
                         {certificateDropdown.map((subTours, index) => {
                           return (
                             <Link
-                              to={subTours.path}
+                            to={`/pilgrims${subTours.path}`}
                               key={index}
                               className="dropdown-submenu-hover"
+                              onClick={() => {
+                                handleSubPilgrimsClick(subTours);
+                                setActiveLink(item.path); // Set the active link for submenus
+                              }}
                             >
                               {subTours.title}
                             </Link>
@@ -538,6 +552,7 @@ const NavItems = styled.div`
     font-weight: 400;
     text-transform: capitalize;
     font-family: "lato" !important;
+    cursor: pointer;
   }
   .navbar-dropdown .dropdown a:hover {
     padding-left: 30px;

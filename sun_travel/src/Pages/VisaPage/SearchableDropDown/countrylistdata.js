@@ -212,3 +212,10 @@ export const africanCountries = [
   { id: 53, name: "Zambia" },
   { id: 54, name: "Zimbabwe" },
 ];
+export const allVisaCountries = [
+  ...europeanCountries,
+  ...americanCountries,
+  ...asianCountries,
+  ...australianCountries,
+  ...africanCountries,
+];

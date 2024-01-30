@@ -65,9 +65,9 @@ const Cloud = ({ speed, zIndex, left, bottom }) => {
         transformOrigin: "left bottom",
       }}
     >
-      <img src={cloudImage} alt="Cloud" />
-      <img src={cloudImage} alt="Cloud" />
-      <img src={cloudImage} alt="Cloud" />
+      <img src={cloudImage} alt="Cloud" className="imgClasesForHiden"/>
+      <img src={cloudImage} alt="Cloud" className="imgClasesForHiden"/>
+      <img src={cloudImage} alt="Cloud" className="imgClasesForHiden"/>
     </div>
   );
 };
@@ -335,7 +335,7 @@ const HeroSection = ({ scrollF }) => {
       </Canvas>
       <Cloud speed={1.5} left={0} bottom={0} zIndex={3} />
       <Cloud speed={1.5} left={-10} bottom={110} zIndex={2} />
-
+{/*  */}
       <div
         onClick={onDownArrowClick}
         style={{

@@ -294,6 +294,8 @@
 .hero-section {
   background: linear-gradient(to bottom, #afc7f8, #ffffff);
   /* margin-bottom: 4rem; */
+  /* background-color: red !important; */
+  width: 100%;
 }
 
 .canvas {
