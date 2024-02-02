@@ -13,6 +13,8 @@ import ToursDetails from "./Pages/TourDetails";
 import Visapage from "./Pages/VisaPage";
 import UpdatedFooter from "./Components/UpdatedFooter";
 import PilgrimsPage from "./Pages/PilgrimsPage";
+import OverseaceEducation from "./Pages/OverseaseEducation";
+import HotelBooking from "./Pages/HotelBookingPage";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -65,6 +67,18 @@ function App() {
            path="/pilgrims/*"
             element={
               <PilgrimsPage/>
+            }
+          />
+          <Route
+           path="/education"
+            element={
+              <OverseaceEducation/>
+            }
+          />
+           <Route
+           path="/hotel"
+            element={
+              <HotelBooking/>
             }
           />
         </Routes>
