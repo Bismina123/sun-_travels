@@ -63,19 +63,19 @@ export const moreDropDown = [
   {
     id: 1,
     title: "Overseas education",
-    path: "./education",
+    path: "/education",
     cName: "submenu-item",
   },
   {
     id: 2,
     title: "FRRO",
-    path: "./frro",
+    path: "/frro",
     cName: "submenu-item",
   },
   {
     id: 3,
     title: "Hotel booking",
-    path: "./hotel",
+    path: "/hotel",
     cName: "submenu-item",
   },
 ];

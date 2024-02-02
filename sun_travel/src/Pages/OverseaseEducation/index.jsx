@@ -1,0 +1,350 @@
+import React from "react";
+import styled from "styled-components";
+import education1 from "./assets/2151164272.jpg";
+import education2 from "./assets/freepik_perkasa_048.jpg";
+import CardPages from "./CardPages";
+import SlickPage from "./SlickPage";
+import TestiMonials from "./Testimonials";
+import UpdatedFooter from "../../Components/UpdatedFooter";
+const OverseasEducation = () => {
+  return (
+    <Wrapper>
+      <section className="1">
+        <section className="parallax">
+          <div className="parallax-inner">
+            <br />
+            <h1 className="h1Tag">We help to Build Your Dream </h1>
+            <p className="pTag">
+              We are available to consult for taking your higher education to
+              the next level so that you can stay competitive
+              <div className="buttonNow">
+                <button className="btnbook">
+                  <span>Apply Now</span>
+                </button>
+              </div>
+            </p>
+
+            <br />
+          </div>
+        </section>
+        <section className="logoMarqueeSection">
+          <div className="container" id="logoMarqueeSection">
+            <div className="default-content-container flex items-center">
+              <div className="default-content-container-inner marquee-wrapper relative overflow-hidden inline-block">
+                <div className="marquee" style={{ animationDuration: "57s" }}>
+                  <a target="_blank">
+                    <img
+                      src="https://cdn.worldvectorlogo.com/logos/calvin-klein.svg"
+                      title=""
+                      className="marqueelogo"
+                      style={{ width: "auto", maxWidth: "none" }}
+                    />
+                  </a>
+                  <a target="_blank">
+                    <img
+                      src="https://cdn.worldvectorlogo.com/logos/tiktok-logo.svg"
+                      title=""
+                      className="marqueelogo"
+                      style={{ width: "auto", maxWidth: "none" }}
+                    />
+                  </a>
+                  <a target="_blank">
+                    <img
+                      src="https://cdn.worldvectorlogo.com/logos/ngk-3.svg"
+                      title=""
+                      className="marqueelogo"
+                      style={{ width: "auto", maxWidth: "none" }}
+                    />
+                  </a>
+                  <a target="_blank">
+                    <img
+                      src="https://cdn.worldvectorlogo.com/logos/asus-rog-1.svg"
+                      title=""
+                      className="marqueelogo"
+                      style={{ width: "auto", maxWidth: "none" }}
+                    />
+                  </a>
+                  <a target="_blank">
+                    <img
+                      src="https://cdn.worldvectorlogo.com/logos/nippon-sanso.svg"
+                      title=""
+                      className="marqueelogo"
+                      style={{ width: "auto", maxWidth: "none" }}
+                    />
+                  </a>
+                  <a target="_blank">
+                    <img
+                      src="https://cdn.worldvectorlogo.com/logos/comdisco.svg"
+                      title=""
+                      className="marqueelogo"
+                      style={{ width: "auto", maxWidth: "none" }}
+                    />
+                  </a>
+                  <a target="_blank">
+                    <img
+                      src="https://cdn.worldvectorlogo.com/logos/asus-rog-1.svg"
+                      title=""
+                      className="marqueelogo"
+                      style={{ width: "auto", maxWidth: "none" }}
+                    />
+                  </a>
+                  <a target="_blank">
+                    <img
+                      src="https://cdn.worldvectorlogo.com/logos/nippon-sanso.svg"
+                      title=""
+                      className="marqueelogo"
+                      style={{ width: "auto", maxWidth: "none" }}
+                    />
+                  </a>
+                  <a target="_blank">
+                    <img
+                      src="https://cdn.worldvectorlogo.com/logos/tiktok-logo.svg"
+                      title=""
+                      className="marqueelogo"
+                      style={{ width: "auto", maxWidth: "none" }}
+                    />
+                  </a>
+                  <a target="_blank">
+                    <img
+                      src="https://cdn.worldvectorlogo.com/logos/ngk-3.svg"
+                      title=""
+                      className="marqueelogo"
+                      style={{ width: "auto", maxWidth: "none" }}
+                    />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="parallax-1">
+          <div className="">
+            <br />
+            <div className="servicesWrapper">
+              <h2>Our Services</h2>
+              <p>
+                We have expert consultants on board to guide your foreign study
+                aspirations. We cover the following services. and your other
+                requirements as well.
+              </p>
+            </div>
+
+            <CardPages />
+
+            <br />
+          </div>
+        </section>
+      </section>
+
+      <section className="2">
+        {/* <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit...</h3> */}
+        <SlickPage />
+        <section className="parallax-2">
+          <TestiMonials />
+        </section>
+      
+      </section>
+      <UpdatedFooter/>
+    </Wrapper>
+  );
+};
+
+export default OverseasEducation;
+
+const Wrapper = styled.div`
+  height: 100vh;
+  margin-top: 100px;
+  .logoMarqueeSection {
+    /* padding-top: 50vh;
+  padding-bottom: 150vh; */
+  }
+
+  #logoMarqueeSection {
+    /* max-width: 1920px !important; */
+    margin: 0 auto;
+  }
+
+  .default-content-container {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+    /* padding-left: 5rem; */
+    /* padding-right: 5rem; */
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #fef4ea;
+  }
+
+  div.marquee > a > img {
+    height: 55px;
+  }
+
+  .logoMarqueeSection > div > div {
+    padding-top: 0;
+    padding-bottom: 0;
+    min-height: 0;
+  }
+
+  .marquee-wrapper {
+    display: inline-block;
+    white-space: nowrap;
+    background-color: #fef4ea;
+  }
+
+  .marquee {
+    display: inline-block;
+    white-space: nowrap;
+    position: relative;
+    transform: translate3d(0%, 0, 0);
+    animation-name: marquee;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+
+  .marquee a {
+    display: inline-block;
+    white-space: nowrap;
+    padding: 10px 30px;
+  }
+
+  .marquee-wrapper:hover .marquee {
+    animation-play-state: paused !important;
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translate3d(0%, 0, 0);
+    }
+
+    100% {
+      transform: translate3d(-100%, 0, 0);
+    }
+  }
+
+  .buttonNow {
+    position: absolute;
+    bottom: -45px;
+    left: 0px;
+  }
+  .btnbook {
+    border: none;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    text-transform: capitalize;
+    outline: none;
+    overflow: hidden;
+    position: relative;
+    color: #fff;
+    font-weight: 700;
+    font-size: 15px;
+    background-color: #0b2f6a;
+    padding: 7px 10px;
+    margin: 0 auto;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+  }
+
+  .btnbook span {
+    position: relative;
+    z-index: 1;
+  }
+
+  .btnbook:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -5px;
+    height: 490%;
+    width: 140%;
+    background: #ffc40d;
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
+    transform: translateX(-98%) translateY(-25%) rotate(45deg);
+  }
+
+  .btnbook:hover:after {
+    -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
+    transform: translateX(-9%) translateY(-25%) rotate(45deg);
+  }
+  .h1Tag {
+    font-size: 53px;
+    text-align: left;
+    padding: 10px 30px;
+    max-width: 800px;
+    line-height: 48px;
+    font-weight: 900;
+  }
+  .pTag {
+    font-size: 20px;
+    text-align: left;
+    padding: 10px 30px;
+    max-width: 700px;
+    line-height: 26px;
+    font-weight: 400;
+    position: relative;
+  }
+  .parallax {
+    background: url(${education1}) repeat fixed 100%;
+    background-size: cover;
+    color: aliceblue;
+    backdrop-filter: blur(10px);
+    height: 100vh;
+  }
+  .parallax-1 {
+    background: url(${education2}) repeat fixed 100%;
+    background-size: cover;
+    color: aliceblue;
+    height: auto;
+  }
+  .parallax-2 {
+    background: url(https://alcs-slider.netlify.app/images/pattern-curve.svg)
+      repeat fixed 100%;
+    background-size: cover;
+    color: aliceblue;
+    height: 80vh;
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    background-size: 280px 72px;
+    position: relative;
+  }
+  .parallax-inner {
+    padding-top: 20%;
+    padding-bottom: 20%;
+  }
+  h3 {
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  /* h1 {
+    font-size: 160px;
+    text-align: center;
+  } */
+  .servicesWrapper {
+    text-align: center;
+    padding: 10px 150px;
+    /* width: 1000px; */
+    h2 {
+      color: #212176;
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+    p {
+      padding-top: 20px;
+      color: #212176;
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+  }
+  .mainCardWrapper {
+  }
+`;

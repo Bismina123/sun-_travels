@@ -12,6 +12,8 @@ import Visapage from "./Pages/VisaPage";
 import FlightPage from "./Pages/FlightPage/FlightPage";
 import Attestation from "./Pages/AttestationPage/Attestation";
 import PilgrimsPage from "./Pages/PilgrimsPage";
+import OverseaceEducation from "./Pages/OverseaseEducation";
+import HotelBooking from "./Pages/HotelBookingPage";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -68,6 +70,18 @@ function App() {
           />
          <Route path="/Flight/:where" element={<FlightPage />} />
           <Route path="/Atestation" element={<Attestation />} />
+          <Route
+           path="/education"
+            element={
+              <OverseaceEducation/>
+            }
+          />
+           <Route
+           path="/hotel"
+            element={
+              <HotelBooking/>
+            }
+          />
         </Routes>
       </div>
     </>
