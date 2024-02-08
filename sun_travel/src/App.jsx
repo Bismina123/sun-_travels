@@ -15,6 +15,7 @@ import UpdatedFooter from "./Components/UpdatedFooter";
 import PilgrimsPage from "./Pages/PilgrimsPage";
 import OverseaceEducation from "./Pages/OverseaseEducation";
 import HotelBooking from "./Pages/HotelBookingPage";
+import FrroPage from "./Pages/FrroPage";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -79,6 +80,12 @@ function App() {
            path="/hotel"
             element={
               <HotelBooking/>
+            }
+          />
+           <Route
+           path="/frro"
+            element={
+              <FrroPage/>
             }
           />
         </Routes>

@@ -109,7 +109,7 @@ function PilgrimsPage() {
       break;
     case "/pilgrims":
       currentvalue = "1";
-
+      backImage=hajjMain;
       break;
 
     default:
