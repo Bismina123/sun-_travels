@@ -15,6 +15,8 @@ import Scene from "../Components/Scene";
 
 import SliderComponent from "../Components/Slider";
 import UpdatedFooter from "../Components/UpdatedFooter";
+import BannerSection from "./VisaPage/BannerSection";
+import BannerSlider from "../Components/BannerSlider";
 
 export default function LandingPage() {
   const bestSellingRef = useRef(null);
@@ -47,13 +49,23 @@ export default function LandingPage() {
   const scrollTo100px = () => {
     // window.scrollBy(0, 100);
   };
-  useEffect(()=>{
+  useEffect(() => {
     scrollTo100px();
-  },[])
+  }, []);
+
+  const handleMailSend = () => {
+    var email = "flysun221@gmail.com";
+    var subject = "Enquiryto Sun International Tours and Travels";
+    var msgBody =
+      "Dear Sir/Madam,\n\nI am interested  more about the tours and travel packages offered by your company. Could you please provide me with information regarding destinations, itineraries, pricing, and any special offers available?\n\nThank you.";
+    window.open(`mailto:${email}?subject=${subject}&body=${msgBody}`);
+  };
+
   return (
     <WrapperCard id="detailMainWrapper">
       <HeroSection scrollF={scrollToBestSelling} />
-      <SliderComponent bestSellingRef={bestSellingRef} />
+      <BannerSlider bestSellingRef={bestSellingRef} />
+
       <BestSellingSection />
       <TravelBanner />
       <TabsExclusive />
@@ -73,10 +85,8 @@ export default function LandingPage() {
             <a href="https://www.facebook.com/people/FlySuninternational-Tours-Travels/pfbid0VijDEGTsDFAoWXzaWNVPgKKRVbJgjnon1ooyLZzSQ4T92pFAERrB25NWNbeoVK4vl/?mibextid=LQQJ4d">
               <ion-icon name="logo-facebook"></ion-icon>
             </a>
-            {/* <a href="https://www.instagram.com/suninternationaltours/?igshid=NGVhN2U2NjQ0Yg%3D%3D">
-              <ion-icon name="logo-twitter"></ion-icon>
-            </a> */}
-            <a href="https://www.instagram.com/suninternationaltours/?igshid=NGVhN2U2NjQ0Yg%3D%3D">
+
+            <a href="" onClick={handleMailSend}>
               <ion-icon name="mail-outline"></ion-icon>
             </a>
             <a href="https://www.google.com/maps/dir//NARASIMHAVILASAM+SHOPPING+COMPLEX,+near+secretariate+4th+gate,+Statue,+Palayam,+Thiruvananthapuram,+Kerala+695001/@8.4956904,76.8672319,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3b05bbbb0144ef6b:0x33c0f364c57f1b9c!2m2!1d76.9496338!2d8.4956991?entry=ttu">

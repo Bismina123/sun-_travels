@@ -64,8 +64,18 @@ const DateWrapper = styled.div`
   grid-template-columns: auto auto auto;
   justify-content: center;
   align-items: center;
+  margin-top: 15px;
+  @media only screen and (min-width: 300px) and (max-width: 768px) {
+     display: block;
+    }
   .durationdateCount {
     font-weight: bolder;
+    @media only screen and (min-width: 300px) and (max-width: 1000px) {
+    font-size: 13px;
+    }
+    @media only screen and (min-width: 300px) and (max-width: 1300px) {
+    font-size: 17px;
+    }
     h2{
       padding: 0px 20px;
     font-weight: 300;

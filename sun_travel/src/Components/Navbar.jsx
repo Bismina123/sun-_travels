@@ -640,7 +640,7 @@ const HeaderLogo = styled.div`
   display: flex;
   align-items: center;
   img {
-    max-height: 53px;
+    max-height: 46px;
     min-width: 136px;
   }
 `;

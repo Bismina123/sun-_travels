@@ -333,8 +333,9 @@ const HeroSection = ({ scrollF }) => {
         </Float>
         <AdaptiveDpr pixelated />
       </Canvas>
-      <Cloud speed={1.5} left={0} bottom={0} zIndex={3} />
+      {/* <Cloud speed={1.8} left={0} bottom={0} zIndex={3} />
       <Cloud speed={1.5} left={-10} bottom={110} zIndex={2} />
+      <Cloud speed={1} left={-20} bottom={110} zIndex={2} /> */}
 {/*  */}
       <div
         onClick={onDownArrowClick}

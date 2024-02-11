@@ -100,7 +100,7 @@ function HajjPage() {
           </div>
         </section>
       </div>
-     <MoveingPath/>
+      <MoveingPath/>
     </Warpper>
   );
 }
@@ -133,6 +133,12 @@ const Warpper = styled.div`
     /* padding: 30px 30px; */
   }
   .row {
+    @media only screen and (min-width: 300px) and (max-width: 414px) {
+      grid-template-columns: auto;
+    }
+    @media only screen and (min-width: 414px) and (max-width: 1000px) {
+      grid-template-columns: auto auto;
+    }
     display: grid;
     grid-template-columns: auto auto auto auto;
     padding: 10px 20px;
@@ -211,6 +217,9 @@ const Warpper = styled.div`
     -ms-transform: rotate(-5deg);
     transform: rotate(-5deg);
     background-color: #b9b533;
+    @media only screen and (min-width: 414px) and (max-width: 600px) {
+     left: 0px;
+    }
   }
 
   .work-process-layout1 .vs-work-process-2 .shape {
@@ -249,6 +258,9 @@ const Warpper = styled.div`
     max-width: 300px;
     border-bottom: 3px solid #b9b533;
     position: relative;
+    @media only screen and (min-width: 414px) and (max-width: 600px) {
+  min-height: 400px;
+    }
     /* min-height: 300px; */
   }
   .work-process-layout1 .work-process-content.odd-block {

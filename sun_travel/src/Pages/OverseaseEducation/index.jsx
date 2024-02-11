@@ -1,28 +1,38 @@
 import React from "react";
 import styled from "styled-components";
-import education1 from "./assets/2151164272.jpg";
+import education1 from "./assets/graduation-mortarboard-top-stack-books-background.jpg";
 import education2 from "./assets/freepik_perkasa_048.jpg";
 import CardPages from "./CardPages";
 import SlickPage from "./SlickPage";
 import TestiMonials from "./Testimonials";
 import UpdatedFooter from "../../Components/UpdatedFooter";
+import icon1 from "./assets/university-of-sydney-logo-DBC20EBA62-seeklogo.com.png";
+import icon2 from "./assets/university_of_western_australia_logo-freelogovectors.net_.png";
+import icon3 from "./assets/Monash_University_logo.svg.png";
+import icon4 from "./assets/McMaster_University_logo.svg.png";
+import icon5 from "./assets/d38e69159ac03416bac96d0f0ea97168.png";
 const OverseasEducation = () => {
   return (
     <Wrapper>
       <section className="1">
         <section className="parallax">
           <div className="parallax-inner">
-            <br />
-            <h1 className="h1Tag">We help to Build Your Dream </h1>
-            <p className="pTag">
-              We are available to consult for taking your higher education to
-              the next level so that you can stay competitive
-              <div className="buttonNow">
-                <button className="btnbook">
-                  <span>Apply Now</span>
-                </button>
-              </div>
-            </p>
+            <div></div>
+            <div>
+              <h1 className="h1Tag">
+                We help to Build
+                <br /> Your Dream{" "}
+              </h1>
+              <p className="pTag">
+                We are available to consult for taking your higher education to
+                the next level so that you can stay competitive
+                <div className="buttonNow">
+                  <button className="btnbook">
+                    <span>Apply Now</span>
+                  </button>
+                </div>
+              </p>
+            </div>
 
             <br />
           </div>
@@ -34,7 +44,7 @@ const OverseasEducation = () => {
                 <div className="marquee" style={{ animationDuration: "57s" }}>
                   <a target="_blank">
                     <img
-                      src="https://cdn.worldvectorlogo.com/logos/calvin-klein.svg"
+                      src={icon1}
                       title=""
                       className="marqueelogo"
                       style={{ width: "auto", maxWidth: "none" }}
@@ -42,7 +52,7 @@ const OverseasEducation = () => {
                   </a>
                   <a target="_blank">
                     <img
-                      src="https://cdn.worldvectorlogo.com/logos/tiktok-logo.svg"
+                      src={icon2}
                       title=""
                       className="marqueelogo"
                       style={{ width: "auto", maxWidth: "none" }}
@@ -50,7 +60,7 @@ const OverseasEducation = () => {
                   </a>
                   <a target="_blank">
                     <img
-                      src="https://cdn.worldvectorlogo.com/logos/ngk-3.svg"
+                      src={icon3}
                       title=""
                       className="marqueelogo"
                       style={{ width: "auto", maxWidth: "none" }}
@@ -58,7 +68,7 @@ const OverseasEducation = () => {
                   </a>
                   <a target="_blank">
                     <img
-                      src="https://cdn.worldvectorlogo.com/logos/asus-rog-1.svg"
+                      src={icon4}
                       title=""
                       className="marqueelogo"
                       style={{ width: "auto", maxWidth: "none" }}
@@ -66,7 +76,7 @@ const OverseasEducation = () => {
                   </a>
                   <a target="_blank">
                     <img
-                      src="https://cdn.worldvectorlogo.com/logos/nippon-sanso.svg"
+                      src={icon5}
                       title=""
                       className="marqueelogo"
                       style={{ width: "auto", maxWidth: "none" }}
@@ -74,7 +84,7 @@ const OverseasEducation = () => {
                   </a>
                   <a target="_blank">
                     <img
-                      src="https://cdn.worldvectorlogo.com/logos/comdisco.svg"
+                      src={icon1}
                       title=""
                       className="marqueelogo"
                       style={{ width: "auto", maxWidth: "none" }}
@@ -82,7 +92,7 @@ const OverseasEducation = () => {
                   </a>
                   <a target="_blank">
                     <img
-                      src="https://cdn.worldvectorlogo.com/logos/asus-rog-1.svg"
+                      src={icon2}
                       title=""
                       className="marqueelogo"
                       style={{ width: "auto", maxWidth: "none" }}
@@ -90,7 +100,7 @@ const OverseasEducation = () => {
                   </a>
                   <a target="_blank">
                     <img
-                      src="https://cdn.worldvectorlogo.com/logos/nippon-sanso.svg"
+                      src={icon3}
                       title=""
                       className="marqueelogo"
                       style={{ width: "auto", maxWidth: "none" }}
@@ -98,7 +108,7 @@ const OverseasEducation = () => {
                   </a>
                   <a target="_blank">
                     <img
-                      src="https://cdn.worldvectorlogo.com/logos/tiktok-logo.svg"
+                      src={icon4}
                       title=""
                       className="marqueelogo"
                       style={{ width: "auto", maxWidth: "none" }}
@@ -106,7 +116,7 @@ const OverseasEducation = () => {
                   </a>
                   <a target="_blank">
                     <img
-                      src="https://cdn.worldvectorlogo.com/logos/ngk-3.svg"
+                      src={icon5}
                       title=""
                       className="marqueelogo"
                       style={{ width: "auto", maxWidth: "none" }}
@@ -143,9 +153,8 @@ const OverseasEducation = () => {
         <section className="parallax-2">
           <TestiMonials />
         </section>
-      
       </section>
-      <UpdatedFooter/>
+      <UpdatedFooter />
     </Wrapper>
   );
 };
@@ -176,7 +185,7 @@ const Wrapper = styled.div`
     padding-bottom: 4.5rem;
     width: 100%;
     min-height: 100vh;
-    background-color: #fef4ea;
+    background-color: #fff;
   }
 
   div.marquee > a > img {
@@ -192,7 +201,7 @@ const Wrapper = styled.div`
   .marquee-wrapper {
     display: inline-block;
     white-space: nowrap;
-    background-color: #fef4ea;
+    background-color: #ffff;
   }
 
   .marquee {
@@ -273,12 +282,13 @@ const Wrapper = styled.div`
     transform: translateX(-9%) translateY(-25%) rotate(45deg);
   }
   .h1Tag {
-    font-size: 53px;
+    font-size: 70px;
     text-align: left;
     padding: 10px 30px;
     max-width: 800px;
-    line-height: 48px;
+    line-height: 70px;
     font-weight: 900;
+    color: #0b2f6a;
   }
   .pTag {
     font-size: 20px;
@@ -288,6 +298,7 @@ const Wrapper = styled.div`
     line-height: 26px;
     font-weight: 400;
     position: relative;
+    color: #0f0f6ab3;
   }
   .parallax {
     background: url(${education1}) repeat fixed 100%;
@@ -314,8 +325,12 @@ const Wrapper = styled.div`
     position: relative;
   }
   .parallax-inner {
-    padding-top: 20%;
+    padding-top: 15%;
     padding-bottom: 20%;
+    /* background-color: green; */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* text-align: -webkit-right; */
   }
   h3 {
     margin-left: 50px;
