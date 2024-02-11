@@ -18,10 +18,10 @@ const SliderComponent = ({ bestSellingRef }) => {
       <BlogsText>Blogs</BlogsText>
       <Slider {...settings}>
         <div className="imagediv">
-          <img
+          {/* <img
             src="https://res.cloudinary.com/dubjhsibu/image/upload/v1702787808/sun-images/coupleupdate_ulez2d.jpg"
             alt=""
-          />
+          /> */}
 
           <h3>
             Explore current trends in honeymoon travel, such as unique
@@ -110,6 +110,7 @@ const SliderWrapper = styled.div`
       height: 350px;
       width: 100%;
       overflow: hidden;
+      background-color: red;
       img {
         height: 100%;
         width: 100%;

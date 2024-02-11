@@ -1,38 +1,36 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import whatspp from "./assets/twitter.png";
-import Logo from "../assets/Logo-01 (3).svg";
+import { useState } from "react";
+
 import emailjs from "@emailjs/browser";
 import call from "./assets/phone-call.svg";
 import location from "./assets/location.svg";
 import mail from "./assets/email.svg";
 import send from "./assets/paper-plane.svg";
 import facebook from "./assets/facebook.svg";
-import twitter from "./assets/twitter.svg";
-import google from "./assets/google-plus.svg";
+import instagram from "./assets/instagram.svg";
+import youtube from "./assets/youtube.svg";
 import "./footer.css";
+import LogoWhite from "../assets/Sun Logo-01.png";
 const UpdatedFooter = () => {
-  const [subscribe, setSubsribe] = useState("");
+  const [subscribe, setSubscribe] = useState("");
+
   const handleSubmit = (e) => {
     e.preventDefault();
     emailjs
       .send(
-        "service_69qwdhs",
-        "template_zpg0qnl",
+        "service_vi7q9io",
+        "template_6bhsgru",
         {
           from_name: subscribe,
-          to_email: "sidharth.codingo@gmail.com",
+          to_email: "bismina229@gmail.com",
           message: subscribe,
         },
-        "4T1PPRyKB0JCqFyCV"
+        "cYu6EiV1UyKWKu4q-"
       )
       .then(
         () => {
           alert("Thank you. I will get back to you as soon as possible.");
 
-          setSubsribe({
-            email: "",
-          });
+          setSubscribe(""); // Clear the email state after successful submission
         },
         (error) => {
           console.error(error);
@@ -76,7 +74,7 @@ const UpdatedFooter = () => {
               <div className="footer-widget">
                 <div className="footer-logo">
                   <a href="index.html">
-                    <img src={Logo} className="img-fluid" alt="logo" />
+                    <img src={LogoWhite} className="img-fluid" alt="logo" />
                   </a>
                 </div>
                 <div className="footer-text">
@@ -89,18 +87,22 @@ const UpdatedFooter = () => {
                 <div className="footer-social-icon">
                   <span>Follow us</span>
                   <div className="socialIconWrapper">
-                    <a href="/">
+                    <a href="https://www.facebook.com/people/FlySuninternational-Tours-Travels/pfbid0VijDEGTsDFAoWXzaWNVPgKKRVbJgjnon1ooyLZzSQ4T92pFAERrB25NWNbeoVK4vl/?mibextid=LQQJ4d">
                       <img
                         className="iconImages"
                         src={facebook}
                         alt="facebook"
                       />
                     </a>
-                    <a href="/">
-                      <img className="iconImages" src={twitter} alt="twitter" />{" "}
+                    <a href="https://www.instagram.com/suninternationaltours/?igshid=NGVhN2U2NjQ0Yg%3D%3D">
+                      <img
+                        className="iconImages"
+                        src={instagram}
+                        alt="twitter"
+                      />{" "}
                     </a>
-                    <a href="/">
-                      <img className="iconImages" src={google} alt="google" />{" "}
+                    <a href="https://www.instagram.com/suninternationaltours/?igshid=NGVhN2U2NjQ0Yg%3D%3D">
+                      <img className="iconImages" src={youtube} alt="google" />{" "}
                     </a>
                   </div>
                 </div>
@@ -157,8 +159,8 @@ const UpdatedFooter = () => {
                     <input
                       type="text"
                       placeholder="Email Address"
-                      value={subscribe?.email}
-                      onChange={(e) => setSubsribe(e.target.value)}
+                      value={subscribe} // Directly access subscribe state
+                      onChange={(e) => setSubscribe(e.target.value)}
                     />
                     <button className="send">
                       <img src={send} alt="send" />

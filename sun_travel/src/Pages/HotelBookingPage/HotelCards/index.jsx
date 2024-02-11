@@ -4,6 +4,13 @@ import bg from "../../HotelBookingPage/assets/luxury-sunset-poolside-relaxation-
 import FmdGoodOutlinedIcon from "@mui/icons-material/FmdGoodOutlined";
 import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
 import StarIcon from "@mui/icons-material/Star";
+import hotel1 from "../assets/3403.jpg"
+import hotel2 from "../assets/5627.jpg"
+import hotel3 from "../assets/150095.jpg"
+import hotel4 from "../assets/2150497260.jpg"
+import hotel5 from "../assets/2150497286.jpg"
+import hotel6 from "../assets/2150683419.jpg"
+
 function HotelCards() {
   const HotelDetails = [
     {
@@ -12,7 +19,7 @@ function HotelCards() {
       hotelLocation: "Bali, Indonesia",
       price: "1200",
       starRating: "4.9",
-      image: bg,
+      image: hotel1,
     },
     {
       id: 2,
@@ -20,7 +27,7 @@ function HotelCards() {
       hotelLocation: "Phuket, Thailand",
       price: "1500",
       starRating: "4.7",
-      image: bg,
+      image: hotel2,
     },
     {
       id: 3,
@@ -28,7 +35,7 @@ function HotelCards() {
       hotelLocation: "Tokyo, Japan",
       price: "1800",
       starRating: "4.8",
-      image: bg,
+      image: hotel3,
     },
     {
       id: 4,
@@ -36,7 +43,7 @@ function HotelCards() {
       hotelLocation: "Paris, France",
       price: "2200",
       starRating: "4.6",
-      image: bg,
+      image: hotel4,
     },
     {
       id: 5,
@@ -44,7 +51,7 @@ function HotelCards() {
       hotelLocation: "Cancun, Mexico",
       price: "1300",
       starRating: "4.5",
-      image: bg,
+      image: hotel5,
     },
     {
       id: 6,
@@ -52,7 +59,7 @@ function HotelCards() {
       hotelLocation: "Swiss Alps, Switzerland",
       price: "2000",
       starRating: "4.9",
-      image: bg,
+      image: hotel6,
     },
   ];
 

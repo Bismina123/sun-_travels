@@ -76,8 +76,7 @@ function AboutOfPilgrims() {
               <div className="cardWrapper">
                 <a className="card1" href="#">
                   <div className="imagewrapper">
-
-                  <img src={item.icon} alt="" />
+                    <img src={item.icon} alt="" />
                   </div>
                   <p className="small">{item.label}</p>
                   <div className="go-corner" href="#">
@@ -89,14 +88,14 @@ function AboutOfPilgrims() {
           );
         })}
       </div>
-      <UpdatedFooter/>
+      <UpdatedFooter />
     </Wrapper>
   );
 }
 
 export default AboutOfPilgrims;
 const Wrapper = styled.div`
-  height: 100vh;
+  height: auto;
   background-color: red;
   background: url(${backAbout}) right top no-repeat #f1f0ec;
   /* @media only screen and(min-width: 992px)and (max-width: 1200px) {
@@ -171,6 +170,12 @@ const Wrapper = styled.div`
   }
   .cardWrapper {
     .card1 {
+      @media only screen and (min-width: 320px) and (max-width: 414px) {
+        width: 130px;
+      }
+      @media only screen and (min-width: 414px) and (max-width: 514px) {
+        width: 150px;
+      }
       display: block;
       position: relative;
       width: 180px;
@@ -228,14 +233,30 @@ const Wrapper = styled.div`
     }
   }
   .cardWrapper {
+    @media only screen and (min-width: 320px) and (max-width: 600px) {
+      display: grid;
+      grid-template-columns: auto auto;
+    }
+    @media only screen and (min-width: 600px) and (max-width: 1200px) {
+      display: grid;
+      grid-template-columns: auto auto auto;
+  }
     display: flex;
     justify-content: center;
     padding: 20px 0px;
     /* grid-template-columns: auto  ; */
-    .imagewrapper{
+    .imagewrapper {
       /* background-color: red; */
       width: 100px;
       text-align: center;
+      @media only screen and (min-width: 320px) and (max-width: 768px) {
+        width: 50px;
+      }
+    }
+    .small {
+      @media only screen and (min-width: 320px) and (max-width: 514px) {
+        font-size: 15px;
+      }
     }
   }
 `;

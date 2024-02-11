@@ -6,6 +6,11 @@ import CardPages from "./CardPages";
 import SlickPage from "./SlickPage";
 import TestiMonials from "./Testimonials";
 import UpdatedFooter from "../../Components/UpdatedFooter";
+import icon1 from "./assets/university-of-sydney-logo-DBC20EBA62-seeklogo.com.png";
+import icon2 from "./assets/university_of_western_australia_logo-freelogovectors.net_.png";
+import icon3 from "./assets/Monash_University_logo.svg.png";
+import icon4 from "./assets/McMaster_University_logo.svg.png";
+import icon5 from "./assets/d38e69159ac03416bac96d0f0ea97168.png";
 const OverseasEducation = () => {
   return (
     <Wrapper>
@@ -39,7 +44,7 @@ const OverseasEducation = () => {
                 <div className="marquee" style={{ animationDuration: "57s" }}>
                   <a target="_blank">
                     <img
-                      src="https://cdn.worldvectorlogo.com/logos/calvin-klein.svg"
+                      src={icon1}
                       title=""
                       className="marqueelogo"
                       style={{ width: "auto", maxWidth: "none" }}
@@ -47,7 +52,7 @@ const OverseasEducation = () => {
                   </a>
                   <a target="_blank">
                     <img
-                      src="https://cdn.worldvectorlogo.com/logos/tiktok-logo.svg"
+                      src={icon2}
                       title=""
                       className="marqueelogo"
                       style={{ width: "auto", maxWidth: "none" }}
@@ -55,7 +60,7 @@ const OverseasEducation = () => {
                   </a>
                   <a target="_blank">
                     <img
-                      src="https://cdn.worldvectorlogo.com/logos/ngk-3.svg"
+                      src={icon3}
                       title=""
                       className="marqueelogo"
                       style={{ width: "auto", maxWidth: "none" }}
@@ -63,7 +68,7 @@ const OverseasEducation = () => {
                   </a>
                   <a target="_blank">
                     <img
-                      src="https://cdn.worldvectorlogo.com/logos/asus-rog-1.svg"
+                      src={icon4}
                       title=""
                       className="marqueelogo"
                       style={{ width: "auto", maxWidth: "none" }}
@@ -71,7 +76,7 @@ const OverseasEducation = () => {
                   </a>
                   <a target="_blank">
                     <img
-                      src="https://cdn.worldvectorlogo.com/logos/nippon-sanso.svg"
+                      src={icon5}
                       title=""
                       className="marqueelogo"
                       style={{ width: "auto", maxWidth: "none" }}
@@ -79,7 +84,7 @@ const OverseasEducation = () => {
                   </a>
                   <a target="_blank">
                     <img
-                      src="https://cdn.worldvectorlogo.com/logos/comdisco.svg"
+                      src={icon1}
                       title=""
                       className="marqueelogo"
                       style={{ width: "auto", maxWidth: "none" }}
@@ -87,7 +92,7 @@ const OverseasEducation = () => {
                   </a>
                   <a target="_blank">
                     <img
-                      src="https://cdn.worldvectorlogo.com/logos/asus-rog-1.svg"
+                      src={icon2}
                       title=""
                       className="marqueelogo"
                       style={{ width: "auto", maxWidth: "none" }}
@@ -95,7 +100,7 @@ const OverseasEducation = () => {
                   </a>
                   <a target="_blank">
                     <img
-                      src="https://cdn.worldvectorlogo.com/logos/nippon-sanso.svg"
+                      src={icon3}
                       title=""
                       className="marqueelogo"
                       style={{ width: "auto", maxWidth: "none" }}
@@ -103,7 +108,7 @@ const OverseasEducation = () => {
                   </a>
                   <a target="_blank">
                     <img
-                      src="https://cdn.worldvectorlogo.com/logos/tiktok-logo.svg"
+                      src={icon4}
                       title=""
                       className="marqueelogo"
                       style={{ width: "auto", maxWidth: "none" }}
@@ -111,7 +116,7 @@ const OverseasEducation = () => {
                   </a>
                   <a target="_blank">
                     <img
-                      src="https://cdn.worldvectorlogo.com/logos/ngk-3.svg"
+                      src={icon5}
                       title=""
                       className="marqueelogo"
                       style={{ width: "auto", maxWidth: "none" }}

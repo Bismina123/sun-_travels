@@ -1,6 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import umra1 from "../assets/beautiful-view-city-mecca-also-place-worship-kaaba.jpg";
+import umra2 from "../assets/665.jpg";
+import umra3 from "../assets/1336.jpg";
+import umra4 from "../assets/green-dome-mosque-with-green-dome-green-dome.jpg";
 import click from "../assets/click (1).svg";
 import FlightIcon from "@mui/icons-material/Flight";
 import BusinessIcon from "@mui/icons-material/Business";
@@ -22,21 +25,21 @@ function UmraPage() {
       id: 2,
       place: "Hyderabad",
       package: "Special umrah package",
-      image: umra1,
+      image: umra2,
       price: "INR 108000",
     },
     {
       id: 3,
       place: "Cochin",
       package: "Standard umrah package",
-      image: umra1,
+      image: umra3,
       price: "INR 108000",
     },
     {
       id: 4,
       place: "Bengaluru",
       package: "Platinum umrah package",
-      image: umra1,
+      image: umra4,
       price: "INR 980000",
     },
   ];
@@ -49,7 +52,7 @@ function UmraPage() {
             <>
               <div className="mainWrapper">
                 <div className="imageDiv">
-                  <img src={umra1} alt="" />
+                  <img src={item.image} alt="" />
                 </div>
                 <div className="inr">{item.price}</div>
                 <div className="svgDiv">
@@ -101,7 +104,7 @@ function UmraPage() {
           );
         })}
       </div>
-        <AboutOfPilgrims/>
+      <AboutOfPilgrims/>
       {/* <UpdatedFooter/> */}
     </Warpper>
   );
@@ -110,12 +113,16 @@ function UmraPage() {
 export default UmraPage;
 const Warpper = styled.div`
   height: 100vh;
-  
+
   .dridWrapper {
     display: grid;
     grid-template-columns: auto auto auto auto;
     gap: 20px;
     padding: 30px 30px;
+    @media only screen and (min-width: 300px) and (max-width:1000px) {
+      grid-template-columns: auto auto;
+      padding: 10px;
+    }
   }
   .mainWrapper {
     &:hover {
@@ -154,6 +161,15 @@ const Warpper = styled.div`
     filter: drop-shadow(2px -9px 4px rgba(0, 69, 134, 0.2));
     width: 100%;
     overflow: hidden;
+    @media only screen and (min-width: 677px) and (max-width: 800px) {
+      top: 11rem;
+    }
+     @media only screen and (min-width: 800px) and (max-width: 900px) {
+      top: 10rem;
+    }
+    @media only screen and (min-width: 900px) and (max-width: 1000px) {
+      top: 11rem;
+    }
   }
   .inr {
     position: absolute;
@@ -166,7 +182,13 @@ const Warpper = styled.div`
   }
   .clickIcon {
     img {
+      @media only screen and (min-width: 300px) and (max-width: 900px) {
+        width: 20px;
+      }
       width: 40px;
+    }
+    @media only screen and (min-width: 300px) and (max-width: 900px) {
+      padding: 0.5rem;
     }
     position: absolute;
     top: 11rem;
@@ -187,6 +209,9 @@ const Warpper = styled.div`
     }
   }
   .footerDiv {
+    @media only screen and (min-width: 300px) and (max-width: 900px) {
+      padding: 10px;
+    }
     margin-top: 10px;
     padding: 20px 20px;
     .iconDiv {
@@ -196,6 +221,9 @@ const Warpper = styled.div`
       justify-content: flex-start;
       gap: 2px;
       font-size: 14px;
+      @media only screen and (min-width: 300px) and (max-width: 900px) {
+        font-size: 10px;
+      }
     }
     .locatCity {
       display: flex;
@@ -222,6 +250,9 @@ const Warpper = styled.div`
     }
   }
   .operatedBy {
+    @media only screen and (min-width: 300px) and (max-width: 900px) {
+      grid-template-columns: auto;
+    }
     /* width: 100%; */
     display: grid;
     grid-template-columns: auto auto;
@@ -251,6 +282,9 @@ const Warpper = styled.div`
       }
     }
     .rightSide {
+      @media only screen and (min-width: 300px) and (max-width: 900px) {
+        margin-top: 10px;
+      }
       div {
         border: 1px solid #338c8f;
         border-radius: 4px;
@@ -263,6 +297,9 @@ const Warpper = styled.div`
     }
   }
   .footer {
+    @media only screen and (min-width: 300px) and (max-width: 900px) {
+      font-size: 15px;
+    }
     background-color: #0b2f6a;
     min-height: 40px;
     padding: 7px 1px 7px 16px;

@@ -17,6 +17,7 @@ ul {
 .single-cta img {
   height: 35px;
   width: 35px;
+  filter: invert(1) ;
 }
 .single-cta i {
   color: #001499;
@@ -66,6 +67,7 @@ ul {
 .footer-social-icon img {
   width: 35px;
   height: 35px;
+  
 }
 .footer-social-icon .socialIconWrapper {
   display: flex;
@@ -147,7 +149,7 @@ ul {
   border: 1px solid #192955;
   color: #fff;
 }
-.subscribe-form img{
+.subscribe-form img {
   width: 20px;
   height: 20px;
   filter: invert(1) brightness(4);
@@ -175,7 +177,7 @@ ul {
   color: #878787;
 }
 .copyright-text p a {
-  color: #001499;
+  color: #fdfdfd;
 }
 .footer-menu li {
   display: inline-block;

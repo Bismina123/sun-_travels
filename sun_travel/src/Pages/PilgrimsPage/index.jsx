@@ -26,10 +26,10 @@ import UmraPage from "./UmrahPage";
 
 import HajjPage from "./HajjPage";
 import HolyLandPage from "./HolyLandPage";
-import jordanFlag from "./assets/jordan.svg"
-import palestineFlag from "./assets/palestine.svg"
-import egyptFlag from "./assets/egypt.svg"
-import israelFlag from "./assets/israel.svg"
+import jordanFlag from "./assets/jordan.svg";
+import palestineFlag from "./assets/palestine.svg";
+import egyptFlag from "./assets/egypt.svg";
+import israelFlag from "./assets/israel.svg";
 
 function PilgrimsPage() {
   const styles = {
@@ -42,6 +42,9 @@ function PilgrimsPage() {
         },
       },
       "& .MuiTabs-flexContainer": {
+        "@media only screen and (min-width: 300px) and (max-width: 768px)": {
+          top: "18%",
+        },
         justifyContent: "center",
         gap: "20px",
         padding: "10px",
@@ -51,16 +54,23 @@ function PilgrimsPage() {
         left: "50%",
       },
       "&  .MuiTab-root": {
+        "@media only screen and (min-width: 300px) and (max-width: 768px)": {
+          width: " 80px",
+          fontSize: "12px",
+          height: " 74px",
+        },
         background: "#fff ",
         height: " 80px",
         width: " 110px",
         borderRadius: "7px",
         display: "block",
         textAlign: "-webkit-center",
-        fontSize: "14px",
+        fontSize: "13px",
         boxShadow: "0 3px 5px 0 rgba(0,0,0,.3)",
         fontFamily: "Lato !important",
         fontWeight: 700,
+        padding: "0",
+
         "&.Mui-selected": {
           color: "#fff",
           backgroundColor: "#0b2f6a !important",
@@ -89,27 +99,26 @@ function PilgrimsPage() {
   const navigate = useNavigate();
   const location = useLocation();
   let currentvalue = "";
-  let backImage="";
+  let backImage = "";
   switch (location.pathname) {
-   
     case "/pilgrims/umra":
       currentvalue = "1";
-      backImage=hajjMain;
+      backImage = hajjMain;
 
       break;
     case "/pilgrims/hajj":
       currentvalue = "2";
-      backImage=umra;
+      backImage = umra;
 
       break;
     case "/pilgrims/holiland":
       currentvalue = "3";
-      backImage=holyland;
+      backImage = holyland;
 
       break;
     case "/pilgrims":
       currentvalue = "1";
-      backImage=hajjMain;
+      backImage = hajjMain;
       break;
 
     default:
@@ -137,7 +146,7 @@ function PilgrimsPage() {
   };
   useEffect(() => {
     setValue(currentvalue);
-    
+
     if (currentvalue === "3") {
       setChoosedCity({
         id: 1,
@@ -153,7 +162,7 @@ function PilgrimsPage() {
         flag: soudiflag,
       });
     }
-  }, [currentvalue,location.pathname]);
+  }, [currentvalue, location.pathname]);
   const [openmodal, setopenmodal] = useState(false);
   const modalopen = () => {
     setopenmodal(true);
@@ -204,32 +213,16 @@ function PilgrimsPage() {
       flag: israelFlag, // Assuming you have a variable israelFlag for the flag
     },
   ];
-  
+
   const [choosedCity, setChoosedCity] = useState({
     id: 1,
     name: "Makkah",
     country: "saudiArabia",
     flag: soudiflag,
   });
-  console.log(openmodal,"modalOpen")
+  console.log(openmodal, "modalOpen");
   const popupRef = React.useRef(null);
-  // React.useEffect(() => {
-  //   const handleClickOutside = (event) => {
-  //     if (popupRef.current && !popupRef.current.contains(event.target)) {
-  //       // If the click occurred outside the popup, close the modal
-  //       setopenmodal(false);
-  //     }
-  
-  //     // Toggle the state to its opposite value
-  //     setopenmodal((prevOpenModal) => !prevOpenModal);
-  //   };
-  
-  //   document.addEventListener('click', handleClickOutside);
-  
-  //   return () => {
-  //     document.removeEventListener('click', handleClickOutside);
-  //   };
-  // }, []);
+
   const handleChoosedCity = (e, data) => {
     console.log(e, data, "idddddd");
 
@@ -239,124 +232,122 @@ function PilgrimsPage() {
   const cityList = currentvalue === "3" ? holiLandCity : selectCity;
   return (
     <>
-    
-    <PilgrimsWrapper>
-      <MainWrapper>
-        <img src={backImage} alt={backImage} />
-        <div className="boxShadow"></div>
-      </MainWrapper>
-      <BackgroundWrapper>
-        <div className="gridSeperatingWrapper">
-          <div className="firstGrid" onClick={modalopen}>
-            <label htmlFor="" className="cityLabel">
-              Select city
-            </label>
-            <div className="choosinglabel">{choosedCity.name}</div>
-            <div className="counrtLabel">{choosedCity.country}</div>
-          </div>
-          {openmodal ? (
-            <div className="modalOpen" >
-              <div ref={popupRef}>
-                <div className="input"  >
-                  <input
-                    className="location"
-                    type="text"
-                    placeholder="Select city"
-                  />
-                  <MyLocationIcon />
-                </div>
-                <div className="importantcity">Important Cities</div>
-                <div>
-                  {cityList.map((item) => {
-                    return (
-                      <>
-                        <div
-                          className="drpDownCity alignIyem"
-                          onClick={(e) => handleChoosedCity(e, item)}
-                        >
-                          <div className="drpDownCity">
-                            <LocationOnIcon />
+      <PilgrimsWrapper>
+        <MainWrapper>
+          <img src={backImage} alt={backImage} />
+          <div className="boxShadow"></div>
+        </MainWrapper>
+        <BackgroundWrapper>
+          <div className="gridSeperatingWrapper">
+            <div className="firstGrid" onClick={modalopen}>
+              <label htmlFor="" className="cityLabel">
+                Select city
+              </label>
+              <div className="choosinglabel">{choosedCity.name}</div>
+              <div className="counrtLabel">{choosedCity.country}</div>
+            </div>
+            {openmodal ? (
+              <div className="modalOpen">
+                <div ref={popupRef}>
+                  <div className="input">
+                    <input
+                      className="location"
+                      type="text"
+                      placeholder="Select city"
+                    />
+                    <MyLocationIcon />
+                  </div>
+                  <div className="importantcity">Important Cities</div>
+                  <div>
+                    {cityList.map((item) => {
+                      return (
+                        <>
+                          <div
+                            className="drpDownCity alignIyem"
+                            onClick={(e) => handleChoosedCity(e, item)}
+                          >
+                            <div className="drpDownCity">
+                              <LocationOnIcon />
 
-                            <div className="placesub" key={item.id}>
-                              <label className="selectedlabel">
-                                {item.name}
-                              </label>
-                              <div className="bottonsub">
-                                <span>Place</span>
+                              <div className="placesub" key={item.id}>
+                                <label className="selectedlabel">
+                                  {item.name}
+                                </label>
+                                <div className="bottonsub">
+                                  <span>Place</span>
 
-                                <label>{item.country}</label>
+                                  <label style={{ cursor: "pointer" }}>
+                                    {item.country}
+                                  </label>
+                                </div>
                               </div>
                             </div>
+                            <div>
+                              <img src={item.flag} alt="" className="flagimg" />
+                            </div>
                           </div>
-                          <div>
-                            <img src={item.flag} alt="" className="flagimg" />
-                          </div>
-                        </div>
-                      </>
-                    );
-                  })}
+                        </>
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
-            </div>
-          ) : (
-            ""
-          )}
+            ) : (
+              ""
+            )}
 
-          <div className="secondGrid">
-            <Startdate />
+            <div className="secondGrid">
+              <Startdate />
+            </div>
+            <div className="thirdGrid">
+              <div className="lastGridinner">Search</div>
+            </div>
           </div>
-          <div className="thirdGrid">
-            <div className="lastGridinner">Search</div>
-          </div>
-        </div>
-      </BackgroundWrapper>
-      <TabWrapper>
-        <Box sx={{ width: "100%", typography: "body1" }}>
-          <TabContext value={value} sx={styles.mainTab}>
-            <Box sx={styles.tabStyle}>
-              <TabList
-                onChange={handleChange}
-                aria-label="lab API tabs example"
-                className="pilGrimstabHeading"
-              >
-                <Tab
-                  label="Umrah"
-                  value="1"
-                  icon={<img src={umrah} alt="Umrah" />}
-                  iconPosition="start"
-                />
-                <Tab
-                  label="Hajj"
-                  value="2"
-                  icon={<img src={hajj} alt="Umrah" />}
-                  iconPosition="start"
-                />
-                <Tab
-                  label="Holi Land"
-                  value="3"
-                  icon={<img src={holy} alt="Umrah" />}
-                  iconPosition="start"
-                />
-              </TabList>
-            </Box>
-            <Box sx={styles.mainTab}>
-              <TabPanel value="1">
-                <UmraPage />
-              
-              </TabPanel>
-              <TabPanel value="2">
-                <HajjPage />
-              </TabPanel>
-              <TabPanel value="3">
-                <HolyLandPage />
-              </TabPanel>
-            </Box>
-          </TabContext>
-        </Box>
-      </TabWrapper>
-     
-    </PilgrimsWrapper>
-    
+        </BackgroundWrapper>
+        <TabWrapper>
+          <Box sx={{ width: "100%", typography: "body1" }}>
+            <TabContext value={value} sx={styles.mainTab}>
+              <Box sx={styles.tabStyle}>
+                <TabList
+                  onChange={handleChange}
+                  aria-label="lab API tabs example"
+                  className="pilGrimstabHeading"
+                >
+                  <Tab
+                    label="Umrah"
+                    value="1"
+                    icon={<img src={umrah} alt="Umrah" />}
+                    iconPosition="start"
+                  />
+                  <Tab
+                    label="Hajj"
+                    value="2"
+                    icon={<img src={hajj} alt="Umrah" />}
+                    iconPosition="start"
+                  />
+                  <Tab
+                    label="Holi Land"
+                    value="3"
+                    icon={<img src={holy} alt="Umrah" />}
+                    iconPosition="start"
+                  />
+                </TabList>
+              </Box>
+              <Box sx={styles.mainTab}>
+                <TabPanel value="1">
+                  <UmraPage />{" "}
+                </TabPanel>
+                <TabPanel value="2">
+                  <HajjPage />
+                </TabPanel>
+                <TabPanel value="3">
+                  <HolyLandPage />
+                </TabPanel>
+              </Box>
+            </TabContext>
+          </Box>
+        </TabWrapper>
+      </PilgrimsWrapper>
     </>
   );
 }
@@ -369,6 +360,9 @@ const PilgrimsWrapper = styled.div`
   padding-top: 80px;
   .pilGrimstabHeading {
     img {
+      @media only screen and (min-width: 300px) and (max-width: 514px) {
+        width: 30px !important;
+      }
       width: 35px !important;
       margin-bottom: 4px;
     }
@@ -412,16 +406,28 @@ const BackgroundWrapper = styled.div`
   border-radius: 6px;
   padding-top: 20px;
   padding-bottom: 20px;
+  @media only screen and (min-width: 300px) and (max-width: 514px) {
+    top: 47%;
+  }
+  @media only screen and (min-width: 514px) and (max-width: 1000px) {
+    top: 45%;
+  }
   .gridSeperatingWrapper {
     display: grid;
     grid-template-columns: auto auto auto;
     padding: 0px 15px;
+    @media only screen and (min-width: 300px) and (max-width: 1000px) {
+      grid-template-columns: auto;
+    }
   }
   .firstGrid {
     text-align: left;
     padding: 0px 20px;
     border-right: 1px solid #adadad;
     cursor: pointer;
+    @media only screen and (min-width: 300px) and (max-width: 1000px) {
+      border-right: 1px solid #fff;
+    }
   }
   .cityLabel {
     font-size: 12px;
@@ -501,6 +507,7 @@ const BackgroundWrapper = styled.div`
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    cursor: pointer;
   }
   .bottonsub {
     overflow: hidden;
@@ -541,12 +548,19 @@ const BackgroundWrapper = styled.div`
   }
   .secondGrid {
     border-right: 1px solid #adadad;
+    @media only screen and (min-width: 300px) and (max-width: 1000px) {
+      border-right: 1px solid #fff;
+    }
   }
   .thirdGrid {
     margin-left: 10px;
     background-color: #0b2f6a !important;
     border-radius: 10px;
     cursor: pointer;
+    @media only screen and (min-width: 300px) and (max-width: 900px) {
+      margin-left: 0px;
+      margin-top: 10px;
+    }
     :hover {
       .lastGridinner {
         color: #0b2f6a;
@@ -563,6 +577,30 @@ const BackgroundWrapper = styled.div`
       color: #ffff;
       font-size: 20px;
       letter-spacing: 1px;
+      @media only screen and (min-width: 300px) and (max-width: 768px) {
+        font-size: 15px;
+      }
     }
+  }
+  @media only screen and (min-width: 300px) and (max-width: 414px) {
+    font-size: 20px;
+  }
+  @media only screen and (min-width: 414px) and (max-width: 514px) {
+    font-size: 23px;
+  }
+  @media only screen and (min-width: 514px) and (max-width: 600px) {
+    font-size: 25px;
+  }
+  @media only screen and (min-width: 600px) and (max-width: 768px) {
+    font-size: 26px;
+  }
+  @media only screen and (min-width: 768px) and (max-width: 900px) {
+    font-size: 27px;
+  }
+  @media only screen and (min-width: 900px) and (max-width: 1024px) {
+    font-size: 30px;
+  }
+  @media only screen and (min-width: 1024px) and (max-width: 1200px) {
+    font-size: 35px;
   }
 `;

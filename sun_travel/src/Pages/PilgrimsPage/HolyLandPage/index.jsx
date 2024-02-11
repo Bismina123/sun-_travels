@@ -72,7 +72,7 @@ function HolyLandPage() {
       <Slider3dComponent data={caroselData} activeSlide={2} />
       
     </div>
-    <HolyLandAbout/>
+    {/* <HolyLandAbout/> */}
     <UpdatedFooter/>
     </Warpper>
   )
