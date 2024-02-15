@@ -12,6 +12,7 @@ import oman from "./Assets/oman.png";
 import qatar from "./Assets/qatar.png";
 import saudi from "./Assets/saudi-arabia.png";
 import europe from "./Assets/european-union.png";
+import attes from "./Assets/attest.png";
 import AtCard from "./AtCard";
 import UpdatedFooter from "../../Components/UpdatedFooter";
 import { attesttionData } from "./Data";
@@ -26,7 +27,7 @@ const Attestation = () => {
           alt="attestaion"
         />
         <img
-          src="https://theattestation.in/assets/img/one-attestation-1.webp"
+          src={attes}
           alt="attestaion"
         />
       </div>

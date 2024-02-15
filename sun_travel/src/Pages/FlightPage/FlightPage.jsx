@@ -312,7 +312,7 @@ const MianWrapper = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url("https://images.unsplash.com/photo-1613310023042-ad79320c00ff?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-image: url("https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
   .content-wrapper {
     .top-header-content {
       display: flex;
@@ -347,13 +347,14 @@ const MianWrapper = styled.div`
       }
     }
     .input-feild {
-      background-color: #eefaff;
+      margin-top: 15%;
+      background-color: #eefaffb5;
       box-shadow: 0 1px 5px 0 rgb(0 0 0 / 10%);
       width: 1200px;
       border-radius: 15px;
       padding: 1% 50px 1% 50px;
       .top-header {
-        padding: 5%;
+        padding: 1%;
         span {
           color: #4a4a4a;
           font-size: 22px;
@@ -370,7 +371,7 @@ const MianWrapper = styled.div`
         justify-content: flex-end;
         align-items: center;
         gap: 10px;
-        padding-top: 7%;
+        padding: 10px;
         span {
           color: #4a4a4a;
           font-size: 14px;
