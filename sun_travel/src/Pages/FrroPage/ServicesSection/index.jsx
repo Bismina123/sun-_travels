@@ -240,7 +240,7 @@ const GridWrapper = styled.div`
   margin-bottom: 50px;
 `;
 const Wrapper = styled.div`
-  margin-top: 100px;
+  /* margin-top: 100px; */
   /* background-image: url(${bg}); */
   background: #c0daf1db;
 

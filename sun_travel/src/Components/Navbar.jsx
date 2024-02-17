@@ -588,7 +588,7 @@ const NavItems = styled.div`
 `;
 
 const MainWrapper = styled.div`
-  height: 90px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: space-around;

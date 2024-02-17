@@ -17,6 +17,7 @@ import SliderComponent from "../Components/Slider";
 import UpdatedFooter from "../Components/UpdatedFooter";
 import BannerSection from "./VisaPage/BannerSection";
 import BannerSlider from "../Components/BannerSlider";
+import ContactUsPage from "./ContactusPage";
 
 export default function LandingPage() {
   const bestSellingRef = useRef(null);
@@ -76,6 +77,7 @@ export default function LandingPage() {
       <Feedbacks />
       {/* <Footer /> */}
       <UpdatedFooter />
+      <ContactUsPage/>
       {showScrollButton && (
         <>
           <ScrollButton isVisible={showScrollButton}>

@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import ContactUsPage from "../../../Pages/ContactusPage";
 
 export default function AllCategory() {
   const HotDealsData = [
@@ -31,6 +32,10 @@ export default function AllCategory() {
       para: "Enjoy special discounts on hotel bookings. Find the perfect accommodation for your stay.",
     },
   ];
+  const [modal, setModal] = useState(false);
+  const handleButtonClick=()=>{
+    setModal(true)
+  }
   return (
     <GridContainer>
       {HotDealsData.map((item, index) => (
@@ -49,13 +54,14 @@ export default function AllCategory() {
               <div className="paragraph">{item.para}</div>
             </div>
             <div className="buttonNow">
-              <button className="btn">
+              <button className="btn" onClick={handleButtonClick}>
                 <span>Book Now</span>
               </button>
             </div>
           </GridItem>
         </>
       ))}
+      {modal? <ContactUsPage modal={modal}setModal={setModal}/>:""}
     </GridContainer>
   );
 }

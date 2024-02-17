@@ -163,7 +163,7 @@ export default OverseasEducation;
 
 const Wrapper = styled.div`
   height: 100vh;
-  margin-top: 100px;
+  /* margin-top: 100px; */
   .logoMarqueeSection {
     /* padding-top: 50vh;
   padding-bottom: 150vh; */
