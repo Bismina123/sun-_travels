@@ -29,7 +29,7 @@ function ContactUsPage({ modal, setModal }) {
     const { name, email, phoneNumber, message } = formData;
   
     // Construct the WhatsApp URL with the form data
-    const whatsappURL = `https://web.whatsapp.com/8075529059?text=Name:%20${name}%0AEmail:%20${email}%0APhone%20Number:%20${phoneNumber}%0AMessage:%20${message}`;
+    const whatsappURL = `https://wa.me/9847235224?text=Name:%20${name}%0AEmail:%20${email}%0APhone%20Number:%20${phoneNumber}%0AMessage:%20${message}`;
   
     // Open the WhatsApp URL in a new tab
     window.open(whatsappURL);
