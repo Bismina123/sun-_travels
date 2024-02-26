@@ -219,3 +219,748 @@ export const allVisaCountries = [
   ...australianCountries,
   ...africanCountries,
 ];
+
+export const CombainedAustraliaInner = [
+  {
+    id: 1,
+    name: "Australia",
+    processingTime: "10 to 15 days",
+    startingFrom: 4399,
+    typesOfVisa: [
+      {
+        id: 1,
+        visName: "Tourist Visa",
+        visaProcessingTime: "10 to 15 days",
+        Validity: "3 months",
+        entry: "Single",
+        fees: 13250,
+        idealfor:
+          "Indian passport holders who want to visit Australia for tourism, sightseeing, or visiting family and friends",
+      },
+      {
+        id: 2,
+        visName: "Business Visa",
+        visaProcessingTime: "20-25 days",
+        Validity: "Up to 1 year",
+        entry: "Single/Multiple",
+        fees: 12999,
+        idealfor:
+          "Business travelers attending meetings, conferences, or exploring business opportunities in Australia",
+      },
+    ],
+    documentsRequiredForAustralianVisa: [
+      {
+        id: 1,
+        data: "Notarized copy of all pages of only current passport, including the bio data page, alterations page, and back page of the passport;",
+      },
+      {
+        id: 2,
+        data: "Australia Visa Application form",
+      },
+      {
+        id: 3,
+        data: "2 recent color photographs (Photo Specification)",
+      },
+      {
+        id: 4,
+        data: "Personal Covering letter (For Employed - Plain paper/For Self-Employed – Company Letterhead)",
+      },
+      {
+        id: 5,
+        data: "Original updated Bank Statement (last 6 months)",
+      },
+      {
+        id: 6,
+        data: "Income Tax Returns/Form 16 for the last 3 years;",
+      },
+      {
+        id: 7,
+        data: "Supporting Financial Documents such as Fixed Deposits, Property Investments, Other Investments, etc. (Optional);",
+      },
+      {
+        id: 8,
+        data: "You may be asked to undergo medical and x-ray examinations.",
+      },
+    ],
+  },
+  {
+    id: 2,
+    name: "Fiji",
+    processingTime: "15 to 20 days",
+    startingFrom: 2899,
+    typesOfVisa: [
+      {
+        id: 1,
+        visName: "Tourist Visa",
+        visaProcessingTime: "15 to 20 days",
+        Validity: "3 months",
+        entry: "Single",
+        fees: 8500,
+        idealfor:
+          "Tourists planning to visit Fiji for sightseeing, holiday, or visiting family and friends",
+      },
+      {
+        id: 2,
+        visName: "Business Visa",
+        visaProcessingTime: "20 to 25 days",
+        Validity: "1 month",
+        entry: "Single/Multiple",
+        fees: 10000,
+        idealfor:
+          "Business travelers attending meetings, conferences, or exploring business opportunities in Fiji",
+      },
+    ],
+    documentsRequiredForFijiVisa: [
+      {
+        id: 1,
+        data: "Valid Passport (at least six months validity)",
+      },
+      {
+        id: 2,
+        data: "Completed Fiji Visa Application Form",
+      },
+      {
+        id: 3,
+        data: "Two recent passport-size photographs",
+      },
+      {
+        id: 4,
+        data: "Proof of sufficient funds (bank statements, sponsorship letter, etc.)",
+      },
+      {
+        id: 5,
+        data: "Travel itinerary (for tourist visa)",
+      },
+      {
+        id: 6,
+        data: "Letter of invitation (for business visa)",
+      },
+    ],
+  },
+  {
+    id: 3,
+    name: "Kiribati",
+    processingTime: "20 to 25 days",
+    startingFrom: 3199,
+    typesOfVisa: [
+      {
+        id: 1,
+        visName: "Visitor Visa",
+        visaProcessingTime: "20 to 25 days",
+        Validity: "30 days",
+        entry: "Single",
+        fees: 8000,
+        idealfor:
+          "Tourists planning to visit Kiribati for sightseeing, holiday, or visiting family and friends",
+      },
+      {
+        id: 2,
+        visName: "Business Visa",
+        visaProcessingTime: "25 to 30 days",
+        Validity: "1 year",
+        entry: "Multiple",
+        fees: 12000,
+        idealfor:
+          "Business travelers attending meetings, conferences, or exploring business opportunities in Kiribati",
+      },
+    ],
+    documentsRequiredForKiribatiVisa: [
+      {
+        id: 1,
+        data: "Passport with at least 6 months validity",
+      },
+      {
+        id: 2,
+        data: "Completed visa application form",
+      },
+      {
+        id: 3,
+        data: "Passport-size photographs",
+      },
+      {
+        id: 4,
+        data: "Flight itinerary",
+      },
+      {
+        id: 5,
+        data: "Proof of sufficient funds (bank statements, sponsorship letter, etc.)",
+      },
+      {
+        id: 6,
+        data: "Letter of invitation (for business visa)",
+      },
+    ],
+  },
+  {
+    id: 4,
+    name: "Marshall Islands",
+    processingTime: "15 to 20 days",
+    startingFrom: 3499,
+    typesOfVisa: [
+      {
+        id: 1,
+        visName: "Tourist Visa",
+        visaProcessingTime: "15 to 20 days",
+        Validity: "90 days",
+        entry: "Single",
+        fees: 9000,
+        idealfor:
+          "Tourists planning to visit the Marshall Islands for sightseeing, holiday, or visiting family and friends",
+      },
+      {
+        id: 2,
+        visName: "Business Visa",
+        visaProcessingTime: "20 to 25 days",
+        Validity: "1 year",
+        entry: "Single/Multiple",
+        fees: 12000,
+        idealfor:
+          "Business travelers attending meetings, conferences, or exploring business opportunities in the Marshall Islands",
+      },
+    ],
+    documentsRequiredForMarshallIslandsVisa: [
+      {
+        id: 1,
+        data: "Passport with at least 6 months validity",
+      },
+      {
+        id: 2,
+        data: "Completed visa application form",
+      },
+      {
+        id: 3,
+        data: "Passport-size photographs",
+      },
+      {
+        id: 4,
+        data: "Flight itinerary",
+      },
+      {
+        id: 5,
+        data: "Proof of sufficient funds (bank statements, sponsorship letter, etc.)",
+      },
+      {
+        id: 6,
+        data: "Hotel reservation or letter of invitation (for tourist visa)",
+      },
+    ],
+  },
+
+  {
+    id: 5,
+    name: "Micronesia",
+    processingTime: "15 to 20 days",
+    startingFrom: 3699,
+    typesOfVisa: [
+      {
+        id: 1,
+        visName: "Tourist Visa",
+        visaProcessingTime: "15 to 20 days",
+        Validity: "90 days",
+        entry: "Single",
+        fees: 8500,
+        idealfor:
+          "Tourists planning to visit Micronesia for sightseeing, holiday, or visiting family and friends",
+      },
+      {
+        id: 2,
+        visName: "Business Visa",
+        visaProcessingTime: "20 to 25 days",
+        Validity: "1 year",
+        entry: "Single/Multiple",
+        fees: 12000,
+        idealfor:
+          "Business travelers attending meetings, conferences, or exploring business opportunities in Micronesia",
+      },
+    ],
+    documentsRequiredForMicronesiaVisa: [
+      {
+        id: 1,
+        data: "Passport with at least 6 months validity",
+      },
+      {
+        id: 2,
+        data: "Completed visa application form",
+      },
+      {
+        id: 3,
+        data: "Passport-size photographs",
+      },
+      {
+        id: 4,
+        data: "Flight itinerary",
+      },
+      {
+        id: 5,
+        data: "Proof of sufficient funds (bank statements, sponsorship letter, etc.)",
+      },
+      {
+        id: 6,
+        data: "Hotel reservation or letter of invitation (for tourist visa)",
+      },
+    ],
+  },
+  {
+    id: 6,
+    name: "Nauru",
+    processingTime: "20 to 25 days",
+    startingFrom: 2999,
+    typesOfVisa: [
+      {
+        id: 1,
+        visName: "Visitor Visa",
+        visaProcessingTime: "20 to 25 days",
+        Validity: "30 days",
+        entry: "Single",
+        fees: 8000,
+        idealfor:
+          "Tourists planning to visit Nauru for sightseeing, holiday, or visiting family and friends",
+      },
+      {
+        id: 2,
+        visName: "Business Visa",
+        visaProcessingTime: "25 to 30 days",
+        Validity: "1 year",
+        entry: "Multiple",
+        fees: 12000,
+        idealfor:
+          "Business travelers attending meetings, conferences, or exploring business opportunities in Nauru",
+      },
+    ],
+    documentsRequiredForNauruVisa: [
+      {
+        id: 1,
+        data: "Passport with at least 6 months validity",
+      },
+      {
+        id: 2,
+        data: "Completed visa application form",
+      },
+      {
+        id: 3,
+        data: "Passport-size photographs",
+      },
+      {
+        id: 4,
+        data: "Flight itinerary",
+      },
+      {
+        id: 5,
+        data: "Proof of sufficient funds (bank statements, sponsorship letter, etc.)",
+      },
+      {
+        id: 6,
+        data: "Hotel reservation or letter of invitation (for tourist visa)",
+      },
+    ],
+  },
+  {
+    id: 7,
+    name: "New Zealand",
+    processingTime: "10 to 15 days",
+    startingFrom: 4099,
+    typesOfVisa: [
+      {
+        id: 1,
+        visName: "Visitor Visa",
+        visaProcessingTime: "10 to 15 days",
+        Validity: "9 months",
+        entry: "Multiple",
+        fees: 11000,
+        idealfor:
+          "Tourists planning to visit New Zealand for sightseeing, holiday, or visiting family and friends",
+      },
+      {
+        id: 2,
+        visName: "Work Visa",
+        visaProcessingTime: "20 to 25 days",
+        Validity: "1 year",
+        entry: "Multiple",
+        fees: 12000,
+        idealfor:
+          "Individuals seeking employment or planning to work in New Zealand",
+      },
+    ],
+    documentsRequiredForNewZealandVisa: [
+      {
+        id: 1,
+        data: "Valid Passport (at least 6 months validity)",
+      },
+      {
+        id: 2,
+        data: "Completed visa application form",
+      },
+      {
+        id: 3,
+        data: "Passport-size photographs",
+      },
+      {
+        id: 4,
+        data: "Proof of sufficient funds (bank statements, sponsorship letter, etc.)",
+      },
+      {
+        id: 5,
+        data: "Employment contract or job offer letter (for work visa)",
+      },
+      {
+        id: 6,
+        data: "Health and character certificates",
+      },
+    ],
+  },
+
+  {
+    id: 8,
+    name: "Palau",
+    processingTime: "15 to 20 days",
+    startingFrom: 3799,
+    typesOfVisa: [
+      {
+        id: 1,
+        visName: "Visitor Visa",
+        visaProcessingTime: "15 to 20 days",
+        Validity: "90 days",
+        entry: "Single",
+        fees: 9000,
+        idealfor:
+          "Tourists planning to visit Palau for sightseeing, holiday, or visiting family and friends",
+      },
+      {
+        id: 2,
+        visName: "Business Visa",
+        visaProcessingTime: "20 to 25 days",
+        Validity: "6 months",
+        entry: "Single/Multiple",
+        fees: 11000,
+        idealfor:
+          "Business travelers attending meetings, conferences, or exploring business opportunities in Palau",
+      },
+    ],
+    documentsRequiredForPalauVisa: [
+      {
+        id: 1,
+        data: "Passport with at least 6 months validity",
+      },
+      {
+        id: 2,
+        data: "Completed visa application form",
+      },
+      {
+        id: 3,
+        data: "Passport-size photographs",
+      },
+      {
+        id: 4,
+        data: "Flight itinerary",
+      },
+      {
+        id: 5,
+        data: "Proof of sufficient funds (bank statements, sponsorship letter, etc.)",
+      },
+      {
+        id: 6,
+        data: "Hotel reservation or letter of invitation (for tourist visa)",
+      },
+    ],
+  },
+  {
+    id: 9,
+    name: "Papua New Guinea",
+    processingTime: "20 to 25 days",
+    startingFrom: 3299,
+    typesOfVisa: [
+      {
+        id: 1,
+        visName: "Visitor Visa",
+        visaProcessingTime: "20 to 25 days",
+        Validity: "60 days",
+        entry: "Single",
+        fees: 8500,
+        idealfor:
+          "Tourists planning to visit Papua New Guinea for sightseeing, holiday, or visiting family and friends",
+      },
+      {
+        id: 2,
+        visName: "Business Visa",
+        visaProcessingTime: "25 to 30 days",
+        Validity: "1 year",
+        entry: "Single/Multiple",
+        fees: 12000,
+        idealfor:
+          "Business travelers attending meetings, conferences, or exploring business opportunities in Papua New Guinea",
+      },
+    ],
+    documentsRequiredForPapuaNewGuineaVisa: [
+      {
+        id: 1,
+        data: "Passport with at least 6 months validity",
+      },
+      {
+        id: 2,
+        data: "Completed visa application form",
+      },
+      {
+        id: 3,
+        data: "Passport-size photographs",
+      },
+      {
+        id: 4,
+        data: "Proof of sufficient funds (bank statements, sponsorship letter, etc.)",
+      },
+      {
+        id: 5,
+        data: "Hotel reservation or letter of invitation (for tourist visa)",
+      },
+    ],
+  },
+  {
+    id: 10,
+    name: "Samoa",
+    processingTime: "15 to 20 days",
+    startingFrom: 2999,
+    typesOfVisa: [
+      {
+        id: 1,
+        visName: "Visitor Visa",
+        visaProcessingTime: "15 to 20 days",
+        Validity: "60 days",
+        entry: "Multiple",
+        fees: 8000,
+        idealfor:
+          "Tourists planning to visit Samoa for sightseeing, holiday, or visiting family and friends",
+      },
+      {
+        id: 2,
+        visName: "Business Visa",
+        visaProcessingTime: "20 to 25 days",
+        Validity: "1 year",
+        entry: "Multiple",
+        fees: 12000,
+        idealfor:
+          "Business travelers attending meetings, conferences, or exploring business opportunities in Samoa",
+      },
+    ],
+    documentsRequiredForSamoaVisa: [
+      {
+        id: 1,
+        data: "Passport with at least 6 months validity",
+      },
+      {
+        id: 2,
+        data: "Completed visa application form",
+      },
+      {
+        id: 3,
+        data: "Passport-size photographs",
+      },
+      {
+        id: 4,
+        data: "Proof of sufficient funds (bank statements, sponsorship letter, etc.)",
+      },
+      {
+        id: 5,
+        data: "Hotel reservation or letter of invitation (for tourist visa)",
+      },
+    ],
+  },
+  {
+    id: 11,
+    name: "Solomon Islands",
+    processingTime: "15 to 20 days",
+    startingFrom: 3199,
+    typesOfVisa: [
+      {
+        id: 1,
+        visName: "Visitor Visa",
+        visaProcessingTime: "15 to 20 days",
+        Validity: "90 days",
+        entry: "Single",
+        fees: 9000,
+        idealfor:
+          "Tourists planning to visit Solomon Islands for sightseeing, holiday, or visiting family and friends",
+      },
+      {
+        id: 2,
+        visName: "Business Visa",
+        visaProcessingTime: "20 to 25 days",
+        Validity: "1 year",
+        entry: "Single/Multiple",
+        fees: 12000,
+        idealfor:
+          "Business travelers attending meetings, conferences, or exploring business opportunities in Solomon Islands",
+      },
+    ],
+    documentsRequiredForSolomonIslandsVisa: [
+      {
+        id: 1,
+        data: "Passport with at least 6 months validity",
+      },
+      {
+        id: 2,
+        data: "Completed visa application form",
+      },
+      {
+        id: 3,
+        data: "Passport-size photographs",
+      },
+      {
+        id: 4,
+        data: "Proof of sufficient funds (bank statements, sponsorship letter, etc.)",
+      },
+      {
+        id: 5,
+        data: "Hotel reservation or letter of invitation (for tourist visa)",
+      },
+    ],
+  },
+  {
+    id: 12,
+    name: "Tonga",
+    processingTime: "20 to 25 days",
+    startingFrom: 2999,
+    typesOfVisa: [
+      {
+        id: 1,
+        visName: "Visitor Visa",
+        visaProcessingTime: "20 to 25 days",
+        Validity: "90 days",
+        entry: "Single",
+        fees: 8000,
+        idealfor:
+          "Tourists planning to visit Tonga for sightseeing, holiday, or visiting family and friends",
+      },
+      {
+        id: 2,
+        visName: "Business Visa",
+        visaProcessingTime: "25 to 30 days",
+        Validity: "1 year",
+        entry: "Multiple",
+        fees: 12000,
+        idealfor:
+          "Business travelers attending meetings, conferences, or exploring business opportunities in Tonga",
+      },
+    ],
+    documentsRequiredForTongaVisa: [
+      {
+        id: 1,
+        data: "Passport with at least 6 months validity",
+      },
+      {
+        id: 2,
+        data: "Completed visa application form",
+      },
+      {
+        id: 3,
+        data: "Passport-size photographs",
+      },
+      {
+        id: 4,
+        data: "Proof of sufficient funds (bank statements, sponsorship letter, etc.)",
+      },
+      {
+        id: 5,
+        data: "Hotel reservation or letter of invitation (for tourist visa)",
+      },
+    ],
+  },
+  {
+    id: 13,
+    name: "Tuvalu",
+    processingTime: "15 to 20 days",
+    startingFrom: 3299,
+    typesOfVisa: [
+      {
+        id: 1,
+        visName: "Visitor Visa",
+        visaProcessingTime: "15 to 20 days",
+        Validity: "30 days",
+        entry: "Single",
+        fees: 8500,
+        idealfor:
+          "Tourists planning to visit Tuvalu for sightseeing, holiday, or visiting family and friends",
+      },
+      {
+        id: 2,
+        visName: "Business Visa",
+        visaProcessingTime: "20 to 25 days",
+        Validity: "6 months",
+        entry: "Single/Multiple",
+        fees: 11000,
+        idealfor:
+          "Business travelers attending meetings, conferences, or exploring business opportunities in Tuvalu",
+      },
+    ],
+    documentsRequiredForTuvaluVisa: [
+      {
+        id: 1,
+        data: "Passport with at least 6 months validity",
+      },
+      {
+        id: 2,
+        data: "Completed visa application form",
+      },
+      {
+        id: 3,
+        data: "Passport-size photographs",
+      },
+      {
+        id: 4,
+        data: "Proof of sufficient funds (bank statements, sponsorship letter, etc.)",
+      },
+      {
+        id: 5,
+        data: "Hotel reservation or letter of invitation (for tourist visa)",
+      },
+    ],
+  },
+  {
+    id: 14,
+    name: "Vanuatu",
+    processingTime: "10 to 15 days",
+    startingFrom: 3599,
+    typesOfVisa: [
+      {
+        id: 1,
+        visName: "Visitor Visa",
+        visaProcessingTime: "10 to 15 days",
+        Validity: "30 days",
+        entry: "Single",
+        fees: 8000,
+        idealfor:
+          "Tourists planning to visit Vanuatu for sightseeing, holiday, or visiting family and friends",
+      },
+      {
+        id: 2,
+        visName: "Business Visa",
+        visaProcessingTime: "15 to 20 days",
+        Validity: "1 year",
+        entry: "Multiple",
+        fees: 12000,
+        idealfor:
+          "Business travelers attending meetings, conferences, or exploring business opportunities in Vanuatu",
+      },
+    ],
+    documentsRequiredForVanuatuVisa: [
+      {
+        id: 1,
+        data: "Passport with at least 6 months validity",
+      },
+      {
+        id: 2,
+        data: "Completed visa application form",
+      },
+      {
+        id: 3,
+        data: "Passport-size photographs",
+      },
+      {
+        id: 4,
+        data: "Proof of sufficient funds (bank statements, sponsorship letter, etc.)",
+      },
+      {
+        id: 5,
+        data: "Hotel reservation or letter of invitation (for tourist visa)",
+      },
+    ],
+  },
+];

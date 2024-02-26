@@ -15,6 +15,7 @@ import PilgrimsPage from "./Pages/PilgrimsPage";
 import OverseaceEducation from "./Pages/OverseaseEducation";
 import HotelBooking from "./Pages/HotelBookingPage";
 import FrroPage from "./Pages/FrroPage";
+import AustralianPage from "./Pages/VisaPage/InnerPages/AustralianPage";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -61,6 +62,12 @@ function App() {
            path="/Visa/*"
             element={
               <Visapage/>
+            }
+          />
+           <Route
+           path="/Visa/australianVisa/:optionName"
+            element={
+              <AustralianPage/>
             }
           />
           <Route
