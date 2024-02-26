@@ -5,7 +5,11 @@ function ContactUsPage({ modal, setModal }) {
   const toggleModal = () => {
     setModal(!modal);
   };
-
+  if (modal) {
+    document.body.classList.add("active-modal");
+  } else {
+    document.body.classList.remove("active-modal");
+  }
   const [formData, setFormData] = useState({
     name: "",
     email: "",
