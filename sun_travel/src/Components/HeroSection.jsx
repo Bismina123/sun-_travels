@@ -352,6 +352,7 @@ const HeroSection = ({ scrollF }) => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          cursor:"pointer"
         }}
       >
         <img

@@ -1,8 +1,8 @@
-import * as React from "react";
+import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
 import Autocomplete from "@mui/material/Autocomplete";
-import SearchIcon from '@mui/icons-material/Search';
+import SearchIcon from "@mui/icons-material/Search";
 import {
   europeanCountries,
   americanCountries,
@@ -11,12 +11,43 @@ import {
   africanCountries,
   allVisaCountries,
 } from "./countrylistdata";
+
+import { useNavigate } from "react-router-dom";
 function SearchableDropdown({ location }) {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedOption, setSelectedOption] = useState(null);
+  console.log(location, "locationbis");
+  const navigate = useNavigate();
+  const handleSearchInputChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const handleOptionChange = (event, value) => {
+    setSelectedOption(value);
+    if (location === "/Visa/europeanVisa") {
+      navigate(`/Visa/europeanVisa/${value}`);
+    } else if (location === "/Visa/australianVisa") {
+      navigate(`/Visa/australianVisa/${value}`);
+    } else if (location === "/Visa/asianVisa") {
+      navigate(`/Visa/asianVisa/${value}`);
+    } else if (location === "/Visa/americanVisa") {
+      navigate(`/Visa/americanVisa/${value}`);
+    } else if (location === "/Visa/africanVisa") {
+      navigate(`/Visa/africanVisa/${value}`);
+    } else if (location === "/Visa") {
+      navigate(`/Visa/all/${value}`);
+    }
+  };
+
+  const handleSearchIconClick = () => {
+    if (selectedOption) {
+      navigate(`/Visa/australianVisa/${selectedOption}`);
+    }
+  };
+
   const styles = {
     tabStyle: {
-      "& .MuiStack-root": {
-        // width:"500px"
-      },
+      "& .MuiStack-root": {},
       "& .MuiOutlinedInput-root": {
         background: "#fff",
         borderRadius: "15px",
@@ -30,26 +61,21 @@ function SearchableDropdown({ location }) {
       "& .MuiInputBase-root.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
         {
           borderColor: "#fff",
-          /* other styles */
         },
       "& .MuiAutocomplete-listbox": {
         maxHeight: "27vh",
       },
-      // "& .MuiPopper-root": {
-        "& .MuiPaper-root": {
-          backgroundColor: "rgba(255, 255, 255, 0.1)",
-          borderTop: "1px solid rgba(255, 255, 255, 0.5)",
-          borderLeft: "1px solid rgba(255, 255, 255, 0.5)",
-          backdropFilter: "blur(5px)",
-        },
-      // },
+      "& .MuiPaper-root": {
+        backgroundColor: "rgba(255, 255, 255, 0.1)",
+        borderTop: "1px solid rgba(255, 255, 255, 0.5)",
+        borderLeft: "1px solid rgba(255, 255, 255, 0.5)",
+        backdropFilter: "blur(5px)",
+      },
     },
   };
 
-  console.log(location, "location");
   let countryOptions = [];
 
-  // Choose the country list based on the location
   switch (location) {
     case "/Visa/europeanVisa":
       countryOptions = europeanCountries.map((country) => country.name);
@@ -66,14 +92,13 @@ function SearchableDropdown({ location }) {
     case "/Visa/africanVisa":
       countryOptions = africanCountries.map((country) => country.name);
       break;
-      case "/Visa":
+    case "/Visa":
       countryOptions = allVisaCountries.map((country) => country.name);
       break;
     default:
-      // Use a default country list or handle the case as needed
       countryOptions = [];
   }
-  console.log(countryOptions, "countryOptions");
+
   return (
     <Stack spacing={2} sx={styles.tabStyle} style={{ width: 500 }}>
       <Autocomplete
@@ -81,9 +106,8 @@ function SearchableDropdown({ location }) {
         id="free-solo-2-demo"
         disableClearable
         options={countryOptions}
-        // popupOpen={true}
-        // open={true}
-        // onOpen={true}
+        value={selectedOption}
+        onChange={handleOptionChange}
         className="muiDropDown"
         renderInput={(params) => (
           <TextField
@@ -92,9 +116,18 @@ function SearchableDropdown({ location }) {
             InputProps={{
               ...params.InputProps,
               type: "search",
+              value: searchTerm,
+              onChange: handleSearchInputChange,
               endAdornment: (
                 <>
-                  <SearchIcon style={{ marginRight: 8, color: '#0b2f6a' }} />
+                  <SearchIcon
+                    style={{
+                      cursor: "pointer",
+                      marginRight: 8,
+                      color: "#0b2f6a",
+                    }}
+                    onClick={handleSearchIconClick}
+                  />
                   {params.InputProps.startAdornment}
                 </>
               ),

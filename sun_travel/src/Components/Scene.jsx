@@ -1,6 +1,6 @@
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { Fade } from "react-awesome-reveal";
 import globalLogo from "./assets/globalLogo.svg";
@@ -10,6 +10,7 @@ import attestationLogo from "./assets/stamp.png";
 
 import educationLogo from "./assets/educationLogo.png";
 import MHButton from "./MHButton";
+import ContactUsPage from "../Pages/ContactusPage";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -39,9 +40,30 @@ export default function Scene() {
       return () => ctx.revert();
     }
   }, []);
-
+  const [modal1, setModal1] = useState(false);
+  const [modal2, setModal2] = useState(false);
+  const [modal3, setModal3] = useState(false);
+  const [modal4, setModal4] = useState(false);
+  const buttonClicked1=()=>{
+    setModal1(true)
+    console.log("clickedddd")
+  }
+  const buttonClicked2=()=>{
+    setModal2(true)
+    console.log("clickedddd")
+  }
+  const buttonClicked3=()=>{
+    setModal3(true)
+    console.log("clickedddd")
+  }
+  const buttonClicked4=()=>{
+    setModal4(true)
+    console.log("clickedddd")
+  }
   return (
     <SectionWrapper id="container">
+            
+          
       {/* ---------- section 01 ---------- */}
 
       <section className="horizontal-section">
@@ -53,6 +75,7 @@ export default function Scene() {
 
       {/* ---------- section 01 ---------- */}
       <section className="horizontal-section">
+      {modal1? <ContactUsPage modal={modal1}setModal={setModal1}/>:""}
         <div className="boxShadow"></div>
         <div className="headingGlobalVisa">
           <div className="globalImage">
@@ -72,12 +95,13 @@ export default function Scene() {
             excitement of new destinations. Let us be your passport to a
             seamless and unforgettable travel experience.
           </p>
-          <StyledMhButton buttonName="Get Visa!" className="visa" />
+          <StyledMhButton buttonName="Get Visa!" className="visa" onClick={buttonClicked1}/>
         </div>
       </section>
 
       {/* ---------- section 02 ---------- */}
       <section className="horizontal-section">
+      {modal2? <ContactUsPage modal={modal2}setModal={setModal2}/>:""}
         <div className="boxShadow"></div>
         <div className="headingGlobalVisa">
           <div className="globalImage">
@@ -96,12 +120,13 @@ export default function Scene() {
             <span>Sun Tours and Travels</span> - where your journey begins with
             a ticket and unfolds into an adventure
           </p>
-          <StyledMhButton buttonName="Get Tickets!" className="tickets" />
+          <StyledMhButton buttonName="Get Tickets!" className="tickets" onClick={buttonClicked2}/>
         </div>
       </section>
 
       {/* ---------- section 03 ---------- */}
       <section className="horizontal-section">
+      {modal3? <ContactUsPage modal={modal3}setModal={setModal3}/>:""}
         <div className="boxShadow"></div>
         <div className="headingGlobalVisa">
           <div className="globalImage">
@@ -125,11 +150,13 @@ export default function Scene() {
           <StyledMhButton
             buttonName="Get Attestation!"
             className="attestation"
+            onClick={buttonClicked3}
           />
         </div>
       </section>
       {/* ---------- section 04 ---------- */}
       <section className="horizontal-section">
+      {modal4? <ContactUsPage modal={modal4}setModal={setModal4}/>:""}
         <div className="boxShadow"></div>
         <div className="headingGlobalVisa">
           <div className="globalImage">
@@ -153,7 +180,7 @@ export default function Scene() {
             <span>Sun Tours and Travels</span>be your companion in realizing
             your academic dreams beyond borders.
           </p>
-          <StyledMhButton buttonName="Get Education!" className="oversease" />
+          <StyledMhButton buttonName="Get Education!" className="oversease" onClick={buttonClicked4}/>
         </div>
       </section>
       {/* //section4 */}

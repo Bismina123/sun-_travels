@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import ContactUsPage from "../../../Pages/ContactusPage";
 
 export default function Hotel() {
   const HotelData = [
@@ -32,6 +33,10 @@ export default function Hotel() {
       para: "Extend your stay and save more! Enjoy additional discounts on hotel bookings for extended trips.",
     },
   ];
+  const [modal, setModal] = useState(false);
+  const handleButtonClick=()=>{
+    setModal(true)
+  }
   return (
     <GridContainer>
       {HotelData.map((item, index) => (
@@ -50,13 +55,15 @@ export default function Hotel() {
               <div className="paragraph">{item.para}</div>
             </div>
             <div className="buttonNow">
-              <button className="btn">
+              <button className="btn"onClick={handleButtonClick}>
                 <span>Book Now</span>
               </button>
             </div>
           </GridItem>
         </>
       ))}
+            {modal? <ContactUsPage modal={modal}setModal={setModal}/>:""}
+
     </GridContainer>
   );
 }

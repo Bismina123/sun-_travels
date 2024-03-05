@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import PlacesAutocomplete, {
   geocodeByAddress,
@@ -9,11 +9,50 @@ import bg from "./assets/luxury-sunset-poolside-relaxation-with-stunning-landsca
 import HotelCards from "./HotelCards";
 import Startdate from "../PilgrimsPage/components/Startdate";
 import UpdatedFooter from "../../Components/UpdatedFooter";
+import dayjs from "dayjs";
+import emailjs from "@emailjs/browser";
 
 function HotelBooking() {
+  const scrollToTop = () => {
+    var element = document.getElementById("detailMainWrapper");
+    element.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+  useEffect(() => {
+    scrollToTop();
+  }, []);
+  const [startDate, setStartDate] = useState(dayjs());
+  const [endDate, setEndDate] = useState(dayjs().add(1, "day"));
+  const [address, setAddress] = useState("");
+  // console.log(startDate, endDate, address, "addressaddress");
+  const handleSearchClick = (e) => {
+    e.preventDefault();
+    emailjs
+      .send(
+        "service_vi7q9io",
+        "template_6bhsgru",
+        {
+          from_name: "new user",
+          to_email: "",
+          message: `place: ${address}, Start Date: ${startDate}, End Date: ${endDate}, `,
+        },
+        "cYu6EiV1UyKWKu4q-"
+      )
+      .then(
+        () => {
+          alert("Thank you. I will get back to you as soon as possible.");
+
+          // setSubscribe(""); // Clear the email state after successful submission
+        },
+        (error) => {
+          console.error(error);
+
+          alert("Ahh, something went wrong. Please try again.");
+        }
+      );
+  };
   return (
     <Wrapper>
-      <div className="mainWrapper">
+      <div className="mainWrapper" id="detailMainWrapper">
         <div className="bannerTop">
           <div className="firstHalf">
             <h1>
@@ -34,20 +73,25 @@ function HotelBooking() {
         <div className="fieldSet">
           <div className="location">
             <label>Place Hotel,</label>
-            <LocationInput />
+            <LocationInput address={address} setAddress={setAddress} />
           </div>
           <div className="">
-            <Startdate />
+            <Startdate
+              startDate={startDate}
+              setStartDate={setStartDate}
+              endDate={endDate}
+              setEndDate={setEndDate}
+            />
           </div>
 
-          <div className="buttons">
+          <div className="buttons"  onClick={handleSearchClick}>
             <button>search</button>
           </div>
         </div>
       </div>
       {/* */}
-      <HotelCards/>
-      <UpdatedFooter/>
+      <HotelCards />
+      <UpdatedFooter />
     </Wrapper>
   );
 }
@@ -56,7 +100,7 @@ export default HotelBooking;
 const Wrapper = styled.div`
   padding-top: 100px;
   height: 100vh;
-  background-color: #0c0c6d;
+  background-image: linear-gradient(-20deg, #0c0c6d, #5c82e7);
   position: relative;
   .mainWrapper {
     display: flex;
@@ -121,7 +165,7 @@ const Wrapper = styled.div`
   .location {
     text-align: left;
   }
-  .buttons{
+  .buttons {
     padding: 10px 30px;
     background: #0c0c6d;
     border-radius: 30px;

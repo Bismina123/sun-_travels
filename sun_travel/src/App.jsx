@@ -7,15 +7,20 @@ import { Routes, Route } from "react-router-dom";
 
 import Navbar from "./Components/Navbar";
 import Tours from "./Pages/Tours";
-import { tourPackages } from "./Pages/toursPackages";
 import AllTours from "./Pages/AllTours";
-import ToursDetails from "./Pages/TourDetails";
 import Visapage from "./Pages/VisaPage";
-import UpdatedFooter from "./Components/UpdatedFooter";
+import FlightPage from "./Pages/FlightPage/FlightPage";
+import Attestation from "./Pages/AttestationPage/Attestation";
 import PilgrimsPage from "./Pages/PilgrimsPage";
 import OverseaceEducation from "./Pages/OverseaseEducation";
 import HotelBooking from "./Pages/HotelBookingPage";
 import FrroPage from "./Pages/FrroPage";
+import AustralianPage from "./Pages/VisaPage/InnerPages/AustralianPage";
+import AmericanPage from "./Pages/VisaPage/InnerPages/AmericanPage";
+import EuropianPage from "./Pages/VisaPage/InnerPages/EuropianPage";
+import AsianPage from "./Pages/VisaPage/InnerPages/AsianPage";
+import AfricanPage from "./Pages/VisaPage/InnerPages/AfricanPage";
+import AllCountryVisaPAge from "./Pages/VisaPage/InnerPages/AllContryVisa";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -27,12 +32,12 @@ function App() {
 
     return () => clearTimeout(timeoutId);
   }, []);
-  
+
   return (
     <>
       <div>
         <Navbar />
-        
+
         <Routes>
           <Route
             path="/"
@@ -64,12 +69,50 @@ function App() {
               <Visapage/>
             }
           />
+           <Route
+           path="/Visa/all/:optionName"
+            element={
+              <AllCountryVisaPAge/>
+            }
+          />
+           <Route
+           path="/Visa/europeanVisa/:optionName"
+            element={
+              <EuropianPage/>
+            }
+          />
+           <Route
+           path="/Visa/americanVisa/:optionName"
+            element={
+              <AmericanPage/>
+            }
+          />
+           <Route
+           path="/Visa/asianVisa/:optionName"
+            element={
+              <AsianPage/>
+            }
+          />
+           <Route
+           path="/Visa/australianVisa/:optionName"
+            element={
+              <AustralianPage/>
+            }
+          />
+            <Route
+           path="/Visa/africanVisa/:optionName"
+            element={
+              <AfricanPage/>
+            }
+          />
           <Route
            path="/pilgrims/*"
             element={
               <PilgrimsPage/>
             }
           />
+         <Route path="/Flight/:where" element={<FlightPage />} />
+          <Route path="/Atestation" element={<Attestation />} />
           <Route
            path="/education"
             element={
@@ -89,8 +132,6 @@ function App() {
             }
           />
         </Routes>
-       
-        
       </div>
     </>
   );

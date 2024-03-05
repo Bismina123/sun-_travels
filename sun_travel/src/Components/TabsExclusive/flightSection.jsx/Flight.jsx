@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from "styled-components";
+import ContactUsPage from '../../../Pages/ContactusPage';
 
 export default function Flight() {
   const FlightData = [
@@ -28,6 +29,10 @@ export default function Flight() {
       para: "Discover new horizons! Book a flight to a destination you've never been to before.",
     },
   ];
+  const [modal, setModal] = useState(false);
+  const handleButtonClick=()=>{
+    setModal(true)
+  }
   return (
     <GridContainer>
       {FlightData.map((item, index) => (
@@ -46,7 +51,7 @@ export default function Flight() {
               <div className="paragraph">{item.para}</div>
             </div>
             <div className="buttonNow">
-            <button className="btn">
+            <button className="btn"onClick={handleButtonClick}>
             <span>Book Now</span>
           </button>
             </div>
@@ -54,6 +59,8 @@ export default function Flight() {
           </GridItem>
         </>
       ))}
+            {modal? <ContactUsPage modal={modal}setModal={setModal}/>:""}
+
     </GridContainer>
   )
 }

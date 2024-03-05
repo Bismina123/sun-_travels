@@ -1,16 +1,13 @@
 import React from "react";
 import flightPath from "../assets/380-removebg-preview.png";
 import styled from "styled-components";
-import first from "../assets/submit.svg";
-import second from "../assets/payment-method.svg";
-import third from "../assets/verification.svg";
-import fourth from "../assets/recieved.svg";
+
 import up from "../assets/redo.svg";
-import down from "../assets/arrow-right.svg";
+
 import man from "../assets/Image-Editing-Services-Provider-1024x683-removebg-preview.png";
 import visaAll from "../assets/visa (2).svg";
 import experience from "../assets/visa (3).svg";
-import branches from "../assets/arrow-right.svg";
+
 import global from "../assets/global-shipping.svg";
 import location from "../assets/call-center.svg";
 import van from "../assets/delivery-truck.svg";
@@ -38,6 +35,8 @@ import bahrain from "../assets/bahrain.jpg";
 import qatar from "../assets/qatarr.jpg";
 import oman from "../assets/oman.jpg";
 import { Fade, Slide } from "react-awesome-reveal";
+import ProcessOnVisa from "../ProcessOnVisa";
+import { useLocation, useNavigate } from "react-router-dom";
 
 function PopularSection() {
   const fistCountryOptions = [
@@ -48,7 +47,7 @@ function PopularSection() {
       flag: newZealandFlag,
     },
     {
-      name: "USA",
+      name: "United States",
       description: "North America",
       image: usa,
       flag: usaFlag,
@@ -72,7 +71,8 @@ function PopularSection() {
       flag: schenganFlag,
     },
   ];
-
+  const navigate = useNavigate();
+  const location = useLocation();
   const secondCountryOptions = [
     { name: "Dubai", description: "Asia", image: dubaiVisa, flag: dubaiFlag },
     { name: "Muscat", description: "Asia", image: muscat, flag: muscantFlag },
@@ -80,7 +80,38 @@ function PopularSection() {
     { name: "Qatar", description: "Asia", image: qatar, flag: qatarFlag },
     { name: "Oman", description: "Asia", image: oman, flag: omanFlag },
   ];
+  const handleClick = (e,name) => {
+    if (location.pathname === "/Visa/europeanVisa") {
+      navigate(`/Visa/all/${name}`);
+    } else if (location.pathname === "/Visa/australianVisa") {
+      navigate(`/Visa/all/${name}`);
+    } else if (location.pathname === "/Visa/asianVisa") {
+      navigate(`/Visa/all/${name}`);
+    } else if (location.pathname === "/Visa/americanVisa") {
+      navigate(`/Visa/all/${name}`);
+    } else if (location.pathname === "/Visa/africanVisa") {
+      navigate(`/Visa/all/${name}`);
+    } else if (location.pathname === "/Visa") {
+      navigate(`/Visa/all/${name}`);
+    }
 
+    console.log(name,location.pathname,"handleClicked");
+  };
+  const handleClickSecond=(e,name)=>{
+    if (location.pathname === "/Visa/europeanVisa") {
+      navigate(`/Visa/all/${name}`);
+    } else if (location.pathname === "/Visa/australianVisa") {
+      navigate(`/Visa/all/${name}`);
+    } else if (location.pathname === "/Visa/asianVisa") {
+      navigate(`/Visa/all/${name}`);
+    } else if (location.pathname === "/Visa/americanVisa") {
+      navigate(`/Visa/all/${name}`);
+    } else if (location.pathname === "/Visa/africanVisa") {
+      navigate(`/Visa/all/${name}`);
+    } else if (location.pathname === "/Visa") {
+      navigate(`/Visa/all/${name}`);
+    }
+  }
   return (
     <PopuLarDiv>
       {/* <label >Popular Destinations</label> */}
@@ -98,11 +129,13 @@ function PopularSection() {
                   <div className="imgBox">
                     <img src={country.image} alt="New York Photo" />
                     <div className="img-blur">
-                      <a href="#">Enqure now &gt;</a>
+                      <div  onClick={(e) => handleClick(e, country.name)}>
+                        Enquire now &gt;
+                      </div>
                     </div>
                   </div>
-                  <h2 className="title">
-                    <a href="#">{country.name}</a>
+                  <h2 className="title" onClick={(e) => handleClick(e, country.name)}>
+                    <label>{country.name}</label>
                   </h2>
                   <p className="text">
                     <img src={country.flag} alt="flag" />
@@ -125,11 +158,11 @@ function PopularSection() {
                   <div className="imgBox">
                     <img src={country.image} alt="New York Photo" />
                     <div className="img-blur">
-                      <a href="#">Enqure now &gt;</a>
+                      <div onClick={(e) => handleClickSecond(e, "United Arab Emirates")}>Enqure now &gt;</div>
                     </div>
                   </div>
-                  <h2 className="title">
-                    <a href="#">{country.name}</a>
+                  <h2 className="title" onClick={(e) => handleClickSecond(e, "United Arab Emirates")}>
+                    <label >{country.name}</label>
                   </h2>
                   <p className="text">
                     <img src={country.flag} alt="flag" />
@@ -143,38 +176,13 @@ function PopularSection() {
         </CardSection>
       </Slide>
       <Fade>
-        <StagesWrapper>
-          <label>Seamless Steps: Applying with Sun, Effortlessly Easy!</label>
-          <StageDiv>
-            <Submit>
-              <img src={first} alt={first} />
-              <div className="desc">Submit the required documents</div>
-            </Submit>
-
-            <img src={up} alt={up} />
-            <Submit>
-              <img src={second} alt={second} />
-              <div className="desc">Pay the fee online</div>
-            </Submit>
-            <img src={down} alt={down} />
-            <Submit>
-              <img src={third} alt={third} />
-              <div className="desc">Document verification by Sun</div>
-            </Submit>
-            <img src={up} alt={up} />
-            <Submit>
-              <img src={fourth} alt={fourth} />
-              <div className="desc">Recieve your visa</div>
-            </Submit>
-          </StageDiv>
-        </StagesWrapper>
+        <ProcessOnVisa />
       </Fade>
       <WhyChooseUs>
         <MainSection>
           <Slide direction="left">
             <FirstSection>
               <div className="dotted">
-                {/* //01 */}
                 <div>
                   <img className="arrowright" src={up} alt={up} />
                   <ChatBox>
@@ -191,7 +199,6 @@ function PopularSection() {
                     </div>
                   </ChatBox>
                 </div>
-                {/* 02 */}
                 <div>
                   <img className="arrowLeft" src={up} alt={up} />
                   <ChatBox className="second">
@@ -206,7 +213,6 @@ function PopularSection() {
                     </div>
                   </ChatBox>
                 </div>
-                {/* 03 */}
                 <div>
                   <img className="arrowright03" src={up} alt={up} />
                   <ChatBox className="third">
@@ -217,7 +223,6 @@ function PopularSection() {
                     </div>
                   </ChatBox>
                 </div>
-                {/* 04 */}
                 <div>
                   <img className="arrowright04" src={up} alt={up} />
                   <ChatBox className="fourth">
@@ -232,7 +237,6 @@ function PopularSection() {
                     </div>
                   </ChatBox>
                 </div>
-                {/* 05 */}
                 <div>
                   <img className="arrowright05" src={up} alt={up} />
                   <ChatBox className="fifth">
@@ -245,7 +249,6 @@ function PopularSection() {
                     </div>
                   </ChatBox>
                 </div>
-                {/* 06 */}
                 <div>
                   <img className="arrowright06" src={up} alt={up} />
                   <ChatBox className="sixth">
@@ -362,11 +365,13 @@ const CardSection = styled.div`
   }
   .card .imgBox:hover .img-blur {
     opacity: 1;
+    cursor: pointer;
   }
-  .card .img-blur a {
+  .card .img-blur div {
     text-decoration: none;
     color: #fff;
     letter-spacing: 1px;
+    cursor: pointer;
   }
   .card .img-blur::before {
     content: "";
@@ -400,14 +405,15 @@ const CardSection = styled.div`
   .card .title {
     margin: 15px 0;
   }
-  .card .title a {
+  .card .title label {
     font-size: 1.6rem;
     color: #555;
     text-decoration: none;
     transition: 0.4s;
   }
-  .card .title a:hover {
+  .card .title label:hover {
     color: rgb(0, 221, 147);
+    cursor: pointer;
   }
   .card .text {
     font-size: 0.8rem;
@@ -416,39 +422,7 @@ const CardSection = styled.div`
     opacity: 0.6;
   }
 `;
-const StagesWrapper = styled.div`
-  background-color: #bcddf2ad;
-  margin-top: 15px;
-  padding: 10px 25px;
-  label {
-    font-size: 20px;
-    font-weight: 900;
-    color: #0b2f6a;
-    text-transform: capitalize;
-    letter-spacing: 1px;
-    margin-bottom: 15px;
-  }
-`;
-const StageDiv = styled.div`
-  display: grid;
-  grid-template-columns: auto auto auto auto auto auto auto;
-  margin-top: 25px;
-  gap: 20px;
-  img {
-    width: 125px;
-  }
-  .desc {
-    font-size: 14px;
-    font-weight: 200;
-    color: #000;
-    text-transform: capitalize;
-    letter-spacing: 1px;
-    margin-top: 10px;
-  }
-`;
-const Submit = styled.div`
-  text-align: left;
-`;
+
 const WhyChooseUs = styled.div`
   margin-top: 15px;
   /* padding: 10px 25px; */

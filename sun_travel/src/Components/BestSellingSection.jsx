@@ -4,6 +4,7 @@ import bestSelling from "./assets/bestPrice.png";
 import refund from "../assets/4947544-removebg-preview.png";
 import safety from "../assets/images-removebg-preview.png";
 import Slider from "react-slick";
+import { useNavigate } from "react-router-dom";
 
 export default function BestSellingSection() {
   const HotSellTourDetails = [
@@ -139,7 +140,11 @@ export default function BestSellingSection() {
       description: "Stay updated with travel restrictions due to COVID-19.",
     },
   ];
-
+  const navigate = useNavigate();
+const handletriggerToTourSection=()=>{
+  navigate("/tours/1")
+  console.log("triggeredto")
+}
   var settings = {
     dots: false,
     infinite: true,
@@ -214,13 +219,16 @@ export default function BestSellingSection() {
           <span>Hot-Selling </span>Tour Bundles
         </div>
       </HotSellingSection>
+      <div className="viewdetails" onClick={handletriggerToTourSection}>
+        View All Bundles
+      </div>
 
       <CustomSlider {...settings}>
         {HotSellTourDetails?.map((item) => {
           return (
             <>
-              <ContentWrapper className="other-ContentWrapper">
-                <div className="cardWrapper">
+              <ContentWrapper className="other-ContentWrapper"onClick={handletriggerToTourSection}>
+                <div className="cardWrapper" >
                   <ImgStyle
                     className="image-style"
                     src={item.image}
@@ -391,6 +399,17 @@ const Wrapper = styled.div`
   /* background-color: red; */
   height: auto;
   position: relative;
+  .viewdetails{
+    text-align: left;
+    padding: 10px 30px;
+    font-size: 20px;
+    color:#001499 ;
+    text-decoration: underline;
+    cursor: pointer;
+    &:hover{
+      color:blue;
+    }
+  }
 `;
 const AnnouncemnetTitle = styled.div`
   text-transform: uppercase;
@@ -438,7 +457,7 @@ const HotSellingSection = styled.div`
     font-family: "Lato";
     font-size: 40px;
     text-align: left;
-    padding: 60px 90px 30px 90px;
+    padding: 60px 90px 20px 90px;
     font-weight: 600;
     text-transform: uppercase;
     span {

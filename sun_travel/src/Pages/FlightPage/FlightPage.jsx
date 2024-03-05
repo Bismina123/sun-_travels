@@ -18,6 +18,7 @@ import TabPanel from "@mui/lab/TabPanel";
 import { makeStyles } from "@material-ui/core/styles";
 import { useParams } from "react-router-dom";
 import UpdatedFooter from "../../Components/UpdatedFooter";
+import emailjs from "@emailjs/browser";
 const useTabStyles = makeStyles({
   root: {
     justifyContent: "center",
@@ -43,6 +44,33 @@ const FlightPage = () => {
     scrollToTop();
     setValue(where);
   }, [where]);
+  const handleSearchClick = (e) => {
+    console.log("Selected",date );
+    e.preventDefault();
+    emailjs
+      .send(
+        "service_vi7q9io",
+        "template_6bhsgru",
+        {
+          from_name: "",
+          to_email: "",
+          message: `Start Date: ${date},  `,
+        },
+        "cYu6EiV1UyKWKu4q-"
+      )
+      .then(
+        () => {
+          alert("Thank you. I will get back to you as soon as possible.");
+
+           // Clear the email state after successful submission
+        },
+        (error) => {
+          console.error(error);
+
+          alert("Ahh, something went wrong. Please try again.");
+        }
+      );
+  };
   return (
     <>
       <MianWrapper id="detailMainWrapper">
@@ -51,7 +79,10 @@ const FlightPage = () => {
             <div>
               <Box sx={{ width: "100%", typography: "body1" }}>
                 <TabContext value={value}>
-                  <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+                  <Box
+                    sx={{ borderBottom: 1, borderColor: "divider" }}
+                    className="helloo"
+                  >
                     <StyledTab
                       onChange={handleChange}
                       aria-label="lab API tabs example"
@@ -92,11 +123,13 @@ const FlightPage = () => {
                               label="Departure"
                               value={date}
                               onChange={(newValue) => setDate(newValue)}
+                              format="DD/MM/YYYY"
                             />
                             <DatePicker
                               label="Return"
                               value={date}
                               onChange={(newValue) => setDate(newValue)}
+                              format="DD/MM/YYYY"
                             />
                           </DemoContainer>
                         </LocalizationProvider>
@@ -121,7 +154,7 @@ const FlightPage = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="btn-wrapper">
+                    <div className="btn-wrapper" onClick={handleSearchClick}>
                       <button>SEARCH</button>
                     </div>
                   </TabPanel>
@@ -270,7 +303,7 @@ const AboutUs = styled.div`
     display: grid;
     font-size: 24px;
     margin-top: 20px;
-    color: #065af3;
+    color: #0b2f6a;
     span {
       font-size: 17px;
       position: relative;
@@ -280,7 +313,7 @@ const AboutUs = styled.div`
         left: 0;
         right: 0;
         margin: 0 auto;
-        border-bottom: 2px dotted #065af3;
+        border-bottom: 2px dotted #0b2f6a;
         content: "";
         bottom: -10px;
       }
@@ -288,6 +321,32 @@ const AboutUs = styled.div`
   }
 `;
 const MianWrapper = styled.div`
+  .helloo {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    border-bottom: 0;
+    .MuiTabs-scroller {
+      background: #eefaffb5;
+      border-radius: 30px;
+      padding: 10px 20px;
+      box-shadow: 0 1px 5px 0 rgb(0 0 0 / 10%);
+    }
+    .MuiTabs-indicator {
+      display: none;
+    }
+    .Mui-selected {
+      color: #ffff !important;
+      background: #0b2f6a;
+      border-radius: 25px;
+      transition: 0.3s all ease;
+    }
+    .MuiButtonBase-root {
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #000;
+    }
+  }
   @media (min-width: 991px) and (max-width: 1210px) {
     .content-wrapper {
       .input-feild {
@@ -307,23 +366,25 @@ const MianWrapper = styled.div`
       }
     }
   }
-  margin-top: 90px;
-  height: 75vh;
+  /* margin-top: 60px; */
+  height: 85vh;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url("https://images.unsplash.com/photo-1613310023042-ad79320c00ff?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-image: url("https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
   .content-wrapper {
     .top-header-content {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      left: 50%;
+      top: 50%;
+
       display: flex;
       justify-content: center;
-      .css-1gsv261 {
-        display: flex;
-        justify-content: center;
-      }
-      .css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected {
-        color: #fdfeff;
-      }
+
+      /* .css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected {
+        color: #065af3;
+      } */
     }
     .btn-wrapper {
       button {
@@ -332,7 +393,7 @@ const MianWrapper = styled.div`
         font-size: 22px;
         font-weight: 600;
         letter-spacing: 3px;
-        background: linear-gradient(93deg, #53b2fe, #065af3);
+        background: linear-gradient(93deg, #1678c8, #0b2f6a);
         box-shadow: 0 1px 7px 0 rgb(0 0 0 / 20%);
         display: inline-block;
         flex-shrink: 0;
@@ -344,33 +405,38 @@ const MianWrapper = styled.div`
         text-align: center;
         width: 216px;
         padding: 10px;
+        transition: 0.5s all ease;
+        &:hover{
+          background: linear-gradient(93deg, #0b2f6a, #1678c8);
+        }
       }
     }
     .input-feild {
-      background-color: #eefaff;
+      margin-top: 3%;
+      background-color: #eefaffb5;
       box-shadow: 0 1px 5px 0 rgb(0 0 0 / 10%);
       width: 1200px;
-      border-radius: 15px;
+      border-radius:30px;
       padding: 1% 50px 1% 50px;
       .top-header {
-        padding: 5%;
+        padding: 1%;
         span {
           color: #4a4a4a;
           font-size: 22px;
           border-bottom: 1px solid #d5d5d5;
         }
-        .css-w8dmq8 {
+        /* .css-w8dmq8 {
           .css-heg063-MuiTabs-flexContainer {
             justify-content: center;
           }
-        }
+        } */
       }
       .bottom-content {
         display: flex;
         justify-content: flex-end;
         align-items: center;
         gap: 10px;
-        padding-top: 7%;
+        padding: 10px;
         span {
           color: #4a4a4a;
           font-size: 14px;
@@ -401,17 +467,17 @@ const MianWrapper = styled.div`
         justify-content: center;
         align-items: center;
 
-        .css-4jnixx-MuiStack-root {
+        .MuiStack-root {
           padding-top: 0px;
           overflow: unset;
         }
-        .css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root {
+        .MuiInputBase-root {
           height: 80px;
-          font-size: 35px;
+          font-size: 25px;
         }
-        .css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root {
+        .MuiInputBase-root {
           height: 80px;
-          font-size: 35px;
+          font-size: 25px;
         }
       }
     }

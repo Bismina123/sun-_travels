@@ -109,7 +109,7 @@ export default function Navbar() {
                   return (
                     <li className="navbar-dropdown" key={item.id}>
                       <Link
-                        to={item.path}
+                        to={`/Flight/${1}`}
                         className="link-main"
                         onClick={() => handleActive(item.id, item.path)}
                       >
@@ -133,7 +133,7 @@ export default function Navbar() {
                         {flightDropdown.map((subTours, index) => {
                           return (
                             <Link
-                              to={subTours.path}
+                              to={`/Flight/${subTours.id}`}
                               key={index}
                               className="dropdown-submenu-hover"
                             >
@@ -588,6 +588,7 @@ const NavItems = styled.div`
 `;
 
 const MainWrapper = styled.div`
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: space-around;

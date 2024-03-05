@@ -64,6 +64,7 @@ const TourCard = ({ item }) => {
 
 export default TourCard;
 const CardWrapper = styled.div`
+
   @media (max-width: 574px) {
     .heading-wrapper {
       font-size: 14px !important;
@@ -99,6 +100,10 @@ const CardWrapper = styled.div`
   background: #fff;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    transition: 0.4s all ease-in-out;
+    &:hover{
+      transform: translateY(10px);
+    }
   .heading-wrapper {
     display: flex;
     justify-content: flex-start;

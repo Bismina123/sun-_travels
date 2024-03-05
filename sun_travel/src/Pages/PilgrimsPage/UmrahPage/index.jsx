@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import umra1 from "../assets/beautiful-view-city-mecca-also-place-worship-kaaba.jpg";
 import umra2 from "../assets/665.jpg";
@@ -12,6 +12,7 @@ import MosqueIcon from "@mui/icons-material/Mosque";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import UpdatedFooter from "../../../Components/UpdatedFooter";
 import AboutOfPilgrims from "../components/AboutPage";
+import ContactUsPage from "../../ContactusPage";
 function UmraPage() {
   const DataList = [
     {
@@ -43,14 +44,18 @@ function UmraPage() {
       price: "INR 980000",
     },
   ];
-
+  const [modal, setModal] = useState(false);
+const handleClick=()=>{
+  setModal(true)
+  console.log("clickeddddd")
+}
   return (
     <Warpper>
       <div className="dridWrapper">
         {DataList.map((item) => {
           return (
             <>
-              <div className="mainWrapper">
+              <div className="mainWrapper" onClick={handleClick}>
                 <div className="imageDiv">
                   <img src={item.image} alt="" />
                 </div>
@@ -104,6 +109,7 @@ function UmraPage() {
           );
         })}
       </div>
+      {modal? <ContactUsPage modal={modal}setModal={setModal}/>:""}
       <AboutOfPilgrims/>
       {/* <UpdatedFooter/> */}
     </Warpper>

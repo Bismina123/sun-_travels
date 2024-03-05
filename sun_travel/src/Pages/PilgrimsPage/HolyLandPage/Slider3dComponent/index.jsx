@@ -11,8 +11,9 @@ import DirectionsBusFilledIcon from '@mui/icons-material/DirectionsBusFilled';
 import HailIcon from '@mui/icons-material/Hail';
 import Diversity3Icon from '@mui/icons-material/Diversity3';
 import Man3Icon from '@mui/icons-material/Man3';
+import ContactUsPage from "../../../ContactusPage";
 const ThreedCarousel= (props) => {
-    
+
   const [activeSlide, setactiveSlide] = useState(props.activeSlide);
 
   const next = () =>
@@ -114,6 +115,11 @@ const ThreedCarousel= (props) => {
 };
 
 const SliderContent = (props) => {
+  const [modal, setModal] = useState(false);
+  const buttonClicked=()=>{
+    setModal(true)
+    console.log("clickedddd")
+  }
   return (
     <div className="sliderContent">
         <div className="imageWrapper">
@@ -149,11 +155,13 @@ const SliderContent = (props) => {
             <label >Accompained by an experienced guid</label>
         </div>
       </div>
-      <div className="buttonNow">
+      <div className="buttonNow"  onClick={buttonClicked} >
               <button className="btnbook">
                 <span>Book Now</span>
               </button>
             </div>
+            {modal? <ContactUsPage modal={modal}setModal={setModal}/>:""}
+
     </div>
   );
 };

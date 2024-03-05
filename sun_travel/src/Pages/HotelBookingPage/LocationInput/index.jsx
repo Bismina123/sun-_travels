@@ -5,8 +5,7 @@ import PlacesAutocomplete, {
 } from "react-places-autocomplete";
 import styled from "styled-components";
 import FmdGoodOutlinedIcon from '@mui/icons-material/FmdGoodOutlined';
-function LocationInput() {
-  const [address, setAddress] = useState("");
+function LocationInput({address,setAddress}) {
   const handleChangeAddress = (newAddress) => {
     setAddress(newAddress);
   };

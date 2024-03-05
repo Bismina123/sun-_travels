@@ -19,7 +19,7 @@ function BannerSlider({ bestSellingRef }) {
     draggable: true,
   };
   return (
-    <Wrapper>
+    <Wrapper ref={bestSellingRef}>
       <BlogsText>Blogs</BlogsText>
       <Slider {...settings} className="sliderwrapper">
         <div className="imagediv">
