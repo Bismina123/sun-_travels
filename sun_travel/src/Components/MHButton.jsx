@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-export default function MHButton({ buttonName, className }) {
+export default function MHButton({ buttonName, className,onClick }) {
   return (
-    <Wrapper className={className}>
+    <Wrapper className={className} onClick={onClick}>
       {/* <div className="buttonNow"> */}
         <button className="btn">
           <span>{buttonName}</span>

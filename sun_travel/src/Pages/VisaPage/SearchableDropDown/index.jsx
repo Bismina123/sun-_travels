@@ -16,7 +16,7 @@ import { useNavigate } from "react-router-dom";
 function SearchableDropdown({ location }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedOption, setSelectedOption] = useState(null);
-
+  console.log(location, "locationbis");
   const navigate = useNavigate();
   const handleSearchInputChange = (event) => {
     setSearchTerm(event.target.value);
@@ -24,8 +24,19 @@ function SearchableDropdown({ location }) {
 
   const handleOptionChange = (event, value) => {
     setSelectedOption(value);
-
-    navigate(`/Visa/australianVisa/${value}`);
+    if (location === "/Visa/europeanVisa") {
+      navigate(`/Visa/europeanVisa/${value}`);
+    } else if (location === "/Visa/australianVisa") {
+      navigate(`/Visa/australianVisa/${value}`);
+    } else if (location === "/Visa/asianVisa") {
+      navigate(`/Visa/asianVisa/${value}`);
+    } else if (location === "/Visa/americanVisa") {
+      navigate(`/Visa/americanVisa/${value}`);
+    } else if (location === "/Visa/africanVisa") {
+      navigate(`/Visa/africanVisa/${value}`);
+    } else if (location === "/Visa") {
+      navigate(`/Visa/all/${value}`);
+    }
   };
 
   const handleSearchIconClick = () => {

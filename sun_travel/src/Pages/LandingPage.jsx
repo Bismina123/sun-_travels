@@ -72,12 +72,11 @@ export default function LandingPage() {
       <TabsExclusive />
       <Scene />
       <LandingPageSectionForTrending />
-      {/* <Feedbacks /> */}
 
       <Feedbacks />
-      {/* <Footer /> */}
+
       <UpdatedFooter />
-      <ContactUsPage/>
+      <ContactUsPage />
       {showScrollButton && (
         <>
           <ScrollButton isVisible={showScrollButton}>

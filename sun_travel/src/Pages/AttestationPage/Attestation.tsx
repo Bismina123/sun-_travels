@@ -182,7 +182,7 @@ const MainWrapper = styled.div`
       position: relative;
       font-size: 36px;
       font-weight: 600;
-      color: #065af3;
+      color: #0b2f6a;
       letter-spacing: 4px;
       &::before {
         bottom: 0;
@@ -190,14 +190,14 @@ const MainWrapper = styled.div`
         content: "";
         width: 244px;
         height: 2px;
-        background: #065af3;
+        background: #0b2f6a;
       }
     }
     h2 {
       position: relative;
       font-size: 36px;
       font-weight: 600;
-      color: #065af3;
+      color: #0b2f6a;
       letter-spacing: 4px;
       &::before {
         bottom: 0;
@@ -205,7 +205,7 @@ const MainWrapper = styled.div`
         content: "";
         width: 44%;
         height: 2px;
-        background: #065af3;
+        background: #0b2f6a;
       }
     }
   }
@@ -214,4 +214,5 @@ const BackGroundWrapp = styled.img`
   position: absolute;
   top: 0;
   z-index: 0;
+  /* width: 100%; */
 `;

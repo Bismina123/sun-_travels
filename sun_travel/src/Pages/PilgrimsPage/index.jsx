@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import emailjs from "@emailjs/browser";
 import {
   BrowserRouter,
   Route,
@@ -30,6 +31,7 @@ import jordanFlag from "./assets/jordan.svg";
 import palestineFlag from "./assets/palestine.svg";
 import egyptFlag from "./assets/egypt.svg";
 import israelFlag from "./assets/israel.svg";
+import dayjs from "dayjs";
 
 function PilgrimsPage() {
   const styles = {
@@ -230,6 +232,36 @@ function PilgrimsPage() {
     setopenmodal(false);
   };
   const cityList = currentvalue === "3" ? holiLandCity : selectCity;
+  const [startDate, setStartDate] = useState(dayjs());
+  const [endDate, setEndDate] = useState(dayjs().add(1, "day"));
+  const [subscribe, setSubscribe] = useState("");
+  const handleSearchClick = (e) => {
+    console.log("Selected", choosedCity.name,startDate,endDate);
+    e.preventDefault();
+    emailjs
+      .send(
+        "service_vi7q9io",
+        "template_6bhsgru",
+        {
+          from_name: subscribe,
+          to_email: "",
+          message: `City: ${choosedCity.name}, Start Date: ${startDate}, End Date: ${endDate}, `,
+        },
+        "cYu6EiV1UyKWKu4q-"
+      )
+      .then(
+        () => {
+          alert("Thank you. I will get back to you as soon as possible.");
+
+          setSubscribe(""); // Clear the email state after successful submission
+        },
+        (error) => {
+          console.error(error);
+
+          alert("Ahh, something went wrong. Please try again.");
+        }
+      );
+  };
   return (
     <>
       <PilgrimsWrapper>
@@ -297,10 +329,10 @@ function PilgrimsPage() {
             )}
 
             <div className="secondGrid">
-              <Startdate />
+              <Startdate startDate={startDate} setStartDate={setStartDate} endDate={endDate} setEndDate={setEndDate}/>
             </div>
             <div className="thirdGrid">
-              <div className="lastGridinner">Search</div>
+              <div className="lastGridinner" onClick={handleSearchClick}>Search</div>
             </div>
           </div>
         </BackgroundWrapper>
@@ -481,6 +513,7 @@ const BackgroundWrapper = styled.div`
   .location {
     width: 100%;
     padding: 5px 10px;
+    font-size: 16px !important;
   }
   .input {
     display: flex;

@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import imag from "../assets/southafrica-visa-bg.png";
-import { CombainedAustraliaInner } from "../../../VisaPage/SearchableDropDown/countrylistdata";
+import { africanCountriesdata } from "../../../VisaPage/SearchableDropDown/countrylistdata";
 import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
 import tik from "../assets/check-mark (1).svg";
 import fullSTar from "../assets/star.svg";
@@ -12,9 +12,9 @@ import WhyChooseusVisa from "../../WhyChooseusVisa";
 import UpdatedFooter from "../../../../Components/UpdatedFooter";
 import whtsap from "../assets/whatsapp.svg";
 import emailjs from "@emailjs/browser";
-function AustralianPage() {
+function AfricanPage() {
   const { optionName } = useParams();
-  console.log(CombainedAustraliaInner, "CombainedAustraliaInner");
+  console.log(africanCountriesdata, "CombainedAustraliaInner");
   console.log(optionName, "optionName");
   const [activeTab, setActiveTab] = useState(0); // Default to the first tab
 
@@ -141,7 +141,7 @@ function AustralianPage() {
   }, []);
   return (
     <Wrapper id="detailMainWrapper">
-      {CombainedAustraliaInner.map((data, index) => {
+      {africanCountriesdata.map((data, index) => {
         if (data.name === optionName) {
           return (
             <div key={index} className="bannerSection">
@@ -174,8 +174,7 @@ function AustralianPage() {
           return null; // or any other fallback content
         }
       })}
-
-      {CombainedAustraliaInner.map((data, index) => {
+      {africanCountriesdata.map((data, index) => {
         if (data.name === optionName) {
           return (
             <div key={index}>
@@ -205,7 +204,7 @@ function AustralianPage() {
                   return (
                     <ContentWrapper key={ref.id}>
                       <TabContent id={ref.ref} className={ref.ref}>
-                        {CombainedAustraliaInner.map((data, index) => {
+                        {africanCountriesdata.map((data, index) => {
                           if (data.name === optionName) {
                             return (
                               <>
@@ -273,7 +272,7 @@ function AustralianPage() {
                   return (
                     <ContentWrapper key={ref.id}>
                       <TabContent id={ref.ref} className={ref.ref}>
-                        {CombainedAustraliaInner.map((data, index) => {
+                        {africanCountriesdata.map((data, index) => {
                           if (data.name === optionName) {
                             return (
                               <>
@@ -318,7 +317,7 @@ function AustralianPage() {
                   return (
                     <ContentWrapper key={ref.id}>
                       <TabContent id={ref.ref} className={ref.ref}>
-                        {CombainedAustraliaInner.map((data, index) => {
+                        {africanCountriesdata.map((data, index) => {
                           if (data.name === optionName) {
                             return (
                               <>
@@ -338,7 +337,7 @@ function AustralianPage() {
                   return (
                     <ContentWrapper key={ref.id}>
                       <TabContent id={ref.ref} className={ref.ref}>
-                        {CombainedAustraliaInner.map((data, index) => {
+                        {africanCountriesdata.map((data, index) => {
                           if (data.name === optionName) {
                             return (
                               <>
@@ -578,8 +577,7 @@ function AustralianPage() {
   );
 }
 
-export default AustralianPage;
-
+export default AfricanPage;
 const SplittingWrapper = styled.div`
   display: grid;
   grid-template-columns: 65% 35%;
@@ -1062,3 +1060,4 @@ const TabItem = styled.div`
     border-bottom: 1px solid #0b2f6a;
   } */
 `;
+

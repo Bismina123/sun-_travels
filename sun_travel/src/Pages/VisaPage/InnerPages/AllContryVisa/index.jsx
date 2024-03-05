@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import imag from "../assets/southafrica-visa-bg.png";
-import { CombainedAustraliaInner } from "../../../VisaPage/SearchableDropDown/countrylistdata";
+import { AllVisaPageData } from "../../../VisaPage/SearchableDropDown/countrylistdata";
 import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
 import tik from "../assets/check-mark (1).svg";
 import fullSTar from "../assets/star.svg";
@@ -10,11 +10,19 @@ import outlineStar from "../assets/star (1).svg";
 import ProcessOnVisa from "../../ProcessOnVisa";
 import WhyChooseusVisa from "../../WhyChooseusVisa";
 import UpdatedFooter from "../../../../Components/UpdatedFooter";
+import ContactUsPage from "../../../ContactusPage";
 import whtsap from "../assets/whatsapp.svg";
 import emailjs from "@emailjs/browser";
-function AustralianPage() {
+
+// import ContactUsPage from "../../../Pages/ContactusPage";
+function AllCountryVisaPAge() {
+  const scrollToTop = () => {
+    var element = document.getElementById("detailMainWrapper");
+    element.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+  console.log(AllVisaPageData, "AllVisaPageData");
   const { optionName } = useParams();
-  console.log(CombainedAustraliaInner, "CombainedAustraliaInner");
+  console.log(AllVisaPageData, "CombainedAustraliaInner");
   console.log(optionName, "optionName");
   const [activeTab, setActiveTab] = useState(0); // Default to the first tab
 
@@ -132,16 +140,12 @@ function AustralianPage() {
     }
     return fieldErrors;
   };
-  const scrollToTop = () => {
-    var element = document.getElementById("detailMainWrapper");
-    element.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
   useEffect(() => {
     scrollToTop();
   }, []);
   return (
     <Wrapper id="detailMainWrapper">
-      {CombainedAustraliaInner.map((data, index) => {
+      {AllVisaPageData.map((data, index) => {
         if (data.name === optionName) {
           return (
             <div key={index} className="bannerSection">
@@ -175,7 +179,7 @@ function AustralianPage() {
         }
       })}
 
-      {CombainedAustraliaInner.map((data, index) => {
+      {AllVisaPageData.map((data, index) => {
         if (data.name === optionName) {
           return (
             <div key={index}>
@@ -200,301 +204,375 @@ function AustralianPage() {
               </Tabs>
               <SplittingWrapper className="splittingScreen">
                 <div>
-              {contentRefs.map((ref, index) => {
-                if (ref.ref === "content1") {
-                  return (
-                    <ContentWrapper key={ref.id}>
-                      <TabContent id={ref.ref} className={ref.ref}>
-                        {CombainedAustraliaInner.map((data, index) => {
-                          if (data.name === optionName) {
-                            return (
-                              <>
-                                <div className="content1inner">
-                                  <h2 className="visa-type-head">
-                                    Type of {data.name} Visas
-                                  </h2>
-                                  <div className="carsInnerSplitting">
-                                    {data.typesOfVisa.map((typesVisa) => {
-                                      return (
-                                        <>
-                                          <div className="cardsinner">
-                                            <div className="cardTop">
-                                              {typesVisa.name}
-                                            </div>
-                                            <div className="cardBottom">
-                                              <ul>
-                                                <li>
-                                                  Processing time:
-                                                  <span>
-                                                    {typesVisa.processingTime}
-                                                  </span>
-                                                </li>
-
-                                                <li>
-                                                  Validity:
-                                                  <span>
-                                                    {typesVisa.validity}
-                                                  </span>
-                                                </li>
-                                                <li>
-                                                  Entry:
-                                                  <span>{typesVisa.entry}</span>
-                                                </li>
-                                                <li>
-                                                  Fees:
-                                                  <span>
-                                                    INR {typesVisa.fees} /-
-                                                  </span>
-                                                </li>
-                                                <li className="ideal">
-                                                  Ideal:
-                                                  <span>
-                                                    {typesVisa.idealFor}
-                                                  </span>
-                                                </li>
-                                              </ul>
-                                            </div>
-                                          </div>
-                                        </>
-                                      );
-                                    })}
-                                  </div>
-                                </div>
-                              </>
-                            );
-                          } else {
-                            return null; // or any other fallback content
-                          }
-                        })}
-                      </TabContent>
-                    </ContentWrapper>
-                  );
-                } else if (ref.ref === "content2") {
-                  return (
-                    <ContentWrapper key={ref.id}>
-                      <TabContent id={ref.ref} className={ref.ref}>
-                        {CombainedAustraliaInner.map((data, index) => {
-                          if (data.name === optionName) {
-                            return (
-                              <>
-                                <div>
-                                  <h2 className="documentLabel">
-                                    Documents required for {data.name} Visa:
-                                  </h2>
-                                  <div className="documentCard">
-                                    <div className="labelWrapper">
-                                      <label>
-                                        Must have Documents for {data.name} Visa
-                                        :
-                                      </label>
-                                    </div>
-                                    <ul>
-                                      {data.documentsRequiredFor.map(
-                                        (documents) => {
+                  {contentRefs.map((ref, index) => {
+                    if (ref.ref === "content1") {
+                      return (
+                        <ContentWrapper key={ref.id}>
+                          <TabContent id={ref.ref} className={ref.ref}>
+                            {AllVisaPageData.map((data, index) => {
+                              if (data.name === optionName) {
+                                return (
+                                  <>
+                                    <div className="content1inner">
+                                      <h2 className="visa-type-head">
+                                        Type of {data.name} Visas
+                                      </h2>
+                                      <div className="carsInnerSplitting">
+                                        {data.typesOfVisa.map((typesVisa) => {
                                           return (
                                             <>
-                                              <ol
-                                                className="olStyle"
-                                                key={documents.id}
-                                              >
-                                                <img src={tik} alt="" />
-                                                {documents.document};
-                                              </ol>
+                                              <div className="cardsinner">
+                                                <div className="cardTop">
+                                                  {typesVisa.name}
+                                                </div>
+                                                <div className="cardBottom">
+                                                  <ul>
+                                                    <li>
+                                                      Processing time:
+                                                      <span>
+                                                        {
+                                                          typesVisa.processingTime
+                                                        }
+                                                      </span>
+                                                    </li>
+
+                                                    <li>
+                                                      Validity:
+                                                      <span>
+                                                        {typesVisa.validity}
+                                                      </span>
+                                                    </li>
+                                                    <li>
+                                                      Entry:
+                                                      <span>
+                                                        {typesVisa.entry}
+                                                      </span>
+                                                    </li>
+                                                    <li>
+                                                      Fees:
+                                                      <span>
+                                                        INR {typesVisa.fees} /-
+                                                      </span>
+                                                    </li>
+                                                    <li className="ideal">
+                                                      Ideal:
+                                                      <span>
+                                                        {typesVisa.idealFor}
+                                                      </span>
+                                                    </li>
+                                                  </ul>
+                                                </div>
+                                              </div>
                                             </>
                                           );
-                                        }
-                                      )}
-                                    </ul>
+                                        })}
+                                      </div>
+                                    </div>
+                                  </>
+                                );
+                              } else {
+                                return null; // or any other fallback content
+                              }
+                            })}
+                          </TabContent>
+                        </ContentWrapper>
+                      );
+                    } else if (ref.ref === "content2") {
+                      return (
+                        <ContentWrapper key={ref.id}>
+                          <TabContent id={ref.ref} className={ref.ref}>
+                            {AllVisaPageData.map((data, index) => {
+                              if (data.name === optionName) {
+                                return (
+                                  <>
+                                    <div>
+                                      <h2 className="documentLabel">
+                                        Documents required for {data.name} Visa:
+                                      </h2>
+                                      <div className="documentCard">
+                                        <div className="labelWrapper">
+                                          <label>
+                                            Must have Documents for {data.name}{" "}
+                                            Visa :
+                                          </label>
+                                        </div>
+                                        <ul>
+                                          {data.documentsRequiredFor.map(
+                                            (documents) => {
+                                              return (
+                                                <>
+                                                  <ol
+                                                    className="olStyle"
+                                                    key={documents.id}
+                                                  >
+                                                    <img src={tik} alt="" />
+                                                    {documents.document};
+                                                  </ol>
+                                                </>
+                                              );
+                                            }
+                                          )}
+                                        </ul>
+                                      </div>
+                                    </div>
+                                  </>
+                                );
+                              }
+                            })}
+                          </TabContent>
+                        </ContentWrapper>
+                      );
+                    } else if (ref.ref === "content3") {
+                      return (
+                        <ContentWrapper key={ref.id}>
+                          <TabContent id={ref.ref} className={ref.ref}>
+                            {AllVisaPageData.map((data, index) => {
+                              if (data.name === optionName) {
+                                return (
+                                  <>
+                                    <h2 className="documentLabel">
+                                      Applying for {data.name} Visa through us
+                                      is this simple
+                                    </h2>
+                                    <ProcessOnVisa />
+                                  </>
+                                );
+                              }
+                            })}
+                          </TabContent>
+                        </ContentWrapper>
+                      );
+                    } else if (ref.ref === "content4") {
+                      return (
+                        <ContentWrapper key={ref.id}>
+                          <TabContent id={ref.ref} className={ref.ref}>
+                            {AllVisaPageData.map((data, index) => {
+                              if (data.name === optionName) {
+                                return (
+                                  <>
+                                    <h2 className="documentLabel">
+                                      Why choose us? Because we are Awesome!
+                                    </h2>
+                                    <WhyChooseusVisa />
+                                  </>
+                                );
+                              }
+                            })}
+                          </TabContent>
+                        </ContentWrapper>
+                      );
+                    } else if (ref.ref === "content5") {
+                      return (
+                        <ContentWrapper key={ref.id}>
+                          <TabContent id={ref.ref} className={ref.ref}>
+                            <h2 className="documentLabel">
+                              Sun international tours and travels - Reviews
+                            </h2>
+                            <section id="testimonials">
+                              <div className="testimonial-box-container">
+                                <div className="testimonial-box">
+                                  <div className="box-top">
+                                    <div className="profile">
+                                      <div className="profile-img">
+                                        <img src="https://cdn3.iconfinder.com/data/icons/avatars-15/64/_Ninja-2-512.png" />
+                                      </div>
+                                      <div className="name-user">
+                                        <strong>Liam mendes</strong>
+                                        <span>@liammendes</span>
+                                      </div>
+                                    </div>
+                                    <div className="reviews">
+                                      <img
+                                        src={fullSTar}
+                                        alt=""
+                                        width={"20px"}
+                                      />
+                                      <img
+                                        src={fullSTar}
+                                        alt=""
+                                        width={"20px"}
+                                      />
+                                      <img
+                                        src={fullSTar}
+                                        alt=""
+                                        width={"20px"}
+                                      />
+                                      <img
+                                        src={fullSTar}
+                                        alt=""
+                                        width={"20px"}
+                                      />
+                                      <img
+                                        src={outlineStar}
+                                        alt=""
+                                        width={"20px"}
+                                      />
+                                    </div>
+                                  </div>
+                                  <div className="client-comment">
+                                    <p>
+                                      Best Schengen visa service i have never
+                                      experienced before.Very happy with the
+                                      service, I will definitely recommend your
+                                      service to my friends and colleagues.
+                                    </p>
                                   </div>
                                 </div>
-                              </>
-                            );
-                          }
-                        })}
-                      </TabContent>
-                    </ContentWrapper>
-                  );
-                } else if (ref.ref === "content3") {
-                  return (
-                    <ContentWrapper key={ref.id}>
-                      <TabContent id={ref.ref} className={ref.ref}>
-                        {CombainedAustraliaInner.map((data, index) => {
-                          if (data.name === optionName) {
-                            return (
-                              <>
-                                <h2 className="documentLabel">
-                                  Applying for {data.name} Visa through us is
-                                  this simple
-                                </h2>
-                                <ProcessOnVisa />
-                              </>
-                            );
-                          }
-                        })}
-                      </TabContent>
-                    </ContentWrapper>
-                  );
-                } else if (ref.ref === "content4") {
-                  return (
-                    <ContentWrapper key={ref.id}>
-                      <TabContent id={ref.ref} className={ref.ref}>
-                        {CombainedAustraliaInner.map((data, index) => {
-                          if (data.name === optionName) {
-                            return (
-                              <>
-                                <h2 className="documentLabel">
-                                  Why choose us? Because we are Awesome!
-                                </h2>
-                                <WhyChooseusVisa />
-                              </>
-                            );
-                          }
-                        })}
-                      </TabContent>
-                    </ContentWrapper>
-                  );
-                } else if (ref.ref === "content5") {
-                  return (
-                    <ContentWrapper key={ref.id}>
-                      <TabContent id={ref.ref} className={ref.ref}>
-                        <h2 className="documentLabel">
-                          Sun international tours and travels - Reviews
-                        </h2>
-                        <section id="testimonials">
-                          <div className="testimonial-box-container">
-                            <div className="testimonial-box">
-                              <div className="box-top">
-                                <div className="profile">
-                                  <div className="profile-img">
-                                    <img src="https://cdn3.iconfinder.com/data/icons/avatars-15/64/_Ninja-2-512.png" />
+                                <div className="testimonial-box">
+                                  <div className="box-top">
+                                    <div className="profile">
+                                      <div className="profile-img">
+                                        <img src="https://cdn3.iconfinder.com/data/icons/avatars-15/64/_Ninja-2-512.png" />
+                                      </div>
+                                      <div className="name-user">
+                                        <strong>Noah Wood</strong>
+                                        <span>@noahwood</span>
+                                      </div>
+                                    </div>
+                                    <div className="reviews">
+                                      <img
+                                        src={fullSTar}
+                                        alt=""
+                                        width={"20px"}
+                                      />
+                                      <img
+                                        src={fullSTar}
+                                        alt=""
+                                        width={"20px"}
+                                      />
+                                      <img
+                                        src={fullSTar}
+                                        alt=""
+                                        width={"20px"}
+                                      />
+                                      <img
+                                        src={fullSTar}
+                                        alt=""
+                                        width={"20px"}
+                                      />
+                                      <img
+                                        src={outlineStar}
+                                        alt=""
+                                        width={"20px"}
+                                      />
+                                    </div>
                                   </div>
-                                  <div className="name-user">
-                                    <strong>Liam mendes</strong>
-                                    <span>@liammendes</span>
+                                  <div className="client-comment">
+                                    <p>
+                                      Thank you for the smooth and hassle free
+                                      visa application for Singapore. Very happy
+                                      with the service, I will definitely
+                                      recommend your service to my friends and
+                                      colleagues.
+                                    </p>
                                   </div>
                                 </div>
-                                <div className="reviews">
-                                  <img src={fullSTar} alt="" width={"20px"} />
-                                  <img src={fullSTar} alt="" width={"20px"} />
-                                  <img src={fullSTar} alt="" width={"20px"} />
-                                  <img src={fullSTar} alt="" width={"20px"} />
-                                  <img
-                                    src={outlineStar}
-                                    alt=""
-                                    width={"20px"}
-                                  />
+                                <div className="testimonial-box">
+                                  <div className="box-top">
+                                    <div className="profile">
+                                      <div className="profile-img">
+                                        <img src="https://cdn3.iconfinder.com/data/icons/avatars-15/64/_Ninja-2-512.png" />
+                                      </div>
+                                      <div className="name-user">
+                                        <strong>Oliver Queen</strong>
+                                        <span>@oliverqueen</span>
+                                      </div>
+                                    </div>
+                                    <div className="reviews">
+                                      <img
+                                        src={fullSTar}
+                                        alt=""
+                                        width={"20px"}
+                                      />
+                                      <img
+                                        src={fullSTar}
+                                        alt=""
+                                        width={"20px"}
+                                      />
+                                      <img
+                                        src={fullSTar}
+                                        alt=""
+                                        width={"20px"}
+                                      />
+                                      <img
+                                        src={fullSTar}
+                                        alt=""
+                                        width={"20px"}
+                                      />
+                                      <img
+                                        src={fullSTar}
+                                        alt=""
+                                        width={"20px"}
+                                      />
+                                    </div>
+                                  </div>
+                                  <div className="client-comment">
+                                    <p>
+                                      Got my Thailand visa within 5 days. It was
+                                      much before than I expected. Thanks a lot
+                                      for your prompt service. We appreciate
+                                      your efforts and the personal attention.
+                                      Wish you good luck.
+                                    </p>
+                                  </div>
+                                </div>
+                                <div className="testimonial-box">
+                                  <div className="box-top">
+                                    <div className="profile">
+                                      <div className="profile-img">
+                                        <img src="https://cdn3.iconfinder.com/data/icons/avatars-15/64/_Ninja-2-512.png" />
+                                      </div>
+                                      <div className="name-user">
+                                        <strong>Barry Allen</strong>
+                                        <span>@barryallen</span>
+                                      </div>
+                                    </div>
+                                    <div className="reviews">
+                                      <img
+                                        src={fullSTar}
+                                        alt=""
+                                        width={"20px"}
+                                      />
+                                      <img
+                                        src={fullSTar}
+                                        alt=""
+                                        width={"20px"}
+                                      />
+                                      <img
+                                        src={fullSTar}
+                                        alt=""
+                                        width={"20px"}
+                                      />
+                                      <img
+                                        src={fullSTar}
+                                        alt=""
+                                        width={"20px"}
+                                      />
+                                      <img
+                                        src={outlineStar}
+                                        alt=""
+                                        width={"20px"}
+                                      />
+                                    </div>
+                                  </div>
+                                  <div className="client-comment">
+                                    <p>
+                                      I have processed visas thrice through
+                                      Akbar travels. Acknowledge the efficient
+                                      and prompt service by the customer support
+                                      team. Got the Dubai visas way before the
+                                      expected time.
+                                    </p>
+                                  </div>
                                 </div>
                               </div>
-                              <div className="client-comment">
-                                <p>
-                                  Best Schengen visa service i have never
-                                  experienced before.Very happy with the
-                                  service, I will definitely recommend your
-                                  service to my friends and colleagues.
-                                </p>
-                              </div>
-                            </div>
-                            <div className="testimonial-box">
-                              <div className="box-top">
-                                <div className="profile">
-                                  <div className="profile-img">
-                                    <img src="https://cdn3.iconfinder.com/data/icons/avatars-15/64/_Ninja-2-512.png" />
-                                  </div>
-                                  <div className="name-user">
-                                    <strong>Noah Wood</strong>
-                                    <span>@noahwood</span>
-                                  </div>
-                                </div>
-                                <div className="reviews">
-                                  <img src={fullSTar} alt="" width={"20px"} />
-                                  <img src={fullSTar} alt="" width={"20px"} />
-                                  <img src={fullSTar} alt="" width={"20px"} />
-                                  <img src={fullSTar} alt="" width={"20px"} />
-                                  <img
-                                    src={outlineStar}
-                                    alt=""
-                                    width={"20px"}
-                                  />
-                                </div>
-                              </div>
-                              <div className="client-comment">
-                                <p>
-                                  Thank you for the smooth and hassle free visa
-                                  application for Singapore. Very happy with the
-                                  service, I will definitely recommend your
-                                  service to my friends and colleagues.
-                                </p>
-                              </div>
-                            </div>
-                            <div className="testimonial-box">
-                              <div className="box-top">
-                                <div className="profile">
-                                  <div className="profile-img">
-                                    <img src="https://cdn3.iconfinder.com/data/icons/avatars-15/64/_Ninja-2-512.png" />
-                                  </div>
-                                  <div className="name-user">
-                                    <strong>Oliver Queen</strong>
-                                    <span>@oliverqueen</span>
-                                  </div>
-                                </div>
-                                <div className="reviews">
-                                  <img src={fullSTar} alt="" width={"20px"} />
-                                  <img src={fullSTar} alt="" width={"20px"} />
-                                  <img src={fullSTar} alt="" width={"20px"} />
-                                  <img src={fullSTar} alt="" width={"20px"} />
-                                  <img src={fullSTar} alt="" width={"20px"} />
-                                </div>
-                              </div>
-                              <div className="client-comment">
-                                <p>
-                                  Got my Thailand visa within 5 days. It was
-                                  much before than I expected. Thanks a lot for
-                                  your prompt service. We appreciate your
-                                  efforts and the personal attention. Wish you
-                                  good luck.
-                                </p>
-                              </div>
-                            </div>
-                            <div className="testimonial-box">
-                              <div className="box-top">
-                                <div className="profile">
-                                  <div className="profile-img">
-                                    <img src="https://cdn3.iconfinder.com/data/icons/avatars-15/64/_Ninja-2-512.png" />
-                                  </div>
-                                  <div className="name-user">
-                                    <strong>Barry Allen</strong>
-                                    <span>@barryallen</span>
-                                  </div>
-                                </div>
-                                <div className="reviews">
-                                  <img src={fullSTar} alt="" width={"20px"} />
-                                  <img src={fullSTar} alt="" width={"20px"} />
-                                  <img src={fullSTar} alt="" width={"20px"} />
-                                  <img src={fullSTar} alt="" width={"20px"} />
-                                  <img
-                                    src={outlineStar}
-                                    alt=""
-                                    width={"20px"}
-                                  />
-                                </div>
-                              </div>
-                              <div className="client-comment">
-                                <p>
-                                  I have processed visas thrice through Akbar
-                                  travels. Acknowledge the efficient and prompt
-                                  service by the customer support team. Got the
-                                  Dubai visas way before the expected time.
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                        </section>
-                      </TabContent>
-                    </ContentWrapper>
-                  );
-                }
-                return null; // Make sure to return null for other cases
-              })}
+                            </section>
+                          </TabContent>
+                        </ContentWrapper>
+                      );
+                    }
+                    return null; // Make sure to return null for other cases
+                  })}
                 </div>
                 <div
                   id="rightSide"
@@ -570,7 +648,7 @@ function AustralianPage() {
             </div>
           );
         } else {
-          return <>{/* <ContactUsPage modal={true}/> */}</>; // or any other fallback content
+          return <></>;
         }
       })}
       <UpdatedFooter />
@@ -578,8 +656,7 @@ function AustralianPage() {
   );
 }
 
-export default AustralianPage;
-
+export default AllCountryVisaPAge;
 const SplittingWrapper = styled.div`
   display: grid;
   grid-template-columns: 65% 35%;

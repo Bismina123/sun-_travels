@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import education1 from "./assets/graduation-mortarboard-top-stack-books-background.jpg";
 import education2 from "./assets/freepik_perkasa_048.jpg";
@@ -11,9 +11,23 @@ import icon2 from "./assets/university_of_western_australia_logo-freelogovectors
 import icon3 from "./assets/Monash_University_logo.svg.png";
 import icon4 from "./assets/McMaster_University_logo.svg.png";
 import icon5 from "./assets/d38e69159ac03416bac96d0f0ea97168.png";
+import ContactUsPage from "../ContactusPage";
 const OverseasEducation = () => {
+  const [modal, setModal] = useState(false);
+
+  const buttonClicked=()=>{
+    setModal(true)
+    console.log("clickedddd")
+  }
+  const scrollToTop = () => {
+    var element = document.getElementById("detailMainWrapper");
+    element.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+  useEffect(() => {
+    scrollToTop();
+  }, []);
   return (
-    <Wrapper>
+    <Wrapper id="detailMainWrapper">
       <section className="1">
         <section className="parallax">
           <div className="parallax-inner">
@@ -26,12 +40,14 @@ const OverseasEducation = () => {
               <p className="pTag">
                 We are available to consult for taking your higher education to
                 the next level so that you can stay competitive
-                <div className="buttonNow">
+                <div className="buttonNow" onClick={buttonClicked}>
                   <button className="btnbook">
                     <span>Apply Now</span>
                   </button>
                 </div>
               </p>
+              {modal? <ContactUsPage modal={modal}setModal={setModal}/>:""}
+
             </div>
 
             <br />

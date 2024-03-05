@@ -2,8 +2,15 @@ import styled from "styled-components";
 
 import { Slide } from "react-awesome-reveal";
 import MHButton from "./MHButton";
+import { useState } from "react";
+import ContactUsPage from "../Pages/ContactusPage";
 
 function TravelBanner() {
+  const [modal, setModal] = useState(false);
+  const buttonClicked=()=>{
+    setModal(true)
+    console.log("clickedddd")
+  }
   return (
     <TravelBannerWrapper>
       <TopSide>
@@ -15,7 +22,7 @@ function TravelBanner() {
               Embarking on a global odyssey, chasing sunsets and forging
               memories that span every latitude.
             </p>
-            <StyledMhButton buttonName="Explore more" className="styled" />
+            <StyledMhButton buttonName="Explore more" className="styled" onClick={buttonClicked} />
           </TextSide>
         </Slide>
         <Slide direction="right">
@@ -73,6 +80,7 @@ function TravelBanner() {
         </RightSide>
         </Slide>
       </BottomSide>
+      {modal? <ContactUsPage modal={modal}setModal={setModal}/>:""}
     </TravelBannerWrapper>
   );
 }
@@ -171,7 +179,7 @@ const TextSide = styled.div`
       width: 100%;
     }
   }
-  button {
+  /* button {
     margin-top: 13px;
     background: #001499;
     padding: 10px 20px;
@@ -180,12 +188,11 @@ const TextSide = styled.div`
     color: #ffff;
     transition: opacity 0.3s ease;
     &:hover {
-      background-color: #fff;
-      color: #001499;
+      background-color: #ffc40d;
+      color: #ffff;
       transition: opacity 0.3s ease;
-      border: 1px solid #001499;
-    }
-  }
+      /* border: 1px solid #ffc40d; */
+  
 `;
 const ImageSide = styled.div`
   display: flex;

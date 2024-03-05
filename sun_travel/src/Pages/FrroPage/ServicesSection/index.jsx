@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import bg from "../../FrroPage/assets/662.jpg";
 import icon1 from "../assets/registration.svg";
@@ -9,6 +9,7 @@ import icon5 from "../../FrroPage/assets/health-report.svg";
 import icon6 from "../../FrroPage/assets/boarding-pass.svg";
 import icon7 from "../../FrroPage/assets/wedding.svg";
 import icon8 from "../../FrroPage/assets/id-card.svg";
+import ContactUsPage from "../../ContactusPage";
 
 function ServicesSection() {
   const cardData = [
@@ -53,6 +54,11 @@ function ServicesSection() {
       label: "PAN Card & Aadhaar Card for expats",
     },
   ];
+  const [modal, setModal] = useState(false);
+  const handleClick = () => {
+    setModal(true);
+    console.log("clickeddddd");
+  };
   return (
     <Wrapper>
       <MainHeader>
@@ -61,7 +67,7 @@ function ServicesSection() {
           {cardData.map((item) => {
             return (
               <>
-                <section className="cards">
+                <section className="cards" onClick={handleClick}>
                   <a className="card">
                     {/* <img src="" alt="" /> */}
                     <div className="innerCard">
@@ -69,7 +75,7 @@ function ServicesSection() {
                     </div>
                     <div className="card__text">
                       <h3>{item.label}</h3>
-                      <span>Read more</span>
+                      <span>Contact us</span>
                     </div>
                   </a>
                 </section>
@@ -77,6 +83,7 @@ function ServicesSection() {
             );
           })}
         </GridWrapper>
+        {modal ? <ContactUsPage modal={modal} setModal={setModal} /> : ""}
       </MainHeader>
     </Wrapper>
   );

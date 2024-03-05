@@ -1,15 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import bg from "../../HotelBookingPage/assets/luxury-sunset-poolside-relaxation-with-stunning-landscape-view-generated-by-ai.jpg";
 import FmdGoodOutlinedIcon from "@mui/icons-material/FmdGoodOutlined";
 import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
 import StarIcon from "@mui/icons-material/Star";
-import hotel1 from "../assets/3403.jpg"
-import hotel2 from "../assets/5627.jpg"
-import hotel3 from "../assets/150095.jpg"
-import hotel4 from "../assets/2150497260.jpg"
-import hotel5 from "../assets/2150497286.jpg"
-import hotel6 from "../assets/2150683419.jpg"
+import hotel1 from "../assets/3403.jpg";
+import hotel2 from "../assets/5627.jpg";
+import hotel3 from "../assets/150095.jpg";
+import hotel4 from "../assets/2150497260.jpg";
+import hotel5 from "../assets/2150497286.jpg";
+import hotel6 from "../assets/2150683419.jpg";
+import ContactUsPage from "../../ContactusPage";
 
 function HotelCards() {
   const HotelDetails = [
@@ -62,7 +63,10 @@ function HotelCards() {
       image: hotel6,
     },
   ];
-
+  const [modal, setModal] = useState(false);
+  const handleButtonClick=()=>{
+    setModal(true)
+  }
   return (
     <Wrapper>
       {HotelDetails.map((item) => {
@@ -85,8 +89,8 @@ function HotelCards() {
                 <CurrencyRupeeIcon />
                 <p>{item.price}/ 4 nights</p>
               </div>
-              <div className="hero-btn">
-                <a href="#">Book now</a>
+              <div className="hero-btn" onClick={handleButtonClick}>
+                <a className="bookNow">Book now</a>
               </div>
               <div className="hero-rating">
                 <StarIcon />
@@ -96,6 +100,8 @@ function HotelCards() {
           </>
         );
       })}
+            {modal? <ContactUsPage modal={modal}setModal={setModal}/>:""}
+
     </Wrapper>
   );
 }
@@ -112,6 +118,14 @@ const Wrapper = styled.div`
     overflow: hidden;
     box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.3);
     margin: 30px;
+    transition: 0.5s ease;
+    &:hover {
+      .hero-profile-img {
+        transition: 0.5s ease;
+        transform: scale(1.1);
+        cursor: pointer;
+      }
+    }
   }
 
   .hero-profile-img {
@@ -164,10 +178,20 @@ const Wrapper = styled.div`
     bottom: 10%;
     padding: 10px 20px;
     border: 1px solid #fff;
+    transition: 0.5s all;
+    &:hover {
+      background-color: #fff;
+      cursor: pointer;
+
+      a {
+        color: #0b1b4a;
+      }
+    }
   }
 
   .hero-btn a {
     color: #fff;
+    cursor: pointer;
   }
 
   .hero-date {
@@ -190,8 +214,7 @@ const Wrapper = styled.div`
     display: flex;
     align-items: center;
     gap: 2px;
-    svg{
-
+    svg {
       width: 13px;
       height: 13px;
       color: #af9609;

@@ -7,8 +7,15 @@ import AirplaneTicketIcon from "@mui/icons-material/AirplaneTicket";
 import visa from "./assets/visa.svg";
 import { Fade } from "react-awesome-reveal";
 import MHButton from "./MHButton";
+import ContactUsPage from "../Pages/ContactusPage";
+import { useState } from "react";
 
 export default function LandingPageSectionForTrending() {
+  const [modal, setModal] = useState(false);
+  const buttonClicked=()=>{
+    setModal(true)
+    console.log("clickedddd")
+  }
   return (
     <Wrapper>
       <Parallax
@@ -71,7 +78,7 @@ export default function LandingPageSectionForTrending() {
                   </IconDiv>
                 </IconSet>
               </PackageSection>
-              <StyledMhButton buttonName="Explore more" className="oversease" />
+              <StyledMhButton buttonName="Explore more" className="oversease" onClick={buttonClicked} />
               {/* <ButtonSection className="btns">
                 <button>Explore more</button>
               </ButtonSection> */}
@@ -88,6 +95,8 @@ export default function LandingPageSectionForTrending() {
             </div>
           </Fade>
         </SvgIcons>
+        {modal? <ContactUsPage modal={modal}setModal={setModal}/>:""}
+
       </Parallax>
     </Wrapper>
   );

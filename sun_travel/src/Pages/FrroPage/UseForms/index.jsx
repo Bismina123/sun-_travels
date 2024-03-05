@@ -11,7 +11,7 @@ import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { TextField } from "formik-material-ui";
 import styled from "styled-components";
-
+import emailjs from "@emailjs/browser";
 function useFormPage() {
   const initialValues = {
     firstName: "",
@@ -41,8 +41,35 @@ function useFormPage() {
     );
   };
 
-  const onSubmit = (values, { setErrors }) => {
-    console.log(values, "valuesvalues"); // Submit the form if no errors
+  const onSubmit = ( values) => {
+    console.log(values, "valuesvalues");
+    alert("Thank you. I will get back to you as soon as possible.");
+    // e.preventDefault();
+    const message = `New inquiry from ${values.firstName}. User email: ${values.email}. User PhoneNumber:${values.phoneNumber}, User Country:${values.country}. User departureCity:${values.departureCity}. User arrivalCity:${values.arrivalCity}. User comment:${values.comment} `;
+
+    emailjs
+      .send(
+        "service_vi7q9io",
+        "template_6bhsgru",
+        {
+          from_name: values.firstName,
+          to_email: values.email,
+          message: message,
+        },
+        "cYu6EiV1UyKWKu4q-"
+      )
+      .then(
+        () => {
+          alert("Thank you. I will get back to you as soon as possible.");
+
+          // Clear the email state after successful submission
+        },
+        (error) => {
+          console.error(error);
+
+          alert("Ahh, something went wrong. Please try again.");
+        }
+      ); // Submit the form if no errors
   };
 
   return (
@@ -149,16 +176,15 @@ function useFormPage() {
 
 export default useFormPage;
 
-const Wrapper=styled.div`
-
-height: auto;
-background-color: #f2f2f2;
-text-align: center;
-padding: 40px 20px;
-.gridWrapper{
-  text-align: -webkit-center;
-}
-.btnWrapper{
-  display: block;
-}
+const Wrapper = styled.div`
+  height: auto;
+  background-color: #f2f2f2;
+  text-align: center;
+  padding: 40px 20px;
+  .gridWrapper {
+    text-align: -webkit-center;
+  }
+  .btnWrapper {
+    display: block;
+  }
 `;

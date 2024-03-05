@@ -4,7 +4,7 @@ import SearchableDropdown from "../SearchableDropDown";
 import flight from "../assets/updated954.png";
 import europe from "../assets/europe.png";
 import americanVisa from "../assets/americanNew.png";
-import asianVisa from "../assets/asianVisa.jpg";
+import asianVisa from "../assets/asianVisaUpdate.png";
 import austrakianvisa from "../assets/austVisa.png";
 import africanvisa from "../assets/africanVisa.png";
 import { Slide } from "react-awesome-reveal";

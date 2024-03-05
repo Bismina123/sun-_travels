@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import BusinessIcon from "@mui/icons-material/Business";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import SwapHorizIcon from "@mui/icons-material/SwapHoriz";
 import MosqueIcon from "@mui/icons-material/Mosque";
 import MoveingPath from "./MoveingPathHajj";
+import ContactUsPage from "../../ContactusPage";
 function HajjPage() {
   const hajjData = [
     {
@@ -48,6 +49,11 @@ function HajjPage() {
       place: "Majar Al-Kabsh or Al-Muaisim",
     },
   ];
+  const [modal, setModal] = useState(false);
+  const buttonClicked=()=>{
+    setModal(true)
+    console.log("clickedddd")
+  }
   return (
     <Warpper>
       <div className="dridWrapper">
@@ -66,7 +72,7 @@ function HajjPage() {
                               {item.number}
                             </span>
                           </div>
-                          <div className="work-process-content animate__zoomIn animate__animated wow">
+                          <div className="work-process-content animate__zoomIn animate__animated wow"onClick={buttonClicked} >
                             <h3 className="process-title heading4">
                               {item.category}
                             </h3>
@@ -99,6 +105,8 @@ function HajjPage() {
             </div>
           </div>
         </section>
+        {modal? <ContactUsPage modal={modal}setModal={setModal}/>:""}
+
       </div>
       <MoveingPath/>
     </Warpper>

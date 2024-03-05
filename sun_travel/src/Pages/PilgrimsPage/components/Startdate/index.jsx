@@ -6,12 +6,11 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import dayjs from "dayjs";
 import styled from "styled-components";
 
-function Startdate() {
+function Startdate({startDate,setStartDate,endDate,setEndDate}) {
   const minDate = dayjs();
   const today = dayjs();
-  const tomorrow = today.add(1, "day");
-  const [startDate, setStartDate] = useState(dayjs());
-  const [endDate, setEndDate] = useState(dayjs().add(1, "day"));
+  
+ 
   const handleStartDateChange = (date) => {
     setStartDate(date);
     updateDurationCount(date, endDate);
