@@ -32,7 +32,7 @@ export const navItems = [
   {
     id: 3,
     title: "Tours",
-    path: "/tours/1",
+    path: "/tours",
     cName: "nav-item",
     icon: touricon,
   },
@@ -54,7 +54,7 @@ export const navItems = [
   {
     id: 6,
     title: "More",
-    path: "/more",
+    path: "",
     cName: "nav-item more-icon",
     icon: moreIcon,
   },

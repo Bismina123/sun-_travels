@@ -9,7 +9,7 @@ import visaAll from "../assets/visa (2).svg";
 import experience from "../assets/visa (3).svg";
 
 import global from "../assets/global-shipping.svg";
-import location from "../assets/call-center.svg";
+import locations from "../assets/call-center.svg";
 import van from "../assets/delivery-truck.svg";
 import security from "../assets/secure.svg";
 
@@ -230,7 +230,7 @@ function PopularSection() {
                     <div className="textAlign">
                       <img
                         className="toolTipImage"
-                        src={location}
+                        src={locations}
                         alt="global"
                       />
                       <label>End-to-End Visa Assistance</label>

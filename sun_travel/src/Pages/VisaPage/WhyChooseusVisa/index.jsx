@@ -5,7 +5,7 @@ import experience from "../assets/visa (3).svg";
 import up from "../assets/redo.svg";
 import {  Slide } from "react-awesome-reveal";
 import global from "../assets/global-shipping.svg";
-import location from "../assets/call-center.svg";
+import locations from "../assets/call-center.svg";
 import van from "../assets/delivery-truck.svg";
 import security from "../assets/secure.svg";
 function WhyChooseusVisa() {
@@ -66,7 +66,7 @@ function WhyChooseusVisa() {
                     <div className="textAlign">
                       <img
                         className="toolTipImage"
-                        src={location}
+                        src={locations}
                         alt="global"
                       />
                       <label>End-to-End Visa Assistance</label>

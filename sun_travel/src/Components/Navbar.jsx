@@ -58,6 +58,10 @@ export default function Navbar() {
     });
     setActiveLink("/");
   };
+  const handleSubFlightClick = (subFlight) => {
+    navigate(`/Flight/${subFlight.id}`);
+   
+  };
   const handleTourId = (number) => {
     navigate(`/tours/${number}`);
   };
@@ -70,6 +74,10 @@ export default function Navbar() {
     navigate(`/pilgrims/${subVisa.path}`);
     // setActiveLink(`/Visa/${subVisa.pathname}`);
   };
+  const handleSubAttestaionClick = (subAttestation) => {
+    navigate(`/pilgrims/${subAttestation.path}`);
+    // setActiveLink(`/Visa/${subVisa.pathname}`);
+  };
   const location = useLocation();
 
   const [activeLink, setActiveLink] = useState("/");
@@ -79,15 +87,20 @@ export default function Navbar() {
       handleScrollToTop();
       console.log("hellooooo");
     }
+    console.log(path,"pathpath")
     setActiveLink(path);
     // setActivePath(path);
   };
   useEffect(() => {
     handleScrollToTop();
-    setActiveLink(location.pathname);
+    const firstPartOfPathname = location.pathname.split("/")[1];
+console.log(firstPartOfPathname,"firstPartOfPathname")
+setActiveLink("/" + firstPartOfPathname);
+    // setActiveLink(location.pathname);
   }, [activeLink]);
 
-  console.log(location, "activeLink");
+  console.log(activeLink, "activeLink");
+  
   return (
     <MainWrapper>
       <Wrapper>
@@ -136,6 +149,10 @@ export default function Navbar() {
                               to={`/Flight/${subTours.id}`}
                               key={index}
                               className="dropdown-submenu-hover"
+                              onClick={() => {
+                                handleSubFlightClick(subTours);
+                                setActiveLink(item.path); // Set the active link for submenus
+                              }}
                             >
                               {subTours.title}
                             </Link>
@@ -175,7 +192,10 @@ export default function Navbar() {
                             <a
                               key={index}
                               className="dropdown-submenu-hover"
-                              onClick={() => handleTourId(subTours.id)}
+                              onClick={() => {
+                                handleTourId(subTours.id)
+                                setActiveLink(item.path);
+                              }}
                             >
                               {subTours.title}
                             </a>
@@ -262,6 +282,10 @@ export default function Navbar() {
                               to={subTours.path}
                               key={index}
                               className="dropdown-submenu-hover"
+                              onClick={() => {
+                                handleSubAttestaionClick(subTours);
+                                setActiveLink(item.path); // Set the active link for submenus
+                              }}
                             >
                               {subTours.title}
                             </Link>
