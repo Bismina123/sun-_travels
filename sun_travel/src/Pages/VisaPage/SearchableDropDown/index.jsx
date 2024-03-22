@@ -47,6 +47,7 @@ function SearchableDropdown({ location }) {
 
   const styles = {
     tabStyle: {
+      
       "& .MuiStack-root": {},
       "& .MuiOutlinedInput-root": {
         background: "#fff",
@@ -100,7 +101,7 @@ function SearchableDropdown({ location }) {
   }
 
   return (
-    <Stack spacing={2} sx={styles.tabStyle} style={{ width: 500 }}>
+    <Stack spacing={2} sx={styles.tabStyle} className="width-custom">
       <Autocomplete
         freeSolo
         id="free-solo-2-demo"

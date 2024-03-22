@@ -148,13 +148,13 @@ function PopularSection() {
           })}
         </CardSection>
       </Slide>
-      <Slide direction="right">
+       <Slide direction="right">
         <CardSection>
           {secondCountryOptions.map((country) => {
             return (
               <>
                 <div className="card">
-                  {/* <> */}
+                 
                   <div className="imgBox">
                     <img src={country.image} alt="New York Photo" />
                     <div className="img-blur">
@@ -168,17 +168,17 @@ function PopularSection() {
                     <img src={country.flag} alt="flag" />
                     {country.description}
                   </p>
-                  {/* </> */}
+                
                 </div>
               </>
             );
           })}
         </CardSection>
-      </Slide>
+      </Slide> 
       <Fade>
         <ProcessOnVisa />
       </Fade>
-      <WhyChooseUs>
+      {/* <WhyChooseUs>
         <MainSection>
           <Slide direction="left">
             <FirstSection>
@@ -280,7 +280,7 @@ function PopularSection() {
             </SecondSection>
           </Slide>
         </MainSection>
-      </WhyChooseUs>
+      </WhyChooseUs> */}
     </PopuLarDiv>
   );
 }
@@ -302,6 +302,10 @@ const FlightPath = styled.div`
     top: -108px;
     width: 250px;
     right: 450px;
+    @media screen and (min-width: 300px) and (max-width: 991px) {
+      right: 0px;
+      top: -90px;
+  }
   }
   label {
     color: #0b2f6a;
@@ -316,7 +320,48 @@ const PopuLarDiv = styled.div`
   height: auto;
 `;
 const CardSection = styled.div`
-  display: flex;
+  @media screen and (min-width: 300px) and (max-width: 600px) {
+    display: grid;
+    grid-template-columns: auto auto;
+    .card{
+      width: auto !important;
+      height: auto !important;
+      margin: 0 3px !important;
+    }
+    .card .imgBox{
+      width: 138px !important;
+      height: 138px !important;
+    }
+  }
+  @media screen and (min-width: 600px) and (max-width: 1200px) {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    .card{
+      width: auto !important;
+      height: auto !important;
+      margin: 0 3px !important;
+    }
+    .card .imgBox{
+      width: 138px !important;
+      height: 138px !important;
+    }
+  }
+  @media screen and (min-width: 1200px) and (max-width: 1300px) {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    .card{
+      width: auto !important;
+      height: auto !important;
+      margin: 0 5px !important;
+    }
+    .card .imgBox{
+      width: 165px !important;
+      height: 165px !important;
+    }
+  }
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+
   .card {
     display: flex;
     flex-direction: column;

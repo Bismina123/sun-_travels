@@ -28,7 +28,7 @@ function App() {
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       setLoading(false);
-    }, 4000);
+    }, 3000);
 
     return () => clearTimeout(timeoutId);
   }, []);
@@ -37,101 +37,57 @@ function App() {
     <>
       <div>
         <Navbar />
-
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <Suspense fallback={loading ? <Loader /> : null}>
-                <LandingPage />
-              </Suspense>
-            }
-          />
-          <Route
-            path="/tours-inner/:id"
-            element={
-              <Suspense fallback={loading ? <Loader /> : null}>
-                <Tours />
-              </Suspense>
-            }
-          />
-          <Route
-            path="/tours/:number"
-            element={
-              <Suspense fallback={loading ? <Loader /> : null}>
-                <AllTours />
-              </Suspense>
-            }
-          />
-          <Route
-           path="/Visa/*"
-            element={
-              <Visapage/>
-            }
-          />
-           <Route
-           path="/Visa/all/:optionName"
-            element={
-              <AllCountryVisaPAge/>
-            }
-          />
-           <Route
-           path="/Visa/europeanVisa/:optionName"
-            element={
-              <EuropianPage/>
-            }
-          />
-           <Route
-           path="/Visa/americanVisa/:optionName"
-            element={
-              <AmericanPage/>
-            }
-          />
-           <Route
-           path="/Visa/asianVisa/:optionName"
-            element={
-              <AsianPage/>
-            }
-          />
-           <Route
-           path="/Visa/australianVisa/:optionName"
-            element={
-              <AustralianPage/>
-            }
-          />
+        {loading ? (
+          <Loader />
+        ) : (
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
             <Route
-           path="/Visa/africanVisa/:optionName"
-            element={
-              <AfricanPage/>
-            }
-          />
-          <Route
-           path="/pilgrims/*"
-            element={
-              <PilgrimsPage/>
-            }
-          />
-         <Route path="/Flight/:where" element={<FlightPage />} />
-          <Route path="/Atestation" element={<Attestation />} />
-          <Route
-           path="/education"
-            element={
-              <OverseaceEducation/>
-            }
-          />
-           <Route
-           path="/hotel"
-            element={
-              <HotelBooking/>
-            }
-          />
-           <Route
-           path="/frro"
-            element={
-              <FrroPage/>
-            }
-          />
-        </Routes>
+              path="/tours-inner/:id"
+              element={
+                <Suspense fallback={loading ? <Loader /> : null}>
+                  <Tours />
+                </Suspense>
+              }
+            />
+            <Route
+              path="/tours/:number"
+              element={
+                <Suspense fallback={loading ? <Loader /> : null}>
+                  <AllTours />
+                </Suspense>
+              }
+            />
+            <Route path="/Visa/*" element={<Visapage />} />
+            <Route
+              path="/Visa/all/:optionName"
+              element={<AllCountryVisaPAge />}
+            />
+            <Route
+              path="/Visa/europeanVisa/:optionName"
+              element={<EuropianPage />}
+            />
+            <Route
+              path="/Visa/americanVisa/:optionName"
+              element={<AmericanPage />}
+            />
+            <Route path="/Visa/asianVisa/:optionName" element={<AsianPage />} />
+            <Route
+              path="/Visa/australianVisa/:optionName"
+              element={<AustralianPage />}
+            />
+            <Route
+              path="/Visa/africanVisa/:optionName"
+              element={<AfricanPage />}
+            />
+            <Route path="/pilgrims/*" element={<PilgrimsPage />} />
+            <Route path="/Flight/:where" element={<FlightPage />} />
+            <Route path="/Atestation" element={<Attestation />} />
+            <Route path="/education" element={<OverseaceEducation />} />
+            <Route path="/hotel" element={<HotelBooking />} />
+            <Route path="/frro" element={<FrroPage />} />
+          </Routes>
+        )}
       </div>
     </>
   );

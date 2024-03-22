@@ -89,7 +89,12 @@ const Wrapper = styled.div`
     transform: translate(-50%, -50%);
     left: 50%;
   }
-
+  @media screen and (min-width: 300px) and (max-width: 514px) {
+    .earth {
+      width: 132px !important;
+      height: 132px !important;
+    }
+  }
   .earth {
     width: 160px;
     height: 160px;
