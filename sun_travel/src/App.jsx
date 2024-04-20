@@ -56,7 +56,7 @@ function App() {
               path="/tours/:number"
               element={
                 <Suspense fallback={loading ? <Loader /> : null}>
-                  <ToursNewComponent />
+                  <ToursNewPageUpdate />
                 </Suspense>
               }
             />

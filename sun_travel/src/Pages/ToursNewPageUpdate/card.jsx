@@ -56,6 +56,11 @@ const Wrapper = styled.div`
     border-radius: 7px;
     -webkit-mask-image: -webkit-radial-gradient(white, #000);
     border: 1px solid #d6dfe4;
+    transition: transform 0.3s ease-in-out;
+    &:hover img {
+      transition: transform 0.3s ease-in-out;
+      transform: scale(1.1);
+    }
   }
   .sub-text {
     flex-direction: row;
@@ -112,7 +117,7 @@ const Wrapper = styled.div`
       padding: 5px 0px 20px 10px;
     }
     .bookingsection {
-      padding-top: 70px;
+      padding-top: 50px;
       a {
         display: flex;
         justify-content: flex-end;

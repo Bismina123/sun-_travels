@@ -4,11 +4,13 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import SnCard from "./SnCard";
 import { useRef } from "react";
 import styled from "styled-components";
-import TourCard from "../../ToursNewPageUpdate/card";
 import Slider from "react-slick";
+import LeftExperice from "./LeftExperice";
+import RightExperice from "./RightExperice";
+import { tourPackages } from "../toursPackages";
+import TourCard from "../TourCard";
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -43,15 +45,7 @@ function a11yProps(index) {
   };
 }
 
-export default function SnExTab({
-  handleDrag,
-  currentPage,
-  cardsPerPage,
-  dataOne,
-  dataTwo,
-  dataThree,
-  dataFour,
-}) {
+export default function InternarionalDest() {
   const [value, setValue] = React.useState(1);
   // Current carousel page
   const cardContainerRef = useRef(null);
@@ -98,48 +92,38 @@ export default function SnExTab({
           aria-label="basic tabs example"
         >
           <p className="para-title">
-            Exclusive <b>Deals</b>
+            Browse by <b>Destination</b>
           </p>
-          <Tab label="HOT DEAL" {...a11yProps(0)} />
-          <Tab label="INTERNATIONAL HOLIDAYS" {...a11yProps(1)} />
-          <Tab label="DOMESTIC HOLIDAYS" {...a11yProps(2)} />
-          <Tab label="FIXED DEPARTURES" {...a11yProps(3)} />
+          <Tab label="ALL DESTINATIONS" {...a11yProps(0)} />
+          <Tab label="INTERNATIONAL" {...a11yProps(1)} />
+          <Tab label="DOMESTIC" {...a11yProps(2)} />
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={1}>
         <CustomSlider {...settings}>
-          {Array.from({ length: 3 }, (_, index) => (
-            <div key={index} style={{ width: "200px" }}>
-              <TourCard />
-            </div>
-          ))}
+          {tourPackages.map((item) => {
+            if (item.name == "Domestic") {
+              return <TourCard key={item.id} item={item} />;
+            }
+          })}
         </CustomSlider>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={2}>
         <CustomSlider {...settings}>
-          {Array.from({ length: 6 }, (_, index) => (
-            <div key={index} style={{ margin: "10px" }}>
-              <TourCard />
-            </div>
-          ))}
+          {tourPackages.map((item) => {
+            if (item.name == "international") {
+              return <TourCard key={item.id} item={item} />;
+            }
+          })}
         </CustomSlider>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={3}>
         <CustomSlider {...settings}>
-          {Array.from({ length: 6 }, (_, index) => (
-            <div key={index} style={{ margin: "10px" }}>
-              <TourCard />
-            </div>
-          ))}
-        </CustomSlider>
-      </CustomTabPanel>
-      <CustomTabPanel value={value} index={4}>
-        <CustomSlider {...settings}>
-          {Array.from({ length: 6 }, (_, index) => (
-            <div key={index} style={{ margin: "10px" }}>
-              <TourCard />
-            </div>
-          ))}
+          {tourPackages.map((item) => {
+            if (item.name == "Honey Moon") {
+              return <TourCard key={item.id} item={item} />;
+            }
+          })}
         </CustomSlider>
       </CustomTabPanel>
     </Wrapper>
@@ -179,7 +163,7 @@ const Wrapper = styled.div`
 `;
 const CustomSlider = styled(Slider)`
   .slick-slide {
-   > div {
+    > div {
       margin-right: 20px;
     }
   }
