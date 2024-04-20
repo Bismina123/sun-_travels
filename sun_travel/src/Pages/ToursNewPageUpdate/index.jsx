@@ -5,13 +5,14 @@ import ExperienceCard from "./ExperinceCard";
 import InternarionalDest from "./InternationalDest";
 import BestSellingSection from "../../Components/BestSellingSection";
 import UpdatedFooter from "../../Components/UpdatedFooter";
+import styled from "styled-components";
 
 const ToursNewPageUpdate = () => {
   return (
     <>
-      <div style={{ padding: "10px", margin: "5%", background: "#fff" }}>
+      <Div style={{ padding: "10px", margin: "5%", background: "#fff" }}>
         <SnExTab />
-      </div>
+      </Div>
       <div style={{ padding: "10px", margin: "5%", background: "#fff" }}>
         <ExperienceCard />
       </div>
@@ -27,3 +28,8 @@ const ToursNewPageUpdate = () => {
 };
 
 export default ToursNewPageUpdate;
+const Div = styled.div`
+  @media screen and (min-width: 100px) and (max-width: 991px) {
+    margin-top: 70px !important;
+  }
+`;

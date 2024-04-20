@@ -96,6 +96,7 @@ export default function SnExTab({
           value={value}
           onChange={handleChange}
           aria-label="basic tabs example"
+          className="TabMenu"
         >
           <p className="para-title">
             Exclusive <b>Deals</b>
@@ -147,6 +148,14 @@ export default function SnExTab({
 }
 
 const Wrapper = styled.div`
+  .MuiBox-root {
+    overflow-y: auto;
+  }
+  .TabMenu {
+    overflow-y: auto !important;
+    width: 800px;
+  }
+
   width: 100%;
   .para-title {
     font-size: 24px;
@@ -179,7 +188,7 @@ const Wrapper = styled.div`
 `;
 const CustomSlider = styled(Slider)`
   .slick-slide {
-   > div {
+    > div {
       margin-right: 20px;
     }
   }

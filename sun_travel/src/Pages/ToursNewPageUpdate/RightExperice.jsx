@@ -33,6 +33,14 @@ const MainWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
+  @media screen and (min-width: 100px) and (max-width: 991px) {
+    grid-template-columns: 1fr;
+    margin-top: 15px;
+    justify-content: center;
+    .img-container {
+        width: 100% !important;
+    }
+  }
 `;
 const Wrapper = styled.div`
   height: 100%;

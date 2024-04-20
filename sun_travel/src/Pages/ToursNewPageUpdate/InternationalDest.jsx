@@ -90,6 +90,7 @@ export default function InternarionalDest() {
           value={value}
           onChange={handleChange}
           aria-label="basic tabs example"
+          className="TabMenu"
         >
           <p className="para-title">
             Browse by <b>Destination</b>
@@ -131,6 +132,13 @@ export default function InternarionalDest() {
 }
 
 const Wrapper = styled.div`
+  .MuiBox-root {
+    overflow-y: auto;
+  }
+  .TabMenu {
+    overflow-y: auto !important;
+    width: 650px;
+  }
   width: 100%;
   .para-title {
     font-size: 24px;

@@ -97,6 +97,7 @@ export default function ExperienceCard({
           value={value}
           onChange={handleChange}
           aria-label="basic tabs example"
+          className="TabMenu"
         >
           <p className="para-title">
             Browse by <b>Experience</b>
@@ -107,7 +108,7 @@ export default function ExperienceCard({
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={1}>
-        <Box
+        <SubWrapper
           ref={cardContainerRef}
           sx={{
             display: "flex",
@@ -120,7 +121,7 @@ export default function ExperienceCard({
         >
           <LeftExperice />
           <RightExperice />
-        </Box>
+        </SubWrapper>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={2}>
         <CustomSlider {...settings}>
@@ -143,8 +144,19 @@ export default function ExperienceCard({
     </Wrapper>
   );
 }
-
+const SubWrapper = styled(Box)`
+  @media screen and (min-width: 100px) and (max-width: 991px) {
+    display: block !important;
+  }
+`;
 const Wrapper = styled.div`
+  .MuiBox-root {
+    overflow-y: auto;
+  }
+  .TabMenu {
+    overflow-y: auto !important;
+    width: 650px;
+  }
   width: 100%;
   .para-title {
     font-size: 24px;
