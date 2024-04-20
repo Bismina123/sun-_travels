@@ -21,6 +21,8 @@ import EuropianPage from "./Pages/VisaPage/InnerPages/EuropianPage";
 import AsianPage from "./Pages/VisaPage/InnerPages/AsianPage";
 import AfricanPage from "./Pages/VisaPage/InnerPages/AfricanPage";
 import AllCountryVisaPAge from "./Pages/VisaPage/InnerPages/AllContryVisa";
+import { ToursNewComponent } from "./Pages/ToursNewPage";
+import ToursNewPageUpdate from "./Pages/ToursNewPageUpdate";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -54,7 +56,7 @@ function App() {
               path="/tours/:number"
               element={
                 <Suspense fallback={loading ? <Loader /> : null}>
-                  <AllTours />
+                  <ToursNewComponent />
                 </Suspense>
               }
             />
