@@ -178,8 +178,7 @@ function AllCountryVisaPAge() {
           return null; // or any other fallback content
         }
       })}
-
-      {AllVisaPageData.map((data, index) => {
+       {AllVisaPageData.map((data, index) => {
         if (data.name === optionName) {
           return (
             <div key={index}>
@@ -271,7 +270,7 @@ function AllCountryVisaPAge() {
                                   </>
                                 );
                               } else {
-                                return null; // or any other fallback content
+                                return null;
                               }
                             })}
                           </TabContent>
@@ -571,7 +570,7 @@ function AllCountryVisaPAge() {
                         </ContentWrapper>
                       );
                     }
-                    return null; // Make sure to return null for other cases
+                    return null;
                   })}
                 </div>
                 <div
@@ -651,7 +650,8 @@ function AllCountryVisaPAge() {
           return <></>;
         }
       })}
-      <UpdatedFooter />
+
+      {/* <UpdatedFooter /> */}
     </Wrapper>
   );
 }
@@ -755,6 +755,26 @@ const SplittingWrapper = styled.div`
   }
 `;
 const Wrapper = styled.div`
+  @media screen and (min-width: 300px) and (max-width: 1000px) {
+    .indexBanner {
+      height: 600px !important; 
+    }
+    .blacktext{
+      top: 14% !important;
+      transform: none !important;
+      left: 0 !important;
+      text-align: left;
+      
+    }
+    .starting{
+      width: auto !important;
+      top: 30% !important;
+      transform: none !important;
+      left: 0 !important;
+      padding: 0 2.75rem !important;
+      gap: 10px;
+    }
+  }
   height: 100vh;
   /* background-color: yellow; */
   margin-top: 60px;
