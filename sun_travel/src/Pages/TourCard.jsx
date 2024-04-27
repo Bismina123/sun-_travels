@@ -11,12 +11,12 @@ const TourCard = ({ item }) => {
   useEffect(() => {
     setAllData(item);
   }, [item]);
-  const handleClick = (id) => {
-    console.log(id, "id");
-    navigate(`/tours-inner/${id}`);
-  };
+  // const handleClick = (id) => {
+  //   console.log(id, "id");
+  //   navigate(`/tours-inner/${id}`);
+  // };
   return (
-    <CardWrapper onClick={() => handleClick(allData.id)}>
+    <CardWrapper>
       <span className="heading-wrapper">{allData.title}</span>
       <div className="image-wrapper">
         <img src={allData.titleImage} alt={allData.titleImage} />
@@ -64,7 +64,6 @@ const TourCard = ({ item }) => {
 
 export default TourCard;
 const CardWrapper = styled.div`
-
   @media (max-width: 574px) {
     .heading-wrapper {
       font-size: 14px !important;
@@ -100,10 +99,10 @@ const CardWrapper = styled.div`
   background: #fff;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-    transition: 0.4s all ease-in-out;
-    &:hover{
-      transform: translateY(10px);
-    }
+  transition: 0.4s all ease-in-out;
+  &:hover {
+    transform: translateY(10px);
+  }
   .heading-wrapper {
     display: flex;
     justify-content: flex-start;
@@ -120,7 +119,7 @@ const CardWrapper = styled.div`
       position: relative;
       span {
         padding: 4px 10px;
-        background:  #000000;
+        background: #000000;
         border-radius: 13px;
         color: #ffffff;
         position: absolute;

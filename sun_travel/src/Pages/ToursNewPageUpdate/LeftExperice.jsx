@@ -1,41 +1,29 @@
 import { Box } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { tourPackages } from "../toursPackages";
 
-const LeftExperice = () => {
+const LeftExperice = ({ item }) => {
+  const [allData, setAllData] = useState(item);
+  useEffect(() => {
+    setAllData(item);
+  }, [item]);
+  console.log(allData, 'allData')
   return (
-    <Box
-      sx={{
-        border: "1px solid #dadada",
-        padding: "20px",
-        borderRadius: "10px",
-      }}
-    >
-      {Array.from({ length: 5 }, (_, index) => (
-        <>
-          <Wrapper>
-            <div className="imgdiv">
-              <img
-                src="https://images.unsplash.com/photo-1601158935942-52255782d322?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGxvZ298ZW58MHx8MHx8fDA%3D"
-                alt=""
-              />
-            </div>
-            <div className="text-block">
-              <div>
-                <h4>Honeymoon</h4>
-                <span>
-                  Maldives | Dubai | Kerala | Rajasthan | Bali | Georgia | Sri
-                  Lanka | Mauritius |Jordan | Dubai | Egypt | New Zealand |
-                  Europe | Switzerland | Singapore | Turkey | Hong Kong | Fiji |
-                  New Zealand
-                </span>
-              </div>
-              <h3>₹11,025/-</h3>
-            </div>
-          </Wrapper>
-        </>
-      ))}
-    </Box>
+    <>
+      <Wrapper>
+        <div className="imgdiv">
+          <img src={allData.titleImage} alt={allData.titleImage} />
+        </div>
+        <div className="text-block">
+          <div>
+            <h4>{allData.name}</h4>
+            <span>{allData.arrivalDetails}</span>
+          </div>
+          <h3>{allData.price}</h3>
+        </div>
+      </Wrapper>
+    </>
   );
 };
 

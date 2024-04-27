@@ -1,35 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
-const TourCard = () => {
+const TourCard = ({ item }) => {
+  const [allData, setAllData] = useState(item);
+  useEffect(() => {
+    setAllData(item);
+  }, [item]);
   return (
     <>
       <Wrapper>
         <div className="imgsection">
           <picture>
-            <source
-              srcSet="https://s3-ap-southeast-1.amazonaws.com/akbartravelsholidays/deals1713262903rsz_1875374b1381d773e845c21661802b8f5.jpg"
-              type="image/webp"
-            />
-            <source
-              srcSet="https://s3-ap-southeast-1.amazonaws.com/akbartravelsholidays/deals1713262903rsz_1875374b1381d773e845c21661802b8f5.jpg"
-              type="image/jpeg"
-            />
             <img
-              data-src="https://s3-ap-southeast-1.amazonaws.com/akbartravelsholidays/deals1713262903rsz_1875374b1381d773e845c21661802b8f5.jpg"
+              data-src={allData.titleImage}
               alt="deal thumb"
-              src="https://s3-ap-southeast-1.amazonaws.com/akbartravelsholidays/deals1713262903rsz_1875374b1381d773e845c21661802b8f5.jpg"
+              src={allData.titleImage}
             />
           </picture>
         </div>
         <div className="content">
           <div className="sub-text">
-            <span>Flight</span>
+            <span>{allData.arrivalPlans.numberOfFLights} Flight</span>
           </div>
           <div className="height">
             <div className="itemDesc">
-              <h3>Ladakh Delight Ex Delhi</h3>
-              <p>Ladakh Delight Ladakh DelightEx-Delhi@49,999*</p>
+              <h3>{allData.destination}</h3>
+              <p>{allData.title} {allData.stays.numberOfDays} {allData.price}</p>
             </div>
             <div className="bookingsection">
               <span></span>
@@ -47,7 +43,11 @@ export default TourCard;
 
 const Wrapper = styled.div`
   .imgsection {
-    height: calc(100% - 50px);
+    img {
+      object-fit: cover;
+      height: 200px;
+    }
+    height: 200px;
     width: 125px;
     min-width: 125px;
     overflow: hidden;

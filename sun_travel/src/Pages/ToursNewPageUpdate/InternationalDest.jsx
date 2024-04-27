@@ -96,8 +96,8 @@ export default function InternarionalDest() {
             Browse by <b>Destination</b>
           </p>
           <Tab label="ALL DESTINATIONS" {...a11yProps(0)} />
-          <Tab label="INTERNATIONAL" {...a11yProps(1)} />
-          <Tab label="DOMESTIC" {...a11yProps(2)} />
+          <Tab label="Europe" {...a11yProps(1)} />
+          <Tab label="Asia" {...a11yProps(2)} />
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={1}>
@@ -132,9 +132,6 @@ export default function InternarionalDest() {
 }
 
 const Wrapper = styled.div`
-  .MuiBox-root {
-    overflow-y: auto;
-  }
   .TabMenu {
     overflow-y: auto !important;
     width: 650px;
