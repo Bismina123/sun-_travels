@@ -262,9 +262,16 @@ function PilgrimsPage() {
         }
       );
   };
+  const scrollToTop = () => {
+    var element = document.getElementById("detailMainWrapper");
+    element.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+  useEffect(() => {
+    scrollToTop();
+  }, [value]);
   return (
     <>
-      <PilgrimsWrapper>
+      <PilgrimsWrapper id="detailMainWrapper">
         <MainWrapper>
           <img src={backImage} alt={backImage} />
           <div className="boxShadow"></div>
@@ -441,9 +448,7 @@ const BackgroundWrapper = styled.div`
   @media only screen and (min-width: 300px) and (max-width: 514px) {
     top: 47%;
   }
-  @media only screen and (min-width: 514px) and (max-width: 1000px) {
-    top: 45%;
-  }
+ 
   .gridSeperatingWrapper {
     display: grid;
     grid-template-columns: auto auto auto;

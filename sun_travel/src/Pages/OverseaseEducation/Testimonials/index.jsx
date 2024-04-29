@@ -74,6 +74,19 @@ const Font300 = 300;
 const Font500 = 500;
 const Font700 = 700;
 const Warpper = styled.div`
+@media screen and (min-width: 300px) and (max-width: 1000px) {
+  .testimonial-wrapper{
+    width:80% !important;
+    left: 55% !important;
+  }
+  main .slider .slide1{
+    display: block !important;
+    width: 100% !important;
+  }
+  main .slider .slide1 .testimonial blockquote{
+    margin-top: 70px;
+  }
+}
   /* background-color: red; */
   /* width: 100%; */
   /* height: 80vh; */

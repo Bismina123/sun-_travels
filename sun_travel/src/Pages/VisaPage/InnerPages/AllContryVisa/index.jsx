@@ -178,12 +178,14 @@ function AllCountryVisaPAge() {
           return null; // or any other fallback content
         }
       })}
-       {AllVisaPageData.map((data, index) => {
+      {AllVisaPageData.map((data, index) => {
         if (data.name === optionName) {
           return (
-            <div key={index}>
+            <div key={index} className="">
               <Tabs
-                className={scrolling ? "navbar sticky" : "navbar"}
+                className={
+                  scrolling ? "navbar sticky navbar2" : "navbar navbar2"
+                }
                 id="navbar"
               >
                 {contentRefs.map((ref, index) => {
@@ -604,7 +606,7 @@ function AllCountryVisaPAge() {
                           <input
                             type="email"
                             id="email"
-                            name="email"
+                            name="email"  
                             value={formData.email}
                             onChange={handleChange}
                             placeholder="Email"
@@ -651,7 +653,7 @@ function AllCountryVisaPAge() {
         }
       })}
 
-      {/* <UpdatedFooter /> */}
+      <UpdatedFooter />
     </Wrapper>
   );
 }
@@ -757,22 +759,72 @@ const SplittingWrapper = styled.div`
 const Wrapper = styled.div`
   @media screen and (min-width: 300px) and (max-width: 1000px) {
     .indexBanner {
-      height: 600px !important; 
+      height: 480px !important;
     }
-    .blacktext{
+    .blacktext {
       top: 14% !important;
       transform: none !important;
       left: 0 !important;
       text-align: left;
-      
     }
-    .starting{
+    .starting {
       width: auto !important;
       top: 30% !important;
       transform: none !important;
       left: 0 !important;
       padding: 0 2.75rem !important;
       gap: 10px;
+    }
+    .navbar2 {
+      display: none !important;
+    }
+    .splittingScreen {
+      display: block !important;
+      position: unset;
+    }
+    .carsInnerSplitting {
+      grid-template-columns: auto !important;
+    }
+    .content3 {
+      margin-left: 0px !important;
+    }
+    .stageWrapper {
+      padding: 0px !important;
+    }
+    .arrowright {
+      display: none;
+    }
+    .arrowright03 {
+      display: none;
+    }
+    .arrowright05 {
+      display: none;
+    }
+    .arrowLeft {
+      display: none;
+    }
+    .arrowright04 {
+      display: none;
+    }
+    .arrowright06 {
+      display: none;
+    }
+    .second {
+      left: 3% !important;
+    }
+    .fourth {
+      left: 3% !important;
+    }
+    .sixth {
+      left: 3% !important;
+    }
+    .rightSideForContactUs{
+      display: none;
+    }
+    .rightSideStick{
+      position: unset;
+      width: 100%;
+      height: auto;
     }
   }
   height: 100vh;
