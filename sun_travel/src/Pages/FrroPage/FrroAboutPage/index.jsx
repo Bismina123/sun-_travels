@@ -53,6 +53,11 @@ function FrroAboutPage() {
 
 export default FrroAboutPage;
 const Wrapper = styled.div`
+ @media screen and (min-width: 320px) and (max-width: 1000px) {
+  .gridWrapper{
+    grid-template-columns: 1fr !important;
+  }
+ }
   height: auto;
   background-color: #fff;
   background-image: url(${bg});

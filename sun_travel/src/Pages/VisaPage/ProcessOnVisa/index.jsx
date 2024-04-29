@@ -8,7 +8,7 @@ import down from "../assets/arrow-right.svg";
 import up from "../assets/redo.svg";
 function ProcessOnVisa() {
   return (
-   <StagesWrapper>
+   <StagesWrapper className='stageWrapper'>
           <label>Seamless Steps: Applying with Sun, Effortlessly Easy!</label>
           <StageDiv>
             <Submit>

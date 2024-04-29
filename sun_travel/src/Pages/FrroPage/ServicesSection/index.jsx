@@ -63,7 +63,7 @@ function ServicesSection() {
     <Wrapper>
       <MainHeader>
         <h1>FRRO Services</h1>
-        <GridWrapper>
+        <GridWrapper className="gridWrapper">
           {cardData.map((item) => {
             return (
               <>
@@ -91,6 +91,87 @@ function ServicesSection() {
 
 export default ServicesSection;
 const MainHeader = styled.div`
+ @media screen and (min-width: 320px) and (max-width: 520px) {
+  .gridWrapper {
+      grid-template-columns: auto auto;
+    }
+    .card{
+      width: 185px !important;
+      height: 230px !important;
+      position: relative !important;
+      padding: 1rem !important;
+    }
+    .card__text h3{
+      font-size: 17px !important;
+    }
+    .card__text{
+      padding: 0px !important;
+    }
+ }
+  @media screen and (min-width: 520px) and (max-width: 600px) {
+    .gridWrapper {
+      grid-template-columns: auto auto;
+    }
+    .card{
+      width: 230px !important;
+      height: 230px !important;
+      position: relative !important;
+    }
+    .card__text h3{
+      font-size: 17px !important;
+    }
+    .card__text{
+      padding: 0px !important;
+    }
+  }
+  @media screen and (min-width: 600px) and (max-width: 850px) {
+    .gridWrapper {
+      grid-template-columns: auto auto ;
+    }
+    .card{
+      width: 280px !important;
+      height: 230px !important;
+      position: relative !important;
+    }
+    .card__text h3{
+      font-size: 17px !important;
+    }
+    .card__text{
+      padding: 0px !important;
+    }
+  }
+  @media screen and (min-width: 850px) and (max-width: 1000px) {
+    .gridWrapper {
+      grid-template-columns: auto auto auto auto ;
+    }
+    .card{
+      width: 195px !important;
+      height: 230px !important;
+      position: relative !important;
+    }
+    .card__text h3{
+      font-size: 17px !important;
+    }
+    .card__text{
+      padding: 0px !important;
+    }
+  }
+  @media screen and (min-width: 1000px) and (max-width: 1200px) {
+    .gridWrapper {
+      grid-template-columns: auto auto auto auto ;
+    }
+    .card{
+      width: 205px !important;
+      height: 230px !important;
+      position: relative !important;
+    }
+    .card__text h3{
+      font-size: 17px !important;
+    }
+    .card__text{
+      padding: 0px !important;
+    }
+  }
   padding-top: 70px;
   text-align: center;
   h1 {

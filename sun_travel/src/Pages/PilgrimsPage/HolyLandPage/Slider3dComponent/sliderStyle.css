@@ -1,3 +1,18 @@
+
+@media screen and (min-width: 300px) and (max-width: 1000px) {
+  .slide{
+    width: auto !important;
+    height: auto !important;
+  }
+  .imageWrapper{
+    height: 180px !important;
+    width: 280px !important;
+  }
+  .slideC{
+    width:100% !important;
+  }
+}
+
 .slideC {
   position: relative;
   perspective: 1000px;
@@ -69,8 +84,8 @@
   /* filter: invert(1); */
 }
 .imageWrapper {
-  height: 200px !important;
-  width: 350px !important;
+  height: 200px;
+  width: 350px ;
   overflow: hidden !important;
   position: absolute;
   transform: translate(-50%, -50%);

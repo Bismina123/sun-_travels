@@ -82,6 +82,11 @@ export default HolyLandPage
 const Warpper=styled.div`
 height: 100vh;
 background-color: #000;
+@media screen and (min-width: 300px) and (max-width: 1000px) {
+  .center {
+    padding: 10px ;
+  }
+}
 .center {
   display: flex;
   justify-content: center;

@@ -18,8 +18,24 @@ function SlickPage() {
     slidesToShow: 3,
     slidesToScroll: 3,
     dots: true,
-    autoplay: true,
+    // autoplay: true,
     autoplaySpeed: 2000,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        },
+      },
+      {
+        breakpoint: 400,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
   const dataOfCountries = [
     {
@@ -100,20 +116,25 @@ function SlickPage() {
           );
         })}
       </Slider>
-      
     </Wrapper>
   );
 }
 
 export default SlickPage;
 const Wrapper = styled.div`
+  @media screen and (min-width: 414px) and (max-width: 768px) {
+    .slickCard {
+      height: 480px !important;
+    }
+  }
   background: url(${bg}) repeat fixed 100%;
   background-size: cover;
   color: aliceblue;
   /* height: auto; */
+  padding: 25px;
   height: 100vh;
   .slick_wrapper {
-    padding: 30px 30px;
+    /* padding: 30px 30px; */
   }
   .slickCard {
     background-color: white;

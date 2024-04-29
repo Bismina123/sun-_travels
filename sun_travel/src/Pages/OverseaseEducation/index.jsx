@@ -15,10 +15,10 @@ import ContactUsPage from "../ContactusPage";
 const OverseasEducation = () => {
   const [modal, setModal] = useState(false);
 
-  const buttonClicked=()=>{
-    setModal(true)
-    console.log("clickedddd")
-  }
+  const buttonClicked = () => {
+    setModal(true);
+    console.log("clickedddd");
+  };
   const scrollToTop = () => {
     var element = document.getElementById("detailMainWrapper");
     element.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -46,8 +46,7 @@ const OverseasEducation = () => {
                   </button>
                 </div>
               </p>
-              {modal? <ContactUsPage modal={modal}setModal={setModal}/>:""}
-
+              {modal ? <ContactUsPage modal={modal} setModal={setModal} /> : ""}
             </div>
 
             <br />
@@ -142,7 +141,7 @@ const OverseasEducation = () => {
               </div>
             </div>
           </div>
-        </section>
+        </section> 
 
         <section className="parallax-1">
           <div className="">
@@ -160,11 +159,10 @@ const OverseasEducation = () => {
 
             <br />
           </div>
-        </section>
+        </section> 
       </section>
 
-      <section className="2">
-        {/* <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit...</h3> */}
+      <section className="2 class2">
         <SlickPage />
         <section className="parallax-2">
           <TestiMonials />
@@ -178,7 +176,31 @@ const OverseasEducation = () => {
 export default OverseasEducation;
 
 const Wrapper = styled.div`
+
   height: 100vh;
+  @media screen and (min-width: 300px) and (max-width: 1000px) {
+    .parallax-inner {
+      grid-template-columns: auto !important;
+    }
+    .h1Tag {
+      padding: 60px 30px 30px 30px !important;
+    }
+    .parallax {
+      height: auto !important;
+    }
+    .servicesWrapper {
+      padding: 10px 20px !important;
+    }
+    .mainWrapper {
+      grid-template-columns: auto !important;
+    }
+    .mainWrapper2 {
+      grid-template-columns: auto !important;
+    }
+    .parallax-2{
+      height: 100vh !important;
+    }
+  }
   /* margin-top: 100px; */
   .logoMarqueeSection {
     /* padding-top: 50vh;
