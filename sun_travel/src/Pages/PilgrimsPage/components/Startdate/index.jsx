@@ -59,6 +59,9 @@ function Startdate({startDate,setStartDate,endDate,setEndDate}) {
 
 export default Startdate;
 const DateWrapper = styled.div`
+ @media only screen and (min-width: 300px) and (max-width: 1000px) {
+  justify-content: normal;
+    }
   display: grid;
   grid-template-columns: auto auto auto;
   justify-content: center;
