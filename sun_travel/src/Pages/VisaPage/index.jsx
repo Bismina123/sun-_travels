@@ -23,7 +23,7 @@ function Visapage() {
     <VisaWrapper id="detailVisaWrapper">
      <BannerSection  location={location ? location.pathname : ""}/>
       <PopularSection/>
-     {/* <UpdatedFooter/>  */}
+     <UpdatedFooter/> 
     </VisaWrapper>
   );
 }

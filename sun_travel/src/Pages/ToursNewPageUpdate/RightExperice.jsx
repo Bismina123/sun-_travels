@@ -27,7 +27,6 @@ const RightExperice = ({ item }) => {
 };
 
 export default RightExperice;
-
 const Wrapper = styled.div`
   height: 100%;
   .img-container {

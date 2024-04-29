@@ -89,7 +89,7 @@ function HotelBooking() {
           </div>
         </div>
       </div>
-      {/* */}
+
       <HotelCards />
       <UpdatedFooter />
     </Wrapper>
@@ -98,6 +98,35 @@ function HotelBooking() {
 
 export default HotelBooking;
 const Wrapper = styled.div`
+
+  @media screen and (min-width: 300px) and (max-width: 1000px) {
+    /* height: auto !important; */
+    .mainWrapper{
+      display: block !important;
+    }
+    .bannerTop{
+      grid-template-columns: 1fr !important;
+    }
+    .secondHalf{
+      display: none !important;
+    }
+    .searchableDiv{
+      top: 77% !important;
+      border-radius: 3px !important;
+      .fieldSet{
+        display: block !important;
+      }
+      .buttons{
+        width: 100%;
+        margin-top: 15px;
+      }
+    }
+    /* .bannerTop .secondHalf img {
+      width: 100% !important;
+      height: 100% !important;
+      border-radius: 0% !important;
+    } */
+  }
   padding-top: 100px;
   height: 100vh;
   background-image: linear-gradient(-20deg, #0c0c6d, #5c82e7);

@@ -10,6 +10,7 @@ import userAdd6 from "../../assets/thumb6.svg";
 import userAdd7 from "../../assets/calendar7.svg";
 import userAdd8 from "../../assets/favourite-file8.svg";
 function MoveingPath() {
+  
   return (
     <Wrapper>
       <div style={{ background: "#23282d" }}>
@@ -21,10 +22,7 @@ function MoveingPath() {
         <SecomdHalf>
           <div className="container">
             <div className="step-wrapper move-line">
-              <article
-                className="linestep linestep1"
-                style={{ left: "45%", top: "-2%" }}
-              >
+              <article className="linestep linestep1 artcle1">
                 <span className="num"> 1</span>
                 <div className="home-steps-container">
                   <img src={userAdd} alt="" width={"92px"} height={"92px"} />
@@ -32,10 +30,7 @@ function MoveingPath() {
                 </div>
               </article>
 
-              <article
-                className="linestep linestep2"
-                style={{ right: "10%", top: "-1%" }}
-              >
+              <article className="linestep linestep2 artcle2">
                 <span className="num"> 2</span>
                 <div className="home-steps-container">
                   <img src={userAdd2} alt="" width={"92px"} height={"92px"} />
@@ -44,8 +39,8 @@ function MoveingPath() {
               </article>
 
               <article
-                className="linestep linestep3"
-                style={{ left: "70%", top: "44%" }}
+                className="linestep linestep3 artcle3"
+                // style={{ left: "70%", top: "44%" }}
               >
                 <span className="num"> 3</span>
                 <div className="home-steps-container">
@@ -55,8 +50,8 @@ function MoveingPath() {
               </article>
 
               <article
-                className="linestep linestep4"
-                style={{ left: "38%", top: " 44.5%" }}
+                className="linestep linestep4 artcle4"
+                // style={{ left: "38%", top: " 44.5%" }}
               >
                 <span className="num">4</span>
                 <div className="home-steps-container">
@@ -66,8 +61,8 @@ function MoveingPath() {
               </article>
 
               <article
-                className="linestep linestep5"
-                style={{ left: "7.5%", top: "44%" }}
+                className="linestep linestep5 artcle5"
+                // style={{ left: "7.5%", top: "44%" }}
               >
                 <span className="num"> 5</span>
                 <div className="home-steps-container">
@@ -77,8 +72,8 @@ function MoveingPath() {
               </article>
 
               <article
-                className="linestep linestep6"
-                style={{ left: "21%", top: "93%" }}
+                className="linestep linestep6 artcle6"
+                // style={{ left: "21%", top: "93%" }}
               >
                 <span className="num"> 6</span>
                 <div className="home-steps-container">
@@ -88,8 +83,8 @@ function MoveingPath() {
               </article>
 
               <article
-                className="linestep linestep7"
-                style={{ left: "53%", top: "93%" }}
+                className="linestep linestep7 artcle7"
+                // style={{ left: "53%", top: "93%" }}
               >
                 <span className="num"> 7</span>
                 <div className="home-steps-container">
@@ -99,8 +94,8 @@ function MoveingPath() {
               </article>
 
               <article
-                className="linestep linestep8"
-                style={{ left: "86%", top: "93%" }}
+                className="linestep linestep8 artcle8"
+                // style={{ left: "86%", top: "93%" }}
               >
                 <span className="num"> 8</span>
                 <div className="home-steps-container">
@@ -113,6 +108,7 @@ function MoveingPath() {
                 width="100%"
                 viewBox="0 0 1156 608"
                 xmlns="http://www.w3.org/2000/svg"
+                className="svgHiding"
               >
                 <path
                   className="path"
@@ -135,7 +131,57 @@ function MoveingPath() {
 export default MoveingPath;
 const Wrapper = styled.div`
   height: auto;
+
   background: #23282d;
+  .artcle1 {
+    left: 45%;
+    top: -2%;
+  }
+  .artcle2 {
+    right: 10%;
+    top: -1%;
+  }
+  .artcle3 {
+    right: 70%;
+    top: 44%;
+  }
+  .artcle4 {
+    right: 38%;
+    top: 44.5%;
+  }
+  .artcle5 {
+    right: 7.5%;
+    top: 44%;
+  }
+  .artcle6 {
+    right: 21%;
+    top: 93%;
+  }
+  .artcle7 {
+    right: 53%;
+    top: 93%;
+  }
+  .artcle8 {
+    right: 86%;
+    top: 93%;
+  }
+  @media only screen and (min-width: 514px) and (max-width: 1000px) {
+    height: 100vh;
+    .svgHiding {
+      display: none;
+    }
+    .step-wrapper {
+      display: grid;
+      grid-template-columns: auto auto;
+      position: unset;
+      justify-content: space-around;
+      margin: 0px !important;
+      padding: 30px 0px;
+    }
+    .linestep {
+      position: unset !important;
+    }
+  }
 `;
 const SecomdHalf = styled.div`
   .home-steps-container {
@@ -149,9 +195,9 @@ const SecomdHalf = styled.div`
     padding-right: 1rem !important;
     padding-left: 1rem !important;
     text-align: -webkit-center;
-    margin-top:10px ;
-    .main-title{
-        color: #b49164;
+    margin-top: 10px;
+    .main-title {
+      color: #b49164;
     }
   }
   background-color: #23282d;
@@ -167,6 +213,7 @@ const SecomdHalf = styled.div`
   .step-wrapper {
     margin: 30px;
     margin-bottom: 245px;
+
     position: relative;
   }
 

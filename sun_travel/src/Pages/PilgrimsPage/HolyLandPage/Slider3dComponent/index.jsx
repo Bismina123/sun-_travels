@@ -22,34 +22,39 @@ const ThreedCarousel= (props) => {
   const prev = () => activeSlide > 0 && setactiveSlide(activeSlide - 1);
 
   const getStyles = (index) => {
+    const mediaQuery = window.matchMedia('(min-width: 300px) and (max-width: 1000px)');
+    const isResponsive = mediaQuery.matches;
     if (activeSlide === index)
       return {
         opacity: 1,
+        
         transform: "translateX(0px) translateZ(0px) rotateY(0deg)",
-        zIndex: 10
+        zIndex: 10,
+     
       };
     else if (activeSlide - 1 === index)
       return {
         opacity: 1,
-        transform: "translateX(-240px) translateZ(-400px) rotateY(35deg)",
-        zIndex: 9
+        transform: isResponsive?"translateX(-24px) translateZ(-400px) rotateY(35deg)":"translateX(-240px) translateZ(-400px) rotateY(35deg)",
+        zIndex: 9,
       };
     else if (activeSlide + 1 === index)
       return {
         opacity: 1,
-        transform: "translateX(240px) translateZ(-400px) rotateY(-35deg)",
-        zIndex: 9
+        transform:  isResponsive ? "translateX(42px) translateZ(-400px) rotateY(0deg)" :"translateX(240px) translateZ(-400px) rotateY(-35deg)",
+        zIndex: 9, 
+        
       };
     else if (activeSlide - 2 === index)
       return {
         opacity: 1,
-        transform: "translateX(-480px) translateZ(-500px) rotateY(35deg)",
+        transform:isResponsive?"translateX(-63px) translateZ(-500px) rotateY(35deg)": "translateX(-480px) translateZ(-500px) rotateY(35deg)",
         zIndex: 8
       };
     else if (activeSlide + 2 === index)
       return {
         opacity: 1,
-        transform: "translateX(480px) translateZ(-500px) rotateY(-35deg)",
+        transform: isResponsive ? "translateX(62px) translateZ(-500px) rotateY(-35deg)": "translateX(480px) translateZ(-500px) rotateY(-35deg)",
         zIndex: 8
       };
     else if (index < activeSlide - 2)

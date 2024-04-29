@@ -80,7 +80,7 @@ function PopularSection() {
     { name: "Qatar", description: "Asia", image: qatar, flag: qatarFlag },
     { name: "Oman", description: "Asia", image: oman, flag: omanFlag },
   ];
-  const handleClick = (e,name) => {
+  const handleClick = (e, name) => {
     if (location.pathname === "/Visa/europeanVisa") {
       navigate(`/Visa/all/${name}`);
     } else if (location.pathname === "/Visa/australianVisa") {
@@ -95,9 +95,9 @@ function PopularSection() {
       navigate(`/Visa/all/${name}`);
     }
 
-    console.log(name,location.pathname,"handleClicked");
+    console.log(name, location.pathname, "handleClicked");
   };
-  const handleClickSecond=(e,name)=>{
+  const handleClickSecond = (e, name) => {
     if (location.pathname === "/Visa/europeanVisa") {
       navigate(`/Visa/all/${name}`);
     } else if (location.pathname === "/Visa/australianVisa") {
@@ -111,7 +111,7 @@ function PopularSection() {
     } else if (location.pathname === "/Visa") {
       navigate(`/Visa/all/${name}`);
     }
-  }
+  };
   return (
     <PopuLarDiv>
       {/* <label >Popular Destinations</label> */}
@@ -121,20 +121,23 @@ function PopularSection() {
       </FlightPath>
       <Slide direction="left">
         <CardSection>
-          {fistCountryOptions.map((country) => {
+          {fistCountryOptions.map((country, index) => {
             return (
               <>
-                <div className="card">
+                <div className="card" key={country.name}>
                   {/* <> */}
                   <div className="imgBox">
                     <img src={country.image} alt="New York Photo" />
                     <div className="img-blur">
-                      <div  onClick={(e) => handleClick(e, country.name)}>
+                      <div onClick={(e) => handleClick(e, country.name)}>
                         Enquire now &gt;
                       </div>
                     </div>
                   </div>
-                  <h2 className="title" onClick={(e) => handleClick(e, country.name)}>
+                  <h2
+                    className="title"
+                    onClick={(e) => handleClick(e, country.name)}
+                  >
                     <label>{country.name}</label>
                   </h2>
                   <p className="text">
@@ -148,40 +151,53 @@ function PopularSection() {
           })}
         </CardSection>
       </Slide>
-       <Slide direction="right">
+      <Slide direction="right">
         <CardSection>
-          {secondCountryOptions.map((country) => {
+          {secondCountryOptions.map((country, index) => {
             return (
               <>
-                <div className="card">
-                 
+                <div className="card" key={index}>
                   <div className="imgBox">
                     <img src={country.image} alt="New York Photo" />
                     <div className="img-blur">
-                      <div onClick={(e) => handleClickSecond(e, "United Arab Emirates")}>Enqure now &gt;</div>
+                      <div
+                        onClick={(e) =>
+                          handleClickSecond(e, "United Arab Emirates")
+                        }
+                      >
+                        Enqure now &gt;
+                      </div>
                     </div>
                   </div>
-                  <h2 className="title" onClick={(e) => handleClickSecond(e, "United Arab Emirates")}>
-                    <label >{country.name}</label>
+                  <h2
+                    className="title"
+                    onClick={(e) =>
+                      handleClickSecond(e, "United Arab Emirates")
+                    }
+                  >
+                    <label>{country.name}</label>
                   </h2>
                   <p className="text">
                     <img src={country.flag} alt="flag" />
                     {country.description}
                   </p>
-                
                 </div>
               </>
             );
           })}
         </CardSection>
-      </Slide> 
+      </Slide>
       <Fade>
         <ProcessOnVisa />
       </Fade>
-      {/* <WhyChooseUs>
-        <MainSection>
+      <WhyChooseUs>
+        <MainSection className="mainSection">
           <Slide direction="left">
             <FirstSection>
+              <div className="choose1 firstChoose">
+                {" "}
+                <span>Why</span> <br /> Choose Us?
+              </div>
               <div className="dotted">
                 <div>
                   <img className="arrowright" src={up} alt={up} />
@@ -267,7 +283,7 @@ function PopularSection() {
             </FirstSection>
           </Slide>
           <Slide direction="right">
-            <SecondSection>
+            <SecondSection className="secondEction">
               <div className="choose">
                 {" "}
                 <span>Why</span> <br /> Choose Us?
@@ -280,7 +296,7 @@ function PopularSection() {
             </SecondSection>
           </Slide>
         </MainSection>
-      </WhyChooseUs> */}
+      </WhyChooseUs>
     </PopuLarDiv>
   );
 }
@@ -305,7 +321,7 @@ const FlightPath = styled.div`
     @media screen and (min-width: 300px) and (max-width: 991px) {
       right: 0px;
       top: -90px;
-  }
+    }
   }
   label {
     color: #0b2f6a;
@@ -323,12 +339,12 @@ const CardSection = styled.div`
   @media screen and (min-width: 300px) and (max-width: 600px) {
     display: grid;
     grid-template-columns: auto auto;
-    .card{
+    .card {
       width: auto !important;
       height: auto !important;
       margin: 0 3px !important;
     }
-    .card .imgBox{
+    .card .imgBox {
       width: 138px !important;
       height: 138px !important;
     }
@@ -336,12 +352,12 @@ const CardSection = styled.div`
   @media screen and (min-width: 600px) and (max-width: 1200px) {
     display: grid;
     grid-template-columns: auto auto auto;
-    .card{
+    .card {
       width: auto !important;
       height: auto !important;
       margin: 0 3px !important;
     }
-    .card .imgBox{
+    .card .imgBox {
       width: 138px !important;
       height: 138px !important;
     }
@@ -349,12 +365,12 @@ const CardSection = styled.div`
   @media screen and (min-width: 1200px) and (max-width: 1300px) {
     display: grid;
     grid-template-columns: auto auto auto auto auto;
-    .card{
+    .card {
       width: auto !important;
       height: auto !important;
       margin: 0 5px !important;
     }
-    .card .imgBox{
+    .card .imgBox {
       width: 165px !important;
       height: 165px !important;
     }
@@ -471,6 +487,30 @@ const CardSection = styled.div`
 const WhyChooseUs = styled.div`
   margin-top: 15px;
   /* padding: 10px 25px; */
+  @media screen and (min-width: 300px) and (max-width: 900px) {
+    .secondEction {
+      display: none;
+    }
+    .mainSection {
+      grid-template-columns: 100% !important;
+    }
+    .choose1 {
+      /* margin-top: 51px; */
+      font-size: 25px;
+      font-weight: bolder;
+      line-height: 29px;
+      letter-spacing: 2px;
+      padding: 10px 0px;
+      position: absolute;
+      transform: translateX(-50%);
+      left: 50%;
+      top: 0px;
+      display: block !important;
+    }
+  }
+  .firstChoose {
+    display: none;
+  }
 `;
 const MainSection = styled.div`
   /* display: grid; */
@@ -506,18 +546,36 @@ const FirstSection = styled.div`
     position: absolute;
     top: 12%;
     filter: invert(1) drop-shadow(2px 3px 1px black);
+    @media screen and (min-width: 300px) and (max-width: 514px) {
+      width: 35px;
+    }
+    @media screen and (min-width: 514px) and (max-width: 600px) {
+      width: 40px;
+    }
   }
   .arrowright03 {
     width: 50px;
     position: absolute;
     top: 38%;
     filter: invert(1) drop-shadow(2px 3px 1px black);
+    @media screen and (min-width: 300px) and (max-width: 514px) {
+      width: 35px;
+    }
+    @media screen and (min-width: 514px) and (max-width: 600px) {
+      width: 40px;
+    }
   }
   .arrowright05 {
     width: 50px;
     position: absolute;
     top: 64%;
     filter: invert(1) drop-shadow(2px 3px 1px black);
+    @media screen and (min-width: 300px) and (max-width: 514px) {
+      width: 35px;
+    }
+    @media screen and (min-width: 514px) and (max-width: 600px) {
+      width: 40px;
+    }
   }
   .arrowLeft {
     transform: rotate(180deg);
@@ -526,6 +584,20 @@ const FirstSection = styled.div`
     top: 25%;
     left: 45%;
     filter: invert(1) drop-shadow(2px 3px 1px black);
+    @media screen and (min-width: 300px) and (max-width: 514px) {
+      width: 35px;
+      left: 40%;
+    }
+    @media screen and (min-width: 514px) and (max-width: 600px) {
+      width: 40px;
+      left: 40%;
+    }
+    @media screen and (min-width: 600px) and (max-width: 1200px) {
+      left: 42%;
+    }
+    @media screen and (min-width: 1200px) and (max-width: 1350px) {
+      left: 44%;
+    }
   }
   .arrowright04 {
     width: 50px;
@@ -534,6 +606,20 @@ const FirstSection = styled.div`
     left: 45%;
     filter: invert(1) drop-shadow(2px 3px 1px black);
     transform: rotate(180deg);
+    @media screen and (min-width: 300px) and (max-width: 514px) {
+      width: 35px;
+      left: 40%;
+    }
+    @media screen and (min-width: 514px) and (max-width: 600px) {
+      width: 40px;
+      left: 40%;
+    }
+    @media screen and (min-width: 600px) and (max-width: 1200px) {
+      left: 42%;
+    }
+    @media screen and (min-width: 1200px) and (max-width: 1350px) {
+      left: 44%;
+    }
   }
   .arrowright06 {
     width: 50px;
@@ -542,10 +628,39 @@ const FirstSection = styled.div`
     left: 45%;
     filter: invert(1) drop-shadow(2px 3px 1px black);
     transform: rotate(180deg);
+    @media screen and (min-width: 300px) and (max-width: 514px) {
+      width: 35px;
+      left: 40%;
+    }
+    @media screen and (min-width: 514px) and (max-width: 600px) {
+      width: 40px;
+      left: 40%;
+    }
+    @media screen and (min-width: 600px) and (max-width: 1200px) {
+      left: 42%;
+    }
+    @media screen and (min-width: 1200px) and (max-width: 1350px) {
+      left: 44%;
+    }
   }
   .second {
     left: 30% !important;
     top: 25%;
+    @media screen and (min-width: 300px) and (max-width: 514px) {
+      left: 3% !important;
+    }
+    @media screen and (min-width: 514px) and (max-width: 600px) {
+      left: 5% !important;
+    }
+    @media screen and (min-width: 600px) and (max-width: 900px) {
+      left: 11% !important;
+    }
+    @media screen and (min-width: 900px) and (max-width: 1200px) {
+      left: 13% !important;
+    }
+    @media screen and (min-width: 1200px) and (max-width: 1350px) {
+      left: 25% !important;
+    }
   }
   .third {
     top: 38%;
@@ -553,6 +668,21 @@ const FirstSection = styled.div`
   .fourth {
     left: 30% !important;
     top: 51%;
+    @media screen and (min-width: 300px) and (max-width: 514px) {
+      left: 3% !important;
+    }
+    @media screen and (min-width: 514px) and (max-width: 600px) {
+      left: 5% !important;
+    }
+    @media screen and (min-width: 600px) and (max-width: 900px) {
+      left: 11% !important;
+    }
+    @media screen and (min-width: 900px) and (max-width: 1200px) {
+      left: 13% !important;
+    }
+    @media screen and (min-width: 1200px) and (max-width: 1350px) {
+      left: 25% !important;
+    }
   }
   .fifth {
     top: 64%;
@@ -560,9 +690,42 @@ const FirstSection = styled.div`
   .sixth {
     left: 30% !important;
     top: 77%;
+    @media screen and (min-width: 300px) and (max-width: 514px) {
+      left: 3% !important;
+    }
+    @media screen and (min-width: 514px) and (max-width: 600px) {
+      left: 5% !important;
+    }
+    @media screen and (min-width: 600px) and (max-width: 900px) {
+      left: 11% !important;
+    }
+    @media screen and (min-width: 900px) and (max-width: 1200px) {
+      left: 13% !important;
+    }
+    @media screen and (min-width: 1200px) and (max-width: 1350px) {
+      left: 25% !important;
+    }
   }
 `;
 const ChatBox = styled.div`
+  @media screen and (min-width: 300px) and (max-width: 514px) {
+    width: 135px;
+    left: 60%;
+  }
+  @media screen and (min-width: 514px) and (max-width: 600px) {
+    width: 155px;
+    left: 60%;
+  }
+  @media screen and (min-width: 600px) and (max-width: 900px) {
+    width: 180px;
+    left: 60%;
+  }
+  @media screen and (min-width: 900px) and (max-width: 1200px) {
+    left: 60%;
+  }
+  @media screen and (min-width: 1200px) and (max-width: 1350px) {
+    left: 57%;
+  }
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -580,6 +743,9 @@ const ChatBox = styled.div`
     font-size: 25px;
     color: #fff;
     font-weight: bolder;
+    @media screen and (min-width: 300px) and (max-width: 900px) {
+      font-size: 20px;
+    }
   }
   label {
     font-size: 14px;
@@ -604,9 +770,12 @@ const SecondSection = styled.div`
     border-left: solid 46px transparent;
     border-bottom: solid 282px #bdb6b6;
     left: 118px;
-    top: 52%;
+    top: 274%;
     z-index: 1;
     transform: translate(-53%, -50%);
+    @media screen and (min-width: 900px) and (max-width: 1300px) {
+      top: 180%;
+    }
   }
   .image {
     position: absolute;
@@ -615,7 +784,11 @@ const SecondSection = styled.div`
     z-index: 2;
     left: -251px;
     transform: translate(-5%, -50%);
-    top: 50%;
+    top: 260%;
+    @media screen and (min-width: 900px) and (max-width: 1300px) {
+      top: 195%;
+      left: -180px;
+    }
   }
   span {
     color: #0b2f6a;
