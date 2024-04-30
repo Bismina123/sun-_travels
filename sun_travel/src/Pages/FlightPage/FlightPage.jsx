@@ -355,7 +355,7 @@ const MianWrapper = styled.div`
     }
   }
   @media (max-width: 990px) {
-    height: 100%;
+    height: 100vh;
     .content-wrapper {
       .input-feild {
         width: auto !important;
@@ -374,6 +374,9 @@ const MianWrapper = styled.div`
   background-image: url("https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
   .content-wrapper {
     .top-header-content {
+      @media (max-width: 990px) {
+        padding-top: 40px;
+      }
       position: absolute;
       transform: translate(-50%, -50%);
       left: 50%;
@@ -388,6 +391,9 @@ const MianWrapper = styled.div`
     }
     .btn-wrapper {
       button {
+        @media (max-width: 990px) {
+          margin: -7px;
+        }
         margin: -45px;
         border-radius: 34px;
         font-size: 22px;
@@ -442,6 +448,9 @@ const MianWrapper = styled.div`
           font-size: 14px;
         }
         .from-card {
+          @media (max-width: 990px) {
+            padding: 8px 15px;
+          }
           display: inline-flex;
           align-items: center;
           gap: 5px;

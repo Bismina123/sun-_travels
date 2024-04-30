@@ -108,6 +108,12 @@ function HotelCards() {
 
 export default HotelCards;
 const Wrapper = styled.div`
+ @media only screen and (min-width: 300px) and (max-width: 500px) {
+  .hero{
+    width: auto !important;
+    min-width: auto !important;
+  }
+    }
   .hero {
     display: inline-block;
     position: relative;
