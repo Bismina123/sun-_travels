@@ -5,8 +5,10 @@ import refund from "../assets/4947544-removebg-preview.png";
 import safety from "../assets/images-removebg-preview.png";
 import Slider from "react-slick";
 import { useNavigate } from "react-router-dom";
+import { tourPackages } from "../Pages/toursPackages";
 
-export default function BestSellingSection() {
+export default function BestSellingSection(isShowContent) {
+  console.log(isShowContent, "isShowContent");
   const HotSellTourDetails = [
     {
       id: 1,
@@ -141,10 +143,10 @@ export default function BestSellingSection() {
     },
   ];
   const navigate = useNavigate();
-const handletriggerToTourSection=()=>{
-  navigate("/tours/1")
-  console.log("triggeredto")
-}
+  const handletriggerToTourSection = () => {
+    navigate("/tours/1");
+    console.log("triggeredto");
+  };
   var settings = {
     dots: false,
     infinite: true,
@@ -222,73 +224,133 @@ const handletriggerToTourSection=()=>{
       <div className="viewdetails" onClick={handletriggerToTourSection}>
         View All Bundles
       </div>
-
-      <CustomSlider {...settings}>
-        {HotSellTourDetails?.map((item) => {
-          return (
-            <>
-              <ContentWrapper className="other-ContentWrapper"onClick={handletriggerToTourSection}>
-                <div className="cardWrapper" >
-                  <ImgStyle
-                    className="image-style"
-                    src={item.image}
-                    alt={item.image}
-                  />
-                  <div className="boxShadow"></div>
-                </div>
-                <TagImage
-                  className={
-                    item.offerType === "our best seller" ? "greenTag" : "redTag"
-                  }
-                >
-                  {item.offerType}
-                </TagImage>
-                <TextWrapper className="text-style">
-                  <div style={{ textAlign: "left" }}>
-                    <AnnouncemnetTitle className="announcemnetTitle">
-                      {item.place}
-                    </AnnouncemnetTitle>
-
-                    <div className="hidingData">
-                      <DateDiv>{item.description}</DateDiv>
-
-                      <DayWrapper className="day">
-                        <ion-icon name="today-outline"></ion-icon>
-                        <div>{item.days}</div>
-                        <MoneyWrapper>
-                          <FaIndianRupeeSign style={{ color: "red" }} />
-                          <div>{item.price}</div>
-                        </MoneyWrapper>
-                      </DayWrapper>
-                    </div>
-                  </div>
-                </TextWrapper>
-              </ContentWrapper>
-            </>
-          );
-        })}
-      </CustomSlider>
-
-      <GauranteeDiv>
-        <GridContainer>
-          {assuredData.map((item, id) => {
+      {isShowContent.isShowContent ? (
+        <CustomSlider {...settings}>
+          {tourPackages?.map((item) => {
             return (
               <>
-                <GridItem key={id}>
-                  <BestSelling>
-                    <div className="imageContainer">
-                      <img src={item.image} alt="" />
+                <ContentWrapper
+                  className="other-ContentWrapper"
+                  onClick={handletriggerToTourSection}
+                >
+                  <div className="cardWrapper">
+                    <ImgStyle
+                      className="image-style"
+                      src={item.titleImage}
+                      alt={item.titleImage}
+                    />
+                    <div className="boxShadow"></div>
+                  </div>
+                  <TagImage
+                    className={
+                      item.offerType === "our best seller"
+                        ? "greenTag"
+                        : "redTag"
+                    }
+                  >
+                    {item.visa}
+                  </TagImage>
+                  <TextWrapper className="text-style">
+                    <div style={{ textAlign: "left" }}>
+                      <AnnouncemnetTitle className="announcemnetTitle">
+                        {item.destination}
+                      </AnnouncemnetTitle>
+
+                      <div className="hidingData">
+                        <DateDiv>{item.title}</DateDiv>
+
+                        <DayWrapper className="day">
+                          <ion-icon name="today-outline"></ion-icon>
+                          <div>{item.duration}</div>
+                          <MoneyWrapper>
+                            <FaIndianRupeeSign style={{ color: "red" }} />
+                            <div>{item.price}</div>
+                          </MoneyWrapper>
+                        </DayWrapper>
+                      </div>
                     </div>
-                    <span></span>
-                    <label className="margin-l">{item.title}</label>
-                    <p className="margin-l">{item.description}</p>
-                  </BestSelling>
-                </GridItem>
+                  </TextWrapper>
+                </ContentWrapper>
               </>
             );
           })}
-        </GridContainer>
-      </GauranteeDiv>
+        </CustomSlider>
+      ) : (
+        <CustomSlider {...settings}>
+          {HotSellTourDetails?.map((item) => {
+            return (
+              <>
+                <ContentWrapper
+                  className="other-ContentWrapper"
+                  onClick={handletriggerToTourSection}
+                >
+                  <div className="cardWrapper">
+                    <ImgStyle
+                      className="image-style"
+                      src={item.image}
+                      alt={item.image}
+                    />
+                    <div className="boxShadow"></div>
+                  </div>
+                  <TagImage
+                    className={
+                      item.offerType === "our best seller"
+                        ? "greenTag"
+                        : "redTag"
+                    }
+                  >
+                    {item.offerType}
+                  </TagImage>
+                  <TextWrapper className="text-style">
+                    <div style={{ textAlign: "left" }}>
+                      <AnnouncemnetTitle className="announcemnetTitle">
+                        {item.place}
+                      </AnnouncemnetTitle>
+
+                      <div className="hidingData">
+                        <DateDiv>{item.description}</DateDiv>
+
+                        <DayWrapper className="day">
+                          <ion-icon name="today-outline"></ion-icon>
+                          <div>{item.days}</div>
+                          <MoneyWrapper>
+                            <FaIndianRupeeSign style={{ color: "red" }} />
+                            <div>{item.price}</div>
+                          </MoneyWrapper>
+                        </DayWrapper>
+                      </div>
+                    </div>
+                  </TextWrapper>
+                </ContentWrapper>
+              </>
+            );
+          })}
+        </CustomSlider>
+      )}
+
+      {!isShowContent.isShowContent && (
+        <GauranteeDiv>
+          <GridContainer>
+            {assuredData.map((item, id) => {
+              return (
+                <>
+                  <GridItem key={id}>
+                    <BestSelling>
+                      <div className="imageContainer">
+                        <img src={item.image} alt="" />
+                      </div>
+                      <span></span>
+                      <label className="margin-l">{item.title}</label>
+                      <p className="margin-l">{item.description}</p>
+                    </BestSelling>
+                  </GridItem>
+                </>
+              );
+            })}
+          </GridContainer>
+        </GauranteeDiv>
+      )}
+
       {/* <CardView className="otherNews-CardView"></CardView> */}
     </Wrapper>
   );
@@ -399,15 +461,15 @@ const Wrapper = styled.div`
   /* background-color: red; */
   height: auto;
   position: relative;
-  .viewdetails{
+  .viewdetails {
     text-align: left;
     padding: 10px 30px;
     font-size: 20px;
-    color:#001499 ;
+    color: #001499;
     text-decoration: underline;
     cursor: pointer;
-    &:hover{
-      color:blue;
+    &:hover {
+      color: blue;
     }
   }
 `;
@@ -568,7 +630,7 @@ const BestSelling = styled.div`
     }
     @media only screen and (min-width: 900px) and (max-width: 1024px) {
       padding-left: 56px;
-  }
+    }
   }
   label {
     font-size: 20px;
@@ -584,7 +646,7 @@ const BestSelling = styled.div`
     }
     @media only screen and (min-width: 900px) and (max-width: 1024px) {
       font-size: 15px;
-  }
+    }
   }
   p {
     padding-top: 6px;

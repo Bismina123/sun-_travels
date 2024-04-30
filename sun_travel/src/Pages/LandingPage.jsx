@@ -67,7 +67,7 @@ export default function LandingPage() {
       <HeroSection scrollF={scrollToBestSelling} />
       <BannerSlider bestSellingRef={bestSellingRef} />
 
-      <BestSellingSection />
+      <BestSellingSection isShowContent={false} />
       <TravelBanner />
       <TabsExclusive />
       <Scene />

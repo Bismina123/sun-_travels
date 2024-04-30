@@ -9,6 +9,7 @@ import { useRef } from "react";
 import styled from "styled-components";
 import TourCard from "../../ToursNewPageUpdate/card";
 import Slider from "react-slick";
+import { tourPackages } from "../../toursPackages";
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -104,43 +105,41 @@ export default function SnExTab({
           <Tab label="HOT DEAL" {...a11yProps(0)} />
           <Tab label="INTERNATIONAL HOLIDAYS" {...a11yProps(1)} />
           <Tab label="DOMESTIC HOLIDAYS" {...a11yProps(2)} />
-          <Tab label="FIXED DEPARTURES" {...a11yProps(3)} />
+          <Tab label="HONEYMOON" {...a11yProps(3)} />
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={1}>
         <CustomSlider {...settings}>
-          {Array.from({ length: 3 }, (_, index) => (
-            <div key={index} style={{ width: "200px" }}>
-              <TourCard />
-            </div>
-          ))}
+          {tourPackages.map((item) => {
+            return <TourCard key={item.id} item={item} />;
+          })}
         </CustomSlider>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={2}>
         <CustomSlider {...settings}>
-          {Array.from({ length: 6 }, (_, index) => (
-            <div key={index} style={{ margin: "10px" }}>
-              <TourCard />
-            </div>
-          ))}
+          {tourPackages.map((item) => {
+            if (item.name == "international") {
+              return <TourCard key={item.id} item={item} />;
+            }
+          })}
         </CustomSlider>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={3}>
         <CustomSlider {...settings}>
-          {Array.from({ length: 6 }, (_, index) => (
-            <div key={index} style={{ margin: "10px" }}>
-              <TourCard />
-            </div>
-          ))}
+          {tourPackages.map((item) => {
+            if (item.name == "Domestic") {
+              return <TourCard key={item.id} item={item} />;
+            }
+          })}
         </CustomSlider>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={4}>
         <CustomSlider {...settings}>
-          {Array.from({ length: 6 }, (_, index) => (
-            <div key={index} style={{ margin: "10px" }}>
-              <TourCard />
-            </div>
-          ))}
+          {tourPackages.map((item) => {
+            if (item.name == "Honey Moon") {
+              return <TourCard key={item.id} item={item} />;
+            }
+          })}
         </CustomSlider>
       </CustomTabPanel>
     </Wrapper>
@@ -148,9 +147,6 @@ export default function SnExTab({
 }
 
 const Wrapper = styled.div`
-  .MuiBox-root {
-    overflow-y: auto;
-  }
   .TabMenu {
     overflow-y: auto !important;
     width: 800px;
@@ -161,7 +157,7 @@ const Wrapper = styled.div`
     font-size: 24px;
   }
   .carousel-container {
-    overflow-x: scroll;
+    overflow-x: hidden;
     scroll-snap-type: x mandatory;
     transition: transform 0.3s ease-in-out; /* Add transition properties */
   }

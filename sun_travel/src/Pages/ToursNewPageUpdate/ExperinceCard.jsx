@@ -10,6 +10,7 @@ import TourCard from "./card";
 import Slider from "react-slick";
 import LeftExperice from "./LeftExperice";
 import RightExperice from "./RightExperice";
+import { tourPackages } from "../toursPackages";
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -44,15 +45,7 @@ function a11yProps(index) {
   };
 }
 
-export default function ExperienceCard({
-  handleDrag,
-  currentPage,
-  cardsPerPage,
-  dataOne,
-  dataTwo,
-  dataThree,
-  dataFour,
-}) {
+export default function ExperienceCard() {
   const [value, setValue] = React.useState(1);
   // Current carousel page
   const cardContainerRef = useRef(null);
@@ -119,31 +112,113 @@ export default function ExperienceCard({
             overflow: "visible",
           }}
         >
-          <LeftExperice />
-          <RightExperice />
+          <Box
+            sx={{
+              border: "1px solid #dadada",
+              padding: "20px",
+              borderRadius: "10px",
+              height: "500px",
+            }}
+          >
+            {tourPackages.map((item) => {
+              return <LeftExperice key={item.id} item={item} />;
+            })}
+          </Box>
+          <MainWrapper>
+            {tourPackages
+              .map((item) => {
+                return <RightExperice item={item} key={item.id} />;
+              })
+              .slice(9)}
+          </MainWrapper>
         </SubWrapper>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={2}>
-        <CustomSlider {...settings}>
-          {Array.from({ length: 6 }, (_, index) => (
-            <div key={index} style={{ margin: "10px" }}>
-              <TourCard />
-            </div>
-          ))}
-        </CustomSlider>
+        <SubWrapper
+          ref={cardContainerRef}
+          sx={{
+            display: "flex",
+            gap: "20px",
+            overflowX: "scroll",
+            scrollSnapType: "x mandatory",
+            className: "carousel-container",
+            overflow: "visible",
+          }}
+        >
+          <Box
+            sx={{
+              border: "1px solid #dadada",
+              padding: "20px",
+              borderRadius: "10px",
+              height: "500px",
+            }}
+          >
+            {tourPackages.map((item) => {
+              if (item.name == "international") {
+                return <LeftExperice key={item.id} item={item} />;
+              }
+            })}
+          </Box>
+          <MainWrapper>
+            {tourPackages.map((item) => {
+              if (item.name == "international") {
+                return <RightExperice item={item} key={item.id} />;
+              }
+            })}
+          </MainWrapper>
+        </SubWrapper>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={3}>
-        <CustomSlider {...settings}>
-          {Array.from({ length: 6 }, (_, index) => (
-            <div key={index} style={{ margin: "10px" }}>
-              <TourCard />
-            </div>
-          ))}
-        </CustomSlider>
+        <SubWrapper
+          ref={cardContainerRef}
+          sx={{
+            display: "flex",
+            gap: "20px",
+            overflowX: "scroll",
+            scrollSnapType: "x mandatory",
+            className: "carousel-container",
+            overflow: "visible",
+          }}
+        >
+          <Box
+            sx={{
+              border: "1px solid #dadada",
+              padding: "20px",
+              borderRadius: "10px",
+              height: "500px",
+            }}
+          >
+            {tourPackages.map((item) => {
+              if (item.name == "Domestic") {
+                return <LeftExperice key={item.id} item={item} />;
+              }
+            })}
+          </Box>
+          <MainWrapper>
+            {tourPackages.map((item) => {
+              if (item.name == "Domestic") {
+                return <RightExperice item={item} key={item.id} />;
+              }
+            })}
+          </MainWrapper>
+        </SubWrapper>
       </CustomTabPanel>
     </Wrapper>
   );
 }
+const MainWrapper = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  @media screen and (min-width: 100px) and (max-width: 991px) {
+    grid-template-columns: 1fr;
+    margin-top: 15px;
+    justify-content: center;
+    .img-container {
+      width: 100% !important;
+    }
+  }
+`;
 const SubWrapper = styled(Box)`
   @media screen and (min-width: 100px) and (max-width: 991px) {
     display: block !important;

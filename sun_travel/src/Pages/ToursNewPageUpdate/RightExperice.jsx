@@ -1,47 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { tourPackages } from "../toursPackages";
 
-const RightExperice = () => {
+const RightExperice = ({ item }) => {
+  const [allData, setAllData] = useState(item);
+  useEffect(() => {
+    setAllData(item);
+  }, [item]);
   return (
-    <MainWrapper>
-      {Array.from({ length: 6 }, (_, index) => (
-        <>
-          <Wrapper>
-            <div className="img-container">
-              <img
-                src="https://media.istockphoto.com/id/1499457607/photo/chatbot-icon-on-the-digital-futuristic-blue-wavy-background-3d-illustration-with-bright.webp?b=1&s=170667a&w=0&k=20&c=5l_9RROnj5sQm8hL2z8BoAjifMqbw18-UzYFZo7cg38="
-                alt=""
-              />
-              <div className="contentsection">
-                <h5 className="swiperClass">
-                  Turkey
-                  <span className="swiperClass">
-                    Starting @<strong>₹ 87,983</strong>
-                  </span>
-                </h5>
-              </div>
-            </div>
-          </Wrapper>
-        </>
-      ))}
-    </MainWrapper>
+    <>
+      <Wrapper>
+        <div className="img-container">
+          <img src={allData.titleImage} alt={allData.titleImage} />
+          <div className="contentsection">
+            <h5 className="swiperClass">
+              {allData.destination}
+              <span className="swiperClass">
+                Starting @<strong>{allData.price}</strong>
+              </span>
+            </h5>
+          </div>
+        </div>
+      </Wrapper>
+    </>
   );
 };
 
 export default RightExperice;
-const MainWrapper = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  @media screen and (min-width: 100px) and (max-width: 991px) {
-    grid-template-columns: 1fr;
-    margin-top: 15px;
-    justify-content: center;
-    .img-container {
-        width: 100% !important;
-    }
-  }
-`;
 const Wrapper = styled.div`
   height: 100%;
   .img-container {
