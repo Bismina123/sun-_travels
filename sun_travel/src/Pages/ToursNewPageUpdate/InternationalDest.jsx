@@ -57,7 +57,7 @@ export default function InternarionalDest() {
     dots: false,
     infinite: true,
     speed: 800,
-    slidesToShow: 3,
+    slidesToShow: 4,
     slidesToScroll: 3,
     arrows: true,
     autoplay: true,
@@ -100,8 +100,8 @@ export default function InternarionalDest() {
           <Tab label="Asia" {...a11yProps(2)} />
         </Tabs>
       </Box>
-      <CustomTabPanel value={value} index={1}>
-        <CustomSlider {...settings}>
+      <CustomTabPanel value={value} index={1}> 
+        <CustomSlider {...settings}  >
           {tourPackages.map((item) => {
             if (item.name == "Domestic") {
               return <TourCard key={item.id} item={item} />;
@@ -132,9 +132,14 @@ export default function InternarionalDest() {
 }
 
 const Wrapper = styled.div`
+ .slick-slider{
+    display: flex !important;
+    justify-content: center !important;
+
+  }
   .TabMenu {
     overflow-y: auto !important;
-    width: 650px;
+    width: auto;
   }
   width: 100%;
   .para-title {
@@ -154,6 +159,10 @@ const Wrapper = styled.div`
   }
   .MuiTabs-flexContainer {
     align-items: baseline;
+    @media screen and (min-width: 300px) and (max-width: 1000px) {
+      display: block !important;
+    }
+    
   }
   .Mui-selected {
     color: #d32f2f !important;
@@ -167,9 +176,15 @@ const Wrapper = styled.div`
   }
 `;
 const CustomSlider = styled(Slider)`
+.slick-track{
+  width: auto !important;
+}
   .slick-slide {
+    width: 325px !important;
+    padding: 10px;
     > div {
-      margin-right: 20px;
+      /* margin-right: 20px; */
     }
   }
+ 
 `;

@@ -18,7 +18,7 @@ function SlickPage() {
     slidesToShow: 3,
     slidesToScroll: 3,
     dots: true,
-    // autoplay: true,
+    autoplay: true,
     autoplaySpeed: 2000,
     responsive: [
       {

@@ -216,14 +216,27 @@ export default function BestSellingSection(isShowContent) {
   };
   return (
     <Wrapper>
-      <HotSellingSection>
-        <div className="headingLabel">
-          <span>Hot-Selling </span>Tour Bundles
-        </div>
-      </HotSellingSection>
-      <div className="viewdetails" onClick={handletriggerToTourSection}>
-        View All Bundles
-      </div>
+      {isShowContent.isShowContent ? (
+        <HotSellingSection1>
+          <div className="headingLabel">
+            <span>Explore Paradise: </span>Unveil Our Special Tour Packages!
+          </div>
+        </HotSellingSection1>
+      ) : (
+        <>
+        
+        <HotSellingSection>
+          <div className="headingLabel">
+            <span>Hot-Selling </span>Tour Bundles
+          </div>
+        </HotSellingSection>
+         <div className="viewdetails" onClick={handletriggerToTourSection}>
+         View All Bundles
+       </div>
+        </>
+      )}
+
+     
       {isShowContent.isShowContent ? (
         <CustomSlider {...settings}>
           {tourPackages?.map((item) => {
@@ -483,10 +496,27 @@ const AnnouncemnetTitle = styled.div`
   /* text-align: left; */
   padding-left: 10px;
 `;
+const HotSellingSection1 = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Lato";
+  font-size: 24px;
+  text-align: left;
+  padding: 0px 20px 20px 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  span {
+    font-weight: 700;
+    color: #001499;
+  }
+`;
+
 const HotSellingSection = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
   /* margin: 10px; */
 
   .headingLabel {

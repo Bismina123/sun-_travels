@@ -8,21 +8,23 @@ import UpdatedFooter from "../../Components/UpdatedFooter";
 import styled from "styled-components";
 
 const ToursNewPageUpdate = () => {
-  const [isShowContent] = useState(true)
+  const [isShowContent] = useState(true);
   return (
     <>
-      <Div style={{ padding: "10px", margin: "5%", background: "#fff" }}>
+      <Div
+        style={{ padding: "10px", margin: "5% 5%  0% 5% ", background: "#fff" }}
+      >
         <SnExTab />
       </Div>
-      <div style={{ padding: "10px", margin: "5%", background: "#fff" }}>
+      <div style={{ padding: "10px", margin: "2% 5% 5% 5%", background: "#fff" }}>
         <ExperienceCard />
       </div>
-      <div style={{ padding: "10px", margin: "5%", background: "#fff" }}>
+      <div style={{ padding: "10px", margin: "2%", background: "#fff" }}>
         <InternarionalDest />
       </div>
-      <div style={{ padding: "10px", margin: "5%", background: "#fff" }}>
+       <div style={{ padding: "10px", margin: "0% 0% 5% 0%", background: "#fff" }}> 
         <BestSellingSection isShowContent={isShowContent} />
-      </div>
+      </div> 
       <UpdatedFooter />
     </>
   );

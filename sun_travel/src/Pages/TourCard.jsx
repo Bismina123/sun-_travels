@@ -16,7 +16,7 @@ const TourCard = ({ item }) => {
   //   navigate(`/tours-inner/${id}`);
   // };
   return (
-    <CardWrapper>
+    <CardWrapper >
       <span className="heading-wrapper">{allData.title}</span>
       <div className="image-wrapper">
         <img src={allData.titleImage} alt={allData.titleImage} />
@@ -94,8 +94,8 @@ const CardWrapper = styled.div`
   margin-bottom: 30px;
   position: relative;
   max-width: 350px;
-  height: 450px;
-  border-radius: 12px;
+  height: auto;
+  border-radius: 4px;
   background: #fff;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
@@ -120,7 +120,7 @@ const CardWrapper = styled.div`
       span {
         padding: 4px 10px;
         background: #000000;
-        border-radius: 13px;
+        border-radius: 5px;
         color: #ffffff;
         position: absolute;
         margin-top: -15px;
@@ -132,7 +132,7 @@ const CardWrapper = styled.div`
     }
     padding: 10px;
     img {
-      border-radius: 10px;
+      border-radius: 4px;
       height: 200px;
       width: 100%;
       object-fit: cover;

@@ -29,9 +29,24 @@ const LeftExperice = ({ item }) => {
 
 export default LeftExperice;
 const Wrapper = styled.div`
+ @media screen and (min-width: 300px) and (max-width: 700px) {
+      display: block !important;
+    }
   display: flex;
   align-items: center;
+  padding-bottom: 11px;
+  transition: all .5s ease;
+  &:hover{
+    background: linear-gradient(to right, #fff, rgba(138, 138, 138, .1));
+    .imgdiv img{
+      border-radius: 50%;
+      transition: all .5s ease;
+    }
+  }
   .text-block {
+    @media screen and (min-width: 300px) and (max-width: 1000px) {
+      display: block !important;
+    }
     text-align: left;
     display: flex;
     padding: 10px;
@@ -67,12 +82,16 @@ const Wrapper = styled.div`
     }
   }
   .imgdiv {
-    height: 40px;
-    width: 50px;
+    height: 85px;
+    width: 120px;
     border-radius: 10px;
+    /* background: red; */
+    display: flex;
+    align-items: center;
     img {
-      border-radius: 10px;
+      border-radius: 6px;
       object-fit: cover;
+      height: 100%;
     }
   }
 `;

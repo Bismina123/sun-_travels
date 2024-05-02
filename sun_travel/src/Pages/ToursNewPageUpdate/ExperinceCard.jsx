@@ -225,16 +225,55 @@ const SubWrapper = styled(Box)`
   }
 `;
 const Wrapper = styled.div`
+@media screen and (min-width: 300px) and (max-width: 760px) {
+    .MuiTabs-scroller {
+      overflow-x: scroll !important;
+    }
+    .MuiTabs-scroller ::-webkit-scrollbar {
+      width: 5px !important;
+    }
+    .MuiTabs-scroller ::-webkit-scrollbar-track {
+      background: #dce4fe !important;
+      border-radius: 10px !important; 
+    }
+    .MuiTabs-scroller ::-webkit-scrollbar-thumb {
+      width: 9px !important;
+      background: #213065 !important;
+      border-radius: 10px ;
+    }
+
+    .TabMenu {
+      padding: 15px 0px;
+    }
+    .MuiTabs-indicator {
+      bottom: 10px;
+    }
+  }
+
   .MuiBox-root {
     overflow-y: auto;
   }
+  .MuiBox-root ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  .MuiBox-root::-webkit-scrollbar-track {
+    background: #dce4fe;
+    border-radius: 10px;
+  }
+  .MuiBox-root ::-webkit-scrollbar-thumb {
+    width: 5px;
+    height: 4px;
+    background: #213065;
+    border-radius: 10px;
+  }
   .TabMenu {
     overflow-y: auto !important;
-    width: 650px;
+    width: auto;
   }
   width: 100%;
   .para-title {
-    font-size: 24px;
+    font-size: 30px;
   }
   .carousel-container {
     overflow-x: scroll;
@@ -242,7 +281,7 @@ const Wrapper = styled.div`
     transition: transform 0.3s ease-in-out; /* Add transition properties */
   }
   .MuiButtonBase-root {
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 700;
     text-transform: uppercase;
     color: #000;
@@ -250,6 +289,9 @@ const Wrapper = styled.div`
   }
   .MuiTabs-flexContainer {
     align-items: baseline;
+    @media screen and (min-width: 300px) and (max-width: 1000px) {
+      display: block !important;
+    }
   }
   .Mui-selected {
     color: #d32f2f !important;
