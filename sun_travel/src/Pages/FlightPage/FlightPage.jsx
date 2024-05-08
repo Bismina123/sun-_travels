@@ -50,7 +50,6 @@ const FlightPage = () => {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-      latlng: "40.714224,-73.961452",
   useEffect(() => {
     scrollToTop();
     setValue(where);
