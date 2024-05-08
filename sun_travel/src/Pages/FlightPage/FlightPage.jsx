@@ -40,7 +40,6 @@ const FlightPage = () => {
   };
   const [date, setDate] = React.useState(dayjs("2022-04-17"));
   const [cityOptions, setCityOptions] = useState([]);
-  console.log(cityOptions, "cityOptions");
   const [value, setValue] = useState(where);
   const [fromCity, setFromCity] = useState(""); // Add state for 'From' city
   const [toCity, setToCity] = useState(""); // Add state for 'To' city
@@ -51,30 +50,10 @@ const FlightPage = () => {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-  const options = {
-    method: "GET",
-    url: "https://map-geocoding.p.rapidapi.com/json",
-    params: {
       latlng: "40.714224,-73.961452",
-    },
-    headers: {
-      "X-RapidAPI-Key": "8eca2e085emshc596b09d08b948ap1c14abjsn328c8d45f34a",
-      "X-RapidAPI-Host": "map-geocoding.p.rapidapi.com",
-    },
-  };
-  const fetchCityOptions = async () => {
-    try {
-      const response = await axios.request(options);
-      setCityOptions(response);
-    } catch (error) {
-      console.error("Error fetching city options:", error);
-    }
-  };
-
   useEffect(() => {
     scrollToTop();
     setValue(where);
-    fetchCityOptions();
   }, [where]);
 
   const handleSearchClick = (e) => {
