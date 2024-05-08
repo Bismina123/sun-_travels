@@ -19,6 +19,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import { useParams } from "react-router-dom";
 import UpdatedFooter from "../../Components/UpdatedFooter";
 import emailjs from "@emailjs/browser";
+import axios from "axios";
+import LocationInput from "../HotelBookingPage/LocationInput";
+
 const useTabStyles = makeStyles({
   root: {
     justifyContent: "center",
@@ -36,17 +39,54 @@ const FlightPage = () => {
     element.scrollIntoView({ behavior: "smooth", block: "start" });
   };
   const [date, setDate] = React.useState(dayjs("2022-04-17"));
+  const [cityOptions, setCityOptions] = useState([]);
+  console.log(cityOptions, "cityOptions");
   const [value, setValue] = useState(where);
+  const [fromCity, setFromCity] = useState(""); // Add state for 'From' city
+  const [toCity, setToCity] = useState(""); // Add state for 'To' city
+  const [travellers, setTravellers] = useState("1"); // Add state for travellers
+  const [departureDate, setDepartureDate] = useState(dayjs(new Date())); // Add state for departure date
+  const [returnDate, setReturnDate] = useState(dayjs(new Date())); // Add state for return date
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+  const options = {
+    method: "GET",
+    url: "https://map-geocoding.p.rapidapi.com/json",
+    params: {
+      latlng: "40.714224,-73.961452",
+    },
+    headers: {
+      "X-RapidAPI-Key": "8eca2e085emshc596b09d08b948ap1c14abjsn328c8d45f34a",
+      "X-RapidAPI-Host": "map-geocoding.p.rapidapi.com",
+    },
+  };
+  const fetchCityOptions = async () => {
+    try {
+      const response = await axios.request(options);
+      setCityOptions(response);
+    } catch (error) {
+      console.error("Error fetching city options:", error);
+    }
+  };
+
   useEffect(() => {
     scrollToTop();
     setValue(where);
+    fetchCityOptions();
   }, [where]);
+
   const handleSearchClick = (e) => {
-    console.log("Selected",date );
     e.preventDefault();
+    const emailContent = `
+      From: ${fromCity}
+      To: ${toCity}
+      Departure Date: ${departureDate.format("DD/MM/YYYY")}
+      Return Date: ${returnDate.format("DD/MM/YYYY")}
+      Travellers: ${travellers}
+    `;
+
     emailjs
       .send(
         "service_vi7q9io",
@@ -54,23 +94,19 @@ const FlightPage = () => {
         {
           from_name: "",
           to_email: "",
-          message: `Start Date: ${date},  `,
+          message: emailContent,
         },
         "cYu6EiV1UyKWKu4q-"
       )
-      .then(
-        () => {
-          alert("Thank you. I will get back to you as soon as possible.");
-
-           // Clear the email state after successful submission
-        },
-        (error) => {
-          console.error(error);
-
-          alert("Ahh, something went wrong. Please try again.");
-        }
-      );
+      .then(() => {
+        alert("Thank you. I will get back to you as soon as possible.");
+      })
+      .catch((error) => {
+        console.error(error);
+        alert("Ahh, something went wrong. Please try again.");
+      });
   };
+
   return (
     <>
       <MianWrapper id="detailMainWrapper">
@@ -102,18 +138,16 @@ const FlightPage = () => {
                         <span>Book Domestic Flights</span>
                       </div>
                       <div className="input-content">
-                        <TextField
-                          required
-                          id="outlined-required"
-                          label="From"
-                          defaultValue="Delhi"
+                        <LocationInput
+                          address={fromCity}
+                          setAddress={setFromCity}
+                          className="cities"
                         />
                         <img src={swap} alt="swap" />
-                        <TextField
-                          required
-                          id="outlined-required"
-                          label="To"
-                          defaultValue="Bengaluru"
+                        <LocationInput
+                          address={toCity}
+                          setAddress={setToCity}
+                          className="cities"
                         />
                         <LocalizationProvider dateAdapter={AdapterDayjs}>
                           <DemoContainer
@@ -121,16 +155,18 @@ const FlightPage = () => {
                           >
                             <DatePicker
                               label="Departure"
-                              value={date}
-                              onChange={(newValue) => setDate(newValue)}
+                              value={departureDate}
+                              onChange={(newValue) =>
+                                setDepartureDate(newValue)
+                              }
                               format="DD/MM/YYYY"
                             />
                             <DatePicker
                               label="Return"
-                              value={date}
-                              onChange={(newValue) => setDate(newValue)}
+                              value={returnDate}
+                              onChange={(newValue) => setReturnDate(newValue)}
                               format="DD/MM/YYYY"
-                            /> 
+                            />
                           </DemoContainer>
                         </LocalizationProvider>
                         <TextField
@@ -138,6 +174,8 @@ const FlightPage = () => {
                           id="outlined-required"
                           label="Travellers"
                           defaultValue="1 Traveller"
+                          value={travellers}
+                          onChange={(e) => setTravellers(e.target.value)}
                         />
                       </div>
                       <div className="bottom-content">
@@ -164,18 +202,16 @@ const FlightPage = () => {
                         <span>Book International Flights</span>
                       </div>
                       <div className="input-content">
-                        <TextField
-                          required
-                          id="outlined-required"
-                          label="From"
-                          defaultValue="Kochi"
+                        <LocationInput
+                          address={fromCity}
+                          setAddress={setFromCity}
+                          className="cities"
                         />
                         <img src={swap} alt="swap" />
-                        <TextField
-                          required
-                          id="outlined-required"
-                          label="To"
-                          defaultValue="London"
+                        <LocationInput
+                          address={toCity}
+                          setAddress={setToCity}
+                          className="cities"
                         />
                         <LocalizationProvider dateAdapter={AdapterDayjs}>
                           <DemoContainer
@@ -183,13 +219,15 @@ const FlightPage = () => {
                           >
                             <DatePicker
                               label="Departure"
-                              value={date}
-                              onChange={(newValue) => setDate(newValue)}
+                              value={departureDate}
+                              onChange={(newValue) =>
+                                setDepartureDate(newValue)
+                              }
                             />
                             <DatePicker
                               label="Return"
-                              value={date}
-                              onChange={(newValue) => setDate(newValue)}
+                              value={returnDate}
+                              onChange={(newValue) => setReturnDate(newValue)}
                             />
                           </DemoContainer>
                         </LocalizationProvider>
@@ -198,6 +236,8 @@ const FlightPage = () => {
                           id="outlined-required"
                           label="Travellers"
                           defaultValue="2 Traveller"
+                          value={travellers}
+                          onChange={(e) => setTravellers(e.target.value)}
                         />
                       </div>
                       <div className="bottom-content">
@@ -214,7 +254,7 @@ const FlightPage = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="btn-wrapper">
+                    <div className="btn-wrapper" onClick={handleSearchClick}>
                       <button>SEARCH</button>
                     </div>
                   </TabPanel>
@@ -412,7 +452,7 @@ const MianWrapper = styled.div`
         width: 216px;
         padding: 10px;
         transition: 0.5s all ease;
-        &:hover{
+        &:hover {
           background: linear-gradient(93deg, #0b2f6a, #1678c8);
         }
       }
@@ -422,7 +462,7 @@ const MianWrapper = styled.div`
       background-color: #eefaffb5;
       box-shadow: 0 1px 5px 0 rgb(0 0 0 / 10%);
       width: 1200px;
-      border-radius:30px;
+      border-radius: 30px;
       padding: 1% 50px 1% 50px;
       .top-header {
         padding: 1%;
@@ -467,6 +507,15 @@ const MianWrapper = styled.div`
         }
       }
       .input-content {
+        .cities {
+          input {
+            padding: 28px 20px;
+            border: 1px solid #8e918d;
+            border-radius: 8px;
+            background-color: transparent;
+            width: 100%;
+          }
+        }
         img {
           width: 20px;
           height: 20px;

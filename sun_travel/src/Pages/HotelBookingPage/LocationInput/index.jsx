@@ -4,8 +4,8 @@ import PlacesAutocomplete, {
   getLatLng,
 } from "react-places-autocomplete";
 import styled from "styled-components";
-import FmdGoodOutlinedIcon from '@mui/icons-material/FmdGoodOutlined';
-function LocationInput({address,setAddress}) {
+import FmdGoodOutlinedIcon from "@mui/icons-material/FmdGoodOutlined";
+function LocationInput({ address, setAddress, className }) {
   const handleChangeAddress = (newAddress) => {
     setAddress(newAddress);
   };
@@ -17,7 +17,7 @@ function LocationInput({address,setAddress}) {
       .catch((error) => console.error("Error", error));
   };
   return (
-    <Wrapper>
+    <Wrapper className={className}>
       <PlacesAutocomplete
         value={address}
         onChange={handleChangeAddress}
@@ -26,14 +26,13 @@ function LocationInput({address,setAddress}) {
         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
           <div className="inputDiv">
             <div className="imputerapper">
-
-            <FmdGoodOutlinedIcon/>
-            <input
-              {...getInputProps({
-                placeholder: "Search Places ...",
-                className: "location-search-input",
-              })}
-            />
+              <FmdGoodOutlinedIcon />
+              <input
+                {...getInputProps({
+                  placeholder: "Search Places ...",
+                  className: "location-search-input",
+                })}
+              />
             </div>
             <div className="autocomplete-dropdown-container">
               {loading && <div>Loading...</div>}
@@ -70,25 +69,24 @@ const Wrapper = styled.div`
   input:focus-visible {
     outline: none;
   }
-  .imputerapper{
+  .imputerapper {
     display: flex;
     align-items: center;
     justify-content: flex-start;
   }
-  .inputDiv{
+  .inputDiv {
     position: relative;
   }
-  .autocomplete-dropdown-container{
+  .autocomplete-dropdown-container {
     position: absolute;
-    transform:translate(-50%,-50%);
-    top:90px;
-    left:50%;
+    transform: translate(-50%, -50%);
+    top: 90px;
+    left: 50%;
     width: 100%;
     max-height: 100px;
     overflow: auto;
     border-radius: 5px;
     min-height: 100px;
     /* margin: 10px 20px; */
-
   }
 `;
