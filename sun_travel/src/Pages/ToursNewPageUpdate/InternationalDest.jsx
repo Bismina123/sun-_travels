@@ -176,15 +176,8 @@ const Wrapper = styled.div`
   }
 `;
 const CustomSlider = styled(Slider)`
-.slick-track{
-  width: auto !important;
-}
   .slick-slide {
-    width: 325px !important;
     padding: 10px;
-    > div {
-      /* margin-right: 20px; */
-    }
   }
  
 `;
