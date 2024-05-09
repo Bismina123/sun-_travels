@@ -496,7 +496,7 @@ const NavItems = styled.div`
       align-items: flex-start;
       justify-content: flex-start;
       position: fixed;
-      top: -400px;
+      top: -404px;
       bottom: 0px;
       right: 0px;
       width: 300px;
